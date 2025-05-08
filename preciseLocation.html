@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>itinerae : vaporeon</title>
+    <title>Gormy's Location</title>
 
     
     <style type="text/css">
@@ -197,7 +197,7 @@ color:#999;}
       const password = document.getElementById('passwordInput').value;
       const output = document.getElementById('output');
       const output2 = document.getElementById('output2');
-      
+
       try {
         const response = await fetch(`https://gormysecret.onrender.com/secret?password=${encodeURIComponent(password)}`);
         if (!response.ok) {
