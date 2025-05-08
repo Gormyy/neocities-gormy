@@ -169,6 +169,28 @@ color:#999;}
   <pre id="output"></pre>
 
   <script>
+    async function getCityFromNOAA(lat, lon) {
+    const url = `https://api.weather.gov/points/${lat},${lon}`;
+
+    try {
+        const response = await fetch(url, {
+        headers: {
+            'User-Agent': 'Gormy Website! - foreverblue173@gmail.com', // Required by NOAA
+            'Accept': 'application/geo+json'
+        }
+        });
+        const data = await response.json();
+
+        const city = data.properties.relativeLocation.properties.city;
+        const state = data.properties.relativeLocation.properties.state;
+
+        return `${city}, ${state}`;
+    } catch (error) {
+        console.error('NOAA API error:', error);
+        return null;
+    }
+    }
+
     async function getSecret() {
       const password = document.getElementById('passwordInput').value;
       const output = document.getElementById('output');
@@ -180,7 +202,10 @@ color:#999;}
         }
         
         const text = await response.text();
-        console.log(text)
+        
+        const coords = text.split(",")
+        const city = getCityFromNOAA(coords[0], coords[1])
+        console.log(city)
         output.textContent = text;
       } catch (error) {
         output.textContent = 'Error: ' + error.message;
