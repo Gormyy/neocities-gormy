@@ -178,6 +178,7 @@ color:#999;}
         if (!response.ok) {
           throw new Error('Unauthorized or error fetching data');
         }
+        console.log(response)
         const text = await response.text();
         output.textContent = text;
       } catch (error) {
