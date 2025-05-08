@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="http://fonts.googleapis.com/css?family=Megrim|Lato" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>itinerae: winter coma </title>
+
+
+    
+    <style type="text/css">
+      
+body {
+  background:#f5f5f5 url(https://64.media.tumblr.com/b9569ba34daca64ccb84bcff77b6efeb/5b2b6fc3dc12a5a9-93/s75x75_c1/63c7804d1621093de86680a3393164e86340c096.gifv) fixed;
+  font-family: 'pixelify sans', 'courier new', lato, calibri, Verdana;
+  font-size: 11px;
+  color:#888;
+  letter-spacing: 1px;}
+
+        
+a:link, a:visited, a:active { 
+color:#555;text-decoration:none;}
+      
+a:hover {
+color:#999;}
+
+b {color:#5BC0AE;font-weight:bold;}
+i {color:#FF84B2;font-style:normal;}
+
+      
+      
+::-webkit-scrollbar-thumb {
+background-color: #5BC0AE;  
+border-radius: 5px;
+border:0px solid #6ECA7A;}
+::-webkit-scrollbar {
+width: 5px; height: 0px; 
+background: transparent;}      
+
+      
+
+      #header {position:absolute;
+        top:78px;
+        left:300px;
+        width:250px;
+        height:40px;
+        background:#FEB2CE;
+        border-top-right-radius:15px;
+        border-top-left-radius:15px;
+        text-align:center;
+        color:#fff;
+        padding:4px;
+        font:30px 'pixelify sans', monospace;
+        border-right:1px solid #ff83b2;
+        line-height:40px;}
+
+      
+      
+      #sidebar {
+      position:absolute;
+      top:130px;
+      left:300px;
+      width:170px;
+      background:#fff;
+      padding:4px;
+      border-top-left-radius:15px;
+      border-left:1px solid #FF84B2;
+      border-top:1px solid #FF84B2;
+      border-right:1px solid #FF84B2;}
+      
+      
+.sideimg {width:170px;border-top-left-radius:15px;border-top-right-radius:15px;}
+.sidetitle {background:#FFEDFB;font:20px 'pixelify sans', arial;color:#5BC0AE;border-radius:15px;
+text-align:center;border-bottom:4px solid #FEB2CE;margin-bottom:4px;}
+  
+
+      
+      #content {
+      position:absolute;
+      top:130px;
+      left:478px;
+      width:400px;
+      background:#fff;
+      padding:4px;
+      border-top:1px solid #FF84B2;
+      border-right:1px solid #FF84B2;
+      border-bottom:1px solid #FF84B2;
+      border-bottom-right-radius:15px;
+      border-top-right-radius:15px;}
+      
+.contenttitle {background:#FFEDFB;font:26px 'pixelify sans', arial;color:#5BC0AE;
+border-radius:15px;text-align:center;border-bottom:4px solid #FEB2CE;margin-bottom:4px;}
+
+      
+      
+     #menu {
+     position:absolute;
+     top:180px;
+     left:888px;
+     width:140px;}
+
+    #menu a {
+    display:inline-block;
+    background:#5BC0AE;
+    margin-bottom:4px;
+    padding:1px;
+    padding-top:2px;
+    width:136px;
+    line-height:12px;
+    font:normal 12px monospace;
+    text-transform:uppercase;
+    letter-spacing:3px;
+    text-align:center;
+    border-top-right-radius:15px;
+    border-bottom-right-radius:15px;
+    color:#fff;}
+      
+    </style>
+    
+    
+    
+    
+    <script type="text/javascript">
+// <![CDATA[
+var colours=new Array("#FF84B2", "#ccc", "#FF84B2", "#FF84B2", "fff"); // colours for top, right, bottom and left borders and background of bubbles
+var bubbles=66; // how many bubbles are moving at any given time
+var over_or_under="over"; // set to "over" for bubbles to always be on top, or "under" to allow them to float behind other objects
+
+/****************************
+*   JavaScript Bubble Bath  *
+*(c)2010-13 mf2fm web-design*
+*  http://www.mf2fm.com/rv  *
+* DON'T EDIT BELOW THIS BOX *
+****************************/
+
+var swide=800;
+var shigh=600;
+var bubb=new Array();
+var bubbx=new Array();
+var bubby=new Array();
+var bubbs=new Array();
+var boddie;
+var ie_version=(navigator.appVersion.indexOf("MSIE")!=-1)?parseFloat(navigator.appVersion.split("MSIE")[1]):false;
+
+function addLoadEvent(funky) {
+  var oldonload=window.onload;
+  if (typeof(oldonload)!='function') window.onload=funky;
+  else window.onload=function() {
+    if (oldonload) oldonload();
+    funky();
+  }
+}
+
+addLoadEvent(bubba);
+
+function bubba() { if (document.getElementById) {
+  var i, rats, div;
+  boddie=document.createElement("div");
+  boddie.style.position="fixed";
+  boddie.style.top="0px";
+  boddie.style.left="0px";
+  boddie.style.overflow="visible";
+  boddie.style.width="1px";
+  boddie.style.height="1px";
+  boddie.style.backgroundColor="transparent";
+  boddie.style.zIndex="0";
+  document.body.appendChild(boddie);
+  set_width();
+  for (i=0; i<bubbles; i++) {
+    rats=createDiv("3px", "3px");
+
+	div=createDiv("auto", "auto");
+    rats.appendChild(div);
+	div=div.style;
+    div.top="1px";
+    div.left="0px";
+	div.bottom="1px";
+	div.right="0px";
+	div.borderLeft="1px solid "+colours[3];
+	div.borderRight="1px solid "+colours[1];
+
+    div=createDiv("auto", "auto");
+	rats.appendChild(div);
+	div=div.style;
+    div.top="0px";
+    div.left="1px";
+	div.right="1px";
+	div.bottom="0px"
+	div.borderTop="1px solid "+colours[0];
+	div.borderBottom="1px solid "+colours[2];
+
+	div=createDiv("auto", "auto");
+	rats.appendChild(div);
+	div=div.style;
+	div.left="1px";
+	div.right="1px";
+    div.bottom="1px";
+	div.top="1px";
+	div.backgroundColor=colours[4];
+    if (ie_version && ie_version<10) div.filter="alpha(opacity=50)";
+    else div.opacity=0.5;
+
+    boddie.appendChild(rats);
+	bubb[i]=rats.style;
+	bubb[i].zIndex=(over_or_under=="over")?"1001":"0";
+  }
+  bubble();
+}}
+
+function bubble() {
+  var c;
+  for (c=0; c<bubbles; c++) if (!bubby[c] && Math.random()<0.333) {
+    bubb[c].left=(bubbx[c]=Math.floor(swide/6+Math.random()*swide/1.5)-10)+"px";
+    bubb[c].top=(bubby[c]=shigh)+"px";
+    bubb[c].width="3px";
+	bubb[c].height="3px"
+	bubb[c].visibility="visible";
+	bubbs[c]=3;
+    break;
+  }
+  for (c=0; c<bubbles; c++) if (bubby[c]) update_bubb(c);
+  setTimeout("bubble()", 40);
+}
+
+function update_bubb(i) {
+  if (bubby[i]) {
+    bubby[i]-=bubbs[i]/2+i%2;
+    bubbx[i]+=(i%5-2)/5;
+    if (bubby[i]>0 && bubbx[i]>0 && bubbx[i]<swide) {
+	  if (Math.random()<bubbs[i]/shigh*2 && bubbs[i]++<8) {
+		bubb[i].width=bubbs[i]+"px";
+		bubb[i].height=bubbs[i]+"px";
+	  }
+      bubb[i].top=bubby[i]+"px";
+      bubb[i].left=bubbx[i]+"px";
+    }
+    else {
+      bubb[i].visibility="hidden";
+      bubby[i]=0;
+      return;
+    }
+  }
+}
+
+window.onresize=set_width;
+function set_width() {
+  var sw_min=999999;
+  var sh_min=999999;
+  if (document.documentElement && document.documentElement.clientWidth) {
+    if (document.documentElement.clientWidth>0) sw_min=document.documentElement.clientWidth;
+    if (document.documentElement.clientHeight>0) sh_min=document.documentElement.clientHeight;
+  }
+  if (typeof(self.innerWidth)=='number' && self.innerWidth) {
+    if (self.innerWidth>0 && self.innerWidth<sw_min) sw_min=self.innerWidth;
+    if (self.innerHeight>0 && self.innerHeight<sh_min) sh_min=self.innerHeight;
+  }
+  if (document.body.clientWidth) {
+    if (document.body.clientWidth>0 && document.body.clientWidth<sw_min) sw_min=document.body.clientWidth;
+    if (document.body.clientHeight>0 && document.body.clientHeight<sh_min) sh_min=document.body.clientHeight;
+  }
+  if (sw_min==999999 || sh_min==999999) {
+    sw_min=800;
+    sh_min=600;
+  }
+  swide=sw_min;
+  shigh=sh_min;
+}
+
+function createDiv(height, width) {
+  var div=document.createElement("div");
+  div.style.position="absolute";
+  div.style.height=height;
+  div.style.width=width;
+  div.style.overflow="hidden";
+  div.style.backgroundColor="transparent";
+  return (div);
+}
+// ]]>
+</script>
+</head>
+  
+  
+  
+
+<body>
+  
+  
+  
+  <div id="header">
+site name
+</div>
+  
+  
+  <div id="menu">
+    
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a> 
+    <a href="travel.html">Travel</a>
+    <a href="interests.html">Interests</a>
+    <a href="art.html">Art</a>
+    <a href="blog.html">Blog</a>
+    <a href="otherStuff.html">Other Stuff</a>
+    
+  </div>
+  
+  
+  <div id="sidebar">
+    
+    
+  <img src="https://64.media.tumblr.com/ce99e75c0062603e1b3f974bf3d1d7a9/5b2b6fc3dc12a5a9-55/s400x600/447a4f8ea6145ee368fdb6e588f80947d875e97c.jpg" class="sideimg"><br>
+    
+    
+    <div class="sidetitle">title</div>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vel neque non nisi tincidunt vulputate sed non elit. Pellentesque cursus nunc risus, ut condimentum quam porta quis. Nulla et sem eu nunc gravida vulputate. Duis sit amet elementum odio, quis elementum velit. In eu orci et enim vehicula semper. <br><br>
+    
+    <div class="sidetitle">title</div>
+
+Donec sollicitudin, velit non mollis lobortis, dolor elit elementum massa, a scelerisque tortor sapien eu urna. Vestibulum ac ante a diam elementum volutpat nec ac erat. Etiam at purus pharetra, pellentesque leo vitae, finibus massa. Fusce ut iaculis elit. Nullam sem ipsum, sagittis sed risus at, molestie ornare erat.  Morbi ac turpis at sem tincidunt fermentum eget sit amet nibh. In hac habitasse platea dictumst.<br><br>
+    
+        <div class="sidetitle">credits</div>
+    
+    <b>Layout</b> <a href="http://itinerae.neocities.org">Itinerae</a><br>
+    <b>Image</b> <a href="pinterest.com/pin/474707616989750289/">Pinterest</a><br>
+    <b>Background</b> <a href="https://lovesick.cafe">Lovesick</a><br>
+    <b>Bubble effect</b> <a href="https://www.mf2fm.com/rv/dhtmlbubbles.php">x</a>
+
+    
+  </div>
+  
+  
+  
+  <div id="content">
+        <div class="contenttitle">title</div>
+    
+    <b>Bold text</b> <i>Italic text</i> <a href="">Link</a>
+
+    Morbi in posuere augue. Ut sit amet nibh id felis viverra vehicula molestie nec nunc. Praesent id magna vitae mauris tristique molestie a sit amet nibh. Maecenas in enim non leo luctus tempus eget in nibh. Aliquam ut tempor justo, quis venenatis massa. Donec vel libero purus. Cras pulvinar turpis at diam ullamcorper, ac molestie est rutrum.<br><br>
+
+Suspendisse tempus ante et vulputate dictum. Duis efficitur justo nec consequat convallis. Aenean a egestas erat. Pellentesque scelerisque justo odio, auctor dignissim risus facilisis nec. Mauris euismod facilisis malesuada. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse potenti. Donec porta non enim vel elementum. Phasellus a euismod diam, id sollicitudin nibh. Maecenas sit amet purus non diam cursus sagittis. Aliquam finibus eleifend sapien pharetra malesuada. Morbi eget nunc ut ipsum volutpat blandit sed at neque. Aenean nec nibh eu est feugiat facilisis nec eget turpis. Aenean mollis neque purus, tempus lacinia est imperdiet ut. Donec tincidunt vulputate risus vitae bibendum.<br><br>
+    
+        <div class="contenttitle">title</div>
+
+
+Aenean bibendum sodales venenatis. In imperdiet sapien sed dolor elementum, in tincidunt quam aliquam. Fusce non vehicula quam. Fusce pellentesque varius urna in cursus. Nam aliquet urna vitae dolor porttitor, vel volutpat odio pulvinar. Aenean a mi interdum magna porttitor pharetra id sed libero. Sed fringilla mollis ex malesuada semper. Duis ullamcorper velit nec ex pellentesque, blandit suscipit dui faucibus. Praesent lobortis semper tortor ac porta. Maecenas placerat elit odio, sed malesuada purus cursus non. Integer in scelerisque ipsum. Nam pulvinar pulvinar augue, ornare varius risus sollicitudin ut. Fusce tincidunt commodo magna cursus mollis. Aliquam eleifend mi sapien, eu facilisis nulla elementum ac.<br><br>
+    
+            <div class="contenttitle">title</div>
+
+    Donec porta non enim vel elementum. Phasellus a euismod diam, id sollicitudin nibh. Maecenas sit amet purus non diam cursus sagittis. Aliquam finibus eleifend sapien pharetra malesuada. Morbi eget nunc ut ipsum volutpat blandit sed at neque. Aenean nec nibh eu est feugiat facilisis nec eget turpis. Aenean mollis neque purus, tempus lacinia est imperdiet ut. Donec tincidunt vulputate risus vitae bibendum.
+    
+  </div>
+  
+  </body>
+</html>
+      
+      
+    
