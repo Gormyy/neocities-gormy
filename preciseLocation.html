@@ -119,8 +119,7 @@ color:#999;}
     
     
    
-  </head>
-  
+  </head>  
   
  
   <body>
@@ -162,18 +161,31 @@ color:#999;}
         <div id="contentwrap">
         <div id="content">
           
-<div class="title2"> <img src="https://64.media.tumblr.com/0b91ec3f6bd8e50404dc513ffbdf5821/014d6f73835b6e87-d3/s75x75_c1/f19c167835beae789c67e6721b3492325131958c.gifv"> Hello!</div>
-I'm Gormy! I really like the idea of neocities so I decided to make my own. 
-I know how to code and stuff but I really really don't like making websites
-so I'm going to be using templates for most of this stuff and I'll probably be updating the site periodically 
-but right now the site will be unfinished while i finish it!
-<div class="title2"> <img src="https://64.media.tumblr.com/0b91ec3f6bd8e50404dc513ffbdf5821/014d6f73835b6e87-d3/s75x75_c1/f19c167835beae789c67e6721b3492325131958c.gifv"> About</div> 
-  This is my website! I haven't really finished it yet but you can follow updates <a href="interests.html">here!</a>
-
-<div class="title2"> <img src="https://64.media.tumblr.com/0b91ec3f6bd8e50404dc513ffbdf5821/014d6f73835b6e87-d3/s75x75_c1/f19c167835beae789c67e6721b3492325131958c.gifv"> Current Location</div> 
-Indianapolis, Indiana
+<div class="title2"> <img src="https://64.media.tumblr.com/0b91ec3f6bd8e50404dc513ffbdf5821/014d6f73835b6e87-d3/s75x75_c1/f19c167835beae789c67e6721b3492325131958c.gifv"> Enter the password to see Gormy's location!</div>
 <br>
-If you're a friend you can find my precise location <a href="preciseLocation.html">here!</a>
+<input type="password" id="passwordInput" placeholder="Enter password" />
+  <button onclick="getSecret()">Submit</button>
+
+  <pre id="output"></pre>
+
+  <script>
+    async function getSecret() {
+      const password = document.getElementById('passwordInput').value;
+      const output = document.getElementById('output');
+
+      try {
+        const response = await fetch(`https://gormysecret.onrender.com/secret?password=${encodeURIComponent(password)}`);
+        if (!response.ok) {
+          throw new Error('Unauthorized or error fetching data');
+        }
+        const text = await response.text();
+        output.textContent = text;
+      } catch (error) {
+        output.textContent = 'Error: ' + error.message;
+      }
+    }
+  </script>
+ 
         </div>
         </div>
       
@@ -185,14 +197,6 @@ If you're a friend you can find my precise location <a href="preciseLocation.htm
 <center>
 <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/glaceon.gif" width="100" alt="x">
 </center><br>
-
-<div class="title"><img src="https://64.media.tumblr.com/171c295df37def8ea5bd3774fa3f2471/014d6f73835b6e87-e8/s75x75_c1/f2e8d21f39d3532d9cd06c05172782950d2625ad.gifv"> Github</div>
-           
-I made a github you can follow updates for the website <a href="https://github.com/Gormyy/neocities-gormy">here!</a>
-<br>
-You can also look at my other projects <a href="https://github.com/Gormyy">here!</a> I don't really have anything else interesting right now though
-
-<br><br>         
 
 </div>
 </div>
@@ -217,3 +221,5 @@ You can also look at my other projects <a href="https://github.com/Gormyy">here!
             
             
           
+
+
