@@ -194,27 +194,6 @@ You can also look at my other projects <a href="https://github.com/Gormyy">here!
 
 <br><br>         
 
-<div id="emailDisplay"></div>
-
-<script>
-const domain = "1secmail.com";
-const login = "testinbox123";  // choose a name you want
-
-function checkInbox() {
-  fetch(`https://www.1secmail.com/api/v1/?action=getMessages&login=${login}&domain=${domain}`)
-    .then(response => response.json())
-    .then(data => {
-      if (data.length > 0) {
-        document.getElementById("emailDisplay").innerHTML = "<b>Latest Email Subject:</b> " + data[0].subject;
-      } else {
-        document.getElementById("emailDisplay").innerHTML = "No emails yet.";
-      }
-    });
-}
-
-setInterval(checkInbox, 5000); // refresh every 5s
-</script>
-          
 </div>
 </div>
       
