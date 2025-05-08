@@ -167,6 +167,8 @@ color:#999;}
   <button onclick="getSecret()">Submit</button>
 
   <pre id="output"></pre>
+  <br>
+  <pre id="output2"></pre>
 
   <script>
     async function getCityFromNOAA(lat, lon) {
@@ -194,7 +196,8 @@ color:#999;}
     async function getSecret() {
       const password = document.getElementById('passwordInput').value;
       const output = document.getElementById('output');
-
+      const output2 = document.getElementById('output2');
+      
       try {
         const response = await fetch(`https://gormysecret.onrender.com/secret?password=${encodeURIComponent(password)}`);
         if (!response.ok) {
@@ -204,9 +207,9 @@ color:#999;}
         const text = await response.text();
         
         const coords = text.split(",")
-        const city = getCityFromNOAA(coords[0], coords[1])
-        console.log(city)
+        const city = await getCityFromNOAA(coords[0], coords[1])
         output.textContent = text;
+        output2.textContent = city
       } catch (error) {
         output.textContent = 'Error: ' + error.message;
       }
