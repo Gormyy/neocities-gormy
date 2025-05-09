@@ -171,27 +171,28 @@ color:#999;}
   <pre id="output2"></pre>
 
   <script>
-    async function getCityFromNOAA(lat, lon) {
-    const url = `https://api.weather.gov/points/${lat},${lon}`;
+    async function getCityFromNominatim(lat, lon) {
+    const url = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lon}`;
 
     try {
         const response = await fetch(url, {
-        headers: {
-            'User-Agent': 'Gormy Website! - foreverblue173@gmail.com', // Required by NOAA
-            'Accept': 'application/geo+json'
-        }
+            headers: {
+                'User-Agent': 'Gormy Website! - foreverblue173@gmail.com'
+            }
         });
         const data = await response.json();
 
-        const city = data.properties.relativeLocation.properties.city;
-        const state = data.properties.relativeLocation.properties.state;
+        const address = data.address;
+        const city = address.city || address.town || address.village || address.county;
+        const state = address.state;
+        const country = address.country;
 
-        return `${city}, ${state}`;
+        return city && state && country ? `${city}, ${state}, ${country}` : null;
     } catch (error) {
-        console.error('NOAA API error:', error);
+        console.error('Nominatim API error:', error);
         return null;
     }
-    }
+}
 
     async function getSecret() {
       const password = document.getElementById('passwordInput').value;
@@ -207,7 +208,7 @@ color:#999;}
         const text = await response.text();
         
         const coords = text.split(",")
-        const city = await getCityFromNOAA(coords[0], coords[1])
+        const city = await getCityFromNominatim(coords[0], coords[1])
         output.textContent = text;
         output2.textContent = city
       } catch (error) {
