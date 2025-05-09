@@ -171,7 +171,7 @@ but right now the site will be unfinished while i finish it!
   This is my website! I haven't really finished it yet but you can follow updates <a href="interests.html">here!</a> Also you should go to the about page to learn more about me!
 
 <div class="title2"> <img src="https://64.media.tumblr.com/0b91ec3f6bd8e50404dc513ffbdf5821/014d6f73835b6e87-d3/s75x75_c1/f19c167835beae789c67e6721b3492325131958c.gifv"> Current Location</div> 
-Toronto, Canada
+<p id="location">Location loading...</p>
 <br>
 If you're a friend you can find my precise location <a href="preciseLocation.html">here!</a>
         </div>
@@ -210,6 +210,25 @@ You can also look at my other projects <a href="https://github.com/Gormyy">here!
       
       
     </div>
+
+    <script>
+      fetch('https://gormysecret.onrender.com/location')
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Failed to fetch location');
+          }
+          return response.json();
+        })
+        .then(data => {
+          const { city, state, country } = data;
+          const locationText = `${city ? city + ', ' : ''}${state ? state + ', ' : ''}${country}`;
+          document.getElementById('location').textContent = locationText || 'Location not available';
+        })
+        .catch(error => {
+          console.error(error);
+          document.getElementById('location').textContent = 'Error retrieving location';
+        });
+    </script>
  
   </body>
 </html>
