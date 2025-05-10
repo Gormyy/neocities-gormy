@@ -10,8 +10,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About</title>
 
-
-    
     <style type="text/css">
       
 body {
@@ -20,8 +18,7 @@ body {
   font-size: 11px;
   color:#888;
   letter-spacing: 1px;}
-
-        
+   
 a:link, a:visited, a:active { 
 color:#555;text-decoration:none;}
       
@@ -31,8 +28,6 @@ color:#999;}
 b {color:#5BC0AE;font-weight:bold;}
 i {color:#FF84B2;font-style:normal;}
 
-      
-      
 ::-webkit-scrollbar-thumb {
 background-color: #5BC0AE;  
 border-radius: 5px;
@@ -40,8 +35,6 @@ border:0px solid #6ECA7A;}
 ::-webkit-scrollbar {
 width: 5px; height: 0px; 
 background: transparent;}      
-
-      
 
       #header {position:absolute;
         top:78px;
@@ -58,8 +51,6 @@ background: transparent;}
         border-right:1px solid #ff83b2;
         line-height:40px;}
 
-      
-      
       #sidebar {
       position:absolute;
       top:130px;
@@ -72,13 +63,10 @@ background: transparent;}
       border-top:1px solid #FF84B2;
       border-right:1px solid #FF84B2;}
       
-      
 .sideimg {width:170px;border-top-left-radius:15px;border-top-right-radius:15px;}
 .sidetitle {background:#FFEDFB;font:20px 'pixelify sans', arial;color:#5BC0AE;border-radius:15px;
 text-align:center;border-bottom:4px solid #FEB2CE;margin-bottom:4px;}
   
-
-      
       #content {
       position:absolute;
       top:130px;
@@ -95,8 +83,6 @@ text-align:center;border-bottom:4px solid #FEB2CE;margin-bottom:4px;}
 .contenttitle {background:#FFEDFB;font:26px 'pixelify sans', arial;color:#5BC0AE;
 border-radius:15px;text-align:center;border-bottom:4px solid #FEB2CE;margin-bottom:4px;}
 
-      
-      
      #menu {
      position:absolute;
      top:180px;
@@ -120,10 +106,7 @@ border-radius:15px;text-align:center;border-bottom:4px solid #FEB2CE;margin-bott
     color:#fff;}
       
     </style>
-    
-    
-    
-    
+ 
     <script type="text/javascript">
 // <![CDATA[
 var colours=new Array("#FF84B2", "#ccc", "#FF84B2", "#FF84B2", "fff"); // colours for top, right, bottom and left borders and background of bubbles
@@ -282,15 +265,10 @@ function createDiv(height, width) {
 // ]]>
 </script>
 </head>
-  
-  
-  
 
 <body>
   
-  
-  
-  <div id="header">
+<div id="header">
 Gormy's site
 </div>
   
@@ -307,31 +285,23 @@ Gormy's site
     
   </div>
   
-  
   <div id="sidebar">
     
-    
   <img src="https://64.media.tumblr.com/ce99e75c0062603e1b3f974bf3d1d7a9/5b2b6fc3dc12a5a9-55/s400x600/447a4f8ea6145ee368fdb6e588f80947d875e97c.jpg" class="sideimg"><br>
-    
     
     <div class="sidetitle">About me</div>
     <!--I think it would be really funny to use javascript to automatically update my age, do this later-->
     Hi I'm Gormy! I'm a <span id="age"></span> year old girl that was born in Florida but I was mostly raised in Indiana. I have a Master's Degree in Computer Science from Purdue. I really like hockey, especially the St. Louis Blues. I love traveling! I also climb sometimes. I'm also an occasional artist and photographer. I'm also a big fan of Glaceon! 
     <div class="sidetitle">Contact</div>
     I want to put my email on here but I really don't want to put my main email on this site, but I have <i>gormywebsite@gmail.com</i> and <i>gormywebsite2@gmail.com</i> that you could use to contact me, but I accidentally made gormywebsite@gmail.com a child account that is aged like 8 years old so I can't really use it to recieve emails, and gormywebsite2@gmail.com gets constantly spammed with my current location so I probably won't see any emails there. For now, just contact me through Discord because that's probably where you found my website from anyway. <br> I also have a <a href="https://bsky.app/profile/gormy.bsky.social">bluesky</a> so you can follow me there! However I'm not very active on it unfortunately.
-
-    
         <div class="sidetitle">credits</div>
     
     <b>Layout</b> <a href="http://itinerae.neocities.org">Itinerae</a><br>
     <b>Image</b> <a href="pinterest.com/pin/474707616989750289/">Pinterest</a><br>
     <b>Background</b> <a href="https://lovesick.cafe">Lovesick</a><br>
     <b>Bubble effect</b> <a href="https://www.mf2fm.com/rv/dhtmlbubbles.php">x</a>
-
     
   </div>
-  
-  
   
   <div id="content">
         <div class="contenttitle">Fun Facts!</div>
@@ -383,7 +353,6 @@ Gormy's site
       
       let yearsPassed = currentDate.getFullYear() - targetDate.getFullYear();
 
-      //Adjusts if the target date hasn't occurred yet this year
       if (
         currentDate.getMonth() < targetDate.getMonth() ||
         (currentDate.getMonth() === targetDate.getMonth() && currentDate.getDate() < targetDate.getDate())
