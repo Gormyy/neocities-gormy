@@ -317,7 +317,28 @@ Gormy's site
           <li>If I played hockey I would be a goalie</li>
           <li>One time during summer break when I was in elementary school some teenagers burnt down a playground at our school with discarded math textbooks. As a kid I was kind of pissed but as an adult I'm still a little pissed but I also think it's kind of funny to burn down a playground and they also had the decency to burn down the least fun playground.</li>
           <li>I need suggestions for what to do with the other 2 sections so please give me suggestions on Discord!</li>
+          <li>Hailey's current location is <span id="haileyLocation"></span></li>
         </ul>
+
+        <script>
+          //Hailey location code!
+          fetch('https://gormysecret.onrender.com/location?user=Hailey')
+            .then(response => {
+              if (!response.ok) {
+                throw new Error('Failed to fetch location');
+              }
+              return response.json();
+            })
+            .then(data => {
+              const { city, state, country } = data;
+              const locationText = `${city ? city + ', ' : ''}${state ? state + ', ' : ''}${country}`;
+              document.getElementById('haileyLocation').textContent = locationText || 'Location not available';
+            })
+            .catch(error => {
+              console.error(error);
+              document.getElementById('haileyLocation').textContent = 'Error retrieving location';
+            });
+        </script>
 
         <div class="contenttitle">To-do</div>
 
