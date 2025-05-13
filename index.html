@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-
     
     <style type="text/css">
-      
       
     body {
     background:#E7EDF2 url(https://64.media.tumblr.com/f6900502ff0d8d97b7777f719f676e8e/46d71838c2ab60b3-76/s75x75_c1/a15417732f9baaabc45f7960a34bbff9cf8eceec.gifv) fixed;
@@ -17,13 +15,10 @@
     color:#888;
     letter-spacing: 1px;}
 
-     
     #wrapper {
     margin: 0 auto;
     width: 570px;}
 
-
-      
     #navigationwrap {
     width: 570px;
     float: left;
@@ -47,8 +42,6 @@
   #navigation a:hover {background:#fff;
   text-transform:uppercase;line-height:20px;
   padding:4px; letter-spacing:1px;margin-right:10px;}
-  
-           
 
 #contentwrap {
     width: 400px;
@@ -90,9 +83,6 @@ margin: 5px;padding:5px;}
     margin: 5px;
     text-align:center;}    
       
-      
-         
-      
 ::-webkit-scrollbar-thumb {
 background-color: #fff;  
 border-radius: 0px;
@@ -112,26 +102,27 @@ color:#64B0DB;text-decoration:none;}
 a:hover {
 color:#999;}
 
-    
+.rounded-btn {
+  background-color: #E9F9FF; /* Light blue */
+  color: #888; /* Black text */
+  border: none;
+  border-radius: 999px; /* Fully rounded */
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.rounded-btn:hover {
+  background-color: #add8e6; /* Slightly darker blue on hover */
+}
+
     
     </style>
-    
-    
-    
-   
   </head>
-  
-  
- 
   <body>
-    
-    
     <br><br><br>
-    
-    
     <div id="wrapper">
-      
-      
        <div id="navigationwrap">
         <div id="navigation">
           <center>
@@ -146,19 +137,6 @@ color:#999;}
           
         </div>
         </div>
-      
-      
-       
-      
-      
-       
-      
-      
-      
-       
-      
-      
-      
         <div id="contentwrap">
         <div id="content">
           
@@ -174,11 +152,15 @@ but right now the site will be unfinished while i finish it!
 <p id="location">Location loading...</p>
 <br>
 If you're a friend you can find my precise location <a href="preciseLocation.html">here!</a>
+
+<div class="title2"> <img src="https://64.media.tumblr.com/0b91ec3f6bd8e50404dc513ffbdf5821/014d6f73835b6e87-d3/s75x75_c1/f19c167835beae789c67e6721b3492325131958c.gifv"> Take me to a ranodm page</div> 
+<br>
+<center>
+  <button class="rounded-btn" id="randomButton">I'm feeling lucky</button>
+</center>
         </div>
         </div>
-      
-      
-      
+
        <div id="rightcolumnwrap">
         <div id="rightcolumn">
           
@@ -198,20 +180,15 @@ You can also look at my other projects <a href="https://github.com/Gormyy">here!
 </div>
       
       
-      
-      
-      
         <div id="footerwrap">
         <div id="footer">
           Layout: <a href="http://itinerae.neocities.org" target="_blank">Itinerae</a> Pixels: <a href="https://foollovers.com/" target="_blank">Fool Lovers</a> Lace border: <a href="https://pastebin.com/1s0bztqb" target="_blank">Loveberry</a>
         </div>
         </div>
-      
-      
-      
     </div>
 
     <script>
+      //location script
       fetch('https://gormysecret.onrender.com/location')
         .then(response => {
           if (!response.ok) {
@@ -230,6 +207,33 @@ You can also look at my other projects <a href="https://github.com/Gormyy">here!
         });
     </script>
  
+    <script>
+      document.getElementById('randomButton').addEventListener('click', function () {
+        
+        const websites = [
+          'index.html',
+          'hockey.html',
+          'about.html',
+          'art.html',
+          'interests.html',
+          'main.html',
+          'not_found.html',
+          'neocities.png',
+          'otherStuff.html',
+          'preciseLocation.html',
+          'robots.txt',
+          'style.css',
+          'travel.html',
+          'stickers.html',
+        ];
+
+        // Pick a random URL
+        const randomUrl = websites[Math.floor(Math.random() * websites.length)];
+
+        // Redirect to the random URL
+        window.location.href = randomUrl;
+      });
+    </script>
   </body>
 </html>
             
