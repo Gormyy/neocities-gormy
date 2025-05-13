@@ -209,30 +209,41 @@ You can also look at my other projects <a href="https://github.com/Gormyy">here!
  
     <script>
       document.getElementById('randomButton').addEventListener('click', function () {
-        
-        const websites = [
-          'index.html',
-          'hockey.html',
-          'about.html',
-          'art.html',
-          'interests.html',
-          'main.html',
-          'not_found.html',
-          'neocities.png',
-          'otherStuff.html',
-          'preciseLocation.html',
-          'robots.txt',
-          'style.css',
-          'travel.html',
-          'stickers.html',
-        ];
+        const websiteWeights = {
+          'index.html': 100,
+          'hockey.html': 100,
+          'about.html': 100,
+          'art.html': 100,
+          'interests.html': 100,
+          'main.html': 100,
+          'not_found.html': 25,
+          'neocities.png': 50,
+          'otherStuff.html': 100,
+          'preciseLocation.html': 100,
+          'robots.txt': 25,
+          'style.css': 10,
+          'travel.html': 100,
+          'stickers.html': 100,
+          'https://www.spc.noaa.gov/': 5,
+          'https://github.com/Gormyy/neocities-gormy': 5,
+          'https://en.wikipedia.org/wiki/Jon_Bois': 5,
+          'https://bsky.app/profile/gormy.bsky.social': 5,
+          'https://bulbapedia.bulbagarden.net/wiki/Glaceon_(Pok%C3%A9mon)': 5
+        };
 
-        // Pick a random URL
-        const randomUrl = websites[Math.floor(Math.random() * websites.length)];
+        const weightedList = [];
 
-        // Redirect to the random URL
+        for (const [url, weight] of Object.entries(websiteWeights)) {
+          for (let i = 0; i < weight; i++) {
+            weightedList.push(url);
+          }
+        }
+
+        const randomUrl = weightedList[Math.floor(Math.random() * weightedList.length)];
+
         window.location.href = randomUrl;
       });
+
     </script>
   </body>
 </html>
