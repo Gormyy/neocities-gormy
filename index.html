@@ -188,7 +188,7 @@ You can also look at my other projects <a href="https://github.com/Gormyy">here!
     </div>
 
     <script>
-      fetch('https://gormysecret.onrender.com/location')
+      fetch('https://gormysecret.onrender.com/location?format=json')
         .then(response => {
           if (!response.ok) {
             throw new Error('Failed to fetch location');
