@@ -175,7 +175,7 @@ color:#999;}
         output.textContent = text;
         output2.textContent = city
       } catch (error) {
-        output.textContent =  response.text();
+        output.textContent = await response.text();
       }
     }
   </script>
