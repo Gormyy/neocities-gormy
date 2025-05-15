@@ -1,363 +1,225 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>Blog - not started yet</title>
-  
-  
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Other Stuff!</title>
+    <style type="text/css">
+      
+    body {
+    background:#E7EDF2 url(https://64.media.tumblr.com/f6900502ff0d8d97b7777f719f676e8e/46d71838c2ab60b3-76/s75x75_c1/a15417732f9baaabc45f7960a34bbff9cf8eceec.gifv) fixed;
+    font-family:calibri, Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    text-shadow: 0px 0px 1px #b3b3b3;
+    color:#888;
+    letter-spacing: 1px;}
 
-  <style type="text/css">
-    
-    
-body {
-background:#eee url();
-font-family: calibri, Verdana, Arial, Helvetica, sans-serif;
-font-size: 10px;
-color:#333;
-letter-spacing:1px;
-}
-
-
-#layout {
-    margin: 70px auto;
-    width: 800px;
-}
-
-    
-    
-#navigationbar {
-    width: 800px;
-    float: left;
+    #wrapper {
     margin: 0 auto;
-}
+    width: 570px;}
+
+    #navigationwrap {
+    width: 570px;
+    float: left;
+    margin: 0 auto;}
 
 #navigation {
-  height: 20px;
-  line-height:20px;
-  background: transparent;
-  border-radius: 10px;
-  border: 0px solid #ebb81f;
-  margin: 5px;
-}
-
-    
-    
- #banner {
-    width: 800px;
-    float: left;
-    margin: 0 auto;
-}
-
-#bannertextorimage {
-    height: 70px;
-    line-height:70px;
-    background: transparent;
-    border-radius: 10px;
-    border: 0px solid #ebb81f;
-    margin: 5px;
-}   
-    
-    .text 
-    {font:italic 30px monospace;border-bottom:4px solid #fff;text-align:center;color:#C1C1E3;
-      letter-spacing:4px;text-transform:uppercase;}
-    
-    
-    
-#content {
-    width: 400px;
-    float: left;
-    margin: 0 auto;
-}
-
-#contentbox {
-    background: #FFFFFF;
-    border-radius: 10px;
-    border: 0px solid #ebebeb;
-    margin: 5px;
-    padding:5px;
-    margin-bottom:10px;
-}
-
-    
-    
-#left {
-    width: 200px;
-    float: left;
-    margin: 0 auto;
-}
-
-#leftbox {
-    border-radius: 10px;
-    padding:5px;
-    background: #FFF;
-    border-radius: 10px;
-    border: 0px solid #1fb8eb;
-    margin: 5px;
-    margin-bottom:10px;
-}
-
-    
-    
-#right {
-    width: 200px;
-    float: left;
-    margin: 0 auto;
-}
-
-#rightbox {
-    padding:5px;
-    border-radius: 10px;
-    background: #FFF;
-    border-radius: 10px;
-    border: 0px solid #b81feb;
-    margin: 5px;
-    margin-bottom:10px;
-}
-
-    
-    
-#footer {
-    width: 800px;
-    float: left;
-    margin: 0 auto;
-    clear: both;
-}
-
-#footerbox {
     height: 20px;
-    background: transparent;
-    border-radius: 0px;
-    border-top: 0px solid #1feb52;
+    line-height:20px;
+    background: #FFF;
+    border-width:7px;
+    border-style:solid;
+    border-image: url("https://64.media.tumblr.com/6f0c2efb2b0902a5907c60c9d1dcad9e/de283233162c752d-89/s75x75_c1/62ee23af1906bc552dbea259f32e0801263b4635.pnj") 8 fill round;
     margin: 5px;
-    padding-top:5px;
-    text-align:center;
+    padding:5px;
 }
-
-
-
-a:link {
-  color:#222;
-  text-decoration:none;
-  }
-a:visited {
-  color:#222;
-    text-decoration:none;
-
-  }
-a:hover {
-  color:#666;
-    text-decoration:none;
-
-  }
-    
-    
-    
-::-webkit-scrollbar-thumb {
-background-color: #fff;  
-border-radius: 0px;
-border:1px solid #999;
-}
-::-webkit-scrollbar {
-width: 7px; height: 4px; 
-background: #fff;
-}
-
-    
-    
-    .small-title {color:#666;text-transform:uppercase;font:12px arial;line-height:12px;background:#F6EFFF;border-radius: 10px;margin-bottom:5px;}
-    .big-title {color:#666;text-transform:uppercase;font:16px arial;line-height:16px;background:#FFEFFA;border-radius: 10px;margin-bottom:5px;}
-    
-    
-    
- #Table {
-			border-collapse:collapse;
-			padding:5px;width:380px;
-		}
-    
-		#Table th {
-		  padding:0px;
-		  background: #EFF4FF;
-	      color: #666;border-top-left-radius:10px;border-top-right-radius:10px;
-          width:50%;
-          text-align:left;
-          font:12px arial;
-          line-height:12px;
-          text-transform:uppercase;
-          letter-spacing:2px;
-		}
-    
-		#Table td {
-			text-align:center;
-			padding:5px;
-			background: #ffffff;
-			color: #313030;
-            width:50%;
-            text-align:left;}
-    
-    
-    #navigation a:link, a:visited, a:active {font:12px monospace;
+      
+#navigation a:link, a:visited, a:active {font:11px monospace;
   text-transform:uppercase;line-height:20px;
-  padding:4px; letter-spacing:2px;margin-right:10px;background:#fff;border-radius:10px;
-  
-  }
+  padding:4px; letter-spacing:1px;margin-right:10px;}
       
   #navigation a:hover {background:#fff;
   text-transform:uppercase;line-height:20px;
-  padding:4px; letter-spacing:2px;margin-right:10px;
-  color:#666;
-  }
-    
-  textarea {font-size:10px;letter-spacing:1px;color:#999;}
+  padding:4px; letter-spacing:1px;margin-right:10px;}
+  
+#contentwrap {
+    width: 400px;
+    float: left;
+    margin: 0 auto;}
 
-    
-  </style>
-</head>
-  
-  
-  
-<body>
-  
-    <div id="layout">
-      <div id="banner">
-        <div id="bannertextorimage">
+#content {
+    background: #fff;
+    border-width:7px;
+    border-style:solid;
+    border-image: url("https://64.media.tumblr.com/6f0c2efb2b0902a5907c60c9d1dcad9e/de283233162c752d-89/s75x75_c1/62ee23af1906bc552dbea259f32e0801263b4635.pnj") 8 fill round;
+    margin: 5px;padding:5px;}
 
-          <div class="text"><img src="https://64.media.tumblr.com/17a458b6b0d472d7e8ff08cc66b36f60/0d9682bec82f4b51-ad/s75x75_c1/93e2e478ec5adb648352711e29a2553fe2d50eb9.webp" alt="x"> your site title <img src="https://64.media.tumblr.com/17a458b6b0d472d7e8ff08cc66b36f60/0d9682bec82f4b51-ad/s75x75_c1/93e2e478ec5adb648352711e29a2553fe2d50eb9.webp" alt="x"></div>
-        
-        
-        </div>
-        </div>
+#rightcolumnwrap {
+    width: 170px;
+    float: left;
+    margin: 0 auto;}
+
+#rightcolumn {
+background: #FFF;
+border-width:7px;
+border-style:solid;
+border-image: url("https://64.media.tumblr.com/6f0c2efb2b0902a5907c60c9d1dcad9e/de283233162c752d-89/s75x75_c1/62ee23af1906bc552dbea259f32e0801263b4635.pnj") 8 fill round;
+margin: 5px;padding:5px;}
+
+#footerwrap {
+    width: 570px;
+    float: left;
+    margin: 0 auto;
+    clear: both;}
+
+#footer {
+    height: 20px;
+    background: #FFF;
+    border-width:7px;
+    border-style:solid;
+    border-image: url("https://64.media.tumblr.com/6f0c2efb2b0902a5907c60c9d1dcad9e/de283233162c752d-89/s75x75_c1/62ee23af1906bc552dbea259f32e0801263b4635.pnj") 8 fill round;
+    line-height:20px;
+    margin: 5px;
+    text-align:center;}    
       
-      
-      
-        <div id="navigationbar">
+::-webkit-scrollbar-thumb {
+background-color: #fff;  
+border-radius: 0px;
+border:1px solid #999;}
+::-webkit-scrollbar {
+width: 7px; height: 4px; 
+background: transparent;}
+
+   
+.title {background:#E9F9FF;text-transform:uppercase;font:10px monospace; letter-spacing:3px;color:#555;padding:2px;padding-left:4px;margin-bottom:4px;}
+.title2 {background:#E9F9FF;text-transform:uppercase;letter-spacing:3px;color:#555;padding:2px;padding-left:4px;margin-bottom:4px;font:10px monospace;line-height:10px;}
+    
+b {color:#64B0DB;}
+    	
+a:link, a:visited, a:active { 
+color:#64B0DB;text-decoration:none;}
+a:hover {
+color:#999;}
+    </style>
+  </head>
+  <body>
+    <br><br><br>
+    <div id="wrapper">
+       <div id="navigationwrap">
         <div id="navigation">
-         <center> 
-           <a href="index.html"><img src="https://64.media.tumblr.com/e3e4a736aa1583b728742edbbf28acf3/584c5726409b8704-3d/s75x75_c1/33ae09fbcf16dcd4398301c7f00bf8197ca47c91.gifv" alt="x"> Home</a> 
-           <a href="about.html"><img src="https://64.media.tumblr.com/e3e4a736aa1583b728742edbbf28acf3/584c5726409b8704-3d/s75x75_c1/33ae09fbcf16dcd4398301c7f00bf8197ca47c91.gifv" alt="x">  About</a>
-           <a href="travel.html"><img src="https://64.media.tumblr.com/e3e4a736aa1583b728742edbbf28acf3/584c5726409b8704-3d/s75x75_c1/33ae09fbcf16dcd4398301c7f00bf8197ca47c91.gifv" alt="x">  Travel</a>
-           <a href="interests.html"><img src="https://64.media.tumblr.com/e3e4a736aa1583b728742edbbf28acf3/584c5726409b8704-3d/s75x75_c1/33ae09fbcf16dcd4398301c7f00bf8197ca47c91.gifv" alt="x">  Interests</a>
-           <a href="art.html"> <img src="https://64.media.tumblr.com/e3e4a736aa1583b728742edbbf28acf3/584c5726409b8704-3d/s75x75_c1/33ae09fbcf16dcd4398301c7f00bf8197ca47c91.gifv" alt="x">  Art</a>
-           <a href="blog.html"><img src="https://64.media.tumblr.com/e3e4a736aa1583b728742edbbf28acf3/584c5726409b8704-3d/s75x75_c1/33ae09fbcf16dcd4398301c7f00bf8197ca47c91.gifv" alt="x">  Blog</a>
-           <a href="otherStuff.html"> <img src="https://64.media.tumblr.com/e3e4a736aa1583b728742edbbf28acf3/584c5726409b8704-3d/s75x75_c1/33ae09fbcf16dcd4398301c7f00bf8197ca47c91.gifv" alt="x">  Updates</a>
+          <center>
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a> 
+          <a href="travel.html">Travel</a>
+          <a href="interests.html">Interests</a>
+          <a href="art.html">Art</a>
+          <a href="blog.html">Blog</a>
+          <a href="otherStuff.html">Updates</a>
           </center>
-        </div>
-        </div>
-      
-      
-      
-        <div id="left">
-
-        <div id="leftbox">
-          <div class="small-title"><img src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv" alt="x"> Title</div>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla.
-        </div>
           
-          <div id="leftbox">
-          <div class="small-title"><img src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv" alt="x"> Title</div>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla.
         </div>
-          
-          <div id="leftbox">
-          <div class="small-title"><img src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv" alt="x"> Title</div>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla.
         </div>
-          
-          <div id="leftbox">
-          <div class="small-title"><img src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv" alt="x"> Title</div>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla.
-        </div>
-        
-          </div>
       
-      
-      
+        <div id="contentwrap">
         <div id="content">
-        <div id="contentbox">
-          <div class="big-title"><img src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv" alt="x">  title</div>
+          
+<div class="title2"> <img src="https://64.media.tumblr.com/0b91ec3f6bd8e50404dc513ffbdf5821/014d6f73835b6e87-d3/s75x75_c1/f19c167835beae789c67e6721b3492325131958c.gifv"> Hello!</div>
+This will be my blog site!
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br>
+        </div>
+        </div>
+      
+       <div id="rightcolumnwrap">
+        <div id="rightcolumn">
+          
+<center>
 
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis. Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet. Vestibulum sapien. Proin quam. <br><br>
-          
-          Etiam ultrices. Suspendisse in justo eu magna luctus suscipit. Sed lectus. Integer euismod lacus luctus magna. Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum. Morbi in ipsum sit amet pede facilisis laoreet. Donec lacus nunc, viverra nec, blandit vel, egestas et, augue. Vestibulum tincidunt malesuada tellus. Ut ultrices ultrices enim. Curabitur sit amet mauris. Morbi in dui quis est pulvinar ullamcorper. Nulla facilisi. Integer lacinia sollicitudin massa. Cras metus. Sed aliquet risus a tortor.
-          Integer id quam. 
-          </div>
-          
-          
-          
-           <div id="contentbox">  
-           
-  <table id="Table">
-		<thead>
-			<tr>
-				<th><img src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv" alt="x"> table title 1</th>
-				<th><img src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv" alt="x"> table title 2</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td valign="top">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla.</td>
-				<td valign="top">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla.<br><br>Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla.</td>
-			</tr>
-		</tbody>
-	</table>
- </div>
-          
-          
-          
-          <div id="contentbox">
-          <div class="big-title"><img src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv" alt="x"> title</div>
+</center>
 
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis. Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet. Vestibulum sapien. Proin quam. <br><br>
+
           
-          Etiam ultrices. Suspendisse in justo eu magna luctus suscipit. Sed lectus. Integer euismod lacus luctus magna. Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum. Morbi in ipsum sit amet pede facilisis laoreet. Donec lacus nunc, viverra nec, blandit vel, egestas et, augue. Vestibulum tincidunt malesuada tellus. Ut ultrices ultrices enim. Curabitur sit amet mauris. Morbi in dui quis est pulvinar ullamcorper. Nulla facilisi. Integer lacinia sollicitudin massa. Cras metus. Sed aliquet risus a tortor.
-          Integer id quam. 
-          </div>
 </div>
-      
-      
-      
-      
-        <div id="right">
-        <div id="rightbox">
-                    <div class="small-title"><img src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv" alt="x"> Title</div>
-
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla.
-        </div>
-          
-          
-          <div id="rightbox">
-                    <div class="small-title"><img src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv" alt="x"> Example image</div>
-            
-            <img src="https://64.media.tumblr.com/339c641d9106df2f5f53e8e784582b07/0a9c2c5a3b021f76-38/s640x960/54043235e75e84b801eeec2fed01008d34f53805.jpg" width="180" alt="x"> <br>
-
-            <b>Width 180px.</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla.
-        </div>
-          
-          <div id="rightbox">
-                    <div class="small-title"><img src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv" alt="x"> Title</div>
-
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla.
-        </div>
-          
-          <div id="rightbox">
-                    <div class="small-title"><img src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv" alt="x"> Title</div>
-
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla.
-        </div>
 </div>
-      
-      
-      
+        <div id="footerwrap">
         <div id="footer">
-        <div id="footerbox">
-          Layout made by <a href="http://itinerae.neocities.org" target="_blank">Itinerae.</a> <br> Pixels from <a href="https://foollovers.com/" target="_blank">Fool lovers</a> and <a href="https://pixel-dreams.tumblr.com/post/100754773715/scary-cats" target="_blank">Pixel dreams.</a>
+          Layout: <a href="http://itinerae.neocities.org" target="_blank">Itinerae</a> Pixels: <a href="https://foollovers.com/" target="_blank">Fool Lovers</a> Lace border: <a href="https://pastebin.com/1s0bztqb" target="_blank">Loveberry</a> Sylveon sprite: <a href="https://www.deviantart.com/retronc/art/Sylveon-Animated-Sprite-977536346">RetroNC</a>
         </div>
         </div>
+    </div>
+
+    <script>
+      const eeveelutions = [
+        "https://64.media.tumblr.com/5d1ac86900a33c913bbc4cee690e8ef4/5b687adaf1b0cff0-8d/s250x400/5907611d50bf7d0892fbd933163939239f8fdfa9.gifv",
+        "https://img.pokemondb.net/sprites/black-white/anim/normal/glaceon.gif",
+        "https://img.pokemondb.net/sprites/black-white/anim/normal/flareon.gif",
+        "https://img.pokemondb.net/sprites/black-white/anim/normal/jolteon.gif",
+        "https://img.pokemondb.net/sprites/black-white/anim/normal/espeon.gif",
+        "https://img.pokemondb.net/sprites/black-white/anim/normal/umbreon.gif",
+        "https://img.pokemondb.net/sprites/black-white/anim/normal/leafeon.gif",
+        "https://img.pokemondb.net/sprites/black-white/anim/normal/eevee.gif",
+        "https://i.postimg.cc/GpMXpMjD/dg5zzve-0a3e38cd-c3c7-4290-aed5-f4bb01860b0a.gif"
+      ];
     
-  
-  
-</div>
-  
-  
-  
-</body>
-</html>          
-     
+      function fillRightColumn() {
+        const content = document.getElementById('content');
+        const rightColumn = document.getElementById('rightcolumn');
+        const maxHeight = content.offsetHeight;
+    
+        const imageHeight = 100;
+        const margin = 10;
+        const totalImageBlockHeight = imageHeight + 2 * margin;
+    
+        let numImages = Math.floor(maxHeight / totalImageBlockHeight);
+        numImages += 1
+        for (let i = 0; i < numImages; i++) {
+          const img = document.createElement('img');
+          img.src = eeveelutions[Math.floor(Math.random() * eeveelutions.length)];
+          //img.style.width = '100px';
+          img.style.height = `${imageHeight}px`;
+          img.style.display = 'block';
+          img.style.margin = `${margin}px auto`;
+    
+          rightColumn.appendChild(img);
+        }
+      }
+
+      function syncHeights() {
+          const content = document.getElementById('content');
+          const right = document.getElementById('rightcolumn');
+
+          if (!content || !right) return;
+
+          function adjustHeights() {
+            // Reset to natural height before measuring
+            content.style.height = 'auto';
+            right.style.height = 'auto';
+
+            const contentHeight = content.offsetHeight;
+            const rightHeight = right.offsetHeight;
+            const maxHeight = Math.max(contentHeight, rightHeight) - 37;
+
+            content.style.height = `${maxHeight}px`;
+            right.style.height = `${maxHeight}px`;
+          }
+
+          // Watch DOM changes
+          const observer = new ResizeObserver(adjustHeights);
+          observer.observe(content);
+          observer.observe(right);
+
+          // Watch window resizing
+          window.addEventListener('resize', adjustHeights);
+
+          // Fallback: check periodically for layout changes
+          setInterval(adjustHeights, 500);
+
+          // Initial run
+          adjustHeights();
+          console.log("Test")
+      }
+      window.addEventListener('DOMContentLoaded', syncHeights);
+      window.addEventListener('DOMContentLoaded', fillRightColumn);
+    </script>
+  </body>
+</html>
