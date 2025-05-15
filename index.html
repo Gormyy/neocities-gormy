@@ -174,7 +174,37 @@ I made a github you can follow updates for the website <a href="https://github.c
 <br>
 You can also look at my other projects <a href="https://github.com/Gormyy">here!</a> I don't really have anything else interesting right now though
 
-<br><br>         
+<br><br>      
+
+<div class="title"><img src="https://64.media.tumblr.com/171c295df37def8ea5bd3774fa3f2471/014d6f73835b6e87-e8/s75x75_c1/f2e8d21f39d3532d9cd06c05172782950d2625ad.gifv"> Weather</div>
+           
+<p>The current weather for me: </p>
+<p id="weather">Weather loading...</p>
+
+<br><br>
+
+<script type="module">
+  async function loadWeather() {
+    try {
+      const response = await fetch("https://gormysecret.onrender.com/weather?format=json");
+      const data = await response.json();
+
+      const temperature = Math.round(data.main.feels_like);
+      const windSpeed = Math.round(data.wind.speed);
+      const description = data.weather[0].description;
+
+      const weatherText = `It is currently ${temperature}° with ${description}, and the wind is blowing at ${windSpeed} mph.`;
+      document.getElementById("weather").textContent = weatherText;
+    } catch (err) {
+      console.error("Failed to load weather:", err);
+      document.getElementById("weather").textContent = "Unable to fetch weather data.";
+    }
+  }
+
+  loadWeather();
+</script>
+
+
 
 </div>
 </div>
