@@ -162,6 +162,29 @@ If you're a friend you can find my precise location <a href="preciseLocation.htm
   <button class="rounded-btn" id="randomButton">I'm feeling lucky</button>
   <br><br>
 </center>
+<div class="title2"> <img src="https://64.media.tumblr.com/0b91ec3f6bd8e50404dc513ffbdf5821/014d6f73835b6e87-d3/s75x75_c1/f19c167835beae789c67e6721b3492325131958c.gifv"> Visitor count!</div> 
+<p id="visitorCount">loading...</p>
+<br>
+
+<script type="module">
+  async function loadWeather() {
+    try {
+      const response = await fetch("https://gormysecret.onrender.com/visitorCount");
+      const data = await response.json();
+
+      const num = data["visitorCount"]
+
+      const visitorText = "You are visitor number " + num + " to my website! Welcome!";
+      document.getElementById("visitorCount").textContent = visitorText;
+    } catch (err) {
+      console.error("Failed to load Visitor date:", err);
+      document.getElementById("visitorCount").textContent = "Unable to fetch visitor data :(";
+    }
+  }
+
+  loadWeather();
+</script>
+
         </div>
         </div>
 
@@ -338,7 +361,7 @@ You can also look at my other projects <a href="https://github.com/Gormyy">here!
           "flights.html" : 100,
           'updates.html' : 100, //this is going to have a double chance because of the redirect now hehe
           '/games/slots/slotMachine.html' : 100,
-          '/games/slots/leadervoard.html' : 100,
+          '/games/slots/leaderboard.html' : 100,
           'https://www.spc.noaa.gov/': 5,
           'https://github.com/Gormyy/neocities-gormy': 5,
           'https://en.wikipedia.org/wiki/Jon_Bois': 5,
@@ -352,8 +375,11 @@ You can also look at my other projects <a href="https://github.com/Gormyy">here!
           "https://discord.gg/Er2wz9mqDc" : 15,
           "https://discord.gg/ycF9v2V" : 15,
           "https://discord.gg/XMsWtzm9Hq" : 0, // this is just a reward for snooping around my website lol
-          
-
+          "https://gormysecret.onrender.com/visitorCount" : 2,
+          "https://gormysecret.onrender.com/weather?format=json" : 2,
+          "https://gormysecret.onrender.com/time?format=json" : 2,
+          "https://gormysecret.onrender.com/location?format=json": 2,
+          "about:blank" : 5,
         };
 
         const weightedList = [];
