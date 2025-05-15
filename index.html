@@ -185,7 +185,7 @@ You can also look at my other projects <a href="https://github.com/Gormyy">here!
 <p>The current weather for me: </p>
 <p id="weather">Weather loading...</p>
 
-<br><br>
+<br>
 
 <script type="module">
   async function loadWeather() {
@@ -248,6 +248,45 @@ You can also look at my other projects <a href="https://github.com/Gormyy">here!
   }
 
   loadTime();
+</script>
+
+<script>
+  //syncs heights so main column and right column are always the same size
+  function syncHeights() {
+    const content = document.getElementById('content');
+    const right = document.getElementById('rightcolumn');
+
+    if (!content || !right) return;
+
+    function adjustHeights() {
+      // Reset to natural height before measuring
+      content.style.height = 'auto';
+      right.style.height = 'auto';
+
+      const contentHeight = content.offsetHeight;
+      const rightHeight = right.offsetHeight;
+      const maxHeight = Math.max(contentHeight, rightHeight) - 40;
+
+      content.style.height = `${maxHeight}px`;
+      right.style.height = `${maxHeight}px`;
+    }
+
+    // Watch DOM changes
+    const observer = new ResizeObserver(adjustHeights);
+    observer.observe(content);
+    observer.observe(right);
+
+    // Watch window resizing
+    window.addEventListener('resize', adjustHeights);
+
+    // Fallback: check periodically for layout changes
+    setInterval(adjustHeights, 500);
+
+    // Initial run
+    adjustHeights();
+  }
+
+  window.addEventListener('DOMContentLoaded', syncHeights);
 </script>
 
 </div>
