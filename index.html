@@ -141,22 +141,26 @@ color:#999;}
         <div id="content">
           
 <div class="title2"> <img src="https://64.media.tumblr.com/0b91ec3f6bd8e50404dc513ffbdf5821/014d6f73835b6e87-d3/s75x75_c1/f19c167835beae789c67e6721b3492325131958c.gifv"> Hello!</div>
+<br>
 I'm Gormy! I really like the idea of neocities so I decided to make my own. 
 I know how to code and stuff but I really really don't like making websites
 so I'm going to be using templates for most of this stuff and I'll probably be updating the site periodically 
 but right now the site will be unfinished while i finish it!
+<br><br>
 <div class="title2"> <img src="https://64.media.tumblr.com/0b91ec3f6bd8e50404dc513ffbdf5821/014d6f73835b6e87-d3/s75x75_c1/f19c167835beae789c67e6721b3492325131958c.gifv"> About</div> 
-  This is my website! I haven't really finished it yet but you can follow updates <a href="interests.html">here!</a> Also you should go to the about page to learn more about me!
-
+<br>
+This is my website! I haven't really finished it yet but you can follow updates <a href="interests.html">here!</a> Also you should go to the about page to learn more about me!
+<br><br>
 <div class="title2"> <img src="https://64.media.tumblr.com/0b91ec3f6bd8e50404dc513ffbdf5821/014d6f73835b6e87-d3/s75x75_c1/f19c167835beae789c67e6721b3492325131958c.gifv"> Current Location</div> 
 <p id="location">Location loading...</p>
 <br>
 If you're a friend you can find my precise location <a href="preciseLocation.html">here!</a>
-
+<br><br>
 <div class="title2"> <img src="https://64.media.tumblr.com/0b91ec3f6bd8e50404dc513ffbdf5821/014d6f73835b6e87-d3/s75x75_c1/f19c167835beae789c67e6721b3492325131958c.gifv"> Take me to a ranodm page</div> 
 <br>
 <center>
   <button class="rounded-btn" id="randomButton">I'm feeling lucky</button>
+  <br><br>
 </center>
         </div>
         </div>
@@ -204,7 +208,47 @@ You can also look at my other projects <a href="https://github.com/Gormyy">here!
   loadWeather();
 </script>
 
+<div class="title"><img src="https://64.media.tumblr.com/171c295df37def8ea5bd3774fa3f2471/014d6f73835b6e87-e8/s75x75_c1/f2e8d21f39d3532d9cd06c05172782950d2625ad.gifv"> Time</div>
+           
+<p>The current time for me is <span id="time"></span> </p>
 
+<script>
+  async function loadTime() {
+    try {
+      const res = await fetch('https://gormysecret.onrender.com/time?format=json');
+      const data = await res.json();
+
+      let date = new Date(data.formattedTime.replace(" ", "T")); // Parse "YYYY-MM-DD HH:MM:SS"
+
+      function formatTime(d) {
+        const options = { 
+          year: 'numeric', month: 'long', day: 'numeric',
+          hour: 'numeric', minute: '2-digit', second: '2-digit',
+          hour12: true 
+        };
+        return d.toLocaleString(undefined, options).replace(',', ' at');
+      }
+
+      function updateTimeDisplay() {
+        document.getElementById("time").textContent = formatTime(date);
+      }
+
+      updateTimeDisplay();
+
+      // Increment time every second
+      setInterval(() => {
+        date.setSeconds(date.getSeconds() + 1);
+        updateTimeDisplay();
+      }, 1000);
+
+    } catch (err) {
+      console.error("Failed to load time:", err);
+      document.getElementById("time").textContent = "Unable to fetch time.";
+    }
+  }
+
+  loadTime();
+</script>
 
 </div>
 </div>
