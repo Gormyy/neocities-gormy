@@ -122,9 +122,17 @@ color:#999;}
       
         <div id="contentwrap">
         <div id="content">
-          
-<br>
-<br>
+            
+        <br>
+        <br>
+            
+        </div>
+        </div>
+        <div id="footerwrap">
+        <div id="footer">
+            
+        <center><p id = "payout" style="margin-top: -1.8px;">texr</p></center>
+        <br><br>
         </div>
         </div>
         <div id="footerwrap">
@@ -135,48 +143,60 @@ color:#999;}
     </div>
 
     <script>
-      const eeveelutions = [
-        "https://64.media.tumblr.com/5d1ac86900a33c913bbc4cee690e8ef4/5b687adaf1b0cff0-8d/s250x400/5907611d50bf7d0892fbd933163939239f8fdfa9.gifv",
-        "https://img.pokemondb.net/sprites/black-white/anim/normal/glaceon.gif",
-        "https://img.pokemondb.net/sprites/black-white/anim/normal/flareon.gif",
-        "https://img.pokemondb.net/sprites/black-white/anim/normal/jolteon.gif",
-        "https://img.pokemondb.net/sprites/black-white/anim/normal/espeon.gif",
-        "https://img.pokemondb.net/sprites/black-white/anim/normal/umbreon.gif",
-        "https://img.pokemondb.net/sprites/black-white/anim/normal/leafeon.gif",
-        "https://img.pokemondb.net/sprites/black-white/anim/normal/eevee.gif",
-        "https://i.postimg.cc/GpMXpMjD/dg5zzve-0a3e38cd-c3c7-4290-aed5-f4bb01860b0a.gif"
-      ];
-    
-      function spawnImagesInCenter() {
-        const content = document.getElementById('content');
-        if (!content) return;
+      const eeveelutions = {
+        "Vaporeon" : "https://64.media.tumblr.com/5d1ac86900a33c913bbc4cee690e8ef4/5b687adaf1b0cff0-8d/s250x400/5907611d50bf7d0892fbd933163939239f8fdfa9.gifv",
+        "Glaceon" : "https://img.pokemondb.net/sprites/black-white/anim/normal/glaceon.gif",
+        "Flareon" : "https://img.pokemondb.net/sprites/black-white/anim/normal/flareon.gif",
+        "Jolteon" : "https://img.pokemondb.net/sprites/black-white/anim/normal/jolteon.gif",
+        "Espeon" : "https://img.pokemondb.net/sprites/black-white/anim/normal/espeon.gif",
+        "Umbreon" : "https://img.pokemondb.net/sprites/black-white/anim/normal/umbreon.gif",
+        "Leafeon" : "https://img.pokemondb.net/sprites/black-white/anim/normal/leafeon.gif",
+        "Eevee" : "https://img.pokemondb.net/sprites/black-white/anim/normal/eevee.gif",
+        "Sylveon" : "https://i.postimg.cc/GpMXpMjD/dg5zzve-0a3e38cd-c3c7-4290-aed5-f4bb01860b0a.gif",
+        "Shiny Eevee" : "https://img.pokemondb.net/sprites/black-white/anim/shiny/eevee.gif"
+    };
 
-        //const imageHeight = 100;
-        const margin = 10;
-        const imageWidth = 100;
+     async function fetchSpinData() {
+    const res = await fetch('https://gormysecret.onrender.com/luckValues');
+    const data = await res.json();
+    return data;
+    }
 
-        // Set content to flexbox layout
-        content.style.display = 'flex';
-        content.style.flexWrap = 'wrap';
-        content.style.justifyContent = 'center';
-        content.style.alignItems = 'start'; // Optional: top-aligned rows
+    async function spawnImagesInCenter() {
+    const content = document.getElementById('content');
+    const payoutDiv = document.getElementById('payout');
 
-        const maxHeight = content.offsetHeight;
-        let numImages = 4
-        numImages += 1;
+    // Clear previous results
+    content.innerHTML = '';
+    payoutDiv.textContent = '';
 
-        for (let i = 0; i < numImages; i++) {
-            const img = document.createElement('img');
-            img.src = eeveelutions[Math.floor(Math.random() * eeveelutions.length)];
-            img.style.width = `${imageWidth}px`;
-            img.style.margin = `${margin}px`;
+    const data = await fetchSpinData();
+    const tiles = data.tiles;
+    const payout = data.payout;
 
-            content.appendChild(img);
-            
-        }
-      }
+    // Display images
+    content.style.display = 'flex';
+    content.style.flexWrap = 'wrap';
+    content.style.justifyContent = 'center';
+    content.style.alignItems = 'start';
 
-      window.addEventListener('DOMContentLoaded', spawnImagesInCenter);
+    const margin = 10;
+    const imageWidth = 100;
+
+    for (let i = 0; i < tiles.length; i++) {
+        const img = document.createElement('img');
+        img.src = eeveelutions[tiles[i]];
+        img.style.width = `${imageWidth}px`;
+        img.style.margin = `${margin}px`;
+        content.appendChild(img);
+    }
+
+    // Display payout if > 0
+    if (payout > 0) {
+        payoutDiv.textContent = `You won ${payout} points!`;
+    }
+    }
+    spawnImagesInCenter()
     </script>
   </body>
 </html>
