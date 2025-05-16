@@ -73,7 +73,7 @@ margin: 5px;padding:5px;}
     clear: both;}
 
 #footer {
-    height: 20px;
+    
     background: #FFF;
     border-width:7px;
     border-style:solid;
@@ -100,6 +100,22 @@ a:link, a:visited, a:active {
 color:#64B0DB;text-decoration:none;}
 a:hover {
 color:#999;}
+
+.rounded-btn {
+  background-color: #E9F9FF; /* Light blue */
+  color: #888; /* Black text */
+  border: none;
+  border-radius: 999px; /* Fully rounded */
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.rounded-btn:hover {
+  background-color: #add8e6; /* Slightly darker blue on hover */
+}
+
     </style>
   </head>
   <body>
@@ -128,11 +144,19 @@ color:#999;}
             
         </div>
         </div>
+
+        <div id="footerwrap">
+        <div id="footer">
+        <center>
+        <button class="rounded-btn" id="spinButton" onclick="spawnImagesInCenter()">spin again</button>
+        </center>
+        </div>
+        </div>
+
         <div id="footerwrap">
         <div id="footer">
             
-        <center><p id = "payout" style="margin-top: -1.8px;">texr</p></center>
-        <br><br>
+        <center><p id = "payout" >texr</p></center>
         </div>
         </div>
         <div id="footerwrap">
