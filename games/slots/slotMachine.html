@@ -124,13 +124,13 @@ color:#999;}
        <div id="navigationwrap">
         <div id="navigation">
           <center>
-          <a href="index.html">Home</a>
-          <a href="about.html">About</a> 
-          <a href="travel.html">Travel</a>
-          <a href="interests.html">Interests</a>
-          <a href="art.html">Art</a>
-          <a href="blog.html">Blog</a>
-          <a href="otherStuff.html">Updates</a>
+          <a href="../index.html">Home</a>
+          <a href="../about.html">About</a> 
+          <a href="../travel.html">Travel</a>
+          <a href="../interests.html">Interests</a>
+          <a href="../art.html">Art</a>
+          <a href="../blog.html">Blog</a>
+          <a href="../otherStuff.html">Updates</a>
           </center>
           
         </div>
@@ -148,7 +148,9 @@ color:#999;}
         <div id="footerwrap">
         <div id="footer">
         <center>
-        <button class="rounded-btn" id="spinButton" onclick="spawnImagesInCenter()">spin again</button>
+        <button class="rounded-btn" id="spinButton" onclick="spawnImagesInCenter()">Small bet</button>
+        <button class="rounded-btn" id="spinButton" onclick="spawnImagesInCenter()">Medium bet</button>
+        <button class="rounded-btn" id="spinButton" onclick="spawnImagesInCenter()">Large bet</button>
         </center>
         </div>
         </div>
@@ -159,8 +161,71 @@ color:#999;}
         <center><p id = "payout" >texr</p></center>
         </div>
         </div>
+
+        <div id="footerwrap">
+          <div id="footer">
+          <center>
+          <p id="userInfo"><strong>Logged in as: </strong><span id="user"></span> <strong>Balace: </strong><span id="bal"></span></p>
+          </center>
+          </div>
+          </div>
+
         <div id="footerwrap">
         <div id="footer">
+          
+          <script>
+            async function autoLogin() {
+              const getCookie = (name) => {
+                const value = `; ${document.cookie}`;
+                const parts = value.split(`; ${name}=`);
+                if (parts.length === 2) return parts.pop().split(';').shift();
+                return null;
+              };
+            
+              const setCookie = (name, value, days = 365) => {
+                const expires = new Date(Date.now() + days * 864e5).toUTCString();
+                document.cookie = `${name}=${value}; expires=${expires}; path=/`;
+              };
+            
+              let username = getCookie("name");
+              let hashedPassword = getCookie("hashedpassword");
+            
+              let url;
+              if (username && hashedPassword) {
+                url = `https://gormysecret.onrender.com/login?username=${encodeURIComponent(username)}&password=${encodeURIComponent(hashedPassword)}&loginType=hash`;
+              } else {
+                url = `https://gormysecret.onrender.com/login`;
+              }
+            
+              try {
+                const response = await fetch(url);
+                if (!response.ok) throw new Error("Login failed");
+            
+                const data = await response.json();
+                console.log(data)
+                // Save name and generated password if it's a new login
+                if (!username || !hashedPassword) {
+                  setCookie("name", data.name);
+                  setCookie("hashedpassword", data.generatedPassword);
+                }
+                
+                console.log("Logged in as:", data.name);
+
+                let uEl = document.getElementById("user")
+                let balEl = document.getElementById("bal")
+
+                uEl.innerHTML = data.name
+                balEl.innerHTML = data.balance
+                // You can now use the user data
+              } catch (err) {
+                console.error("Auto-login failed:", err);
+              }
+            }
+            
+            window.addEventListener("load", autoLogin);
+            </script>
+            
+        
           Layout: <a href="http://itinerae.neocities.org" target="_blank">Itinerae</a> Pixels: <a href="https://foollovers.com/" target="_blank">Fool Lovers</a> Lace border: <a href="https://pastebin.com/1s0bztqb" target="_blank">Loveberry</a> Sylveon sprite: <a href="https://www.deviantart.com/retronc/art/Sylveon-Animated-Sprite-977536346">RetroNC</a>
         </div>
         </div>
