@@ -244,9 +244,9 @@ color:#999;}
 
               const data = await response.json();
 
-              spawnImagesInCenter(data.calculatedSpin.tiles, data.winnings)
+              spawnImagesInCenter(data.calculatedSpin.tiles, Math.round(data.winnings * 100) / 100)
               let balEl = document.getElementById("bal")
-              balEl.innerHTML = Math.round(data.user.balance * 100) / 100
+              balEl.innerHTML = (Math.round(data.user.balance * 100) / 100).toFixed(2)
             }
             </script>
             
@@ -310,7 +310,7 @@ color:#999;}
 
       // Display payout if > 0
       if (payout > 0) {
-          payoutDiv.textContent = `You won $${payout}!`;
+          payoutDiv.textContent = `You won $${payout.toFixed(2)}!`;
       }
     }
 
