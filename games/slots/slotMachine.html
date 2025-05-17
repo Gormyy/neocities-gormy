@@ -224,9 +224,9 @@ color:#999;}
                 uEl.innerHTML = data.name
                 balEl.innerHTML = Math.round(data.balance * 100) / 100
 
-                smallBut.innerHTML  =  `$${data.smallspinamount}`;
-                mediumBut.innerHTML = `$${data.mediumspinamount}`;
-                largeBut.innerHTML  =  `$${data.largespinamount}`;
+                smallBut.innerHTML  =  `$${(data.smallspinamount).toFixed(2)}`;
+                mediumBut.innerHTML = `$${(data.mediumspinamount).toFixed(2)}`;
+                largeBut.innerHTML  =  `$${(data.largespinamount).toFixed(2)}`;
                 // You can now use the user data
               } catch (err) {
                 console.error("Auto-login failed:", err);
