@@ -246,7 +246,7 @@ color:#999;}
 
               spawnImagesInCenter(data.calculatedSpin.tiles, Math.round(data.winnings * 100) / 100)
               let balEl = document.getElementById("bal")
-              balEl.innerHTML = (Math.round(data.user.balance * 100) / 100).toFixed(2)
+              balEl.innerHTML = (Math.floor(data.user.balance * 100) / 100).toFixed(2)
             }
             </script>
             
