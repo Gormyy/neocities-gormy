@@ -147,10 +147,11 @@ color:#999;}
 
         <div id="footerwrap">
         <div id="footer">
+        <p><strong>Choose your bet:</strong></p>
         <center>
-        <button class="rounded-btn" id="spinButton" onclick="spawnImagesInCenter()">Small bet</button>
-        <button class="rounded-btn" id="spinButton" onclick="spawnImagesInCenter()">Medium bet</button>
-        <button class="rounded-btn" id="spinButton" onclick="spawnImagesInCenter()">Large bet</button>
+        <button class="rounded-btn" id="smallButton" onclick="spin('small')">Small bet</button>
+        <button class="rounded-btn" id="mediumButton" onclick="spin('medium')">Medium bet</button>
+        <button class="rounded-btn" id="largeButton" onclick="spin('large')">Large bet</button>
         </center>
         </div>
         </div>
@@ -158,7 +159,7 @@ color:#999;}
         <div id="footerwrap">
         <div id="footer">
             
-        <center><p id = "payout" >texr</p></center>
+        <center><p id = "payout" ></p></center>
         </div>
         </div>
 
@@ -174,8 +175,7 @@ color:#999;}
         <div id="footer">
           
           <script>
-            async function autoLogin() {
-              const getCookie = (name) => {
+            const getCookie = (name) => {
                 const value = `; ${document.cookie}`;
                 const parts = value.split(`; ${name}=`);
                 if (parts.length === 2) return parts.pop().split(';').shift();
@@ -186,6 +186,8 @@ color:#999;}
                 const expires = new Date(Date.now() + days * 864e5).toUTCString();
                 document.cookie = `${name}=${value}; expires=${expires}; path=/`;
               };
+
+            async function autoLogin() {
             
               let username = getCookie("name");
               let hashedPassword = getCookie("hashedpassword");
@@ -211,11 +213,20 @@ color:#999;}
                 
                 console.log("Logged in as:", data.name);
 
+                //user and bal elements
                 let uEl = document.getElementById("user")
                 let balEl = document.getElementById("bal")
 
+                let smallBut  =  document.getElementById("smallButton")  
+                let mediumBut = document.getElementById("mediumButton") 
+                let largeBut  =  document.getElementById("largeButton")  
+
                 uEl.innerHTML = data.name
-                balEl.innerHTML = data.balance
+                balEl.innerHTML = Math.round(data.balance * 100) / 100
+
+                smallBut.innerHTML  =  `$${data.smallspinamount}`;
+                mediumBut.innerHTML = `$${data.mediumspinamount}`;
+                largeBut.innerHTML  =  `$${data.largespinamount}`;
                 // You can now use the user data
               } catch (err) {
                 console.error("Auto-login failed:", err);
@@ -223,6 +234,21 @@ color:#999;}
             }
             
             window.addEventListener("load", autoLogin);
+
+            async function spin(spinType){
+              let username = getCookie("name");
+              let hashedPassword = getCookie("hashedpassword");
+              url = `https://gormysecret.onrender.com/spin?username=${encodeURIComponent(username)}&password=${encodeURIComponent(hashedPassword)}&loginType=hash&spinType=${encodeURIComponent(spinType)}`;
+              const response = await fetch(url);
+                if (!response.ok) throw new Error("spin failed");
+
+              const data = await response.json();
+
+              console.log(data)
+              spawnImagesInCenter(data.calculatedSpin.tiles, data.calculatedSpin.payout)
+              let balEl = document.getElementById("bal")
+              balEl.innerHTML = Math.round(data.user.balance * 100) / 100
+            }
             </script>
             
         
@@ -245,13 +271,15 @@ color:#999;}
         "Shiny Eevee" : "https://img.pokemondb.net/sprites/black-white/anim/shiny/eevee.gif"
     };
 
-     async function fetchSpinData() {
-    const res = await fetch('https://gormysecret.onrender.com/luckValues');
-    const data = await res.json();
+    /*
+    async function fetchSpinData() {
+      const res = await fetch('https://gormysecret.onrender.com/luckValues');
+      const data = await res.json();
     return data;
     }
+    */
 
-    async function spawnImagesInCenter() {
+    async function spawnImagesInCenter(tiles, payout) {
     const content = document.getElementById('content');
     const payoutDiv = document.getElementById('payout');
 
@@ -259,9 +287,9 @@ color:#999;}
     content.innerHTML = '';
     payoutDiv.textContent = '';
 
-    const data = await fetchSpinData();
-    const tiles = data.tiles;
-    const payout = data.payout;
+    //const data = await fetchSpinData();
+    //const tiles = data.tiles;
+    //const payout = data.payout;
 
     // Display images
     content.style.display = 'flex';
@@ -285,7 +313,7 @@ color:#999;}
         payoutDiv.textContent = `You won ${payout} points!`;
     }
     }
-    spawnImagesInCenter()
+    //spawnImagesInCenter()
     </script>
   </body>
 </html>
