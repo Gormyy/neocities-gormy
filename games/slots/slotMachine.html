@@ -244,8 +244,7 @@ color:#999;}
 
               const data = await response.json();
 
-              console.log(data)
-              spawnImagesInCenter(data.calculatedSpin.tiles, data.calculatedSpin.payout)
+              spawnImagesInCenter(data.calculatedSpin.tiles, data.winnings)
               let balEl = document.getElementById("bal")
               balEl.innerHTML = Math.round(data.user.balance * 100) / 100
             }
@@ -280,40 +279,51 @@ color:#999;}
     */
 
     async function spawnImagesInCenter(tiles, payout) {
-    const content = document.getElementById('content');
-    const payoutDiv = document.getElementById('payout');
+      console.log(tiles)
+      const content = document.getElementById('content');
+      const payoutDiv = document.getElementById('payout');
 
-    // Clear previous results
-    content.innerHTML = '';
-    payoutDiv.textContent = '';
+      // Clear previous results
+      content.innerHTML = '';
+      payoutDiv.textContent = '';
 
-    //const data = await fetchSpinData();
-    //const tiles = data.tiles;
-    //const payout = data.payout;
+      //const data = await fetchSpinData();
+      //const tiles = data.tiles;
+      //const payout = data.payout;
 
-    // Display images
-    content.style.display = 'flex';
-    content.style.flexWrap = 'wrap';
-    content.style.justifyContent = 'center';
-    content.style.alignItems = 'start';
+      // Display images
+      content.style.display = 'flex';
+      content.style.flexWrap = 'wrap';
+      content.style.justifyContent = 'center';
+      content.style.alignItems = 'start';
 
-    const margin = 10;
-    const imageWidth = 100;
+      const margin = 10;
+      const imageWidth = 100;
 
-    for (let i = 0; i < tiles.length; i++) {
-        const img = document.createElement('img');
-        img.src = eeveelutions[tiles[i]];
-        img.style.width = `${imageWidth}px`;
-        img.style.margin = `${margin}px`;
-        content.appendChild(img);
+      for (let i = 0; i < tiles.length; i++) {
+          const img = document.createElement('img');
+          img.src = eeveelutions[tiles[i]];
+          img.style.width = `${imageWidth}px`;
+          img.style.margin = `${margin}px`;
+          content.appendChild(img);
+      }
+
+      // Display payout if > 0
+      if (payout > 0) {
+          payoutDiv.textContent = `You won $${payout}!`;
+      }
     }
 
-    // Display payout if > 0
-    if (payout > 0) {
-        payoutDiv.textContent = `You won ${payout} points!`;
+    function getRandomTile(){
+      return keys[Math.floor(Math.random() * keys.length)];
     }
-    }
-    //spawnImagesInCenter()
+
+    //random tiles
+    const keys = Object.keys(eeveelutions);
+
+    let initTiles = [getRandomTile(), getRandomTile(), getRandomTile(), getRandomTile(), getRandomTile()]
+
+    spawnImagesInCenter(initTiles , null)
     </script>
   </body>
 </html>
