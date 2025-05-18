@@ -138,28 +138,33 @@ color:#999;}
       
         <div id="contentwrap">
         <div id="content">
-            
-        <br>
-        <br>
-            
+            <center>
+                <button class="rounded-btn" id="changeUsername" onclick="changeUsername()">Change Username</button><span>          </span><label>   Username:   </label><input type="text" id="changeUsernameInput"></input>
+            </center>
         </div>
+
+        <div id="content">
+            <center>
+                <button class="rounded-btn" id="changeUsername" onclick="changePassword()">Change Password</button><span>          </span><label>   Password:   </label><input type="password" id="changePasswordInput"></input>
+            </center>
         </div>
+
+        <div id="content">
+            <center>
+                <button class="rounded-btn" id="changeUsername" onclick="login()">Login</button><br><br>
+                
+            </span>          <label>   Username:   </label><input type="text" id="loginUsernameInput"></input> <span>          </span><label>   Password:   </label><input type="password" id="loginPasswordInput"></input>
+            </center>
+        </div>
+
+        </div>
+
+        
 
         <div id="footerwrap">
         <div id="footer">
-        <p><strong>Choose your bet:</strong></p>
-        <center>
-        <button class="rounded-btn" id="smallButton" onclick="spin('small')">Small bet</button>
-        <button class="rounded-btn" id="mediumButton" onclick="spin('medium')">Medium bet</button>
-        <button class="rounded-btn" id="largeButton" onclick="spin('large')">Large bet</button>
-        </center>
-        </div>
-        </div>
-
-        <div id="footerwrap">
-        <div id="footer">
             
-        <center><p id = "payout" ></p></center>
+        <center><p id = "messages" >Please don't lose your password I don't really have a good way to get your account back if you do.</p></center>
         </div>
         </div>
 
@@ -217,16 +222,9 @@ color:#999;}
                 let uEl = document.getElementById("user")
                 let balEl = document.getElementById("bal")
 
-                let smallBut  =  document.getElementById("smallButton")  
-                let mediumBut = document.getElementById("mediumButton") 
-                let largeBut  =  document.getElementById("largeButton")  
-
                 uEl.innerHTML = data.name
                 balEl.innerHTML = Math.round(data.balance * 100) / 100
 
-                smallBut.innerHTML  =  `$${(data.smallspinamount).toFixed(2)}`;
-                mediumBut.innerHTML = `$${(data.mediumspinamount).toFixed(2)}`;
-                largeBut.innerHTML  =  `$${(data.largespinamount).toFixed(2)}`;
                 // You can now use the user data
               } catch (err) {
                 console.error("Auto-login failed:", err);
@@ -235,18 +233,83 @@ color:#999;}
             
             window.addEventListener("load", autoLogin);
 
-            async function spin(spinType){
+            async function changeUsername(){
               let username = getCookie("name");
               let hashedPassword = getCookie("hashedpassword");
-              url = `https://gormysecret.onrender.com/spin?username=${encodeURIComponent(username)}&password=${encodeURIComponent(hashedPassword)}&loginType=hash&spinType=${encodeURIComponent(spinType)}`;
+              const input = document.getElementById("changeUsernameInput").value.trim()
+              const messages = document.getElementById("messages")
+              if (input === "") {
+                messages.innerHTML = "Username cannot be empty"
+                return 
+              }
+
+              url = `https://gormysecret.onrender.com/changeUsername?username=${encodeURIComponent(username)}&hashedPassword=${encodeURIComponent(hashedPassword)}&newname=${encodeURIComponent(input)}`;
+              //console.log(url)
               const response = await fetch(url);
-                if (!response.ok) throw new Error("spin failed");
+              if (!response.ok){
+                messages.innerHTML = "Username is already taken"
+                return 
+              }
+
+              const data = await response.json();
+              console.log(data)
+              setCookie("name", input);
+              messages.innerHTML = "Username changed succesfully"
+              autoLogin()
+              console.log(data)
+            }
+
+            async function changePassword(){
+              let username = getCookie("name");
+              let hashedPassword = getCookie("hashedpassword");
+              const input = document.getElementById("changePasswordInput").value.trim()
+              const messages = document.getElementById("messages")
+              if (input === "") {
+                messages.innerHTML = "Password cannot be empty"
+                return 
+              }
+
+              url = `https://gormysecret.onrender.com/changePassword?username=${encodeURIComponent(username)}&hashedPassword=${encodeURIComponent(hashedPassword)}&newpassword=${encodeURIComponent(input)}`;
+              //console.log(url)
+              const response = await fetch(url);
+              if (!response.ok){
+                messages.innerHTML = "Error changing password"
+                return 
+              }
 
               const data = await response.json();
 
-              spawnImagesInCenter(data.calculatedSpin.tiles, Math.round(data.winnings * 100) / 100)
-              let balEl = document.getElementById("bal")
-              balEl.innerHTML = (Math.floor(data.user.balance * 100) / 100).toFixed(2)
+              setCookie("hashedpassword", data.generatedPassword);
+              messages.innerHTML = "Password changed succesfully"
+              autoLogin()
+              console.log(data)
+            }
+
+            async function login(){
+                const usernameInput = document.getElementById("loginUsernameInput").value.trim()
+                const passwordInput = document.getElementById("loginPasswordInput").value.trim()
+                const messages = document.getElementById("messages")
+
+                if (usernameInput === "" || passwordInput === "") {
+                    messages.innerHTML = "Username/password cannot be empty"
+                    return 
+                }
+
+                let url = `https://gormysecret.onrender.com/login?username=${encodeURIComponent(usernameInput)}&password=${encodeURIComponent(passwordInput)}`;
+
+                const response = await fetch(url);
+                
+                if (!response.ok){
+                    messages.innerHTML = "Error logging in"
+                    return 
+                }
+                const data = await response.json()
+
+                setCookie("name", data.name);
+                setCookie("hashedpassword", data.generatedPassword);
+                
+                messages.innerHTML = "Logged in succesfully"
+                autoLogin()
             }
             </script>
             
@@ -277,53 +340,6 @@ color:#999;}
     return data;
     }
     */
-
-    async function spawnImagesInCenter(tiles, payout) {
-      console.log(tiles)
-      const content = document.getElementById('content');
-      const payoutDiv = document.getElementById('payout');
-
-      // Clear previous results
-      content.innerHTML = '';
-      payoutDiv.textContent = '';
-
-      //const data = await fetchSpinData();
-      //const tiles = data.tiles;
-      //const payout = data.payout;
-
-      // Display images
-      content.style.display = 'flex';
-      content.style.flexWrap = 'wrap';
-      content.style.justifyContent = 'center';
-      content.style.alignItems = 'start';
-
-      const margin = 10;
-      const imageWidth = 100;
-
-      for (let i = 0; i < tiles.length; i++) {
-          const img = document.createElement('img');
-          img.src = eeveelutions[tiles[i]];
-          img.style.width = `${imageWidth}px`;
-          img.style.margin = `${margin}px`;
-          content.appendChild(img);
-      }
-
-      // Display payout if > 0
-      if (payout > 0) {
-          payoutDiv.textContent = `You won $${payout.toFixed(2)}!`;
-      }
-    }
-
-    function getRandomTile(){
-      return keys[Math.floor(Math.random() * keys.length)];
-    }
-
-    //random tiles
-    const keys = Object.keys(eeveelutions);
-
-    let initTiles = [getRandomTile(), getRandomTile(), getRandomTile(), getRandomTile(), getRandomTile()]
-
-    spawnImagesInCenter(initTiles , null)
     </script>
   </body>
 </html>
