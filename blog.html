@@ -190,9 +190,10 @@
           const blogs = [
             {
               "title": "First Blog // About this site!",
-              "date": "2025-05-19",
-              "content": "Hej! Welcome, this is my first blog on this site!",
-              "attachments": null
+              "date": "2025-05-18", //If you're looking through the source code hi!!! I think it's really cool that random creatures can explore my 'lil websites and find rhese comments i put down! Look how i made it!!! i secretly made the blog posts get served as json files! Sneaky. I did this for two reasons: one i hate coding in html. Writing blog posts in html actually kind of sucks and i'm going to transform the other blog style thingies to use json and doing it like this makes it still somewhat feel like coding but it makes it more fun i think. And the 2nd reason is just that it's better idk this way i can make changes to everything faster. Idk i just always like making things as easy to change as possible. Hope you enjoyed that extra blog!
+              "content": `Hej! Welcome, this is my first blog on this site! This site is kind of a way to just play around with coding but I also sort of think of it as a piece of art. It's just a cool little interactive website designed to be explored! Every bit of this website was created with love, so please explore <3`,
+              "attachments": null,
+              "tags" : null, //i dunno if i'll ever do something with tags but maybe :3
             },
           ]
 
@@ -203,11 +204,11 @@
 
             for (const blog of blogs) {
               const titleHTML = `
-      <div class="title2">
-        <img src="https://64.media.tumblr.com/0b91ec3f6bd8e50404dc513ffbdf5821/014d6f73835b6e87-d3/s75x75_c1/f19c167835beae789c67e6721b3492325131958c.gifv">
-        <span class="titleText">${blog.title} (${new Date(blog.date).toLocaleDateString()})</span>
-      </div>
-    `;
+                <div class="title2">
+                  <img src="https://64.media.tumblr.com/0b91ec3f6bd8e50404dc513ffbdf5821/014d6f73835b6e87-d3/s75x75_c1/f19c167835beae789c67e6721b3492325131958c.gifv">
+                  <span class="titleText">${blog.title}</span> <br> <span class='blogDate'>${new Date(blog.date + "T12:00:00").toLocaleDateString()}</span>
+                </div>
+              `;
 
               const bodyHTML = `<p class="body">${blog.content}</p><br>`;
               document.getElementById("content").innerHTML += titleHTML + bodyHTML;
