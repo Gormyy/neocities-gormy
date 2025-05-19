@@ -1,460 +1,527 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>Stickers!</title>
-  
-  
+  <title>Stickers!</title>
+
+
 
   <style type="text/css">
-    
-    
-body {
-background:#eee url();
-font-family: calibri, Verdana, Arial, Helvetica, sans-serif;
-font-size: 10px;
-color:#333;
-letter-spacing:1px;
-}
-
-
-#layout {
-    margin: 70px auto;
-    width: 800px;
-}
-
-    
-    
-#navigationbar {
-    width: 800px;
-    float: left;
-    margin: 0 auto;
-}
-
-#navigation {
-  height: 20px;
-  line-height:20px;
-  background: transparent;
-  border-radius: 10px;
-  border: 0px solid #ebb81f;
-  margin: 5px;
-}
-
-    
-    
- #banner {
-    width: 800px;
-    float: left;
-    margin: 0 auto;
-}
-
-#bannertextorimage {
-    height: 70px;
-    line-height:70px;
-    background: transparent;
-    border-radius: 10px;
-    border: 0px solid #ebb81f;
-    margin: 5px;
-}   
-    
-    .text 
-    {font:italic 30px monospace;border-bottom:4px solid #fff;text-align:center;color:#C1C1E3;
-      letter-spacing:4px;text-transform:uppercase;}
-    
-    
-    
-#content {
-    width: 400px;
-    float: left;
-    margin: 0 auto;
-}
-
-#contentbox {
-    background: #FFFFFF;
-    border-radius: 10px;
-    border: 0px solid #ebebeb;
-    margin: 5px;
-    padding:5px;
-    margin-bottom:10px;
-}
-
-    
-    
-#left {
-    width: 200px;
-    float: left;
-    margin: 0 auto;
-}
-
-#leftbox {
-    border-radius: 10px;
-    padding:5px;
-    background: #FFF;
-    border-radius: 10px;
-    border: 0px solid #1fb8eb;
-    margin: 5px;
-    margin-bottom:10px;
-}
-
-    
-    
-#right {
-    width: 200px;
-    float: left;
-    margin: 0 auto;
-}
-
-#rightbox {
-    padding:5px;
-    border-radius: 10px;
-    background: #FFF;
-    border-radius: 10px;
-    border: 0px solid #b81feb;
-    margin: 5px;
-    margin-bottom:10px;
-}
-
-    
-    
-#footer {
-    width: 800px;
-    float: left;
-    margin: 0 auto;
-    clear: both;
-}
-
-#footerbox {
-    height: 20px;
-    background: transparent;
-    border-radius: 0px;
-    border-top: 0px solid #1feb52;
-    margin: 5px;
-    padding-top:5px;
-    text-align:center;
-}
-
-
-
-a:link {
-  color:#222;
-  text-decoration:none;
-  }
-a:visited {
-  color:#222;
-    text-decoration:none;
-
-  }
-a:hover {
-  color:#666;
-    text-decoration:none;
-
-  }
-    
-    
-    
-::-webkit-scrollbar-thumb {
-background-color: #fff;  
-border-radius: 0px;
-border:1px solid #999;
-}
-::-webkit-scrollbar {
-width: 7px; height: 4px; 
-background: #fff;
-}
-
-    
-    
-    .small-title {color:#666;text-transform:uppercase;font:12px arial;line-height:12px;background:#F6EFFF;border-radius: 10px;margin-bottom:5px;}
-    .big-title {color:#666;text-transform:uppercase;font:16px arial;line-height:16px;background:#FFEFFA;border-radius: 10px;margin-bottom:5px;}
-    
-    
-    
- #Table {
-			border-collapse:collapse;
-			padding:5px;width:380px;
-		}
-    
-		#Table th {
-		  padding:0px;
-		  background: #EFF4FF;
-	      color: #666;border-top-left-radius:10px;border-top-right-radius:10px;
-          width:50%;
-          text-align:left;
-          font:12px arial;
-          line-height:12px;
-          text-transform:uppercase;
-          letter-spacing:2px;
-		}
-    
-		#Table td {
-			text-align:center;
-			padding:5px;
-			background: #ffffff;
-			color: #313030;
-            width:50%;
-            text-align:left;}
-    
-    
-    #navigation a:link, a:visited, a:active {font:12px monospace;
-  text-transform:uppercase;line-height:20px;
-  padding:4px; letter-spacing:2px;margin-right:10px;background:#fff;border-radius:10px;
-  
-  }
-      
-  #navigation a:hover {background:#fff;
-  text-transform:uppercase;line-height:20px;
-  padding:4px; letter-spacing:2px;margin-right:10px;
-  color:#666;
-  }
-    
-  textarea {font-size:10px;letter-spacing:1px;color:#999;}
-
-  .visited {
-      fill: #4CAF50; /* green */
+    body {
+      background: #eee url();
+      font-family: calibri, Verdana, Arial, Helvetica, sans-serif;
+      font-size: 10px;
+      color: #333;
+      letter-spacing: 1px;
     }
+
+
+    #layout {
+      margin: 70px auto;
+      width: 800px;
+    }
+
+
+
+    #navigationbar {
+      width: 800px;
+      float: left;
+      margin: 0 auto;
+    }
+
+    #navigation {
+      height: 20px;
+      line-height: 20px;
+      background: transparent;
+      border-radius: 10px;
+      border: 0px solid #ebb81f;
+      margin: 5px;
+    }
+
+
+
+    #banner {
+      width: 800px;
+      float: left;
+      margin: 0 auto;
+    }
+
+    #bannertextorimage {
+      height: 70px;
+      line-height: 70px;
+      background: transparent;
+      border-radius: 10px;
+      border: 0px solid #ebb81f;
+      margin: 5px;
+    }
+
+    .text {
+      font: italic 30px monospace;
+      border-bottom: 4px solid #fff;
+      text-align: center;
+      color: #C1C1E3;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+
+
+    #content {
+      width: 400px;
+      float: left;
+      margin: 0 auto;
+    }
+
+    #contentbox {
+      background: #FFFFFF;
+      border-radius: 10px;
+      border: 0px solid #ebebeb;
+      margin: 5px;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+
+
+
+    #left {
+      width: 200px;
+      float: left;
+      margin: 0 auto;
+    }
+
+    #leftbox {
+      border-radius: 10px;
+      padding: 5px;
+      background: #FFF;
+      border-radius: 10px;
+      border: 0px solid #1fb8eb;
+      margin: 5px;
+      margin-bottom: 10px;
+    }
+
+
+
+    #right {
+      width: 200px;
+      float: left;
+      margin: 0 auto;
+    }
+
+    #rightbox {
+      padding: 5px;
+      border-radius: 10px;
+      background: #FFF;
+      border-radius: 10px;
+      border: 0px solid #b81feb;
+      margin: 5px;
+      margin-bottom: 10px;
+    }
+
+
+
+    #footer {
+      width: 800px;
+      float: left;
+      margin: 0 auto;
+      clear: both;
+    }
+
+    #footerbox {
+      height: 20px;
+      background: transparent;
+      border-radius: 0px;
+      border-top: 0px solid #1feb52;
+      margin: 5px;
+      padding-top: 5px;
+      text-align: center;
+    }
+
+
+
+    a:link {
+      color: #222;
+      text-decoration: none;
+    }
+
+    a:visited {
+      color: #222;
+      text-decoration: none;
+
+    }
+
+    a:hover {
+      color: #666;
+      text-decoration: none;
+
+    }
+
+
+
+    ::-webkit-scrollbar-thumb {
+      background-color: #fff;
+      border-radius: 0px;
+      border: 1px solid #999;
+    }
+
+    ::-webkit-scrollbar {
+      width: 7px;
+      height: 4px;
+      background: #fff;
+    }
+
+
+
+    .small-title {
+      color: #666;
+      text-transform: uppercase;
+      font: 12px arial;
+      line-height: 12px;
+      background: #F6EFFF;
+      border-radius: 10px;
+      margin-bottom: 5px;
+    }
+
+    .big-title {
+      color: #666;
+      text-transform: uppercase;
+      font: 16px arial;
+      line-height: 16px;
+      background: #FFEFFA;
+      border-radius: 10px;
+      margin-bottom: 5px;
+    }
+
+
+
+    #Table {
+      border-collapse: collapse;
+      padding: 5px;
+      width: 380px;
+    }
+
+    #Table th {
+      padding: 0px;
+      background: #EFF4FF;
+      color: #666;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      width: 50%;
+      text-align: left;
+      font: 12px arial;
+      line-height: 12px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    #Table td {
+      text-align: center;
+      padding: 5px;
+      background: #ffffff;
+      color: #313030;
+      width: 50%;
+      text-align: left;
+    }
+
+
+    #navigation a:link,
+    a:visited,
+    a:active {
+      font: 12px monospace;
+      text-transform: uppercase;
+      line-height: 20px;
+      padding: 4px;
+      letter-spacing: 2px;
+      margin-right: 10px;
+      background: #fff;
+      border-radius: 10px;
+
+    }
+
+    #navigation a:hover {
+      background: #fff;
+      text-transform: uppercase;
+      line-height: 20px;
+      padding: 4px;
+      letter-spacing: 2px;
+      margin-right: 10px;
+      color: #666;
+    }
+
+    textarea {
+      font-size: 10px;
+      letter-spacing: 1px;
+      color: #999;
+    }
+
+    .visited {
+      fill: #4CAF50;
+      /* green */
+    }
+
     .not-visited {
       fill: #ccc;
     }
+
     svg path {
       stroke: #fff;
       stroke-width: 1;
     }
-    
   </style>
 </head>
-  
-  
-  
+
+
+
 <body>
-  
-    <div id="layout">
-      <div id="banner">
-        <div id="bannertextorimage">
 
-          <div class="text"><img src="https://64.media.tumblr.com/17a458b6b0d472d7e8ff08cc66b36f60/0d9682bec82f4b51-ad/s75x75_c1/93e2e478ec5adb648352711e29a2553fe2d50eb9.webp" alt="x"> Stickers!<img src="https://64.media.tumblr.com/17a458b6b0d472d7e8ff08cc66b36f60/0d9682bec82f4b51-ad/s75x75_c1/93e2e478ec5adb648352711e29a2553fe2d50eb9.webp" alt="x"></div>
-        
-        
-        </div>
-        </div>
-      
-      
-      
-        <div id="navigationbar">
-        <div id="navigation">
-         <center> 
-           <a href="index.html"><img src="https://64.media.tumblr.com/e3e4a736aa1583b728742edbbf28acf3/584c5726409b8704-3d/s75x75_c1/33ae09fbcf16dcd4398301c7f00bf8197ca47c91.gifv" alt="x"> Home</a> 
-           <a href="about.html"><img src="https://64.media.tumblr.com/e3e4a736aa1583b728742edbbf28acf3/584c5726409b8704-3d/s75x75_c1/33ae09fbcf16dcd4398301c7f00bf8197ca47c91.gifv" alt="x">  About</a>
-           <a href="travel.html"><img src="https://64.media.tumblr.com/e3e4a736aa1583b728742edbbf28acf3/584c5726409b8704-3d/s75x75_c1/33ae09fbcf16dcd4398301c7f00bf8197ca47c91.gifv" alt="x">  Travel</a>
-           <a href="interests.html"><img src="https://64.media.tumblr.com/e3e4a736aa1583b728742edbbf28acf3/584c5726409b8704-3d/s75x75_c1/33ae09fbcf16dcd4398301c7f00bf8197ca47c91.gifv" alt="x">  Interests</a>
-           <a href="art.html"> <img src="https://64.media.tumblr.com/e3e4a736aa1583b728742edbbf28acf3/584c5726409b8704-3d/s75x75_c1/33ae09fbcf16dcd4398301c7f00bf8197ca47c91.gifv" alt="x">  Art</a>
-           <a href="blog.html"><img src="https://64.media.tumblr.com/e3e4a736aa1583b728742edbbf28acf3/584c5726409b8704-3d/s75x75_c1/33ae09fbcf16dcd4398301c7f00bf8197ca47c91.gifv" alt="x">  Blog</a>
-           <a href="otherStuff.html"> <img src="https://64.media.tumblr.com/e3e4a736aa1583b728742edbbf28acf3/584c5726409b8704-3d/s75x75_c1/33ae09fbcf16dcd4398301c7f00bf8197ca47c91.gifv" alt="x">  Updates</a>
-          </center>
-        </div>
-        </div>
-      
-      
-      
-        <div id="left">
-            <div id="leftbox" style="visibility: hidden;">
-                <div class="small-title"><img src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv" alt="x"></div>
-            </div>
-        </div>
-      
-      
-      
+  <div id="layout">
+    <div id="banner">
+      <div id="bannertextorimage">
 
-        <div id="content">
-        </div>
-      
-        <script>
-            const items = [
-              {
-                image: "https://i.postimg.cc/nhw4PNxQ/Cigarette-Fish.jpg",
-                date: "2025-05-11",
-                title: "Cigarette Fish",
-                caption: "A carton of fish shaped cigarettes bought from my friend Emma at her graduation expo",
-                credit: "@em.motions",
-                location: "Toronto, Canada"
+        <div class="text"><img
+            src="https://64.media.tumblr.com/17a458b6b0d472d7e8ff08cc66b36f60/0d9682bec82f4b51-ad/s75x75_c1/93e2e478ec5adb648352711e29a2553fe2d50eb9.webp"
+            alt="x"> Stickers!<img
+            src="https://64.media.tumblr.com/17a458b6b0d472d7e8ff08cc66b36f60/0d9682bec82f4b51-ad/s75x75_c1/93e2e478ec5adb648352711e29a2553fe2d50eb9.webp"
+            alt="x"></div>
 
-              },
-              {
-                image: "https://i.postimg.cc/SNkf2WVj/Bellows-Chicago.jpg",
-                date: "2022-12-2",
-                title: "Bellows Chicago",
-                caption: "Sticker I got from Bellows Chicago. I can't exactly rememember if this one is chicago or miami because they've both worn off and only the other one had the location, but this sticker says develop film not feelings",
-                credit: "@bellowsfilmlab",
-                location: "Chicago, Illinois"
 
-              },
-              {
-                image: "https://i.postimg.cc/HxbbjxyQ/Blues-Logo.jpg",
-                date: "2022-1-2",
-                title: "Artistic Blues logo",
-                caption: "I think this was the first sticker I got on this water bottle. I got it in a coffee shop somewhere in Missouri, it's kind of huge and I would never put such a large sticker on my water bottle nowadays",
-                credit: null,
-                location: "St. Louis, Missouri"
+      </div>
+    </div>
 
-              },
-              {
-                image: "https://i.postimg.cc/QCkgYtNX/Bellows-Miami.jpg",
-                date: "2023-6-2",
-                title: "Bellows Miami",
-                caption: "Sticker from Bellows Miami I think. It's also worn out a lot and I covered a lot of it up with the waffle guy",
-                credit: "@bellowsfilmlab",
-                location: "Miami, Florida"
 
-              },
-              {
-                image: "https://i.postimg.cc/jj77k5vG/angryCat.jpg",
-                date: "2025-05-02",
-                title: "Angry Cat",
-                caption: "Angry cat sticker i got from a local artist vending machine at a coffee shop in Salt Lake City, Utah",
-                credit: "@dippyeggstar",
-                location: "Salt Lake City, Utah"
-              },
-              {
-                image: "https://i.postimg.cc/PqpWsKfV/Bryce-Canyon.jpg",
-                date: "2024-03-02",
-                title: "Bryce Canyon",
-                caption: "Sticker from one of my first trips out to Utah where we went to Bryce Canyon. We mainly chose to go to Bryce Canyon because one of my friends we went with has a boyfriend named Bryce (They are now engaged)",
-                credit: null,
-                location: "Salt Lake City, Utah"
-              },
-              {
-                image: "https://i.postimg.cc/sDj5D3Dh/clearwater-Beach.jpg",
-                date: "2024-01-02",
-                title: "Clearwater Beach",
-                caption: "I don't really remember getting this sticker, I think it was from when I went to Florida in Janruary of 2024. I haven't been to clearwater beach in a while but I probably got it because I was born in Clearwater.",
-                credit: null,
-                location: "Clearwater, Florida"
-              },
-              {
-                image: "https://i.postimg.cc/wj3JLFNx/destin-Florida.jpg",
-                date: "2022-08-02",
-                title: "Destin Florida",
-                caption: "Sticker from when I went to Destin Florida in 2023",
-                credit: null,
-                location: "Destin, Florida"
-              },
-              {
-                image: "https://i.postimg.cc/52Gz3v5B/elBloque.jpg",
-                date: "2024-07-01",
-                title: "El Bloque Bouldering Gym",
-                caption: "Sticker from the El Bloque Bouldering Gym in Puerto Rico. This was the 2nd climbing gym I've ever gone to and one time I saw someone with an El Bloque sticker in Indiana which was cool.",
-                credit: null,
-                location: "San Juan, Puerto Rico"
-              },
-              {
-                image: "https://i.postimg.cc/jqzhS8HG/Grayton-Beach.jpg",
-                date: "2022-08-01",
-                title: "Grayton Beach",
-                caption: "One of the first stickers I got from when I went to Grayton Beach in Florida. This sticker for some reason has completely worn off by now.",
-                credit: null,
-                location: "Grayton Beach, Florida"
-              },
-              {
-                image: "https://i.postimg.cc/SNd7WJtd/Hawaii.jpg",
-                date: "2025-04-26",
-                title: "Hawaii",
-                caption: "Sticker I got from my 2nd time in Hawaii on my way back home from New Zealand. I got stuck in Honolulu for a couple days :3 <br> I didn't really know how to put this sticker on for a while and kept the plastic applier on for way too long until fell off and i realized i was supposed to tkae it off a while ago.",
-                credit: null,
-                location: "Honolulu, Hawaii"
-              },
-              {
-                image: "https://i.postimg.cc/s2kpVSvj/North-Mass-Boulder.jpg",
-                date: "2024-08-01",
-                title: "North Mass Boulder",
-                caption: "Sticker from my climbing gym in Indiana, North Mass Boulder. I've been to a lot of climbing gyms and NMB is still my favorite climbing gym that I've been to.",
-                credit: null,
-                location: "Indianapolis, Indiana"
-              },
-              {
-                image: "https://i.postimg.cc/sxy7WrYb/Pulse-Climbing-Au.jpg",
-                date: "2025-04-02",
-                title: "Pulse Climbing",
-                caption: "Sticker from Pulse Climbing. A Climbing gym me and my brother went to in Australia",
-                credit: null,
-                location: "Sydney, Australia"
-              },
-              {
-                image: "https://i.postimg.cc/m2mCPKt6/the-Emperess.jpg",
-                date: "2023-12-15",
-                title: "The Emperess",
-                caption: "Sticker I got from a little shop in Lincoln Nebraska. I mostly got it for the cute fox. Apparently it's also a tarot card, and my family thinks tarot cards are kind of satanic, but luckily my family thinks tarot cards are satanic so they won't know that this is a tarot card.",
-                credit: null,
-                location: "Lincoln, Nebraska"
-              },
-              {
-                image: "https://i.postimg.cc/t4gdDpKj/UtahArch.jpg",
-                date: "2024-03-01",
-                title: "Utah Arch",
-                caption: "Another sticker from one of my first Utah trips",
-                credit: null,
-                location: "Salt Lake City, Utah"
-              },
-              {
-                image: "https://i.postimg.cc/BbgDcVNb/Wynwood-Walls-Dog.jpg",
-                date: "2023-07-18",
-                title: "Wynwood Walls Dog",
-                caption: "Sticker from Wynwood Walls in Miami. I mostly got this sticker because it's a cute dog",
-                credit: null,
-                location: "Miami, Florida"
-              },
-              {
-                image: "https://i.postimg.cc/MZbySnxw/you-Rule-BK.jpg",
-                date: "2023-05-01",
-                title: "Burger King sticker!",
-                caption: "Sticker from a sticker sheet I got back when I worked for Burger King's headquarters at an internship",
-                credit: null,
-                location: "Miami, Florida"
-              },
-              {
-                image: "https://i.postimg.cc/7hYbDYMP/Snowflake.jpg",
-                date: "2023-07-01",
-                title: "Snowflake Sticker",
-                caption: "Sticker I got from Snowflake when they did a presentation to us during my Burger King internship",
-                credit: null,
-                location: "Miami, Florida"
-              },
-              {
-                image: "https://i.postimg.cc/fbmVfPRs/South-Africa.jpg",
-                date: "2024-09-1",
-                title: "South Africa",
-                caption: "Sticker I got from Cape Town South Africa. We had a lot of trouble finding a good South Africa sticker because apparently South Africans aren't a fan of stickers",
-                credit: null,
-                location: "Cape Town, South Africa"
-              },
-              {
-                image: "https://i.postimg.cc/9M2r8BD7/South-Africa-Bird.jpg",
-                date: "2024-09-15",
-                title: "South Africa Bird",
-                caption: "Another sticker from South Africa. We got bird stickers because our safari guide was really fascinated and knowledgable about birds!",
-                credit: null,
-                location: "Hoedspruit, South Africa"
-              },
-              {
-                image: "https://i.postimg.cc/tTz7LV6m/tampa-FLButterfly.jpg",
-                date: "2024-01-01",
-                title: "Tampa Florida",
-                caption: "Sticker I got from when I visited Tampa Bay",
-                credit: null,
-                location: "Tampa Bay, Florida"
-              },
-            ];
 
-            items.sort((a, b) => new Date(b.date) - new Date(a.date));
+    <div id="navigationbar">
+      <div id="navigation">
+        <center>
+          <a href="index.html"><img
+              src="https://64.media.tumblr.com/e3e4a736aa1583b728742edbbf28acf3/584c5726409b8704-3d/s75x75_c1/33ae09fbcf16dcd4398301c7f00bf8197ca47c91.gifv"
+              alt="x"> Home</a>
+          <a href="about.html"><img
+              src="https://64.media.tumblr.com/e3e4a736aa1583b728742edbbf28acf3/584c5726409b8704-3d/s75x75_c1/33ae09fbcf16dcd4398301c7f00bf8197ca47c91.gifv"
+              alt="x"> About</a>
+          <a href="travel.html"><img
+              src="https://64.media.tumblr.com/e3e4a736aa1583b728742edbbf28acf3/584c5726409b8704-3d/s75x75_c1/33ae09fbcf16dcd4398301c7f00bf8197ca47c91.gifv"
+              alt="x"> Travel</a>
+          <a href="interests.html"><img
+              src="https://64.media.tumblr.com/e3e4a736aa1583b728742edbbf28acf3/584c5726409b8704-3d/s75x75_c1/33ae09fbcf16dcd4398301c7f00bf8197ca47c91.gifv"
+              alt="x"> Interests</a>
+          <a href="art.html"> <img
+              src="https://64.media.tumblr.com/e3e4a736aa1583b728742edbbf28acf3/584c5726409b8704-3d/s75x75_c1/33ae09fbcf16dcd4398301c7f00bf8197ca47c91.gifv"
+              alt="x"> Art</a>
+          <a href="blog.html"><img
+              src="https://64.media.tumblr.com/e3e4a736aa1583b728742edbbf28acf3/584c5726409b8704-3d/s75x75_c1/33ae09fbcf16dcd4398301c7f00bf8197ca47c91.gifv"
+              alt="x"> Blog</a>
+          <a href="otherStuff.html"> <img
+              src="https://64.media.tumblr.com/e3e4a736aa1583b728742edbbf28acf3/584c5726409b8704-3d/s75x75_c1/33ae09fbcf16dcd4398301c7f00bf8197ca47c91.gifv"
+              alt="x"> Updates</a>
+        </center>
+      </div>
+    </div>
 
-            const content = document.getElementById("content");
 
-            items.forEach(item => {
-              const contentBox = document.createElement("div");
-              contentBox.id = "contentbox";
 
-              const date = new Date(item.date);
-              const formattedDate = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long' });
+    <div id="left">
+      <div id="leftbox" style="visibility: hidden;">
+        <div class="small-title"><img
+            src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv"
+            alt="x"></div>
+      </div>
+    </div>
 
-              if (item.credit != null){
-                contentBox.innerHTML = `
+
+
+
+    <div id="content">
+    </div>
+
+    <script>
+      const items = [
+        {
+          image: "https://i.postimg.cc/nhw4PNxQ/Cigarette-Fish.jpg",
+          date: "2025-05-11",
+          title: "Cigarette Fish",
+          caption: "A carton of fish shaped cigarettes bought from my friend Emma at her graduation expo",
+          credit: "@em.motions",
+          location: "Toronto, Canada"
+
+        },
+        {
+          image: "https://i.postimg.cc/SNkf2WVj/Bellows-Chicago.jpg",
+          date: "2022-12-2",
+          title: "Bellows Chicago",
+          caption: "Sticker I got from Bellows Chicago. I can't exactly rememember if this one is chicago or miami because they've both worn off and only the other one had the location, but this sticker says develop film not feelings",
+          credit: "@bellowsfilmlab",
+          location: "Chicago, Illinois"
+
+        },
+        {
+          image: "https://i.postimg.cc/HxbbjxyQ/Blues-Logo.jpg",
+          date: "2022-1-2",
+          title: "Artistic Blues logo",
+          caption: "I think this was the first sticker I got on this water bottle. I got it in a coffee shop somewhere in Missouri, it's kind of huge and I would never put such a large sticker on my water bottle nowadays",
+          credit: null,
+          location: "St. Louis, Missouri"
+
+        },
+        {
+          image: "https://i.postimg.cc/QCkgYtNX/Bellows-Miami.jpg",
+          date: "2023-6-2",
+          title: "Bellows Miami",
+          caption: "Sticker from Bellows Miami I think. It's also worn out a lot and I covered a lot of it up with the waffle guy",
+          credit: "@bellowsfilmlab",
+          location: "Miami, Florida"
+
+        },
+        {
+          image: "https://i.postimg.cc/jj77k5vG/angryCat.jpg",
+          date: "2025-05-02",
+          title: "Angry Cat",
+          caption: "Angry cat sticker i got from a local artist vending machine at a coffee shop in Salt Lake City, Utah",
+          credit: "@dippyeggstar",
+          location: "Salt Lake City, Utah"
+        },
+        {
+          image: "https://i.postimg.cc/PqpWsKfV/Bryce-Canyon.jpg",
+          date: "2024-03-02",
+          title: "Bryce Canyon",
+          caption: "Sticker from one of my first trips out to Utah where we went to Bryce Canyon. We mainly chose to go to Bryce Canyon because one of my friends we went with has a boyfriend named Bryce (They are now engaged)",
+          credit: null,
+          location: "Salt Lake City, Utah"
+        },
+        {
+          image: "https://i.postimg.cc/sDj5D3Dh/clearwater-Beach.jpg",
+          date: "2024-01-02",
+          title: "Clearwater Beach",
+          caption: "I don't really remember getting this sticker, I think it was from when I went to Florida in Janruary of 2024. I haven't been to clearwater beach in a while but I probably got it because I was born in Clearwater.",
+          credit: null,
+          location: "Clearwater, Florida"
+        },
+        {
+          image: "https://i.postimg.cc/wj3JLFNx/destin-Florida.jpg",
+          date: "2022-08-02",
+          title: "Destin Florida",
+          caption: "Sticker from when I went to Destin Florida in 2023",
+          credit: null,
+          location: "Destin, Florida"
+        },
+        {
+          image: "https://i.postimg.cc/52Gz3v5B/elBloque.jpg",
+          date: "2024-07-01",
+          title: "El Bloque Bouldering Gym",
+          caption: "Sticker from the El Bloque Bouldering Gym in Puerto Rico. This was the 2nd climbing gym I've ever gone to and one time I saw someone with an El Bloque sticker in Indiana which was cool.",
+          credit: null,
+          location: "San Juan, Puerto Rico"
+        },
+        {
+          image: "https://i.postimg.cc/jqzhS8HG/Grayton-Beach.jpg",
+          date: "2022-08-01",
+          title: "Grayton Beach",
+          caption: "One of the first stickers I got from when I went to Grayton Beach in Florida. This sticker for some reason has completely worn off by now.",
+          credit: null,
+          location: "Grayton Beach, Florida"
+        },
+        {
+          image: "https://i.postimg.cc/SNd7WJtd/Hawaii.jpg",
+          date: "2025-04-26",
+          title: "Hawaii",
+          caption: "Sticker I got from my 2nd time in Hawaii on my way back home from New Zealand. I got stuck in Honolulu for a couple days :3 <br> I didn't really know how to put this sticker on for a while and kept the plastic applier on for way too long until fell off and i realized i was supposed to tkae it off a while ago.",
+          credit: null,
+          location: "Honolulu, Hawaii"
+        },
+        {
+          image: "https://i.postimg.cc/s2kpVSvj/North-Mass-Boulder.jpg",
+          date: "2024-08-01",
+          title: "North Mass Boulder",
+          caption: "Sticker from my climbing gym in Indiana, North Mass Boulder. I've been to a lot of climbing gyms and NMB is still my favorite climbing gym that I've been to.",
+          credit: null,
+          location: "Indianapolis, Indiana"
+        },
+        {
+          image: "https://i.postimg.cc/sxy7WrYb/Pulse-Climbing-Au.jpg",
+          date: "2025-04-02",
+          title: "Pulse Climbing",
+          caption: "Sticker from Pulse Climbing. A Climbing gym me and my brother went to in Australia",
+          credit: null,
+          location: "Sydney, Australia"
+        },
+        {
+          image: "https://i.postimg.cc/m2mCPKt6/the-Emperess.jpg",
+          date: "2023-12-15",
+          title: "The Emperess",
+          caption: "Sticker I got from a little shop in Lincoln Nebraska. I mostly got it for the cute fox. Apparently it's also a tarot card, and my family thinks tarot cards are kind of satanic, but luckily my family thinks tarot cards are satanic so they won't know that this is a tarot card.",
+          credit: null,
+          location: "Lincoln, Nebraska"
+        },
+        {
+          image: "https://i.postimg.cc/t4gdDpKj/UtahArch.jpg",
+          date: "2024-03-01",
+          title: "Utah Arch",
+          caption: "Another sticker from one of my first Utah trips",
+          credit: null,
+          location: "Salt Lake City, Utah"
+        },
+        {
+          image: "https://i.postimg.cc/BbgDcVNb/Wynwood-Walls-Dog.jpg",
+          date: "2023-07-18",
+          title: "Wynwood Walls Dog",
+          caption: "Sticker from Wynwood Walls in Miami. I mostly got this sticker because it's a cute dog",
+          credit: null,
+          location: "Miami, Florida"
+        },
+        {
+          image: "https://i.postimg.cc/MZbySnxw/you-Rule-BK.jpg",
+          date: "2023-05-01",
+          title: "Burger King sticker!",
+          caption: "Sticker from a sticker sheet I got back when I worked for Burger King's headquarters at an internship",
+          credit: null,
+          location: "Miami, Florida"
+        },
+        {
+          image: "https://i.postimg.cc/7hYbDYMP/Snowflake.jpg",
+          date: "2023-07-01",
+          title: "Snowflake Sticker",
+          caption: "Sticker I got from Snowflake when they did a presentation to us during my Burger King internship",
+          credit: null,
+          location: "Miami, Florida"
+        },
+        {
+          image: "https://i.postimg.cc/fbmVfPRs/South-Africa.jpg",
+          date: "2024-09-1",
+          title: "South Africa",
+          caption: "Sticker I got from Cape Town South Africa. We had a lot of trouble finding a good South Africa sticker because apparently South Africans aren't a fan of stickers",
+          credit: null,
+          location: "Cape Town, South Africa"
+        },
+        {
+          image: "https://i.postimg.cc/9M2r8BD7/South-Africa-Bird.jpg",
+          date: "2024-09-15",
+          title: "South Africa Bird",
+          caption: "Another sticker from South Africa. We got bird stickers because our safari guide was really fascinated and knowledgable about birds!",
+          credit: null,
+          location: "Hoedspruit, South Africa"
+        },
+        {
+          image: "https://i.postimg.cc/tTz7LV6m/tampa-FLButterfly.jpg",
+          date: "2024-01-01",
+          title: "Tampa Florida",
+          caption: "Sticker I got from when I visited Tampa Bay",
+          credit: null,
+          location: "Tampa Bay, Florida"
+        },
+      ];
+
+      items.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+      const content = document.getElementById("content");
+
+      items.forEach(item => {
+        const contentBox = document.createElement("div");
+        contentBox.id = "contentbox";
+
+        const date = new Date(item.date);
+        const formattedDate = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long' });
+
+        if (item.credit != null) {
+          contentBox.innerHTML = `
                   <div class="big-title">
                   <img src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv" alt="x">
                   <span class="stickerTitle">${item.title}</span>
@@ -464,10 +531,10 @@ background: #fff;
                   <p class="stickerCaption">${item.caption}</p>
                   <p class="stickerCredits"> <strong>Date:</strong> ${formattedDate} <strong>Artist:</strong> ${item.credit} <strong>Location:</strong> ${item.location}</p>`;
 
-              content.appendChild(contentBox);
-              }
-              else{
-                contentBox.innerHTML = `
+          content.appendChild(contentBox);
+        }
+        else {
+          contentBox.innerHTML = `
                   <div class="big-title">
                   <img src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv" alt="x">
                   <span class="stickerTitle">${item.title}</span>
@@ -477,35 +544,39 @@ background: #fff;
                   <p class="stickerCaption">${item.caption}</p>
                   <p class="stickerCredits"> <strong>Date:</strong> ${formattedDate} <strong>Location:</strong> ${item.location}</p>`;
 
-              content.appendChild(contentBox);
-              }
-              
-            });
+          content.appendChild(contentBox);
+        }
 
-        </script>
+      });
 
-      
-        <div id="right">
-        <div id="rightbox" style="visibility: hidden;">
-            <div class="small-title"><img src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv" alt="x"></div>
-        </div>
-</div>
-      
-      
-      
-        <div id="footer">
-        <div id="footerbox">
-          Layout made by <a href="http://itinerae.neocities.org" target="_blank">Itinerae.</a> <br> Pixels from <a href="https://foollovers.com/" target="_blank">Fool lovers</a> and <a href="https://pixel-dreams.tumblr.com/post/100754773715/scary-cats" target="_blank">Pixel dreams.</a>
-        </div>
-        </div>
-    
-  
-  
-</div>
-  
+    </script>
 
-  
-  
+
+    <div id="right">
+      <div id="rightbox" style="visibility: hidden;">
+        <div class="small-title"><img
+            src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv"
+            alt="x"></div>
+      </div>
+    </div>
+
+
+
+    <div id="footer">
+      <div id="footerbox">
+        Layout made by <a href="http://itinerae.neocities.org" target="_blank">Itinerae.</a> <br> Pixels from <a
+          href="https://foollovers.com/" target="_blank">Fool lovers</a> and <a
+          href="https://pixel-dreams.tumblr.com/post/100754773715/scary-cats" target="_blank">Pixel dreams.</a>
+      </div>
+    </div>
+
+
+
+  </div>
+
+
+
+
 </body>
-</html>          
-     
+
+</html>

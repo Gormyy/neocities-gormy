@@ -1,334 +1,403 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Settings</title>
-    <style type="text/css">
-      
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings</title>
+  <style type="text/css">
     body {
-    background:#E7EDF2 url(https://64.media.tumblr.com/f6900502ff0d8d97b7777f719f676e8e/46d71838c2ab60b3-76/s75x75_c1/a15417732f9baaabc45f7960a34bbff9cf8eceec.gifv) fixed;
-    font-family:calibri, Verdana, Arial, Helvetica, sans-serif;
-    font-size: 10px;
-    text-shadow: 0px 0px 1px #b3b3b3;
-    color:#888;
-    letter-spacing: 1px;}
+      background: #E7EDF2 url(https://64.media.tumblr.com/f6900502ff0d8d97b7777f719f676e8e/46d71838c2ab60b3-76/s75x75_c1/a15417732f9baaabc45f7960a34bbff9cf8eceec.gifv) fixed;
+      font-family: calibri, Verdana, Arial, Helvetica, sans-serif;
+      font-size: 10px;
+      text-shadow: 0px 0px 1px #b3b3b3;
+      color: #888;
+      letter-spacing: 1px;
+    }
 
     #wrapper {
-    margin: 0 auto;
-    width: 640px;}
+      margin: 0 auto;
+      width: 640px;
+    }
 
     #navigationwrap {
-    width: 640px;
-    float: left;
-    margin: 0 auto;}
+      width: 640px;
+      float: left;
+      margin: 0 auto;
+    }
 
-#navigation {
-    height: 20px;
-    line-height:20px;
-    background: #FFF;
-    border-width:7px;
-    border-style:solid;
-    border-image: url("https://64.media.tumblr.com/6f0c2efb2b0902a5907c60c9d1dcad9e/de283233162c752d-89/s75x75_c1/62ee23af1906bc552dbea259f32e0801263b4635.pnj") 8 fill round;
-    margin: 5px;
-    padding:5px;
-}
-      
-#navigation a:link, a:visited, a:active {font:11px monospace;
-  text-transform:uppercase;line-height:20px;
-  padding:4px; letter-spacing:1px;margin-right:10px;}
-      
-  #navigation a:hover {background:#fff;
-  text-transform:uppercase;line-height:20px;
-  padding:4px; letter-spacing:1px;margin-right:10px;}
-  
-#contentwrap {
-    width: 640px;
-    float: left;
-    margin: 0 auto;}
+    #navigation {
+      height: 20px;
+      line-height: 20px;
+      background: #FFF;
+      border-width: 7px;
+      border-style: solid;
+      border-image: url("https://64.media.tumblr.com/6f0c2efb2b0902a5907c60c9d1dcad9e/de283233162c752d-89/s75x75_c1/62ee23af1906bc552dbea259f32e0801263b4635.pnj") 8 fill round;
+      margin: 5px;
+      padding: 5px;
+    }
 
-#content {
-    background: #fff;
-    border-width:7px;
-    border-style:solid;
-    border-image: url("https://64.media.tumblr.com/6f0c2efb2b0902a5907c60c9d1dcad9e/de283233162c752d-89/s75x75_c1/62ee23af1906bc552dbea259f32e0801263b4635.pnj") 8 fill round;
-    margin: 5px;padding:5px;}
+    #navigation a:link,
+    a:visited,
+    a:active {
+      font: 11px monospace;
+      text-transform: uppercase;
+      line-height: 20px;
+      padding: 4px;
+      letter-spacing: 1px;
+      margin-right: 10px;
+    }
 
-#rightcolumnwrap {
-    width: 170px;
-    float: left;
-    margin: 0 auto;}
+    #navigation a:hover {
+      background: #fff;
+      text-transform: uppercase;
+      line-height: 20px;
+      padding: 4px;
+      letter-spacing: 1px;
+      margin-right: 10px;
+    }
 
-#rightcolumn {
-background: #FFF;
-border-width:7px;
-border-style:solid;
-border-image: url("https://64.media.tumblr.com/6f0c2efb2b0902a5907c60c9d1dcad9e/de283233162c752d-89/s75x75_c1/62ee23af1906bc552dbea259f32e0801263b4635.pnj") 8 fill round;
-margin: 5px;padding:5px;}
+    #contentwrap {
+      width: 640px;
+      float: left;
+      margin: 0 auto;
+    }
 
-#footerwrap {
-    width: 640px;
-    float: left;
-    margin: 0 auto;
-    clear: both;}
+    #content {
+      background: #fff;
+      border-width: 7px;
+      border-style: solid;
+      border-image: url("https://64.media.tumblr.com/6f0c2efb2b0902a5907c60c9d1dcad9e/de283233162c752d-89/s75x75_c1/62ee23af1906bc552dbea259f32e0801263b4635.pnj") 8 fill round;
+      margin: 5px;
+      padding: 5px;
+    }
 
-#footer {
-    
-    background: #FFF;
-    border-width:7px;
-    border-style:solid;
-    border-image: url("https://64.media.tumblr.com/6f0c2efb2b0902a5907c60c9d1dcad9e/de283233162c752d-89/s75x75_c1/62ee23af1906bc552dbea259f32e0801263b4635.pnj") 8 fill round;
-    line-height:20px;
-    margin: 5px;
-    text-align:center;}    
-      
-::-webkit-scrollbar-thumb {
-background-color: #fff;  
-border-radius: 0px;
-border:1px solid #999;}
-::-webkit-scrollbar {
-width: 7px; height: 4px; 
-background: transparent;}
+    #rightcolumnwrap {
+      width: 170px;
+      float: left;
+      margin: 0 auto;
+    }
 
-   
-.title {background:#E9F9FF;text-transform:uppercase;font:10px monospace; letter-spacing:3px;color:#555;padding:2px;padding-left:4px;margin-bottom:4px;}
-.title2 {background:#E9F9FF;text-transform:uppercase;letter-spacing:3px;color:#555;padding:2px;padding-left:4px;margin-bottom:4px;font:10px monospace;line-height:10px;}
-    
-b {color:#64B0DB;}
-    	
-a:link, a:visited, a:active { 
-color:#64B0DB;text-decoration:none;}
-a:hover {
-color:#999;}
+    #rightcolumn {
+      background: #FFF;
+      border-width: 7px;
+      border-style: solid;
+      border-image: url("https://64.media.tumblr.com/6f0c2efb2b0902a5907c60c9d1dcad9e/de283233162c752d-89/s75x75_c1/62ee23af1906bc552dbea259f32e0801263b4635.pnj") 8 fill round;
+      margin: 5px;
+      padding: 5px;
+    }
 
-.rounded-btn {
-  background-color: #E9F9FF; /* Light blue */
-  color: #888; /* Black text */
-  border: none;
-  border-radius: 999px; /* Fully rounded */
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
+    #footerwrap {
+      width: 640px;
+      float: left;
+      margin: 0 auto;
+      clear: both;
+    }
 
-.rounded-btn:hover {
-  background-color: #add8e6; /* Slightly darker blue on hover */
-}
+    #footer {
 
-    </style>
-  </head>
-  <body>
-    <br><br><br>
-    <div id="wrapper">
-       <div id="navigationwrap">
-        <div id="navigation">
-            <center>
-                <a href="../../index.html">Home</a>
-                <a href="slotMachine.html">Slots</a>
-                <a href="payoutTable.html">Payout</a> 
-                <a href="leaderboard.html">leaderboard</a>
-                <a href="accountSettings.html">Account</a>
-            </center>
-          
-        </div>
-        </div>
-      
-        <div id="contentwrap">
-        <div id="content">
-            <center>
-                <button class="rounded-btn" id="changeUsername" onclick="changeUsername()">Change Username</button><span>          </span><label>   Username:   </label><input type="text" id="changeUsernameInput"></input>
-            </center>
-        </div>
+      background: #FFF;
+      border-width: 7px;
+      border-style: solid;
+      border-image: url("https://64.media.tumblr.com/6f0c2efb2b0902a5907c60c9d1dcad9e/de283233162c752d-89/s75x75_c1/62ee23af1906bc552dbea259f32e0801263b4635.pnj") 8 fill round;
+      line-height: 20px;
+      margin: 5px;
+      text-align: center;
+    }
 
-        <div id="content">
-            <center>
-                <button class="rounded-btn" id="changeUsername" onclick="changePassword()">Change Password</button><span>          </span><label>   Password:   </label><input type="password" id="changePasswordInput"></input>
-            </center>
-        </div>
+    ::-webkit-scrollbar-thumb {
+      background-color: #fff;
+      border-radius: 0px;
+      border: 1px solid #999;
+    }
 
-        <div id="content">
-            <center>
-                <button class="rounded-btn" id="changeUsername" onclick="login()">Login</button><br><br>
-                
-            </span>          <label>   Username:   </label><input type="text" id="loginUsernameInput"></input> <span>          </span><label>   Password:   </label><input type="password" id="loginPasswordInput"></input>
-            </center>
-        </div>
+    ::-webkit-scrollbar {
+      width: 7px;
+      height: 4px;
+      background: transparent;
+    }
 
-        </div>
 
-        
+    .title {
+      background: #E9F9FF;
+      text-transform: uppercase;
+      font: 10px monospace;
+      letter-spacing: 3px;
+      color: #555;
+      padding: 2px;
+      padding-left: 4px;
+      margin-bottom: 4px;
+    }
 
-        <div id="footerwrap">
-        <div id="footer">
-            
-        <center><p id = "messages" >Please don't lose your password I don't really have a good way to get your account back if you do.</p></center>
-        </div>
-        </div>
+    .title2 {
+      background: #E9F9FF;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #555;
+      padding: 2px;
+      padding-left: 4px;
+      margin-bottom: 4px;
+      font: 10px monospace;
+      line-height: 10px;
+    }
 
-        <div id="footerwrap">
-          <div id="footer">
-          <center>
-          <p id="userInfo"><strong>Logged in as: </strong><span id="user"></span> <strong>Balance: </strong><span id="bal"></span></p>
-          </center>
-          </div>
-          </div>
+    b {
+      color: #64B0DB;
+    }
 
-        <div id="footerwrap">
-        <div id="footer">
-          
-          <script>
-            const getCookie = (name) => {
-                const value = `; ${document.cookie}`;
-                const parts = value.split(`; ${name}=`);
-                if (parts.length === 2) return parts.pop().split(';').shift();
-                return null;
-              };
-            
-              const setCookie = (name, value, days = 365) => {
-                const expires = new Date(Date.now() + days * 864e5).toUTCString();
-                document.cookie = `${name}=${value}; expires=${expires}; path=/`;
-              };
+    a:link,
+    a:visited,
+    a:active {
+      color: #64B0DB;
+      text-decoration: none;
+    }
 
-            async function autoLogin() {
-            
-              let username = getCookie("name");
-              let hashedPassword = getCookie("hashedpassword");
-            
-              let url;
-              if (username && hashedPassword) {
-                url = `https://gormysecret.onrender.com/login?username=${encodeURIComponent(username)}&password=${encodeURIComponent(hashedPassword)}&loginType=hash`;
-              } else {
-                url = `https://gormysecret.onrender.com/login`;
-              }
-            
-              try {
-                const response = await fetch(url);
-                if (!response.ok) throw new Error("Login failed");
-            
-                const data = await response.json();
-                console.log(data)
-                // Save name and generated password if it's a new login
-                if (!username || !hashedPassword) {
-                  setCookie("name", data.name);
-                  setCookie("hashedpassword", data.generatedPassword);
-                }
-                
-                console.log("Logged in as:", data.name);
+    a:hover {
+      color: #999;
+    }
 
-                //user and bal elements
-                let uEl = document.getElementById("user")
-                let balEl = document.getElementById("bal")
+    .rounded-btn {
+      background-color: #E9F9FF;
+      /* Light blue */
+      color: #888;
+      /* Black text */
+      border: none;
+      border-radius: 999px;
+      /* Fully rounded */
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
 
-                uEl.innerHTML = data.name
-                balEl.innerHTML = Math.round(data.balance * 100) / 100
+    .rounded-btn:hover {
+      background-color: #add8e6;
+      /* Slightly darker blue on hover */
+    }
+  </style>
+</head>
 
-                // You can now use the user data
-              } catch (err) {
-                console.error("Auto-login failed:", err);
-              }
-            }
-            
-            window.addEventListener("load", autoLogin);
+<body>
+  <br><br><br>
+  <div id="wrapper">
+    <div id="navigationwrap">
+      <div id="navigation">
+        <center>
+          <a href="../../index.html">Home</a>
+          <a href="slotMachine.html">Slots</a>
+          <a href="payoutTable.html">Payout</a>
+          <a href="leaderboard.html">leaderboard</a>
+          <a href="accountSettings.html">Account</a>
+        </center>
 
-            async function changeUsername(){
-              let username = getCookie("name");
-              let hashedPassword = getCookie("hashedpassword");
-              const input = document.getElementById("changeUsernameInput").value.trim()
-              const messages = document.getElementById("messages")
-              if (input === "") {
-                messages.innerHTML = "Username cannot be empty"
-                return 
-              }
-
-              url = `https://gormysecret.onrender.com/changeUsername?username=${encodeURIComponent(username)}&hashedPassword=${encodeURIComponent(hashedPassword)}&newname=${encodeURIComponent(input)}`;
-              //console.log(url)
-              const response = await fetch(url);
-              if (!response.ok){
-                messages.innerHTML = "Username is already taken"
-                return 
-              }
-
-              const data = await response.json();
-              console.log(data)
-              setCookie("name", input);
-              messages.innerHTML = "Username changed succesfully"
-              autoLogin()
-              console.log(data)
-            }
-
-            async function changePassword(){
-              let username = getCookie("name");
-              let hashedPassword = getCookie("hashedpassword");
-              const input = document.getElementById("changePasswordInput").value.trim()
-              const messages = document.getElementById("messages")
-              if (input === "") {
-                messages.innerHTML = "Password cannot be empty"
-                return 
-              }
-
-              url = `https://gormysecret.onrender.com/changePassword?username=${encodeURIComponent(username)}&hashedPassword=${encodeURIComponent(hashedPassword)}&newpassword=${encodeURIComponent(input)}`;
-              //console.log(url)
-              const response = await fetch(url);
-              if (!response.ok){
-                messages.innerHTML = "Error changing password"
-                return 
-              }
-
-              const data = await response.json();
-
-              setCookie("hashedpassword", data.generatedPassword);
-              messages.innerHTML = "Password changed succesfully"
-              autoLogin()
-              console.log(data)
-            }
-
-            async function login(){
-                const usernameInput = document.getElementById("loginUsernameInput").value.trim()
-                const passwordInput = document.getElementById("loginPasswordInput").value.trim()
-                const messages = document.getElementById("messages")
-
-                if (usernameInput === "" || passwordInput === "") {
-                    messages.innerHTML = "Username/password cannot be empty"
-                    return 
-                }
-
-                let url = `https://gormysecret.onrender.com/login?username=${encodeURIComponent(usernameInput)}&password=${encodeURIComponent(passwordInput)}`;
-
-                const response = await fetch(url);
-                
-                if (!response.ok){
-                    messages.innerHTML = "Error logging in"
-                    return 
-                }
-                const data = await response.json()
-
-                setCookie("name", data.name);
-                setCookie("hashedpassword", data.generatedPassword);
-                
-                messages.innerHTML = "Logged in succesfully"
-                autoLogin()
-            }
-            </script>
-            
-        
-          Layout: <a href="http://itinerae.neocities.org" target="_blank">Itinerae</a> Pixels: <a href="https://foollovers.com/" target="_blank">Fool Lovers</a> Lace border: <a href="https://pastebin.com/1s0bztqb" target="_blank">Loveberry</a> Sylveon sprite: <a href="https://www.deviantart.com/retronc/art/Sylveon-Animated-Sprite-977536346">RetroNC</a>
-        </div>
-        </div>
+      </div>
     </div>
 
-    <script>
-      const eeveelutions = {
-        "Vaporeon" : "https://64.media.tumblr.com/5d1ac86900a33c913bbc4cee690e8ef4/5b687adaf1b0cff0-8d/s250x400/5907611d50bf7d0892fbd933163939239f8fdfa9.gifv",
-        "Glaceon" : "https://img.pokemondb.net/sprites/black-white/anim/normal/glaceon.gif",
-        "Flareon" : "https://img.pokemondb.net/sprites/black-white/anim/normal/flareon.gif",
-        "Jolteon" : "https://img.pokemondb.net/sprites/black-white/anim/normal/jolteon.gif",
-        "Espeon" : "https://img.pokemondb.net/sprites/black-white/anim/normal/espeon.gif",
-        "Umbreon" : "https://img.pokemondb.net/sprites/black-white/anim/normal/umbreon.gif",
-        "Leafeon" : "https://img.pokemondb.net/sprites/black-white/anim/normal/leafeon.gif",
-        "Eevee" : "https://img.pokemondb.net/sprites/black-white/anim/normal/eevee.gif",
-        "Sylveon" : "https://i.postimg.cc/GpMXpMjD/dg5zzve-0a3e38cd-c3c7-4290-aed5-f4bb01860b0a.gif",
-        "Shiny Eevee" : "https://img.pokemondb.net/sprites/black-white/anim/shiny/eevee.gif"
+    <div id="contentwrap">
+      <div id="content">
+        <center>
+          <button class="rounded-btn" id="changeUsername" onclick="changeUsername()">Change Username</button><span>
+          </span><label> Username: </label><input type="text" id="changeUsernameInput"></input>
+        </center>
+      </div>
+
+      <div id="content">
+        <center>
+          <button class="rounded-btn" id="changeUsername" onclick="changePassword()">Change Password</button><span>
+          </span><label> Password: </label><input type="password" id="changePasswordInput"></input>
+        </center>
+      </div>
+
+      <div id="content">
+        <center>
+          <button class="rounded-btn" id="changeUsername" onclick="login()">Login</button><br><br>
+
+          </span> <label> Username: </label><input type="text" id="loginUsernameInput"></input> <span> </span><label>
+            Password: </label><input type="password" id="loginPasswordInput"></input>
+        </center>
+      </div>
+
+    </div>
+
+
+
+    <div id="footerwrap">
+      <div id="footer">
+
+        <center>
+          <p id="messages">Please don't lose your password I don't really have a good way to get your account back if
+            you do.</p>
+        </center>
+      </div>
+    </div>
+
+    <div id="footerwrap">
+      <div id="footer">
+        <center>
+          <p id="userInfo"><strong>Logged in as: </strong><span id="user"></span> <strong>Balance: </strong><span
+              id="bal"></span></p>
+        </center>
+      </div>
+    </div>
+
+    <div id="footerwrap">
+      <div id="footer">
+
+        <script>
+          const getCookie = (name) => {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+            return null;
+          };
+
+          const setCookie = (name, value, days = 365) => {
+            const expires = new Date(Date.now() + days * 864e5).toUTCString();
+            document.cookie = `${name}=${value}; expires=${expires}; path=/`;
+          };
+
+          async function autoLogin() {
+
+            let username = getCookie("name");
+            let hashedPassword = getCookie("hashedpassword");
+
+            let url;
+            if (username && hashedPassword) {
+              url = `https://gormysecret.onrender.com/login?username=${encodeURIComponent(username)}&password=${encodeURIComponent(hashedPassword)}&loginType=hash`;
+            } else {
+              url = `https://gormysecret.onrender.com/login`;
+            }
+
+            try {
+              const response = await fetch(url);
+              if (!response.ok) throw new Error("Login failed");
+
+              const data = await response.json();
+              console.log(data)
+              // Save name and generated password if it's a new login
+              if (!username || !hashedPassword) {
+                setCookie("name", data.name);
+                setCookie("hashedpassword", data.generatedPassword);
+              }
+
+              console.log("Logged in as:", data.name);
+
+              //user and bal elements
+              let uEl = document.getElementById("user")
+              let balEl = document.getElementById("bal")
+
+              uEl.innerHTML = data.name
+              balEl.innerHTML = Math.round(data.balance * 100) / 100
+
+              // You can now use the user data
+            } catch (err) {
+              console.error("Auto-login failed:", err);
+            }
+          }
+
+          window.addEventListener("load", autoLogin);
+
+          async function changeUsername() {
+            let username = getCookie("name");
+            let hashedPassword = getCookie("hashedpassword");
+            const input = document.getElementById("changeUsernameInput").value.trim()
+            const messages = document.getElementById("messages")
+            if (input === "") {
+              messages.innerHTML = "Username cannot be empty"
+              return
+            }
+
+            url = `https://gormysecret.onrender.com/changeUsername?username=${encodeURIComponent(username)}&hashedPassword=${encodeURIComponent(hashedPassword)}&newname=${encodeURIComponent(input)}`;
+            //console.log(url)
+            const response = await fetch(url);
+            if (!response.ok) {
+              messages.innerHTML = "Username is already taken"
+              return
+            }
+
+            const data = await response.json();
+            console.log(data)
+            setCookie("name", input);
+            messages.innerHTML = "Username changed succesfully"
+            autoLogin()
+            console.log(data)
+          }
+
+          async function changePassword() {
+            let username = getCookie("name");
+            let hashedPassword = getCookie("hashedpassword");
+            const input = document.getElementById("changePasswordInput").value.trim()
+            const messages = document.getElementById("messages")
+            if (input === "") {
+              messages.innerHTML = "Password cannot be empty"
+              return
+            }
+
+            url = `https://gormysecret.onrender.com/changePassword?username=${encodeURIComponent(username)}&hashedPassword=${encodeURIComponent(hashedPassword)}&newpassword=${encodeURIComponent(input)}`;
+            //console.log(url)
+            const response = await fetch(url);
+            if (!response.ok) {
+              messages.innerHTML = "Error changing password"
+              return
+            }
+
+            const data = await response.json();
+
+            setCookie("hashedpassword", data.generatedPassword);
+            messages.innerHTML = "Password changed succesfully"
+            autoLogin()
+            console.log(data)
+          }
+
+          async function login() {
+            const usernameInput = document.getElementById("loginUsernameInput").value.trim()
+            const passwordInput = document.getElementById("loginPasswordInput").value.trim()
+            const messages = document.getElementById("messages")
+
+            if (usernameInput === "" || passwordInput === "") {
+              messages.innerHTML = "Username/password cannot be empty"
+              return
+            }
+
+            let url = `https://gormysecret.onrender.com/login?username=${encodeURIComponent(usernameInput)}&password=${encodeURIComponent(passwordInput)}`;
+
+            const response = await fetch(url);
+
+            if (!response.ok) {
+              messages.innerHTML = "Error logging in"
+              return
+            }
+            const data = await response.json()
+
+            setCookie("name", data.name);
+            setCookie("hashedpassword", data.generatedPassword);
+
+            messages.innerHTML = "Logged in succesfully"
+            autoLogin()
+          }
+        </script>
+
+
+        Layout: <a href="http://itinerae.neocities.org" target="_blank">Itinerae</a> Pixels: <a
+          href="https://foollovers.com/" target="_blank">Fool Lovers</a> Lace border: <a
+          href="https://pastebin.com/1s0bztqb" target="_blank">Loveberry</a> Sylveon sprite: <a
+          href="https://www.deviantart.com/retronc/art/Sylveon-Animated-Sprite-977536346">RetroNC</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const eeveelutions = {
+      "Vaporeon": "https://64.media.tumblr.com/5d1ac86900a33c913bbc4cee690e8ef4/5b687adaf1b0cff0-8d/s250x400/5907611d50bf7d0892fbd933163939239f8fdfa9.gifv",
+      "Glaceon": "https://img.pokemondb.net/sprites/black-white/anim/normal/glaceon.gif",
+      "Flareon": "https://img.pokemondb.net/sprites/black-white/anim/normal/flareon.gif",
+      "Jolteon": "https://img.pokemondb.net/sprites/black-white/anim/normal/jolteon.gif",
+      "Espeon": "https://img.pokemondb.net/sprites/black-white/anim/normal/espeon.gif",
+      "Umbreon": "https://img.pokemondb.net/sprites/black-white/anim/normal/umbreon.gif",
+      "Leafeon": "https://img.pokemondb.net/sprites/black-white/anim/normal/leafeon.gif",
+      "Eevee": "https://img.pokemondb.net/sprites/black-white/anim/normal/eevee.gif",
+      "Sylveon": "https://i.postimg.cc/GpMXpMjD/dg5zzve-0a3e38cd-c3c7-4290-aed5-f4bb01860b0a.gif",
+      "Shiny Eevee": "https://img.pokemondb.net/sprites/black-white/anim/shiny/eevee.gif"
     };
 
     /*
@@ -338,6 +407,7 @@ color:#999;}
     return data;
     }
     */
-    </script>
-  </body>
+  </script>
+</body>
+
 </html>

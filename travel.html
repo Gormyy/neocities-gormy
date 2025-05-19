@@ -1,356 +1,487 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>Travel</title>
-  
-  
+  <title>Travel</title>
+
+
 
   <style type="text/css">
-    
-    
-body {
-background:#eee url();
-font-family: calibri, Verdana, Arial, Helvetica, sans-serif;
-font-size: 10px;
-color:#333;
-letter-spacing:1px;
-}
-
-
-#layout {
-    margin: 70px auto;
-    width: 800px;
-}
-
-    
-    
-#navigationbar {
-    width: 800px;
-    float: left;
-    margin: 0 auto;
-}
-
-#navigation {
-  height: 20px;
-  line-height:20px;
-  background: transparent;
-  border-radius: 10px;
-  border: 0px solid #ebb81f;
-  margin: 5px;
-}
-
-    
-    
- #banner {
-    width: 800px;
-    float: left;
-    margin: 0 auto;
-}
-
-#bannertextorimage {
-    height: 70px;
-    line-height:70px;
-    background: transparent;
-    border-radius: 10px;
-    border: 0px solid #ebb81f;
-    margin: 5px;
-}   
-    
-    .text 
-    {font:italic 30px monospace;border-bottom:4px solid #fff;text-align:center;color:#C1C1E3;
-      letter-spacing:4px;text-transform:uppercase;}
-    
-    
-    
-#content {
-    width: 400px;
-    float: left;
-    margin: 0 auto;
-}
-
-#contentbox {
-    background: #FFFFFF;
-    border-radius: 10px;
-    border: 0px solid #ebebeb;
-    margin: 5px;
-    padding:5px;
-    margin-bottom:10px;
-}
-
-    
-    
-#left {
-    width: 200px;
-    float: left;
-    margin: 0 auto;
-}
-
-#leftbox {
-    border-radius: 10px;
-    padding:5px;
-    background: #FFF;
-    border-radius: 10px;
-    border: 0px solid #1fb8eb;
-    margin: 5px;
-    margin-bottom:10px;
-}
-
-    
-    
-#right {
-    width: 200px;
-    float: left;
-    margin: 0 auto;
-}
-
-#rightbox {
-    padding:5px;
-    border-radius: 10px;
-    background: #FFF;
-    border-radius: 10px;
-    border: 0px solid #b81feb;
-    margin: 5px;
-    margin-bottom:10px;
-}
-
-    
-    
-#footer {
-    width: 800px;
-    float: left;
-    margin: 0 auto;
-    clear: both;
-}
-
-#footerbox {
-    height: 20px;
-    background: transparent;
-    border-radius: 0px;
-    border-top: 0px solid #1feb52;
-    margin: 5px;
-    padding-top:5px;
-    text-align:center;
-}
-
-
-
-a:link {
-  color:#222;
-  text-decoration:none;
-  }
-a:visited {
-  color:#222;
-    text-decoration:none;
-
-  }
-a:hover {
-  color:#666;
-    text-decoration:none;
-
-  }
-    
-    
-    
-::-webkit-scrollbar-thumb {
-background-color: #fff;  
-border-radius: 0px;
-border:1px solid #999;
-}
-::-webkit-scrollbar {
-width: 7px; height: 4px; 
-background: #fff;
-}
-
-    
-    
-    .small-title {color:#666;text-transform:uppercase;font:12px arial;line-height:12px;background:#F6EFFF;border-radius: 10px;margin-bottom:5px;}
-    .big-title {color:#666;text-transform:uppercase;font:16px arial;line-height:16px;background:#FFEFFA;border-radius: 10px;margin-bottom:5px;}
-    
-    
-    
- #Table {
-			border-collapse:collapse;
-			padding:5px;width:380px;
-		}
-    
-		#Table th {
-		  padding:0px;
-		  background: #EFF4FF;
-	      color: #666;border-top-left-radius:10px;border-top-right-radius:10px;
-          width:50%;
-          text-align:left;
-          font:12px arial;
-          line-height:12px;
-          text-transform:uppercase;
-          letter-spacing:2px;
-		}
-    
-		#Table td {
-			text-align:center;
-			padding:5px;
-			background: #ffffff;
-			color: #313030;
-            width:50%;
-            text-align:left;}
-    
-    
-    #navigation a:link, a:visited, a:active {font:12px monospace;
-  text-transform:uppercase;line-height:20px;
-  padding:4px; letter-spacing:2px;margin-right:10px;background:#fff;border-radius:10px;
-  
-  }
-      
-  #navigation a:hover {background:#fff;
-  text-transform:uppercase;line-height:20px;
-  padding:4px; letter-spacing:2px;margin-right:10px;
-  color:#666;
-  }
-    
-  textarea {font-size:10px;letter-spacing:1px;color:#999;}
-
-  .visited {
-      fill: #4CAF50; /* green */
+    body {
+      background: #eee url();
+      font-family: calibri, Verdana, Arial, Helvetica, sans-serif;
+      font-size: 10px;
+      color: #333;
+      letter-spacing: 1px;
     }
+
+
+    #layout {
+      margin: 70px auto;
+      width: 800px;
+    }
+
+
+
+    #navigationbar {
+      width: 800px;
+      float: left;
+      margin: 0 auto;
+    }
+
+    #navigation {
+      height: 20px;
+      line-height: 20px;
+      background: transparent;
+      border-radius: 10px;
+      border: 0px solid #ebb81f;
+      margin: 5px;
+    }
+
+
+
+    #banner {
+      width: 800px;
+      float: left;
+      margin: 0 auto;
+    }
+
+    #bannertextorimage {
+      height: 70px;
+      line-height: 70px;
+      background: transparent;
+      border-radius: 10px;
+      border: 0px solid #ebb81f;
+      margin: 5px;
+    }
+
+    .text {
+      font: italic 30px monospace;
+      border-bottom: 4px solid #fff;
+      text-align: center;
+      color: #C1C1E3;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+
+
+    #content {
+      width: 400px;
+      float: left;
+      margin: 0 auto;
+    }
+
+    #contentbox {
+      background: #FFFFFF;
+      border-radius: 10px;
+      border: 0px solid #ebebeb;
+      margin: 5px;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+
+
+
+    #left {
+      width: 200px;
+      float: left;
+      margin: 0 auto;
+    }
+
+    #leftbox {
+      border-radius: 10px;
+      padding: 5px;
+      background: #FFF;
+      border-radius: 10px;
+      border: 0px solid #1fb8eb;
+      margin: 5px;
+      margin-bottom: 10px;
+    }
+
+
+
+    #right {
+      width: 200px;
+      float: left;
+      margin: 0 auto;
+    }
+
+    #rightbox {
+      padding: 5px;
+      border-radius: 10px;
+      background: #FFF;
+      border-radius: 10px;
+      border: 0px solid #b81feb;
+      margin: 5px;
+      margin-bottom: 10px;
+    }
+
+
+
+    #footer {
+      width: 800px;
+      float: left;
+      margin: 0 auto;
+      clear: both;
+    }
+
+    #footerbox {
+      height: 20px;
+      background: transparent;
+      border-radius: 0px;
+      border-top: 0px solid #1feb52;
+      margin: 5px;
+      padding-top: 5px;
+      text-align: center;
+    }
+
+
+
+    a:link {
+      color: #222;
+      text-decoration: none;
+    }
+
+    a:visited {
+      color: #222;
+      text-decoration: none;
+
+    }
+
+    a:hover {
+      color: #666;
+      text-decoration: none;
+
+    }
+
+
+
+    ::-webkit-scrollbar-thumb {
+      background-color: #fff;
+      border-radius: 0px;
+      border: 1px solid #999;
+    }
+
+    ::-webkit-scrollbar {
+      width: 7px;
+      height: 4px;
+      background: #fff;
+    }
+
+
+
+    .small-title {
+      color: #666;
+      text-transform: uppercase;
+      font: 12px arial;
+      line-height: 12px;
+      background: #F6EFFF;
+      border-radius: 10px;
+      margin-bottom: 5px;
+    }
+
+    .big-title {
+      color: #666;
+      text-transform: uppercase;
+      font: 16px arial;
+      line-height: 16px;
+      background: #FFEFFA;
+      border-radius: 10px;
+      margin-bottom: 5px;
+    }
+
+
+
+    #Table {
+      border-collapse: collapse;
+      padding: 5px;
+      width: 380px;
+    }
+
+    #Table th {
+      padding: 0px;
+      background: #EFF4FF;
+      color: #666;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      width: 50%;
+      text-align: left;
+      font: 12px arial;
+      line-height: 12px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    #Table td {
+      text-align: center;
+      padding: 5px;
+      background: #ffffff;
+      color: #313030;
+      width: 50%;
+      text-align: left;
+    }
+
+
+    #navigation a:link,
+    a:visited,
+    a:active {
+      font: 12px monospace;
+      text-transform: uppercase;
+      line-height: 20px;
+      padding: 4px;
+      letter-spacing: 2px;
+      margin-right: 10px;
+      background: #fff;
+      border-radius: 10px;
+
+    }
+
+    #navigation a:hover {
+      background: #fff;
+      text-transform: uppercase;
+      line-height: 20px;
+      padding: 4px;
+      letter-spacing: 2px;
+      margin-right: 10px;
+      color: #666;
+    }
+
+    textarea {
+      font-size: 10px;
+      letter-spacing: 1px;
+      color: #999;
+    }
+
+    .visited {
+      fill: #4CAF50;
+      /* green */
+    }
+
     .not-visited {
       fill: #ccc;
     }
+
     svg path {
       stroke: #fff;
       stroke-width: 1;
     }
-    
   </style>
 </head>
-  
-  
-  
+
+
+
 <body>
-  
-    <div id="layout">
-      <div id="banner">
-        <div id="bannertextorimage">
 
-          <div class="text"><img src="https://64.media.tumblr.com/17a458b6b0d472d7e8ff08cc66b36f60/0d9682bec82f4b51-ad/s75x75_c1/93e2e478ec5adb648352711e29a2553fe2d50eb9.webp" alt="x"> Stickers!<img src="https://64.media.tumblr.com/17a458b6b0d472d7e8ff08cc66b36f60/0d9682bec82f4b51-ad/s75x75_c1/93e2e478ec5adb648352711e29a2553fe2d50eb9.webp" alt="x"></div>
-        
-        
-        </div>
-        </div>
-      
-      
-      
-        <div id="navigationbar">
-        <div id="navigation">
-          <center> 
-           <a href="index.html"><img src="https://64.media.tumblr.com/e3e4a736aa1583b728742edbbf28acf3/584c5726409b8704-3d/s75x75_c1/33ae09fbcf16dcd4398301c7f00bf8197ca47c91.gifv" alt="x"> Home</a> 
-           <a href="about.html"><img src="https://64.media.tumblr.com/e3e4a736aa1583b728742edbbf28acf3/584c5726409b8704-3d/s75x75_c1/33ae09fbcf16dcd4398301c7f00bf8197ca47c91.gifv" alt="x">  About</a>
-           <a href="travel.html"><img src="https://64.media.tumblr.com/e3e4a736aa1583b728742edbbf28acf3/584c5726409b8704-3d/s75x75_c1/33ae09fbcf16dcd4398301c7f00bf8197ca47c91.gifv" alt="x">  Travel</a>
-           <a href="interests.html"><img src="https://64.media.tumblr.com/e3e4a736aa1583b728742edbbf28acf3/584c5726409b8704-3d/s75x75_c1/33ae09fbcf16dcd4398301c7f00bf8197ca47c91.gifv" alt="x">  Interests</a>
-           <a href="art.html"> <img src="https://64.media.tumblr.com/e3e4a736aa1583b728742edbbf28acf3/584c5726409b8704-3d/s75x75_c1/33ae09fbcf16dcd4398301c7f00bf8197ca47c91.gifv" alt="x">  Art</a>
-           <a href="blog.html"><img src="https://64.media.tumblr.com/e3e4a736aa1583b728742edbbf28acf3/584c5726409b8704-3d/s75x75_c1/33ae09fbcf16dcd4398301c7f00bf8197ca47c91.gifv" alt="x">  Blog</a>
-           <a href="otherStuff.html"> <img src="https://64.media.tumblr.com/e3e4a736aa1583b728742edbbf28acf3/584c5726409b8704-3d/s75x75_c1/33ae09fbcf16dcd4398301c7f00bf8197ca47c91.gifv" alt="x">  Updates</a>
-          </center>
-        </div>
-        </div>
-      
-      
-      
-        <div id="left">
-        <div id="leftbox">
-          <div class="small-title"><img src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv" alt="x"> St. Louis</div>
-            St. Louis is probably the place I've been to the most because my grandma lives there and I'd always go to Blues games. I was only ever able to go to like 1 or 2 Blues games per year as a kid because lived in Indianapolis. But I always loved going to St. Louis as a kid because there's cool stuff there like some scuplture gardens, the magic house, a cool science mueseum, the city mueseum, the zoo, and Imo's and lion's choice. My two most memorable st louis trips were when i went with my bestfriends as a little child and a wacky st louis trip in high school with my brother's ex.
-        </div>
-          
-          <div id="leftbox">
-          <div class="small-title"><img src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv" alt="x"> Salt Lake City</div>
-            Salt Lake City is weird because it's probably one of the nicest cities in the United States and definitely one of the prettiest cities out there, but it's filled with mormons and it's really weird because it's basically run by the church. I'm prolly moving here soon because my brother lives here and i'm typing this in salt lake city, but it's quite a fascinating place. Also one time in salt lake city me n my brother and his roommate were walking through a really rich neighborhood to do a hike and a cybertruck drove by so we made fun of it, and then the guy driving the cybertruck saw we were going the wrong direction and nicely helped get us to the right place and then we saw the back of the cybertruck and he removed the tesla logo and replaced it with a giant toyota logo. 
-        </div>
-          
-          <div id="leftbox">
-          <div class="small-title"><img src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv" alt="x"> Chicago</div>
-            I haven't been to chicago a lot but i think chicago is a neat city. I one time went to a blues blackhawks game in CHicago and the blues won in overtime. I also am a big fan of the bean in Chicago and like half my cousins live in chicago. I probably will end up moving to chicago sometime in my future because it seems like a cool place to live.
-        </div>
-          
-          <div id="leftbox">
-          <div class="small-title"><img src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv" alt="x"> New York</div>
-            I'm mostly adding this one here because it's got clout and New York city has maybe the most clout of any city. It's such a massive place and there's so much that happens there. My favorite part of the New york trip was when we were in MoMA and i realized we were like 2 blocks away from when luigi shot the healthcare guy and i was like we should go but i was also really high and then forgot to go. We also walked by a cybertruck just outside of wall street and we later saw it on twitter because someone had spray painted a swastika on the cybertruck.
-        </div>
-          </div>
-      
-      
-      
-        <div id="content">
-        <div id="contentbox">
-          <div class="big-title"><img src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv" alt="x">  States I've been to</div>
-            <img width="380" src="https://i.postimg.cc/sXF6HqRv/US-Level-0-1.png">
-          </div>
-          
-      
-          
-          
-          
-          <div id="contentbox">
-          <div class="big-title"><img src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv" alt="x"> Countries I've been to</div>
-            <p>The only country levels i can find is chinese so i can't make it let me know if you find an english one. i also eventually want to make an image collage of my pics from some of these vacations</p>
-            <p>Anyway here's a list of countries i've been to</p>
-            <ul>
-              <li>United States</li>
-              <li>Bahamas</li>
-              <li>South Africa</li>
-              <li>Australia</li>
-              <li>New Zealand</li>
-              <li>Canada</li>
-            </ul>
-          </div>
+  <div id="layout">
+    <div id="banner">
+      <div id="bannertextorimage">
 
-          <div id="contentbox">
-            <div class="big-title"><img src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv" alt="x"> Sticker collection</div>
-              <p>Every time i go somewhere I try to get at least one sticker for my water bottle so you can also find a catalog of all my stickers <a href="stickers.html"><span style="color: blue;">here</span></a></p>
-            </div>
-        
+        <div class="text"><img
+            src="https://64.media.tumblr.com/17a458b6b0d472d7e8ff08cc66b36f60/0d9682bec82f4b51-ad/s75x75_c1/93e2e478ec5adb648352711e29a2553fe2d50eb9.webp"
+            alt="x"> Stickers!<img
+            src="https://64.media.tumblr.com/17a458b6b0d472d7e8ff08cc66b36f60/0d9682bec82f4b51-ad/s75x75_c1/93e2e478ec5adb648352711e29a2553fe2d50eb9.webp"
+            alt="x"></div>
 
-</div>
-      
-        <div id="right">
-        <div id="rightbox">
-                    <div class="small-title"><img src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv" alt="x"> Sydney</div>
-                  I went to sydney with my brother and i think australia is really cool and i think it's neat i was able to go. We saw the Sydney opera house and went to a play there that made no sense, we also walked around a beach town up north and everything was closed because they hate mondays. We also stayed a cool hostel that was built over an archealogical site, and the public transit system in Sydney is so much better than america's. One time in Sydney some homeless guy made us watch him be racist to asians which was quite interesting. 
-            
-        </div>
-          
-          
-          <div id="rightbox">
-                    <div class="small-title"><img src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv" alt="x"> Aukland</div>
-                  On the same trip I went to Australia I also went to Auckland! That place was cool, we had more friends and we stayed in a mariott with a balcony and we also stayed on an island. I thought that Sydney had better public transit and was a nicer city, but Auckland has a lot cooler nature in it. We were able to hike up a volcano and watch the sunset over Auckland. We also got not alcohoolic drinks and they still made you a little silly but not a lot.
-            <br>
-        </div>
-          
-          <div id="rightbox">
-                    <div class="small-title"><img src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv" alt="x"> Cape Town</div>
 
-            I went to cape town in south africa. This was a trip that was planned in 2020 then a covid happened to the world and that kind of messed up our south africa plans but then we were able to do it 2024. This was a really fun trip but it was also weird going because the apartheid is still prevelant in the country and there's huge wealth inequalities. But we were able to see a cool city and lots of cool animals on safaris. We also almost got robbed because we stood out as tourists and they didn't realize we were with a tour guid and our tour guide got hit in the face a couple times in protecting us. 
-        </div>
-          
-          <div id="rightbox">
-                    <div class="small-title"><img src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv" alt="x"> Honolulu</div>
+      </div>
+    </div>
 
-            I went to honolulu during my australia trip and it wasn't really planned but we went for a couple days. In that time we went on a hike, walked around at night, and had the craziest uber ride. We got into an uber going on a hike with me my brother and two random people from our hostel, and the driver asks us a bunch of dumb questions basically boiling down to "Wow you guys are going on a hike" and we're like "we got an uber driver that has never touched grass and lives in hawaii", we then get to our hike and the path enterance is closed, so we just get back into our uber and pay her $40 cash to take her to a different enterance and her husband comes on the phone and she awkwardly introduces us and he starts cussing us out before she just hangs up. I don't really like honolulu though, tropical places aren't really my vibe and honolulu is a tropical place and it's also a combination of Miami, Vegas, and San Francisco.
-        </div>
-</div>
-      
-      
-      
-        <div id="footer">
-        <div id="footerbox">
-          Layout made by <a href="http://itinerae.neocities.org" target="_blank">Itinerae.</a> <br> Pixels from <a href="https://foollovers.com/" target="_blank">Fool lovers</a> and <a href="https://pixel-dreams.tumblr.com/post/100754773715/scary-cats" target="_blank">Pixel dreams.</a>
-        </div>
-        </div>
-    
-  
-  
-</div>
-  
-  
-  
+
+
+    <div id="navigationbar">
+      <div id="navigation">
+        <center>
+          <a href="index.html"><img
+              src="https://64.media.tumblr.com/e3e4a736aa1583b728742edbbf28acf3/584c5726409b8704-3d/s75x75_c1/33ae09fbcf16dcd4398301c7f00bf8197ca47c91.gifv"
+              alt="x"> Home</a>
+          <a href="about.html"><img
+              src="https://64.media.tumblr.com/e3e4a736aa1583b728742edbbf28acf3/584c5726409b8704-3d/s75x75_c1/33ae09fbcf16dcd4398301c7f00bf8197ca47c91.gifv"
+              alt="x"> About</a>
+          <a href="travel.html"><img
+              src="https://64.media.tumblr.com/e3e4a736aa1583b728742edbbf28acf3/584c5726409b8704-3d/s75x75_c1/33ae09fbcf16dcd4398301c7f00bf8197ca47c91.gifv"
+              alt="x"> Travel</a>
+          <a href="interests.html"><img
+              src="https://64.media.tumblr.com/e3e4a736aa1583b728742edbbf28acf3/584c5726409b8704-3d/s75x75_c1/33ae09fbcf16dcd4398301c7f00bf8197ca47c91.gifv"
+              alt="x"> Interests</a>
+          <a href="art.html"> <img
+              src="https://64.media.tumblr.com/e3e4a736aa1583b728742edbbf28acf3/584c5726409b8704-3d/s75x75_c1/33ae09fbcf16dcd4398301c7f00bf8197ca47c91.gifv"
+              alt="x"> Art</a>
+          <a href="blog.html"><img
+              src="https://64.media.tumblr.com/e3e4a736aa1583b728742edbbf28acf3/584c5726409b8704-3d/s75x75_c1/33ae09fbcf16dcd4398301c7f00bf8197ca47c91.gifv"
+              alt="x"> Blog</a>
+          <a href="otherStuff.html"> <img
+              src="https://64.media.tumblr.com/e3e4a736aa1583b728742edbbf28acf3/584c5726409b8704-3d/s75x75_c1/33ae09fbcf16dcd4398301c7f00bf8197ca47c91.gifv"
+              alt="x"> Updates</a>
+        </center>
+      </div>
+    </div>
+
+
+
+    <div id="left">
+      <div id="leftbox">
+        <div class="small-title"><img
+            src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv"
+            alt="x"> St. Louis</div>
+        St. Louis is probably the place I've been to the most because my grandma lives there and I'd always go to Blues
+        games. I was only ever able to go to like 1 or 2 Blues games per year as a kid because lived in Indianapolis.
+        But I always loved going to St. Louis as a kid because there's cool stuff there like some scuplture gardens, the
+        magic house, a cool science mueseum, the city mueseum, the zoo, and Imo's and lion's choice. My two most
+        memorable st louis trips were when i went with my bestfriends as a little child and a wacky st louis trip in
+        high school with my brother's ex.
+      </div>
+
+      <div id="leftbox">
+        <div class="small-title"><img
+            src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv"
+            alt="x"> Salt Lake City</div>
+        Salt Lake City is weird because it's probably one of the nicest cities in the United States and definitely one
+        of the prettiest cities out there, but it's filled with mormons and it's really weird because it's basically run
+        by the church. I'm prolly moving here soon because my brother lives here and i'm typing this in salt lake city,
+        but it's quite a fascinating place. Also one time in salt lake city me n my brother and his roommate were
+        walking through a really rich neighborhood to do a hike and a cybertruck drove by so we made fun of it, and then
+        the guy driving the cybertruck saw we were going the wrong direction and nicely helped get us to the right place
+        and then we saw the back of the cybertruck and he removed the tesla logo and replaced it with a giant toyota
+        logo.
+      </div>
+
+      <div id="leftbox">
+        <div class="small-title"><img
+            src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv"
+            alt="x"> Chicago</div>
+        I haven't been to chicago a lot but i think chicago is a neat city. I one time went to a blues blackhawks game
+        in CHicago and the blues won in overtime. I also am a big fan of the bean in Chicago and like half my cousins
+        live in chicago. I probably will end up moving to chicago sometime in my future because it seems like a cool
+        place to live.
+      </div>
+
+      <div id="leftbox">
+        <div class="small-title"><img
+            src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv"
+            alt="x"> New York</div>
+        I'm mostly adding this one here because it's got clout and New York city has maybe the most clout of any city.
+        It's such a massive place and there's so much that happens there. My favorite part of the New york trip was when
+        we were in MoMA and i realized we were like 2 blocks away from when luigi shot the healthcare guy and i was like
+        we should go but i was also really high and then forgot to go. We also walked by a cybertruck just outside of
+        wall street and we later saw it on twitter because someone had spray painted a swastika on the cybertruck.
+      </div>
+    </div>
+
+
+
+    <div id="content">
+      <div id="contentbox">
+        <div class="big-title"><img
+            src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv"
+            alt="x"> States I've been to</div>
+        <img width="380" src="https://i.postimg.cc/sXF6HqRv/US-Level-0-1.png">
+      </div>
+
+
+
+
+
+      <div id="contentbox">
+        <div class="big-title"><img
+            src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv"
+            alt="x"> Countries I've been to</div>
+        <p>The only country levels i can find is chinese so i can't make it let me know if you find an english one. i
+          also eventually want to make an image collage of my pics from some of these vacations</p>
+        <p>Anyway here's a list of countries i've been to</p>
+        <ul>
+          <li>United States</li>
+          <li>Bahamas</li>
+          <li>South Africa</li>
+          <li>Australia</li>
+          <li>New Zealand</li>
+          <li>Canada</li>
+        </ul>
+      </div>
+
+      <div id="contentbox">
+        <div class="big-title"><img
+            src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv"
+            alt="x"> Sticker collection</div>
+        <p>Every time i go somewhere I try to get at least one sticker for my water bottle so you can also find a
+          catalog of all my stickers <a href="stickers.html"><span style="color: blue;">here</span></a></p>
+      </div>
+
+
+    </div>
+
+    <div id="right">
+      <div id="rightbox">
+        <div class="small-title"><img
+            src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv"
+            alt="x"> Sydney</div>
+        I went to sydney with my brother and i think australia is really cool and i think it's neat i was able to go. We
+        saw the Sydney opera house and went to a play there that made no sense, we also walked around a beach town up
+        north and everything was closed because they hate mondays. We also stayed a cool hostel that was built over an
+        archealogical site, and the public transit system in Sydney is so much better than america's. One time in Sydney
+        some homeless guy made us watch him be racist to asians which was quite interesting.
+
+      </div>
+
+
+      <div id="rightbox">
+        <div class="small-title"><img
+            src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv"
+            alt="x"> Aukland</div>
+        On the same trip I went to Australia I also went to Auckland! That place was cool, we had more friends and we
+        stayed in a mariott with a balcony and we also stayed on an island. I thought that Sydney had better public
+        transit and was a nicer city, but Auckland has a lot cooler nature in it. We were able to hike up a volcano and
+        watch the sunset over Auckland. We also got not alcohoolic drinks and they still made you a little silly but not
+        a lot.
+        <br>
+      </div>
+
+      <div id="rightbox">
+        <div class="small-title"><img
+            src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv"
+            alt="x"> Cape Town</div>
+
+        I went to cape town in south africa. This was a trip that was planned in 2020 then a covid happened to the world
+        and that kind of messed up our south africa plans but then we were able to do it 2024. This was a really fun
+        trip but it was also weird going because the apartheid is still prevelant in the country and there's huge wealth
+        inequalities. But we were able to see a cool city and lots of cool animals on safaris. We also almost got robbed
+        because we stood out as tourists and they didn't realize we were with a tour guid and our tour guide got hit in
+        the face a couple times in protecting us.
+      </div>
+
+      <div id="rightbox">
+        <div class="small-title"><img
+            src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv"
+            alt="x"> Honolulu</div>
+
+        I went to honolulu during my australia trip and it wasn't really planned but we went for a couple days. In that
+        time we went on a hike, walked around at night, and had the craziest uber ride. We got into an uber going on a
+        hike with me my brother and two random people from our hostel, and the driver asks us a bunch of dumb questions
+        basically boiling down to "Wow you guys are going on a hike" and we're like "we got an uber driver that has
+        never touched grass and lives in hawaii", we then get to our hike and the path enterance is closed, so we just
+        get back into our uber and pay her $40 cash to take her to a different enterance and her husband comes on the
+        phone and she awkwardly introduces us and he starts cussing us out before she just hangs up. I don't really like
+        honolulu though, tropical places aren't really my vibe and honolulu is a tropical place and it's also a
+        combination of Miami, Vegas, and San Francisco.
+      </div>
+    </div>
+
+
+
+    <div id="footer">
+      <div id="footerbox">
+        Layout made by <a href="http://itinerae.neocities.org" target="_blank">Itinerae.</a> <br> Pixels from <a
+          href="https://foollovers.com/" target="_blank">Fool lovers</a> and <a
+          href="https://pixel-dreams.tumblr.com/post/100754773715/scary-cats" target="_blank">Pixel dreams.</a>
+      </div>
+    </div>
+
+
+
+  </div>
+
+
+
 </body>
-</html>          
-     
+
+</html>

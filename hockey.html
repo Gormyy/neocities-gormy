@@ -1,436 +1,586 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>Hockey - not conpletely finished yet</title>
-  
-  
+  <title>Hockey - not conpletely finished yet</title>
+
+
 
   <style type="text/css">
-    
-   
-
-    
-body {
-background:#9abcff url();
-font-family: calibri, Verdana, Arial, Helvetica, sans-serif;
-font-size: 10px;
-color:#333;
-letter-spacing:1px;
-}
+    body {
+      background: #9abcff url();
+      font-family: calibri, Verdana, Arial, Helvetica, sans-serif;
+      font-size: 10px;
+      color: #333;
+      letter-spacing: 1px;
+    }
 
 
-#layout {
-    margin: 70px auto;
-    width: 800px;
-}
-
-    
-    
-#navigationbar {
-    width: 800px;
-    float: left;
-    margin: 0 auto;
-}
-
-#navigation {
-  height: 20px;
-  line-height:20px;
-  background: transparent;
-  border-radius: 10px;
-  border: 0px solid #ebb81f;
-  margin: 5px;
-}
-
-    
-    
- #banner {
-    width: 800px;
-    float: left;
-    margin: 0 auto;
-}
-
-#bannertextorimage {
-    height: 70px;
-    line-height:70px;
-    background: transparent;
-    border-radius: 10px;
-    border: 0px solid #ebb81f;
-    margin: 5px;
-}   
-    
-    .text 
-    {font:italic 30px monospace;border-bottom:4px solid #fff;text-align:center;color:#C1C1E3;
-      letter-spacing:4px;text-transform:uppercase;}
-    
-    
-    
-#content {
-    width: 400px;
-    float: left;
-    margin: 0 auto;
-}
-
-#contentbox {
-    background: #FFFFFF;
-    border-radius: 10px;
-    border: 0px solid #ebebeb;
-    margin: 5px;
-    padding:5px;
-    margin-bottom:10px;
-}
-
-#left {
-    width: 200px;
-    float: left;
-    margin: 0 auto;
-}
-
-#leftbox {
-    border-radius: 10px;
-    padding:5px;
-    background: #FFF;
-    border-radius: 10px;
-    border: 0px solid #1fb8eb;
-    margin: 5px;
-    margin-bottom:10px;
-}
-
-    
-    
-#right {
-    width: 200px;
-    float: left;
-    margin: 0 auto;
-}
-
-#rightbox {
-    padding:5px;
-    border-radius: 10px;
-    background: #FFF;
-    border-radius: 10px;
-    border: 0px solid #b81feb;
-    margin: 5px;
-    margin-bottom:10px;
-}
-
-    
-    
-#footer {
-    width: 800px;
-    float: left;
-    margin: 0 auto;
-    clear: both;
-}
-
-#footerbox {
-    height: 20px;
-    background: transparent;
-    border-radius: 0px;
-    border-top: 0px solid #1feb52;
-    margin: 5px;
-    padding-top:5px;
-    text-align:center;
-}
+    #layout {
+      margin: 70px auto;
+      width: 800px;
+    }
 
 
 
-a:link {
-  color:#222;
-  text-decoration:none;
-  }
-a:visited {
-  color:#222;
-    text-decoration:none;
+    #navigationbar {
+      width: 800px;
+      float: left;
+      margin: 0 auto;
+    }
 
-  }
-a:hover {
-  color:#666;
-    text-decoration:none;
+    #navigation {
+      height: 20px;
+      line-height: 20px;
+      background: transparent;
+      border-radius: 10px;
+      border: 0px solid #ebb81f;
+      margin: 5px;
+    }
 
-  }
-    
-    
-    
-::-webkit-scrollbar-thumb {
-background-color: #fff;  
-border-radius: 0px;
-border:1px solid #999;
-}
-::-webkit-scrollbar {
-width: 7px; height: 4px; 
-background: #fff;
-}
 
-    
-    
-    .small-title {color:#666;text-transform:uppercase;font:12px arial;line-height:12px;background:#F6EFFF;border-radius: 10px;margin-bottom:5px;}
-    .big-title {color:#666;text-transform:uppercase;font:16px arial;line-height:16px;background:#FFEFFA;border-radius: 10px;margin-bottom:5px;}
-    
-    .hockeyScore {text-align: center;}
-    
- #Table {
-			border-collapse:collapse;
-			padding:5px;width:380px;
-		}
-    
-		#Table th {
-		  padding:0px;
-		  background: #EFF4FF;
-	      color: #666;border-top-left-radius:10px;border-top-right-radius:10px;
-          width:50%;
-          text-align:left;
-          font:12px arial;
-          line-height:12px;
-          text-transform:uppercase;
-          letter-spacing:2px;
-		}
-    
-		#Table td {
-			text-align:center;
-			padding:5px;
-			background: #ffffff;
-			color: #313030;
-            width:50%;
-            text-align:left;}
-    
-    
-    #navigation a:link, a:visited, a:active {font:12px monospace;
-  text-transform:uppercase;line-height:20px;
-  padding:4px; letter-spacing:2px;margin-right:10px;background:#fff;border-radius:10px;
-  
-  }
-      
-  #navigation a:hover {background:#fff;
-  text-transform:uppercase;line-height:20px;
-  padding:4px; letter-spacing:2px;margin-right:10px;
-  color:#666;
-  }
-    
-  textarea {font-size:10px;letter-spacing:1px;color:#999;}
 
-    
+    #banner {
+      width: 800px;
+      float: left;
+      margin: 0 auto;
+    }
+
+    #bannertextorimage {
+      height: 70px;
+      line-height: 70px;
+      background: transparent;
+      border-radius: 10px;
+      border: 0px solid #ebb81f;
+      margin: 5px;
+    }
+
+    .text {
+      font: italic 30px monospace;
+      border-bottom: 4px solid #fff;
+      text-align: center;
+      color: #C1C1E3;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+
+
+    #content {
+      width: 400px;
+      float: left;
+      margin: 0 auto;
+    }
+
+    #contentbox {
+      background: #FFFFFF;
+      border-radius: 10px;
+      border: 0px solid #ebebeb;
+      margin: 5px;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+
+    #left {
+      width: 200px;
+      float: left;
+      margin: 0 auto;
+    }
+
+    #leftbox {
+      border-radius: 10px;
+      padding: 5px;
+      background: #FFF;
+      border-radius: 10px;
+      border: 0px solid #1fb8eb;
+      margin: 5px;
+      margin-bottom: 10px;
+    }
+
+
+
+    #right {
+      width: 200px;
+      float: left;
+      margin: 0 auto;
+    }
+
+    #rightbox {
+      padding: 5px;
+      border-radius: 10px;
+      background: #FFF;
+      border-radius: 10px;
+      border: 0px solid #b81feb;
+      margin: 5px;
+      margin-bottom: 10px;
+    }
+
+
+
+    #footer {
+      width: 800px;
+      float: left;
+      margin: 0 auto;
+      clear: both;
+    }
+
+    #footerbox {
+      height: 20px;
+      background: transparent;
+      border-radius: 0px;
+      border-top: 0px solid #1feb52;
+      margin: 5px;
+      padding-top: 5px;
+      text-align: center;
+    }
+
+
+
+    a:link {
+      color: #222;
+      text-decoration: none;
+    }
+
+    a:visited {
+      color: #222;
+      text-decoration: none;
+
+    }
+
+    a:hover {
+      color: #666;
+      text-decoration: none;
+
+    }
+
+
+
+    ::-webkit-scrollbar-thumb {
+      background-color: #fff;
+      border-radius: 0px;
+      border: 1px solid #999;
+    }
+
+    ::-webkit-scrollbar {
+      width: 7px;
+      height: 4px;
+      background: #fff;
+    }
+
+
+
+    .small-title {
+      color: #666;
+      text-transform: uppercase;
+      font: 12px arial;
+      line-height: 12px;
+      background: #F6EFFF;
+      border-radius: 10px;
+      margin-bottom: 5px;
+    }
+
+    .big-title {
+      color: #666;
+      text-transform: uppercase;
+      font: 16px arial;
+      line-height: 16px;
+      background: #FFEFFA;
+      border-radius: 10px;
+      margin-bottom: 5px;
+    }
+
+    .hockeyScore {
+      text-align: center;
+    }
+
+    #Table {
+      border-collapse: collapse;
+      padding: 5px;
+      width: 380px;
+    }
+
+    #Table th {
+      padding: 0px;
+      background: #EFF4FF;
+      color: #666;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      width: 50%;
+      text-align: left;
+      font: 12px arial;
+      line-height: 12px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    #Table td {
+      text-align: center;
+      padding: 5px;
+      background: #ffffff;
+      color: #313030;
+      width: 50%;
+      text-align: left;
+    }
+
+
+    #navigation a:link,
+    a:visited,
+    a:active {
+      font: 12px monospace;
+      text-transform: uppercase;
+      line-height: 20px;
+      padding: 4px;
+      letter-spacing: 2px;
+      margin-right: 10px;
+      background: #fff;
+      border-radius: 10px;
+
+    }
+
+    #navigation a:hover {
+      background: #fff;
+      text-transform: uppercase;
+      line-height: 20px;
+      padding: 4px;
+      letter-spacing: 2px;
+      margin-right: 10px;
+      color: #666;
+    }
+
+    textarea {
+      font-size: 10px;
+      letter-spacing: 1px;
+      color: #999;
+    }
   </style>
 </head>
-  
-  
-  
+
+
+
 <body>
-  
-    <div id="layout">
-      <div id="banner">
-        <div id="bannertextorimage">
 
-          <div class="text"><img src="https://64.media.tumblr.com/17a458b6b0d472d7e8ff08cc66b36f60/0d9682bec82f4b51-ad/s75x75_c1/93e2e478ec5adb648352711e29a2553fe2d50eb9.webp" alt="x"> your site title <img src="https://64.media.tumblr.com/17a458b6b0d472d7e8ff08cc66b36f60/0d9682bec82f4b51-ad/s75x75_c1/93e2e478ec5adb648352711e29a2553fe2d50eb9.webp" alt="x"></div>
-        
-        
-        </div>
-        </div>
-      
-      
-      
-        <div id="navigationbar">
-        <div id="navigation">
-         <center> 
-           <a href="index.html"><img src="https://64.media.tumblr.com/e3e4a736aa1583b728742edbbf28acf3/584c5726409b8704-3d/s75x75_c1/33ae09fbcf16dcd4398301c7f00bf8197ca47c91.gifv" alt="x"> Home</a> 
-           <a href="about.html"><img src="https://64.media.tumblr.com/e3e4a736aa1583b728742edbbf28acf3/584c5726409b8704-3d/s75x75_c1/33ae09fbcf16dcd4398301c7f00bf8197ca47c91.gifv" alt="x">  About</a>
-           <a href="travel.html"><img src="https://64.media.tumblr.com/e3e4a736aa1583b728742edbbf28acf3/584c5726409b8704-3d/s75x75_c1/33ae09fbcf16dcd4398301c7f00bf8197ca47c91.gifv" alt="x">  Travel</a>
-           <a href="interests.html"><img src="https://64.media.tumblr.com/e3e4a736aa1583b728742edbbf28acf3/584c5726409b8704-3d/s75x75_c1/33ae09fbcf16dcd4398301c7f00bf8197ca47c91.gifv" alt="x">  Interests</a>
-           <a href="art.html"> <img src="https://64.media.tumblr.com/e3e4a736aa1583b728742edbbf28acf3/584c5726409b8704-3d/s75x75_c1/33ae09fbcf16dcd4398301c7f00bf8197ca47c91.gifv" alt="x">  Art</a>
-           <a href="blog.html"><img src="https://64.media.tumblr.com/e3e4a736aa1583b728742edbbf28acf3/584c5726409b8704-3d/s75x75_c1/33ae09fbcf16dcd4398301c7f00bf8197ca47c91.gifv" alt="x">  Blog</a>
-           <a href="otherStuff.html"> <img src="https://64.media.tumblr.com/e3e4a736aa1583b728742edbbf28acf3/584c5726409b8704-3d/s75x75_c1/33ae09fbcf16dcd4398301c7f00bf8197ca47c91.gifv" alt="x">  Updates</a>
-          </center>
-        </div>
-        </div>
-      
-      
-      
-        <div id="left">
+  <div id="layout">
+    <div id="banner">
+      <div id="bannertextorimage">
 
-        <div id="leftbox">
-          <div class="small-title"><img src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv" alt="x"> 2025</div>
-            
-            <p class="hockeyScore">4/15/2025&nbsp;</p>
-            <p class="hockeyScore">Utah Hockey Club <strong class="hockeyScoreNumber">1</strong> - <strong class="hockeyScoreNumber">6</strong> Blues</p>
-            <br>
-            <p class="hockeyScore">2/2/2025&nbsp;</p>
-            <p class="hockeyScore">Blues <strong class="hockeyScoreNumber">2</strong> - <strong class="hockeyScoreNumber">1</strong> Utah Hockey Club</p>
-            <br>
-            <p class="hockeyScore">1/18/2025&nbsp;</p>
-            <p class="hockeyScore">Blues <strong class="hockeyScoreNumber">2</strong> - <strong class="hockeyScoreNumber">4</strong> Utah Hockey Club</p>
-            <br>
-        </div>
-          
-          <div id="leftbox">
-          <div class="small-title"><img src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv" alt="x"> 2024</div>
-            
-            <p class="hockeyScore">1/18/2024&nbsp;</p>
-            <p class="hockeyScore">Wild <strong class="hockeyScoreNumber">3</strong> - <strong class="hockeyScoreNumber">7</strong> Lightning</p>
-            <br>
-        </div>
-          
-          <div id="leftbox">
-          <div class="small-title"><img src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv" alt="x"> 2023</div>
-            
-            <p class="hockeyScore">3/19/2023&nbsp;</p>
-            <p class="hockeyScore">Jets <strong class="hockeyScoreNumber">0</strong> - <strong class="hockeyScoreNumber">3</strong> Blues</p>
-            <br>
-        </div>
-          
-          <div id="leftbox">
-          <div class="small-title"><img src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv" alt="x"> 2022</div>
-          <p class="hockeyScore">I don't think i went to any hockey games in 2022 because of covid</p>
-        </div>
+        <div class="text"><img
+            src="https://64.media.tumblr.com/17a458b6b0d472d7e8ff08cc66b36f60/0d9682bec82f4b51-ad/s75x75_c1/93e2e478ec5adb648352711e29a2553fe2d50eb9.webp"
+            alt="x"> your site title <img
+            src="https://64.media.tumblr.com/17a458b6b0d472d7e8ff08cc66b36f60/0d9682bec82f4b51-ad/s75x75_c1/93e2e478ec5adb648352711e29a2553fe2d50eb9.webp"
+            alt="x"></div>
 
-        <div id="leftbox">
-          <div class="small-title"><img src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv" alt="x"> 2021</div>
-          <p class="hockeyScore">I did not go to any hockey games in 2021 because of covid</p>
-        </div>
-          
-          <div id="leftbox">
-          <div class="small-title"><img src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv" alt="x"> 2020</div>
-            <p class="hockeyScore">2/27/2020&nbsp;</p>
-            <p class="hockeyScore">Islanders <strong class="hockeyScoreNumber">2</strong> - <strong class="hockeyScoreNumber">3 (OT)</strong> Blues</p>
-            <br>
-        </div>
-          
-          <div id="leftbox">
-          <div class="small-title"><img src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv" alt="x"> 2019</div>
-            <p class="hockeyScore">5/7/2019&nbsp;</p>
-            <p class="hockeyScore">Stars <strong class="hockeyScoreNumber">1</strong> - <strong class="hockeyScoreNumber">2 (2OT)</strong> Blues</p>  
-
-            <p class="hockeyScore">2/26/2019&nbsp;</p>
-            <p class="hockeyScore">Predators <strong class="hockeyScoreNumber">2</strong> - <strong class="hockeyScoreNumber">3 </strong> Blues</p>
-        </div>
-          
-          <div id="leftbox">
-          <div class="small-title"><img src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv" alt="x"> 2018</div>
-            <p class="hockeyScore">3/18/2018&nbsp;</p>
-            <p class="hockeyScore">Blues <strong class="hockeyScoreNumber">5</strong> - <strong class="hockeyScoreNumber">4 (OT) </strong> Blackhawks</p>
-            
-        </div>
-
-        <div id="leftbox">
-        <div class="small-title"><img src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv" alt="x"> 2017</div>
-            lb
-        </div>
-          
-          <div id="leftbox">
-          <div class="small-title"><img src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv" alt="x"> 2016</div>
-            lb
-        </div>
-          
-          <div id="leftbox">
-          <div class="small-title"><img src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv" alt="x"> 2015</div>
-            lb
-        </div>
-          
-          <div id="leftbox">
-          <div class="small-title"><img src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv" alt="x"> 2014</div>
-            lb
-        </div>
-
-        <div id="leftbox">
-          <div class="small-title"><img src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv" alt="x"> 2013</div>
-            lb
-        </div>
 
       </div>
-      
-      
-      
-        <div id="content">
-        <div id="contentbox">
-          <div class="big-title"><img src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv" alt="x">  Go Blues!</div>
-
-          <p>
-            I'm using this middle column as a blog just about hockey stuff and then the right side of the page will just be small little notes i think. Which will probably include overarching thoughts, game reviews, and reactions etc.
-          </p>
-          </div>
+    </div>
 
 
-          <div id="contentbox">
-            <div class="big-title"><img src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv" alt="x">  Leafs vs Panthers Game 7 - 5/19/2025</div>
-  
-            <p>
-              This game was just really depressing. I feel bad for Leafs fan after this one. It must suck just following a team only for them to lose year after year after year. Their cap situation is also hell rn so they're going to have a fun time keeping this team together. The only silver lining to this is that they took the defending stanley cup champions, a team that has won 7/8 of their last series played. and took them to game 7. It's not going to be remembered in the history books, but this team is at least good. It unfortunately seems the team just wasn't good enough. For losses like this I think people tend to believe what they want to believe when watching a game. If your a fan of a team that's winning, you like to believe that you're winning because they're dominating, but if you're a fan of a team that's losing you want to believe that they're just losing because they're playing bad and not playing to potential. But in this game, I think we just saw the Florida Panthers prove why they're one of the scariest teams in the league right now. They just know what it takes to win a playoff series. The Leafs just don't. 
-            </p>
-            </div>
-          
-          
-          
-  <div id="contentbox">  
-           
-  <table id="Table">
-		<thead>
-			<tr>
-				<th><img src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv" alt="x"> Maple Leafs vs Panthers Game 5</th>
-				<th><img src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv" alt="x"> Golden Knights vs Oilers Game 5</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td valign="top">This game was kind of depressing. I think it's fascinating how this leafs team always seems to collapse in the playoffs. I didn't really watch this game much, I was watching it a bit with my dad like halfway through the first period, and we turned it off after the panthers allowed three goals. The game finally ended at 6-1 which is a crazy loss to happen. I hope Berube can turn things around, I have trust in him as a coach for the leafs. The Leafs are good enough to still win but against the Panthers, I'd be scared. But things like this often seem bleaker than they actually are. If they do win this series, I think they win the cup.</td>
-				<td valign="top">I turned this game on basically at the third period and just assumed it would be a slow, tight, defensive, elimination-style game but holy shit there was a lot of action in this game. I am very surprised it was scoreless as long as it was. At one moment in the start of the third period there was a 2 on 1, into a 3 on 2, into a basically missed empty net on the other side of the ice right into a clear cut breakaway in the span of a minute. A lot of what I like about hockey and sports in general, are the stories and how we can connect things to the past. It's hard not to compare this oilers team to the oilers dynasty of the 80s with gretzky. With McDavid and Draisaitl sliding in perfectly as parallels to Gretzky and Messier respectively. But I'm not old enough to remember that team, I just know them form what I've been told. And I see the parallels but they just feel a little more human, a little less scary, and a little less untouchable that the stories told. I mean sure they're very good but they dind't just cakewalk their way to the cup like the 80s oilers seemingly did. The modern day team hasn't even won a cup yet. I also like how the Oilers just have an overtime cheatcode of putting Draisaitl and McDavid on the same line. My final pre-overtime thought is that it's neat how a lot of the story coming into the playoffs and especially out of the first round was the goalie troubles the oilers have with Skinner and now he hasn't allowed a goal in 2 games. What a greasy goal for the oilers to win it gg. I wanted the oilers to win the series but I would have liked for it to go another game or two because I like when series go the distance.</td>
-			</tr>
-		</tbody>
-	</table>
- </div>
 
- <div id="contentbox">  
-           
-  <table id="Table">
-		<thead>
-			<tr>
-				<th><img src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv" alt="x"> Capitals vs Hurricanes Game 5</th>
-				<th><img src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv" alt="x"> Golden Knights vs Oilers Game 5</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td valign="top">I kind of want the capitals to win this game. I like this capitals team and it would be cool to see ovi win another cup.
-				<td valign="top">meow</td>
-			</tr>
-		</tbody>
-	</table>
- </div>
-          
-          
-          
-          <div id="contentbox">
-          <div class="big-title"><img src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv" alt="x"> 5/14/2025</div>
-          First post but Pacers made the Conference Finals yesterday so that's cool!
-          </div>
-</div>
-      
-      
-      
-      
-        <div id="right">
-        <div id="rightbox">
-                    <div class="small-title"><img src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv" alt="x"> Title</div>
-          Time is fucked up! it's crazy that 2013 is as close to 2019 as 2025 is! 2020 was a crazy year. I also saw the coyotes made the 2020 playoffs????
-          that 2020 blues team could have won the cup.
-          
-          
-             </div>
-          
-          
-</div>
-      
-      
-      
-        <div id="footer">
-        <div id="footerbox">
-          Layout made by <a href="http://itinerae.neocities.org" target="_blank">Itinerae.</a> <br> Pixels from <a href="https://foollovers.com/" target="_blank">Fool lovers</a> and <a href="https://pixel-dreams.tumblr.com/post/100754773715/scary-cats" target="_blank">Pixel dreams.</a>
-        </div>
-        </div>
-    
-  
-  
-</div>
-  
-  
-  
+    <div id="navigationbar">
+      <div id="navigation">
+        <center>
+          <a href="index.html"><img
+              src="https://64.media.tumblr.com/e3e4a736aa1583b728742edbbf28acf3/584c5726409b8704-3d/s75x75_c1/33ae09fbcf16dcd4398301c7f00bf8197ca47c91.gifv"
+              alt="x"> Home</a>
+          <a href="about.html"><img
+              src="https://64.media.tumblr.com/e3e4a736aa1583b728742edbbf28acf3/584c5726409b8704-3d/s75x75_c1/33ae09fbcf16dcd4398301c7f00bf8197ca47c91.gifv"
+              alt="x"> About</a>
+          <a href="travel.html"><img
+              src="https://64.media.tumblr.com/e3e4a736aa1583b728742edbbf28acf3/584c5726409b8704-3d/s75x75_c1/33ae09fbcf16dcd4398301c7f00bf8197ca47c91.gifv"
+              alt="x"> Travel</a>
+          <a href="interests.html"><img
+              src="https://64.media.tumblr.com/e3e4a736aa1583b728742edbbf28acf3/584c5726409b8704-3d/s75x75_c1/33ae09fbcf16dcd4398301c7f00bf8197ca47c91.gifv"
+              alt="x"> Interests</a>
+          <a href="art.html"> <img
+              src="https://64.media.tumblr.com/e3e4a736aa1583b728742edbbf28acf3/584c5726409b8704-3d/s75x75_c1/33ae09fbcf16dcd4398301c7f00bf8197ca47c91.gifv"
+              alt="x"> Art</a>
+          <a href="blog.html"><img
+              src="https://64.media.tumblr.com/e3e4a736aa1583b728742edbbf28acf3/584c5726409b8704-3d/s75x75_c1/33ae09fbcf16dcd4398301c7f00bf8197ca47c91.gifv"
+              alt="x"> Blog</a>
+          <a href="otherStuff.html"> <img
+              src="https://64.media.tumblr.com/e3e4a736aa1583b728742edbbf28acf3/584c5726409b8704-3d/s75x75_c1/33ae09fbcf16dcd4398301c7f00bf8197ca47c91.gifv"
+              alt="x"> Updates</a>
+        </center>
+      </div>
+    </div>
+
+
+
+    <div id="left">
+
+      <div id="leftbox">
+        <div class="small-title"><img
+            src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv"
+            alt="x"> 2025</div>
+
+        <p class="hockeyScore">4/15/2025&nbsp;</p>
+        <p class="hockeyScore">Utah Hockey Club <strong class="hockeyScoreNumber">1</strong> - <strong
+            class="hockeyScoreNumber">6</strong> Blues</p>
+        <br>
+        <p class="hockeyScore">2/2/2025&nbsp;</p>
+        <p class="hockeyScore">Blues <strong class="hockeyScoreNumber">2</strong> - <strong
+            class="hockeyScoreNumber">1</strong> Utah Hockey Club</p>
+        <br>
+        <p class="hockeyScore">1/18/2025&nbsp;</p>
+        <p class="hockeyScore">Blues <strong class="hockeyScoreNumber">2</strong> - <strong
+            class="hockeyScoreNumber">4</strong> Utah Hockey Club</p>
+        <br>
+      </div>
+
+      <div id="leftbox">
+        <div class="small-title"><img
+            src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv"
+            alt="x"> 2024</div>
+
+        <p class="hockeyScore">1/18/2024&nbsp;</p>
+        <p class="hockeyScore">Wild <strong class="hockeyScoreNumber">3</strong> - <strong
+            class="hockeyScoreNumber">7</strong> Lightning</p>
+        <br>
+      </div>
+
+      <div id="leftbox">
+        <div class="small-title"><img
+            src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv"
+            alt="x"> 2023</div>
+
+        <p class="hockeyScore">3/19/2023&nbsp;</p>
+        <p class="hockeyScore">Jets <strong class="hockeyScoreNumber">0</strong> - <strong
+            class="hockeyScoreNumber">3</strong> Blues</p>
+        <br>
+      </div>
+
+      <div id="leftbox">
+        <div class="small-title"><img
+            src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv"
+            alt="x"> 2022</div>
+        <p class="hockeyScore">I don't think i went to any hockey games in 2022 because of covid</p>
+      </div>
+
+      <div id="leftbox">
+        <div class="small-title"><img
+            src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv"
+            alt="x"> 2021</div>
+        <p class="hockeyScore">I did not go to any hockey games in 2021 because of covid</p>
+      </div>
+
+      <div id="leftbox">
+        <div class="small-title"><img
+            src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv"
+            alt="x"> 2020</div>
+        <p class="hockeyScore">2/27/2020&nbsp;</p>
+        <p class="hockeyScore">Islanders <strong class="hockeyScoreNumber">2</strong> - <strong
+            class="hockeyScoreNumber">3 (OT)</strong> Blues</p>
+        <br>
+      </div>
+
+      <div id="leftbox">
+        <div class="small-title"><img
+            src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv"
+            alt="x"> 2019</div>
+        <p class="hockeyScore">5/7/2019&nbsp;</p>
+        <p class="hockeyScore">Stars <strong class="hockeyScoreNumber">1</strong> - <strong class="hockeyScoreNumber">2
+            (2OT)</strong> Blues</p>
+
+        <p class="hockeyScore">2/26/2019&nbsp;</p>
+        <p class="hockeyScore">Predators <strong class="hockeyScoreNumber">2</strong> - <strong
+            class="hockeyScoreNumber">3 </strong> Blues</p>
+      </div>
+
+      <div id="leftbox">
+        <div class="small-title"><img
+            src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv"
+            alt="x"> 2018</div>
+        <p class="hockeyScore">3/18/2018&nbsp;</p>
+        <p class="hockeyScore">Blues <strong class="hockeyScoreNumber">5</strong> - <strong class="hockeyScoreNumber">4
+            (OT) </strong> Blackhawks</p>
+
+      </div>
+
+      <div id="leftbox">
+        <div class="small-title"><img
+            src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv"
+            alt="x"> 2017</div>
+        lb
+      </div>
+
+      <div id="leftbox">
+        <div class="small-title"><img
+            src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv"
+            alt="x"> 2016</div>
+        lb
+      </div>
+
+      <div id="leftbox">
+        <div class="small-title"><img
+            src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv"
+            alt="x"> 2015</div>
+        lb
+      </div>
+
+      <div id="leftbox">
+        <div class="small-title"><img
+            src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv"
+            alt="x"> 2014</div>
+        lb
+      </div>
+
+      <div id="leftbox">
+        <div class="small-title"><img
+            src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv"
+            alt="x"> 2013</div>
+        lb
+      </div>
+
+    </div>
+
+
+
+    <div id="content">
+      <div id="contentbox">
+        <div class="big-title"><img
+            src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv"
+            alt="x"> Go Blues!</div>
+
+        <p>
+          I'm using this middle column as a blog just about hockey stuff and then the right side of the page will just
+          be small little notes i think. Which will probably include overarching thoughts, game reviews, and reactions
+          etc.
+        </p>
+      </div>
+
+
+      <div id="contentbox">
+        <div class="big-title"><img
+            src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv"
+            alt="x"> Leafs vs Panthers Game 7 - 5/19/2025</div>
+
+        <p>
+          This game was just really depressing. I feel bad for Leafs fan after this one. It must suck just following a
+          team only for them to lose year after year after year. Their cap situation is also hell rn so they're going to
+          have a fun time keeping this team together. The only silver lining to this is that they took the defending
+          stanley cup champions, a team that has won 7/8 of their last series played. and took them to game 7. It's not
+          going to be remembered in the history books, but this team is at least good. It unfortunately seems the team
+          just wasn't good enough. For losses like this I think people tend to believe what they want to believe when
+          watching a game. If your a fan of a team that's winning, you like to believe that you're winning because
+          they're dominating, but if you're a fan of a team that's losing you want to believe that they're just losing
+          because they're playing bad and not playing to potential. But in this game, I think we just saw the Florida
+          Panthers prove why they're one of the scariest teams in the league right now. They just know what it takes to
+          win a playoff series. The Leafs just don't.
+        </p>
+      </div>
+
+
+
+      <div id="contentbox">
+
+        <table id="Table">
+          <thead>
+            <tr>
+              <th><img
+                  src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv"
+                  alt="x"> Maple Leafs vs Panthers Game 5</th>
+              <th><img
+                  src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv"
+                  alt="x"> Golden Knights vs Oilers Game 5</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td valign="top">This game was kind of depressing. I think it's fascinating how this leafs team always
+                seems to collapse in the playoffs. I didn't really watch this game much, I was watching it a bit with my
+                dad like halfway through the first period, and we turned it off after the panthers allowed three goals.
+                The game finally ended at 6-1 which is a crazy loss to happen. I hope Berube can turn things around, I
+                have trust in him as a coach for the leafs. The Leafs are good enough to still win but against the
+                Panthers, I'd be scared. But things like this often seem bleaker than they actually are. If they do win
+                this series, I think they win the cup.</td>
+              <td valign="top">I turned this game on basically at the third period and just assumed it would be a slow,
+                tight, defensive, elimination-style game but holy shit there was a lot of action in this game. I am very
+                surprised it was scoreless as long as it was. At one moment in the start of the third period there was a
+                2 on 1, into a 3 on 2, into a basically missed empty net on the other side of the ice right into a clear
+                cut breakaway in the span of a minute. A lot of what I like about hockey and sports in general, are the
+                stories and how we can connect things to the past. It's hard not to compare this oilers team to the
+                oilers dynasty of the 80s with gretzky. With McDavid and Draisaitl sliding in perfectly as parallels to
+                Gretzky and Messier respectively. But I'm not old enough to remember that team, I just know them form
+                what I've been told. And I see the parallels but they just feel a little more human, a little less
+                scary, and a little less untouchable that the stories told. I mean sure they're very good but they
+                dind't just cakewalk their way to the cup like the 80s oilers seemingly did. The modern day team hasn't
+                even won a cup yet. I also like how the Oilers just have an overtime cheatcode of putting Draisaitl and
+                McDavid on the same line. My final pre-overtime thought is that it's neat how a lot of the story coming
+                into the playoffs and especially out of the first round was the goalie troubles the oilers have with
+                Skinner and now he hasn't allowed a goal in 2 games. What a greasy goal for the oilers to win it gg. I
+                wanted the oilers to win the series but I would have liked for it to go another game or two because I
+                like when series go the distance.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div id="contentbox">
+
+        <table id="Table">
+          <thead>
+            <tr>
+              <th><img
+                  src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv"
+                  alt="x"> Capitals vs Hurricanes Game 5</th>
+              <th><img
+                  src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv"
+                  alt="x"> Golden Knights vs Oilers Game 5</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td valign="top">I kind of want the capitals to win this game. I like this capitals team and it would be
+                cool to see ovi win another cup.
+              <td valign="top">meow</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+
+
+      <div id="contentbox">
+        <div class="big-title"><img
+            src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv"
+            alt="x"> 5/14/2025</div>
+        First post but Pacers made the Conference Finals yesterday so that's cool!
+      </div>
+    </div>
+
+
+
+
+    <div id="right">
+      <div id="rightbox">
+        <div class="small-title"><img
+            src="https://64.media.tumblr.com/70e035a2d218094d7fb7ece0966f2434/675a77468b0f4c8b-5d/s75x75_c1/34833cfe763fee2c330a4f69b737c60b06b8a839.gifv"
+            alt="x"> Title</div>
+        Time is fucked up! it's crazy that 2013 is as close to 2019 as 2025 is! 2020 was a crazy year. I also saw the
+        coyotes made the 2020 playoffs????
+        that 2020 blues team could have won the cup.
+
+
+      </div>
+
+
+    </div>
+
+
+
+    <div id="footer">
+      <div id="footerbox">
+        Layout made by <a href="http://itinerae.neocities.org" target="_blank">Itinerae.</a> <br> Pixels from <a
+          href="https://foollovers.com/" target="_blank">Fool lovers</a> and <a
+          href="https://pixel-dreams.tumblr.com/post/100754773715/scary-cats" target="_blank">Pixel dreams.</a>
+      </div>
+    </div>
+
+
+
+  </div>
+
+
+
 </body>
-</html>          
-     
+
+</html>

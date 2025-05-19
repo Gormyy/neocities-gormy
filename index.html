@@ -1,406 +1,482 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    
-    <style type="text/css">
-      
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+
+  <style type="text/css">
     body {
-    background:#E7EDF2 url(https://64.media.tumblr.com/f6900502ff0d8d97b7777f719f676e8e/46d71838c2ab60b3-76/s75x75_c1/a15417732f9baaabc45f7960a34bbff9cf8eceec.gifv) fixed;
-    font-family:calibri, Verdana, Arial, Helvetica, sans-serif;
-    font-size: 10px;
-    text-shadow: 0px 0px 1px #b3b3b3;
-    color:#888;
-    letter-spacing: 1px;}
+      background: #E7EDF2 url(https://64.media.tumblr.com/f6900502ff0d8d97b7777f719f676e8e/46d71838c2ab60b3-76/s75x75_c1/a15417732f9baaabc45f7960a34bbff9cf8eceec.gifv) fixed;
+      font-family: calibri, Verdana, Arial, Helvetica, sans-serif;
+      font-size: 10px;
+      text-shadow: 0px 0px 1px #b3b3b3;
+      color: #888;
+      letter-spacing: 1px;
+    }
 
     #wrapper {
-    margin: 0 auto;
-    width: 570px;}
+      margin: 0 auto;
+      width: 570px;
+    }
 
     #navigationwrap {
-    width: 570px;
-    float: left;
-    margin: 0 auto;}
+      width: 570px;
+      float: left;
+      margin: 0 auto;
+    }
 
-#navigation {
-    height: 20px;
-    line-height:20px;
-    background: #FFF;
-    border-width:7px;
-    border-style:solid;
-    border-image: url("https://64.media.tumblr.com/6f0c2efb2b0902a5907c60c9d1dcad9e/de283233162c752d-89/s75x75_c1/62ee23af1906bc552dbea259f32e0801263b4635.pnj") 8 fill round;
-    margin: 5px;
-    padding:5px;
-}
-      
-#navigation a:link, a:visited, a:active {font:11px monospace;
-  text-transform:uppercase;line-height:20px;
-  padding:4px; letter-spacing:1px;margin-right:10px;}
-      
-  #navigation a:hover {background:#fff;
-  text-transform:uppercase;line-height:20px;
-  padding:4px; letter-spacing:1px;margin-right:10px;}
+    #navigation {
+      height: 20px;
+      line-height: 20px;
+      background: #FFF;
+      border-width: 7px;
+      border-style: solid;
+      border-image: url("https://64.media.tumblr.com/6f0c2efb2b0902a5907c60c9d1dcad9e/de283233162c752d-89/s75x75_c1/62ee23af1906bc552dbea259f32e0801263b4635.pnj") 8 fill round;
+      margin: 5px;
+      padding: 5px;
+    }
 
-#contentwrap {
-    width: 400px;
-    float: left;
-    margin: 0 auto;}
+    #navigation a:link,
+    a:visited,
+    a:active {
+      font: 11px monospace;
+      text-transform: uppercase;
+      line-height: 20px;
+      padding: 4px;
+      letter-spacing: 1px;
+      margin-right: 10px;
+    }
 
-#content {
-    background: #fff;
-    border-width:7px;
-    border-style:solid;
-    border-image: url("https://64.media.tumblr.com/6f0c2efb2b0902a5907c60c9d1dcad9e/de283233162c752d-89/s75x75_c1/62ee23af1906bc552dbea259f32e0801263b4635.pnj") 8 fill round;
-    margin: 5px;padding:5px;}
+    #navigation a:hover {
+      background: #fff;
+      text-transform: uppercase;
+      line-height: 20px;
+      padding: 4px;
+      letter-spacing: 1px;
+      margin-right: 10px;
+    }
 
-#rightcolumnwrap {
-    width: 170px;
-    float: left;
-    margin: 0 auto;}
+    #contentwrap {
+      width: 400px;
+      float: left;
+      margin: 0 auto;
+    }
 
-#rightcolumn {
-background: #FFF;
-border-width:7px;
-border-style:solid;
-border-image: url("https://64.media.tumblr.com/6f0c2efb2b0902a5907c60c9d1dcad9e/de283233162c752d-89/s75x75_c1/62ee23af1906bc552dbea259f32e0801263b4635.pnj") 8 fill round;
-margin: 5px;padding:5px;}
+    #content {
+      background: #fff;
+      border-width: 7px;
+      border-style: solid;
+      border-image: url("https://64.media.tumblr.com/6f0c2efb2b0902a5907c60c9d1dcad9e/de283233162c752d-89/s75x75_c1/62ee23af1906bc552dbea259f32e0801263b4635.pnj") 8 fill round;
+      margin: 5px;
+      padding: 5px;
+    }
 
-#footerwrap {
-    width: 570px;
-    float: left;
-    margin: 0 auto;
-    clear: both;}
+    #rightcolumnwrap {
+      width: 170px;
+      float: left;
+      margin: 0 auto;
+    }
 
-#footer {
-    height: 20px;
-    background: #FFF;
-    border-width:7px;
-    border-style:solid;
-    border-image: url("https://64.media.tumblr.com/6f0c2efb2b0902a5907c60c9d1dcad9e/de283233162c752d-89/s75x75_c1/62ee23af1906bc552dbea259f32e0801263b4635.pnj") 8 fill round;
-    line-height:20px;
-    margin: 5px;
-    text-align:center;}    
-      
-::-webkit-scrollbar-thumb {
-background-color: #fff;  
-border-radius: 0px;
-border:1px solid #999;}
-::-webkit-scrollbar {
-width: 7px; height: 4px; 
-background: transparent;}
+    #rightcolumn {
+      background: #FFF;
+      border-width: 7px;
+      border-style: solid;
+      border-image: url("https://64.media.tumblr.com/6f0c2efb2b0902a5907c60c9d1dcad9e/de283233162c752d-89/s75x75_c1/62ee23af1906bc552dbea259f32e0801263b4635.pnj") 8 fill round;
+      margin: 5px;
+      padding: 5px;
+    }
 
-   
-.title {background:#E9F9FF;text-transform:uppercase;font:10px monospace; letter-spacing:3px;color:#555;padding:2px;padding-left:4px;margin-bottom:4px;}
-.title2 {background:#E9F9FF;text-transform:uppercase;letter-spacing:3px;color:#555;padding:2px;padding-left:4px;margin-bottom:4px;font:10px monospace;line-height:10px;}
-    
-b {color:#64B0DB;}
-    	
-a:link, a:visited, a:active { 
-color:#64B0DB;text-decoration:none;}
-a:hover {
-color:#999;}
+    #footerwrap {
+      width: 570px;
+      float: left;
+      margin: 0 auto;
+      clear: both;
+    }
 
-.rounded-btn {
-  background-color: #E9F9FF; /* Light blue */
-  color: #888; /* Black text */
-  border: none;
-  border-radius: 999px; /* Fully rounded */
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
+    #footer {
+      height: 20px;
+      background: #FFF;
+      border-width: 7px;
+      border-style: solid;
+      border-image: url("https://64.media.tumblr.com/6f0c2efb2b0902a5907c60c9d1dcad9e/de283233162c752d-89/s75x75_c1/62ee23af1906bc552dbea259f32e0801263b4635.pnj") 8 fill round;
+      line-height: 20px;
+      margin: 5px;
+      text-align: center;
+    }
 
-.rounded-btn:hover {
-  background-color: #add8e6; /* Slightly darker blue on hover */
-}
+    ::-webkit-scrollbar-thumb {
+      background-color: #fff;
+      border-radius: 0px;
+      border: 1px solid #999;
+    }
 
-    
-    </style>
-  </head>
-  <body>
-    <br><br><br>
-    <div id="wrapper">
-       <div id="navigationwrap">
-        <div id="navigation">
-          <center>
+    ::-webkit-scrollbar {
+      width: 7px;
+      height: 4px;
+      background: transparent;
+    }
+
+
+    .title {
+      background: #E9F9FF;
+      text-transform: uppercase;
+      font: 10px monospace;
+      letter-spacing: 3px;
+      color: #555;
+      padding: 2px;
+      padding-left: 4px;
+      margin-bottom: 4px;
+    }
+
+    .title2 {
+      background: #E9F9FF;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #555;
+      padding: 2px;
+      padding-left: 4px;
+      margin-bottom: 4px;
+      font: 10px monospace;
+      line-height: 10px;
+    }
+
+    b {
+      color: #64B0DB;
+    }
+
+    a:link,
+    a:visited,
+    a:active {
+      color: #64B0DB;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #999;
+    }
+
+    .rounded-btn {
+      background-color: #E9F9FF;
+      /* Light blue */
+      color: #888;
+      /* Black text */
+      border: none;
+      border-radius: 999px;
+      /* Fully rounded */
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .rounded-btn:hover {
+      background-color: #add8e6;
+      /* Slightly darker blue on hover */
+    }
+  </style>
+</head>
+
+<body>
+  <br><br><br>
+  <div id="wrapper">
+    <div id="navigationwrap">
+      <div id="navigation">
+        <center>
           <a href="index.html">Home</a>
-          <a href="about.html">About</a> 
+          <a href="about.html">About</a>
           <a href="travel.html">Travel</a>
           <a href="interests.html">Interests</a>
           <a href="art.html">Art</a>
           <a href="blog.html">Blog</a>
           <a href="otherStuff.html">Updates</a>
-          </center>
-          
-        </div>
-        </div>
-        <div id="contentwrap">
-        <div id="content">
-          
-<div class="title2"> <img src="https://64.media.tumblr.com/0b91ec3f6bd8e50404dc513ffbdf5821/014d6f73835b6e87-d3/s75x75_c1/f19c167835beae789c67e6721b3492325131958c.gifv"> Hello!</div>
-<br>
-I'm Gormy! I really like the idea of neocities so I decided to make my own. 
-I know how to code and stuff but I really really don't like making websites
-so I'm going to be using templates for most of this stuff and I'll probably be updating the site periodically 
-but right now the site will be unfinished while i finish it!
-<br><br>
-<div class="title2"> <img src="https://64.media.tumblr.com/0b91ec3f6bd8e50404dc513ffbdf5821/014d6f73835b6e87-d3/s75x75_c1/f19c167835beae789c67e6721b3492325131958c.gifv"> About</div> 
-<br>
-This is my website! I haven't really finished it yet but you can follow updates <a href="interests.html">here!</a> Also you should go to the about page to learn more about me!
-<br><br>
-<div class="title2"> <img src="https://64.media.tumblr.com/0b91ec3f6bd8e50404dc513ffbdf5821/014d6f73835b6e87-d3/s75x75_c1/f19c167835beae789c67e6721b3492325131958c.gifv"> Current Location</div> 
-<p id="location">Location loading...</p>
-<br>
-If you're a friend you can find my precise location <a href="preciseLocation.html">here!</a>
-<br><br>
-<div class="title2"> <img src="https://64.media.tumblr.com/0b91ec3f6bd8e50404dc513ffbdf5821/014d6f73835b6e87-d3/s75x75_c1/f19c167835beae789c67e6721b3492325131958c.gifv"> Take me to a ranodm page</div> 
-<br>
-<center>
-  <button class="rounded-btn" id="randomButton">I'm feeling lucky</button>
-  <br><br>
-</center>
-<div class="title2"> <img src="https://64.media.tumblr.com/0b91ec3f6bd8e50404dc513ffbdf5821/014d6f73835b6e87-d3/s75x75_c1/f19c167835beae789c67e6721b3492325131958c.gifv"> Visitor count!</div> 
-<p id="visitorCount">loading...</p>
-<br>
+        </center>
 
-<script type="module">
-  async function loadWeather() {
-    try {
-      const response = await fetch("https://gormysecret.onrender.com/visitorCount");
-      const data = await response.json();
+      </div>
+    </div>
+    <div id="contentwrap">
+      <div id="content">
 
-      const num = data["visitorCount"]
+        <div class="title2"> <img
+            src="https://64.media.tumblr.com/0b91ec3f6bd8e50404dc513ffbdf5821/014d6f73835b6e87-d3/s75x75_c1/f19c167835beae789c67e6721b3492325131958c.gifv">
+          Hello!</div>
+        <br>
+        I'm Gormy! I really like the idea of neocities so I decided to make my own.
+        I know how to code and stuff but I really really don't like making websites
+        so I'm going to be using templates for most of this stuff and I'll probably be updating the site periodically
+        but right now the site will be unfinished while i finish it!
+        <br><br>
+        <div class="title2"> <img
+            src="https://64.media.tumblr.com/0b91ec3f6bd8e50404dc513ffbdf5821/014d6f73835b6e87-d3/s75x75_c1/f19c167835beae789c67e6721b3492325131958c.gifv">
+          About</div>
+        <br>
+        This is my website! I haven't really finished it yet but you can follow updates <a
+          href="interests.html">here!</a> Also you should go to the about page to learn more about me!
+        <br><br>
+        <div class="title2"> <img
+            src="https://64.media.tumblr.com/0b91ec3f6bd8e50404dc513ffbdf5821/014d6f73835b6e87-d3/s75x75_c1/f19c167835beae789c67e6721b3492325131958c.gifv">
+          Current Location</div>
+        <p id="location">Location loading...</p>
+        <br>
+        If you're a friend you can find my precise location <a href="preciseLocation.html">here!</a>
+        <br><br>
+        <div class="title2"> <img
+            src="https://64.media.tumblr.com/0b91ec3f6bd8e50404dc513ffbdf5821/014d6f73835b6e87-d3/s75x75_c1/f19c167835beae789c67e6721b3492325131958c.gifv">
+          Take me to a ranodm page</div>
+        <br>
+        <center>
+          <button class="rounded-btn" id="randomButton">I'm feeling lucky</button>
+          <br><br>
+        </center>
+        <div class="title2"> <img
+            src="https://64.media.tumblr.com/0b91ec3f6bd8e50404dc513ffbdf5821/014d6f73835b6e87-d3/s75x75_c1/f19c167835beae789c67e6721b3492325131958c.gifv">
+          Visitor count!</div>
+        <p id="visitorCount">loading...</p>
+        <br>
 
-      const visitorText = "You are visitor number " + num + " to my website! Welcome!";
-      document.getElementById("visitorCount").textContent = visitorText;
-    } catch (err) {
-      console.error("Failed to load Visitor date:", err);
-      document.getElementById("visitorCount").textContent = "Unable to fetch visitor data :(";
-    }
-  }
+        <script type="module">
+          async function loadWeather() {
+            try {
+              const response = await fetch("https://gormysecret.onrender.com/visitorCount");
+              const data = await response.json();
 
-  loadWeather();
-</script>
+              const num = data["visitorCount"]
 
-        </div>
-        </div>
+              const visitorText = "You are visitor number " + num + " to my website! Welcome!";
+              document.getElementById("visitorCount").textContent = visitorText;
+            } catch (err) {
+              console.error("Failed to load Visitor date:", err);
+              document.getElementById("visitorCount").textContent = "Unable to fetch visitor data :(";
+            }
+          }
 
-       <div id="rightcolumnwrap">
-        <div id="rightcolumn">
-          
-<center>
-<img src="https://img.pokemondb.net/sprites/black-white/anim/normal/glaceon.gif" width="100" alt="x">
-</center><br>
+          loadWeather();
+        </script>
 
-<div class="title"><img src="https://64.media.tumblr.com/171c295df37def8ea5bd3774fa3f2471/014d6f73835b6e87-e8/s75x75_c1/f2e8d21f39d3532d9cd06c05172782950d2625ad.gifv"> Github</div>
-           
-I made a github you can follow updates for the website <a href="https://github.com/Gormyy/neocities-gormy">here!</a>
-<br>
-You can also look at my other projects <a href="https://github.com/Gormyy">here!</a> I don't really have anything else interesting right now though
-
-<br><br>      
-
-<div class="title"><img src="https://64.media.tumblr.com/171c295df37def8ea5bd3774fa3f2471/014d6f73835b6e87-e8/s75x75_c1/f2e8d21f39d3532d9cd06c05172782950d2625ad.gifv"> Weather</div>
-           
-<p>The current weather for me: </p>
-<p id="weather">Weather loading...</p>
-
-<script type="module">
-  async function loadWeather() {
-    try {
-      const response = await fetch("https://gormysecret.onrender.com/weather?format=json");
-      const data = await response.json();
-
-      const temperature = Math.round(data.main.feels_like);
-      const windSpeed = Math.round(data.wind.speed);
-      const description = data.weather[0].description;
-
-      const weatherText = `It is currently ${temperature}° with ${description}, and the wind is blowing at ${windSpeed} mph.`;
-      document.getElementById("weather").textContent = weatherText;
-    } catch (err) {
-      console.error("Failed to load weather:", err);
-      document.getElementById("weather").textContent = "Unable to fetch weather data.";
-    }
-  }
-
-  loadWeather();
-</script>
-
-<div class="title"><img src="https://64.media.tumblr.com/171c295df37def8ea5bd3774fa3f2471/014d6f73835b6e87-e8/s75x75_c1/f2e8d21f39d3532d9cd06c05172782950d2625ad.gifv"> Time</div>
-           
-<p>The current time for me is <span id="time"></span> </p>
-
-<script>
-  async function loadTime() {
-    try {
-      const res = await fetch('https://gormysecret.onrender.com/time?format=json');
-      const data = await res.json();
-
-      let date = new Date(data.formattedTime.replace(" ", "T")); // Parse "YYYY-MM-DD HH:MM:SS"
-
-      function formatTime(d) {
-        const options = { 
-          year: 'numeric', month: 'long', day: 'numeric',
-          hour: 'numeric', minute: '2-digit', second: '2-digit',
-          hour12: true 
-        };
-        return d.toLocaleString(undefined, options).replace(',', ' at');
-      }
-
-      function updateTimeDisplay() {
-        document.getElementById("time").textContent = formatTime(date);
-      }
-
-      updateTimeDisplay();
-
-      // Increment time every second
-      setInterval(() => {
-        date.setSeconds(date.getSeconds() + 1);
-        updateTimeDisplay();
-      }, 1000);
-
-    } catch (err) {
-      console.error("Failed to load time:", err);
-      document.getElementById("time").textContent = "Unable to fetch time.";
-    }
-  }
-
-  loadTime();
-</script>
-
-<script>
-  //syncs heights so main column and right column are always the same size
-  function syncHeights() {
-    const content = document.getElementById('content');
-    const right = document.getElementById('rightcolumn');
-
-    if (!content || !right) return;
-
-    function adjustHeights() {
-      // Reset to natural height before measuring
-      content.style.height = 'auto';
-      right.style.height = 'auto';
-
-      const contentHeight = content.offsetHeight;
-      const rightHeight = right.offsetHeight;
-      const maxHeight = Math.max(contentHeight, rightHeight) - 37;
-
-      content.style.height = `${maxHeight}px`;
-      right.style.height = `${maxHeight}px`;
-    }
-
-    // Watch DOM changes
-    const observer = new ResizeObserver(adjustHeights);
-    observer.observe(content);
-    observer.observe(right);
-
-    // Watch window resizing
-    window.addEventListener('resize', adjustHeights);
-
-    // Fallback: check periodically for layout changes
-    setInterval(adjustHeights, 500);
-
-    // Initial run
-    adjustHeights();
-  }
-
-  window.addEventListener('DOMContentLoaded', syncHeights);
-</script>
-
-</div>
-</div>
-      
-      
-        <div id="footerwrap">
-        <div id="footer">
-          Layout: <a href="http://itinerae.neocities.org" target="_blank">Itinerae</a> Pixels: <a href="https://foollovers.com/" target="_blank">Fool Lovers</a> Lace border: <a href="https://pastebin.com/1s0bztqb" target="_blank">Loveberry</a>
-        </div>
-        </div>
+      </div>
     </div>
 
-    <script>
-      fetch('https://gormysecret.onrender.com/location?format=json')
-        .then(response => {
-          if (!response.ok) {
-            throw new Error('Failed to fetch location');
-          }
-          return response.json();
-        })
-        .then(data => {
-          const { city, state, country } = data;
-          const locationText = `${city ? city + ', ' : ''}${state ? state + ', ' : ''}${country}`;
-          document.getElementById('location').textContent = locationText || 'Location not available';
-        })
-        .catch(error => {
-          console.error(error);
-          document.getElementById('location').textContent = 'Error retrieving location';
-        });
-    </script>
- 
-    <script>
-      document.getElementById('randomButton').addEventListener('click', function () {
-        const websiteWeights = {
-          'index.html': 100,
-          'hockey.html': 100,
-          'about.html': 100,
-          'art.html': 100,
-          'interests.html': 100,
-          'main.html': 100,
-          'not_found.html': 25,
-          'neocities.png': 50,
-          'otherStuff.html': 100,
-          'preciseLocation.html': 100,
-          'robots.txt': 25,
-          'style.css': 10,
-          'passwords.html': 3,
-          'travel.html': 100,
-          'stickers.html': 100,
-          "flights.html" : 100,
-          'updates.html' : 100, //this is going to have a double chance because of the redirect now hehe
-          '/games/slots/slotMachine.html' : 100,
-          '/games/slots/leaderboard.html' : 100,
-          '/games/slots/accountSettings.html' : 100,
-          '/games/slots/payoutTable.html' : 100,
-          'https://www.spc.noaa.gov/': 5,
-          'https://github.com/Gormyy/neocities-gormy': 5,
-          'https://en.wikipedia.org/wiki/Jon_Bois': 5,
-          'https://bsky.app/profile/gormy.bsky.social': 5,
-          'https://bulbapedia.bulbagarden.net/wiki/Glaceon_(Pok%C3%A9mon)': 5,
-          "https://www.nhl.com/blues/" : 5,
-          "https://www.hockey-reference.com/boxscores/201905070STL.html" : 1,
-          "https://www.youtube.com/watch?v=dQw4w9WgXcQ": 15,
-          "https://github.com/Gormyy/neocities-gormy" : 20,
-          "https://github.com/Gormyy" : 5,
-          "https://discord.gg/Er2wz9mqDc" : 15,
-          "https://discord.gg/ycF9v2V" : 15,
-          "https://discord.gg/XMsWtzm9Hq" : 0, // this is just a reward for snooping around my website lol
-          "https://gormysecret.onrender.com/visitorCount" : 2,
-          "https://gormysecret.onrender.com/weather?format=json" : 2,
-          "https://gormysecret.onrender.com/time?format=json" : 2,
-          "https://gormysecret.onrender.com/location?format=json": 2,
-          "about:blank" : 5,
-        };
+    <div id="rightcolumnwrap">
+      <div id="rightcolumn">
 
-        const weightedList = [];
+        <center>
+          <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/glaceon.gif" width="100" alt="x">
+        </center><br>
 
-        for (const [url, weight] of Object.entries(websiteWeights)) {
-          for (let i = 0; i < weight; i++) {
-            weightedList.push(url);
+        <div class="title"><img
+            src="https://64.media.tumblr.com/171c295df37def8ea5bd3774fa3f2471/014d6f73835b6e87-e8/s75x75_c1/f2e8d21f39d3532d9cd06c05172782950d2625ad.gifv">
+          Github</div>
+
+        I made a github you can follow updates for the website <a
+          href="https://github.com/Gormyy/neocities-gormy">here!</a>
+        <br>
+        You can also look at my other projects <a href="https://github.com/Gormyy">here!</a> I don't really have
+        anything else interesting right now though
+
+        <br><br>
+
+        <div class="title"><img
+            src="https://64.media.tumblr.com/171c295df37def8ea5bd3774fa3f2471/014d6f73835b6e87-e8/s75x75_c1/f2e8d21f39d3532d9cd06c05172782950d2625ad.gifv">
+          Weather</div>
+
+        <p>The current weather for me: </p>
+        <p id="weather">Weather loading...</p>
+
+        <script type="module">
+          async function loadWeather() {
+            try {
+              const response = await fetch("https://gormysecret.onrender.com/weather?format=json");
+              const data = await response.json();
+
+              const temperature = Math.round(data.main.feels_like);
+              const windSpeed = Math.round(data.wind.speed);
+              const description = data.weather[0].description;
+
+              const weatherText = `It is currently ${temperature}° with ${description}, and the wind is blowing at ${windSpeed} mph.`;
+              document.getElementById("weather").textContent = weatherText;
+            } catch (err) {
+              console.error("Failed to load weather:", err);
+              document.getElementById("weather").textContent = "Unable to fetch weather data.";
+            }
           }
+
+          loadWeather();
+        </script>
+
+        <div class="title"><img
+            src="https://64.media.tumblr.com/171c295df37def8ea5bd3774fa3f2471/014d6f73835b6e87-e8/s75x75_c1/f2e8d21f39d3532d9cd06c05172782950d2625ad.gifv">
+          Time</div>
+
+        <p>The current time for me is <span id="time"></span> </p>
+
+        <script>
+          async function loadTime() {
+            try {
+              const res = await fetch('https://gormysecret.onrender.com/time?format=json');
+              const data = await res.json();
+
+              let date = new Date(data.formattedTime.replace(" ", "T")); // Parse "YYYY-MM-DD HH:MM:SS"
+
+              function formatTime(d) {
+                const options = {
+                  year: 'numeric', month: 'long', day: 'numeric',
+                  hour: 'numeric', minute: '2-digit', second: '2-digit',
+                  hour12: true
+                };
+                return d.toLocaleString(undefined, options).replace(',', ' at');
+              }
+
+              function updateTimeDisplay() {
+                document.getElementById("time").textContent = formatTime(date);
+              }
+
+              updateTimeDisplay();
+
+              // Increment time every second
+              setInterval(() => {
+                date.setSeconds(date.getSeconds() + 1);
+                updateTimeDisplay();
+              }, 1000);
+
+            } catch (err) {
+              console.error("Failed to load time:", err);
+              document.getElementById("time").textContent = "Unable to fetch time.";
+            }
+          }
+
+          loadTime();
+        </script>
+
+        <script>
+          //syncs heights so main column and right column are always the same size
+          function syncHeights() {
+            const content = document.getElementById('content');
+            const right = document.getElementById('rightcolumn');
+
+            if (!content || !right) return;
+
+            function adjustHeights() {
+              // Reset to natural height before measuring
+              content.style.height = 'auto';
+              right.style.height = 'auto';
+
+              const contentHeight = content.offsetHeight;
+              const rightHeight = right.offsetHeight;
+              const maxHeight = Math.max(contentHeight, rightHeight) - 37;
+
+              content.style.height = `${maxHeight}px`;
+              right.style.height = `${maxHeight}px`;
+            }
+
+            // Watch DOM changes
+            const observer = new ResizeObserver(adjustHeights);
+            observer.observe(content);
+            observer.observe(right);
+
+            // Watch window resizing
+            window.addEventListener('resize', adjustHeights);
+
+            // Fallback: check periodically for layout changes
+            setInterval(adjustHeights, 500);
+
+            // Initial run
+            adjustHeights();
+          }
+
+          window.addEventListener('DOMContentLoaded', syncHeights);
+        </script>
+
+      </div>
+    </div>
+
+
+    <div id="footerwrap">
+      <div id="footer">
+        Layout: <a href="http://itinerae.neocities.org" target="_blank">Itinerae</a> Pixels: <a
+          href="https://foollovers.com/" target="_blank">Fool Lovers</a> Lace border: <a
+          href="https://pastebin.com/1s0bztqb" target="_blank">Loveberry</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    fetch('https://gormysecret.onrender.com/location?format=json')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Failed to fetch location');
         }
-
-        const randomUrl = weightedList[Math.floor(Math.random() * weightedList.length)];
-
-        window.location.href = randomUrl;
+        return response.json();
+      })
+      .then(data => {
+        const { city, state, country } = data;
+        const locationText = `${city ? city + ', ' : ''}${state ? state + ', ' : ''}${country}`;
+        document.getElementById('location').textContent = locationText || 'Location not available';
+      })
+      .catch(error => {
+        console.error(error);
+        document.getElementById('location').textContent = 'Error retrieving location';
       });
+  </script>
 
-    </script>
-  </body>
+  <script>
+    document.getElementById('randomButton').addEventListener('click', function () {
+      const websiteWeights = {
+        'index.html': 100,
+        'hockey.html': 100,
+        'about.html': 100,
+        'art.html': 100,
+        'interests.html': 100,
+        'main.html': 100,
+        'not_found.html': 25,
+        'neocities.png': 50,
+        'otherStuff.html': 100,
+        'preciseLocation.html': 100,
+        'robots.txt': 25,
+        'style.css': 10,
+        'passwords.html': 3,
+        'travel.html': 100,
+        'stickers.html': 100,
+        "flights.html": 100,
+        'updates.html': 100, //this is going to have a double chance because of the redirect now hehe
+        '/games/slots/slotMachine.html': 100,
+        '/games/slots/leaderboard.html': 100,
+        '/games/slots/accountSettings.html': 100,
+        '/games/slots/payoutTable.html': 100,
+        'https://www.spc.noaa.gov/': 5,
+        'https://github.com/Gormyy/neocities-gormy': 5,
+        'https://en.wikipedia.org/wiki/Jon_Bois': 5,
+        'https://bsky.app/profile/gormy.bsky.social': 5,
+        'https://bulbapedia.bulbagarden.net/wiki/Glaceon_(Pok%C3%A9mon)': 5,
+        "https://www.nhl.com/blues/": 5,
+        "https://www.hockey-reference.com/boxscores/201905070STL.html": 1,
+        "https://www.youtube.com/watch?v=dQw4w9WgXcQ": 15,
+        "https://github.com/Gormyy/neocities-gormy": 20,
+        "https://github.com/Gormyy": 5,
+        "https://discord.gg/Er2wz9mqDc": 15,
+        "https://discord.gg/ycF9v2V": 15,
+        "https://discord.gg/XMsWtzm9Hq": 0, // this is just a reward for snooping around my website lol
+        "https://gormysecret.onrender.com/visitorCount": 2,
+        "https://gormysecret.onrender.com/weather?format=json": 2,
+        "https://gormysecret.onrender.com/time?format=json": 2,
+        "https://gormysecret.onrender.com/location?format=json": 2,
+        "about:blank": 5,
+      };
+
+      const weightedList = [];
+
+      for (const [url, weight] of Object.entries(websiteWeights)) {
+        for (let i = 0; i < weight; i++) {
+          weightedList.push(url);
+        }
+      }
+
+      const randomUrl = weightedList[Math.floor(Math.random() * weightedList.length)];
+
+      window.location.href = randomUrl;
+    });
+
+  </script>
+</body>
+
 </html>
-            
-            
-            
-          

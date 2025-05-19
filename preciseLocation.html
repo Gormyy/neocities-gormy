@@ -1,111 +1,169 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gormy's Location</title>
-    <style type="text/css">
-      
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gormy's Location</title>
+  <style type="text/css">
     body {
-    background:#E7EDF2 url(https://64.media.tumblr.com/f6900502ff0d8d97b7777f719f676e8e/46d71838c2ab60b3-76/s75x75_c1/a15417732f9baaabc45f7960a34bbff9cf8eceec.gifv) fixed;
-    font-family:calibri, Verdana, Arial, Helvetica, sans-serif;
-    font-size: 10px;
-    text-shadow: 0px 0px 1px #b3b3b3;
-    color:#888;
-    letter-spacing: 1px;}
-     
+      background: #E7EDF2 url(https://64.media.tumblr.com/f6900502ff0d8d97b7777f719f676e8e/46d71838c2ab60b3-76/s75x75_c1/a15417732f9baaabc45f7960a34bbff9cf8eceec.gifv) fixed;
+      font-family: calibri, Verdana, Arial, Helvetica, sans-serif;
+      font-size: 10px;
+      text-shadow: 0px 0px 1px #b3b3b3;
+      color: #888;
+      letter-spacing: 1px;
+    }
+
     #wrapper {
-    margin: 0 auto;
-    width: 570px;}
+      margin: 0 auto;
+      width: 570px;
+    }
 
     #navigationwrap {
-    width: 570px;
-    float: left;
-    margin: 0 auto;}
+      width: 570px;
+      float: left;
+      margin: 0 auto;
+    }
 
-#navigation {
-    height: 20px;
-    line-height:20px;
-    background: #FFF;
-    border-width:7px;
-    border-style:solid;
-    border-image: url("https://64.media.tumblr.com/6f0c2efb2b0902a5907c60c9d1dcad9e/de283233162c752d-89/s75x75_c1/62ee23af1906bc552dbea259f32e0801263b4635.pnj") 8 fill round;
-    margin: 5px;
-    padding:5px;
-}
-      
-#navigation a:link, a:visited, a:active {font:11px monospace;
-  text-transform:uppercase;line-height:20px;
-  padding:4px; letter-spacing:1px;margin-right:10px;}
-      
-  #navigation a:hover {background:#fff;
-  text-transform:uppercase;line-height:20px;
-  padding:4px; letter-spacing:1px;margin-right:10px;}
-  
-#contentwrap {
-    width: 400px;
-    float: left;
-    margin: 0 auto;}
+    #navigation {
+      height: 20px;
+      line-height: 20px;
+      background: #FFF;
+      border-width: 7px;
+      border-style: solid;
+      border-image: url("https://64.media.tumblr.com/6f0c2efb2b0902a5907c60c9d1dcad9e/de283233162c752d-89/s75x75_c1/62ee23af1906bc552dbea259f32e0801263b4635.pnj") 8 fill round;
+      margin: 5px;
+      padding: 5px;
+    }
 
-#content {
-    background: #fff;
-    border-width:7px;
-    border-style:solid;
-    border-image: url("https://64.media.tumblr.com/6f0c2efb2b0902a5907c60c9d1dcad9e/de283233162c752d-89/s75x75_c1/62ee23af1906bc552dbea259f32e0801263b4635.pnj") 8 fill round;
-    margin: 5px;padding:5px;}
+    #navigation a:link,
+    a:visited,
+    a:active {
+      font: 11px monospace;
+      text-transform: uppercase;
+      line-height: 20px;
+      padding: 4px;
+      letter-spacing: 1px;
+      margin-right: 10px;
+    }
 
-#rightcolumnwrap {
-    width: 170px;
-    float: left;
-    margin: 0 auto;}
+    #navigation a:hover {
+      background: #fff;
+      text-transform: uppercase;
+      line-height: 20px;
+      padding: 4px;
+      letter-spacing: 1px;
+      margin-right: 10px;
+    }
 
-#rightcolumn {
-background: #FFF;
-border-width:7px;
-border-style:solid;
-border-image: url("https://64.media.tumblr.com/6f0c2efb2b0902a5907c60c9d1dcad9e/de283233162c752d-89/s75x75_c1/62ee23af1906bc552dbea259f32e0801263b4635.pnj") 8 fill round;
-margin: 5px;padding:5px;}
+    #contentwrap {
+      width: 400px;
+      float: left;
+      margin: 0 auto;
+    }
 
-#footerwrap {
-    width: 570px;
-    float: left;
-    margin: 0 auto;
-    clear: both;}
+    #content {
+      background: #fff;
+      border-width: 7px;
+      border-style: solid;
+      border-image: url("https://64.media.tumblr.com/6f0c2efb2b0902a5907c60c9d1dcad9e/de283233162c752d-89/s75x75_c1/62ee23af1906bc552dbea259f32e0801263b4635.pnj") 8 fill round;
+      margin: 5px;
+      padding: 5px;
+    }
 
-#footer {
-    height: 20px;
-    background: #FFF;
-    border-width:7px;
-    border-style:solid;
-    border-image: url("https://64.media.tumblr.com/6f0c2efb2b0902a5907c60c9d1dcad9e/de283233162c752d-89/s75x75_c1/62ee23af1906bc552dbea259f32e0801263b4635.pnj") 8 fill round;
-    line-height:20px;
-    margin: 5px;
-    text-align:center;}    
-      
-::-webkit-scrollbar-thumb {
-background-color: #fff;  
-border-radius: 0px;
-border:1px solid #999;}
-::-webkit-scrollbar {
-width: 7px; height: 4px; 
-background: transparent;}
+    #rightcolumnwrap {
+      width: 170px;
+      float: left;
+      margin: 0 auto;
+    }
 
-   
-.title {background:#E9F9FF;text-transform:uppercase;font:10px monospace; letter-spacing:3px;color:#555;padding:2px;padding-left:4px;margin-bottom:4px;}
-.title2 {background:#E9F9FF;text-transform:uppercase;letter-spacing:3px;color:#555;padding:2px;padding-left:4px;margin-bottom:4px;font:10px monospace;line-height:10px;}
-    
-b {color:#64B0DB;}
-    	
-a:link, a:visited, a:active { 
-color:#64B0DB;text-decoration:none;}
-a:hover {
-color:#999;}  
+    #rightcolumn {
+      background: #FFF;
+      border-width: 7px;
+      border-style: solid;
+      border-image: url("https://64.media.tumblr.com/6f0c2efb2b0902a5907c60c9d1dcad9e/de283233162c752d-89/s75x75_c1/62ee23af1906bc552dbea259f32e0801263b4635.pnj") 8 fill round;
+      margin: 5px;
+      padding: 5px;
+    }
 
-.rounded-btn {
-      background-color: #E9F9FF; /* Light blue */
-      color: #888; /* Black text */
+    #footerwrap {
+      width: 570px;
+      float: left;
+      margin: 0 auto;
+      clear: both;
+    }
+
+    #footer {
+      height: 20px;
+      background: #FFF;
+      border-width: 7px;
+      border-style: solid;
+      border-image: url("https://64.media.tumblr.com/6f0c2efb2b0902a5907c60c9d1dcad9e/de283233162c752d-89/s75x75_c1/62ee23af1906bc552dbea259f32e0801263b4635.pnj") 8 fill round;
+      line-height: 20px;
+      margin: 5px;
+      text-align: center;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: #fff;
+      border-radius: 0px;
+      border: 1px solid #999;
+    }
+
+    ::-webkit-scrollbar {
+      width: 7px;
+      height: 4px;
+      background: transparent;
+    }
+
+
+    .title {
+      background: #E9F9FF;
+      text-transform: uppercase;
+      font: 10px monospace;
+      letter-spacing: 3px;
+      color: #555;
+      padding: 2px;
+      padding-left: 4px;
+      margin-bottom: 4px;
+    }
+
+    .title2 {
+      background: #E9F9FF;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #555;
+      padding: 2px;
+      padding-left: 4px;
+      margin-bottom: 4px;
+      font: 10px monospace;
+      line-height: 10px;
+    }
+
+    b {
+      color: #64B0DB;
+    }
+
+    a:link,
+    a:visited,
+    a:active {
+      color: #64B0DB;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #999;
+    }
+
+    .rounded-btn {
+      background-color: #E9F9FF;
+      /* Light blue */
+      color: #888;
+      /* Black text */
       border: none;
-      border-radius: 999px; /* Fully rounded */
+      border-radius: 999px;
+      /* Fully rounded */
       padding: 10px 20px;
       font-size: 16px;
       cursor: pointer;
@@ -113,122 +171,127 @@ color:#999;}
     }
 
     .rounded-btn:hover {
-      background-color: #E9F9FF; /* Slightly darker blue on hover */
+      background-color: #E9F9FF;
+      /* Slightly darker blue on hover */
     }
 
     input {
-      background-color: #E9F9FF; /* soft pink */
-      color: #888;            /* light grey text */
-      border: 1px solid #ccc;    /* optional: subtle border */
-      padding: 2px;              /* optional: better spacing */
-      border-radius: 3px;        /* optional: rounded corners */
+      background-color: #E9F9FF;
+      /* soft pink */
+      color: #888;
+      /* light grey text */
+      border: 1px solid #ccc;
+      /* optional: subtle border */
+      padding: 2px;
+      /* optional: better spacing */
+      border-radius: 3px;
+      /* optional: rounded corners */
     }
   </style>
-  </head>  
-  
- 
-  <body>
-    <br><br><br>
-    <div id="wrapper">
-       <div id="navigationwrap">
-        <div id="navigation">
-          <center>
+</head>
+
+
+<body>
+  <br><br><br>
+  <div id="wrapper">
+    <div id="navigationwrap">
+      <div id="navigation">
+        <center>
           <a href="index.html">Home</a>
-          <a href="about.html">About</a> 
+          <a href="about.html">About</a>
           <a href="travel.html">Travel</a>
           <a href="interests.html">Interests</a>
           <a href="art.html">Art</a>
           <a href="blog.html">Blog</a>
           <a href="otherStuff.html">Updates</a>
-          </center>
-          
-        </div>
-        </div>
+        </center>
 
-        <div id="contentwrap">
-        <div id="content">
-          
-<div class="title2"> <img src="https://64.media.tumblr.com/0b91ec3f6bd8e50404dc513ffbdf5821/014d6f73835b6e87-d3/s75x75_c1/f19c167835beae789c67e6721b3492325131958c.gifv"> Enter the password to see Gormy's location!</div>
-<br>
-<input type="password" id="passwordInput" placeholder="Enter password" />
-  <button onclick="getSecret()" class="rounded-btn">Submit</button>
-
-  <pre id="output"></pre>
-  <br>
-  <pre id="output2"></pre>
-
-  <script>
-    async function getCityFromNominatim(lat, lon) {
-    const url = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lon}`;
-
-    try {
-        const response = await fetch(url, {
-            headers: {
-                'User-Agent': 'Gormy Website! - foreverblue173@gmail.com'
-            }
-        });
-        const data = await response.json();
-        const address = data.address;
-        const city = address.city || address.town || address.village || address.county;
-        const state = address.state;
-        const country = address.country;
-
-        return city && state && country ? `${city}, ${state}, ${country}` : null;
-    } catch (error) {
-        console.error('Nominatim API error:', error);
-        return null;
-    }
-}
-
-    async function getSecret() {
-      const password = document.getElementById('passwordInput').value;
-      const output = document.getElementById('output');
-      const output2 = document.getElementById('output2');
-
-      const response = await fetch(`https://gormysecret.onrender.com/secret?password=${encodeURIComponent(password)}`);
-      if (!response.ok) {
-        output.textContent = await response.text();
-      }
-        
-        
-      const text = await response.text();
-        
-      const coords = text.split(",")
-      const city = await getCityFromNominatim(coords[0], coords[1])
-      output.textContent = text;
-      output2.textContent = city
-       
-
-    }
-  </script>
- 
-        </div>
-        </div>
-      
-      
-      
-       <div id="rightcolumnwrap">
-        <div id="rightcolumn">
-          
-<center>
-  <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/glaceon.gif" width="100" alt="x">
-</center><br>
-
-</div>
-</div>
-      
-        <div id="footerwrap">
-        <div id="footer">
-          Layout: <a href="http://itinerae.neocities.org" target="_blank">Itinerae</a> Pixels: <a href="https://foollovers.com/" target="_blank">Fool Lovers</a> Lace border: <a href="https://pastebin.com/1s0bztqb" target="_blank">Loveberry</a>
-        </div>
-        </div>
-      
+      </div>
     </div>
-  </body>
+
+    <div id="contentwrap">
+      <div id="content">
+
+        <div class="title2"> <img
+            src="https://64.media.tumblr.com/0b91ec3f6bd8e50404dc513ffbdf5821/014d6f73835b6e87-d3/s75x75_c1/f19c167835beae789c67e6721b3492325131958c.gifv">
+          Enter the password to see Gormy's location!</div>
+        <br>
+        <input type="password" id="passwordInput" placeholder="Enter password" />
+        <button onclick="getSecret()" class="rounded-btn">Submit</button>
+
+        <pre id="output"></pre>
+        <br>
+        <pre id="output2"></pre>
+
+        <script>
+          async function getCityFromNominatim(lat, lon) {
+            const url = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lon}`;
+
+            try {
+              const response = await fetch(url, {
+                headers: {
+                  'User-Agent': 'Gormy Website! - foreverblue173@gmail.com'
+                }
+              });
+              const data = await response.json();
+              const address = data.address;
+              const city = address.city || address.town || address.village || address.county;
+              const state = address.state;
+              const country = address.country;
+
+              return city && state && country ? `${city}, ${state}, ${country}` : null;
+            } catch (error) {
+              console.error('Nominatim API error:', error);
+              return null;
+            }
+          }
+
+          async function getSecret() {
+            const password = document.getElementById('passwordInput').value;
+            const output = document.getElementById('output');
+            const output2 = document.getElementById('output2');
+
+            const response = await fetch(`https://gormysecret.onrender.com/secret?password=${encodeURIComponent(password)}`);
+            if (!response.ok) {
+              output.textContent = await response.text();
+            }
+
+
+            const text = await response.text();
+
+            const coords = text.split(",")
+            const city = await getCityFromNominatim(coords[0], coords[1])
+            output.textContent = text;
+            output2.textContent = city
+
+
+          }
+        </script>
+
+      </div>
+    </div>
+
+
+
+    <div id="rightcolumnwrap">
+      <div id="rightcolumn">
+
+        <center>
+          <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/glaceon.gif" width="100" alt="x">
+        </center><br>
+
+      </div>
+    </div>
+
+    <div id="footerwrap">
+      <div id="footer">
+        Layout: <a href="http://itinerae.neocities.org" target="_blank">Itinerae</a> Pixels: <a
+          href="https://foollovers.com/" target="_blank">Fool Lovers</a> Lace border: <a
+          href="https://pastebin.com/1s0bztqb" target="_blank">Loveberry</a>
+      </div>
+    </div>
+
+  </div>
+</body>
+
 </html>
-            
-            
-            
-          
-
-
