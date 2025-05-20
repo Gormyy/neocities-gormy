@@ -26,10 +26,14 @@ body {
   }
 
   .image-card {
-    background: #e2f3fa;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Pushes content to top and bottom */
+    height: 100%; /* Full height card */
+    background: #e2f3fa;
   }
 
   .image-card:hover{
@@ -43,6 +47,7 @@ body {
   }
   
   .image-info {
+    margin-top: auto; /* Pushes it to the bottom */
     padding: 10px;
   }
   
