@@ -11,12 +11,22 @@
   <center><p id="galleryCaption">This is just a base page for gallery pages for image galleries i'll put up in the future</p></center>
 
   <div class="controls">
+    <button class="rounded-btn" onclick="goBack()">Go back</button>
     <button class="rounded-btn" onclick="sortGallery('date-desc')">Date ↓</button>
     <button class="rounded-btn" onclick="sortGallery('date-asc')">Date ↑</button>
     <button class="rounded-btn" onclick="sortGallery('score-desc')">Score ↓</button>
     <button class="rounded-btn" onclick="sortGallery('score-asc')">Score ↑</button>
     <button class="rounded-btn" onclick="sortGallery('random')">Random</button>
   </div>
+
+  <script>
+    // go back button
+    function goBack(){
+        const redirectLocation = "../index.html"
+
+        window.location.href = redirectLocation
+    }
+  </script>
 
   <div id="gallery"></div>
 
