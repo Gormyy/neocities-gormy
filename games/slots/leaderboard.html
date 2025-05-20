@@ -233,7 +233,10 @@
     <script>
         async function loadLeaderboard() {
           try {
-            const response = await fetch('http://localhost:3000/getLeaderboard');
+            //lmao i linked to localhost here idk how that happened
+            //const response = await fetch('http://localhost:3000/getLeaderboard');
+            const response = await fetch('https://gormysecret.onrender.com/getLeaderboard');
+            
             const data = await response.json();
             const tbody = document.querySelector('#leaderboard tbody');
     
