@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     padding: 20px;
-    background: #f7f7f7;
+    background: #ebf3f8;
     color: #333;
   }
   
@@ -14,32 +14,26 @@ body {
     margin-bottom: 20px;
   }
   
-  .controls button {
-    margin: 5px;
-    padding: 8px 12px;
-    cursor: pointer;
-    border: none;
-    border-radius: 5px;
-    background-color: #444;
-    color: white;
-    transition: background 0.3s;
-  }
-  
-  .controls button:hover {
-    background-color: #222;
-  }
-  
   #gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 20px;
   }
   
+  #galleryCaption {
+    color: #333;
+    font-family: Arial, sans-serif
+  }
+
   .image-card {
-    background: white;
+    background: #e2f3fa;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .image-card:hover{
+    background: #d3f2ff;
   }
   
   .image-card img {
@@ -59,4 +53,22 @@ body {
   .image-info small {
     color: #777;
   }
-  
+
+  .rounded-btn {
+    background-color: #ceeffb;
+    /* Light blue */
+    color: #222222;
+    /* Black text */
+    border: none;
+    border-radius: 999px;
+    /* Fully rounded */
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .rounded-btn:hover {
+    background-color: #92cde1;
+    /* Slightly darker blue on hover */
+  }

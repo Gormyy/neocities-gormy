@@ -8,12 +8,14 @@
 <body>
   <h1>Image Gallery</h1>
 
+  <center><p id="galleryCaption">This is just a base page for gallery pages for image galleries i'll put up in the future</p></center>
+
   <div class="controls">
-    <button onclick="sortGallery('date-desc')">Date ↓</button>
-    <button onclick="sortGallery('date-asc')">Date ↑</button>
-    <button onclick="sortGallery('score-desc')">Score ↓</button>
-    <button onclick="sortGallery('score-asc')">Score ↑</button>
-    <button onclick="sortGallery('random')">Random</button>
+    <button class="rounded-btn" onclick="sortGallery('date-desc')">Date ↓</button>
+    <button class="rounded-btn" onclick="sortGallery('date-asc')">Date ↑</button>
+    <button class="rounded-btn" onclick="sortGallery('score-desc')">Score ↓</button>
+    <button class="rounded-btn" onclick="sortGallery('score-asc')">Score ↑</button>
+    <button class="rounded-btn" onclick="sortGallery('random')">Random</button>
   </div>
 
   <div id="gallery"></div>
@@ -25,21 +27,24 @@
         "title": "Glaceon",
         "caption": "A very cute kitten",
         "date": "2025-05-01",
-        "score": 10
+        "score": 10,
+        "link" : null,
       },
       {
         "src": "https://64.media.tumblr.com/5d1ac86900a33c913bbc4cee690e8ef4/5b687adaf1b0cff0-8d/s250x400/5907611d50bf7d0892fbd933163939239f8fdfa9.gifv",
         "title": "Vaporeon",
         "caption": "Fish cat",
         "date": "2024-12-15",
-        "score": 8
+        "score": 8,
+        "link" : null,
       },
       {
         "src": "https://img.pokemondb.net/sprites/black-white/anim/normal/jolteon.gif",
         "title": "Jolteon",
-        "caption": "Spiky doggy!",
+        "caption": "Hecking dog",
         "date": "2023-07-22",
-        "score": 9
+        "score": 9,
+        "link" : "https://bsky.app/profile/cvkb.bsky.social",
       }
     ];
 
@@ -66,9 +71,18 @@
       const container = document.getElementById("gallery");
       container.innerHTML = '';
       images.forEach(img => {
+        let imgHref;
+        if (img.link == null){
+            imgHref = img.src
+        } else{
+            imgHref = img.link
+        }
+
         container.innerHTML += `
           <div class="image-card">
+            <a href=${imgHref}>
             <img src="${img.src}" alt="${img.caption}">
+            </a>
             <div class="image-info">
               <h3>${img.title}</h3>
               <p>${img.caption}</p>
