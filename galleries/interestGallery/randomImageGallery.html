@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gallery</title>
+  <link rel="stylesheet" href="../../resources/css/galleryStyle.css">
+</head>
+<body>
+  <h1>Image Gallery</h1>
+
+  <center><p id="galleryCaption">This is just a base page for gallery pages for image galleries i'll put up in the future</p></center>
+
+  <div class="controls">
+    <button class="rounded-btn" onclick="goBack()">Go back</button>
+    <button class="rounded-btn" onclick="sortGallery('date-desc')">Date ↓</button>
+    <button class="rounded-btn" onclick="sortGallery('date-asc')">Date ↑</button>
+    <button class="rounded-btn" onclick="sortGallery('score-desc')">Score ↓</button>
+    <button class="rounded-btn" onclick="sortGallery('score-asc')">Score ↑</button>
+    <button class="rounded-btn" onclick="sortGallery('random')">Random</button>
+  </div>
+
+  <script>
+    // go back button
+    function goBack(){
+        const redirectLocation = "../index.html"
+
+        window.location.href = redirectLocation
+    }
+  </script>
+
+  <div id="gallery"></div>
+
+  <script>
+    
+
+    const imageData = [
+      {
+        "src": "https://i.postimg.cc/Y0CM4cJK/IMG-6904.jpg",
+        "title": "Nuka Cola Quantum",
+        "caption": "I've never played fallout but I'm a fan of Jones Soda and I saw this at a store and this was a very sour soda. I thought it was too sour. It kind of tasted like the blue lemonade flavor they have but way more sour. I couldn't finish it sadly. too sour.",
+        "date": "2025-05-15",
+        "score": 5,
+        "link" : null,
+        "location" : "Indianapolis, Indiana, United States", //i'll add text for this later
+      },
+      {
+        "src": "https://i.postimg.cc/xCR9Tjp3/IMG-6861.jpg",
+        "title": "Hi Trick!",
+        "caption": "Hi trick!!!",
+        "date": "2025-05-13",
+        "score": 7,
+        "link" : null,
+        "location" : "Washington D.C, Washington D.C, United States", 
+      },
+      {
+        "src": "https://i.postimg.cc/tgFXwNhf/IMG-6804.jpg",
+        "title": "Glaceon",
+        "caption": "This was at one of those claw machine places and I was really confused by it but I saw a glaceon so I was happy.",
+        "date": "2025-05-12",
+        "score": 6,
+        "link" : null,
+        "location" : "Toronto, Ontario, Canada", 
+      },
+      {
+        "src": "https://i.postimg.cc/VkrsB85z/IMG-6795.jpg",
+        "title": "Hej!",
+        "caption": "Hej! At Ikea in Toronto!",
+        "date": "2025-05-12",
+        "score": 5,
+        "link" : null,
+        "location" : "Toronto, Ontario, Canada", 
+      },
+      {
+        "src": "https://i.postimg.cc/kg0JTptK/IMG-6791.jpg",
+        "title": "Canada!",
+        "caption": "I think they gave me more than 10 tim bits",
+        "date": "2025-05-12",
+        "score": 7,
+        "link" : null,
+        "location" : "Toronto, Ontario, Canada", 
+      },
+      {
+        "src": "https://i.postimg.cc/Jnm1LHxh/IMG-6775.jpg",
+        "title": "Hi Kitty!",
+        "caption": "We did take a selfie!",
+        "date": "2025-05-12",
+        "score": 7,
+        "link" : null,
+        "location" : "Toronto, Ontario, Canada", 
+      },
+      {
+        "src": "https://i.postimg.cc/fTgT9LzH/IMG-6765.jpg",
+        "title": "Minecraft building!",
+        "caption": "This building is really weird and it was funny to go into it!",
+        "date": "2025-05-11",
+        "score": 8,
+        "link" : null,
+        "location" : "Toronto, Ontario, Canada", 
+      },
+      {
+        "src": "https://i.postimg.cc/X7vYqFbG/IMG-6741.jpg",
+        "title": "Fountain",
+        "caption": "Hecking dog!",
+        "date": "2025-05-11",
+        "score": 7,
+        "link" : null,
+        "location" : "Toronto, Ontario, Canada", 
+      },
+    ];
+
+    function sortGallery(method) {
+      let sorted = [...imageData];
+      if (method === 'date-desc') {
+        sorted.sort((a, b) => new Date(b.date) - new Date(a.date));
+      } else if (method === 'date-asc') {
+        sorted.sort((a, b) => new Date(a.date) - new Date(b.date));
+      } else if (method === 'score-desc') {
+        sorted.sort((a, b) => b.score - a.score);
+      } else if (method === 'score-asc') {
+        sorted.sort((a, b) => a.score - b.score);
+      } else if (method === 'random') {
+        for (let i = sorted.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [sorted[i], sorted[j]] = [sorted[j], sorted[i]];
+        }
+      }
+      renderGallery(sorted);
+    }
+
+    function renderGallery(images) {
+      const container = document.getElementById("gallery");
+      container.innerHTML = '';
+      images.forEach(img => {
+        let imgHref;
+        if (img.link == null){
+            imgHref = img.src
+        } else{
+            imgHref = img.link
+        }
+
+        container.innerHTML += `
+          <div class="image-card">
+            <a href=${imgHref}>
+            <img src="${img.src}" alt="${img.caption}">
+            </a>
+            <div class="image-info">
+              <h3>${img.title}</h3>
+              <p>${img.caption}</p>
+              <small>${img.date}</small>
+            </div>
+          </div>
+        `;
+      });
+    }
+
+    // Initial render
+    document.addEventListener("DOMContentLoaded", () => {
+      sortGallery('date-desc');
+    });
+  </script>
+
+  <script>
+    document.querySelectorAll('a').forEach(link => {
+        link.setAttribute('target', '_blank');
+        link.setAttribute('rel', 'noopener noreferrer');
+    });W
+
+  </script>
+</body>
+</html>
