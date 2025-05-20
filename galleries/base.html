@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gallery</title>
+  <link rel="stylesheet" href="../resources/css/galleryStyle.css">
+</head>
+<body>
+  <h1>Image Gallery</h1>
+
+  <div class="controls">
+    <button onclick="sortGallery('date-desc')">Date ↓</button>
+    <button onclick="sortGallery('date-asc')">Date ↑</button>
+    <button onclick="sortGallery('score-desc')">Score ↓</button>
+    <button onclick="sortGallery('score-asc')">Score ↑</button>
+    <button onclick="sortGallery('random')">Random</button>
+  </div>
+
+  <div id="gallery"></div>
+
+  <script>
+    const imageData = [
+      {
+        "src": "https://img.pokemondb.net/sprites/black-white/anim/normal/glaceon.gif",
+        "title": "Glaceon",
+        "caption": "A very cute kitten",
+        "date": "2025-05-01",
+        "score": 10
+      },
+      {
+        "src": "https://64.media.tumblr.com/5d1ac86900a33c913bbc4cee690e8ef4/5b687adaf1b0cff0-8d/s250x400/5907611d50bf7d0892fbd933163939239f8fdfa9.gifv",
+        "title": "Vaporeon",
+        "caption": "Fish cat",
+        "date": "2024-12-15",
+        "score": 8
+      },
+      {
+        "src": "https://img.pokemondb.net/sprites/black-white/anim/normal/jolteon.gif",
+        "title": "Jolteon",
+        "caption": "Spiky doggy!",
+        "date": "2023-07-22",
+        "score": 9
+      }
+    ];
+
+    function sortGallery(method) {
+      let sorted = [...imageData];
+      if (method === 'date-desc') {
+        sorted.sort((a, b) => new Date(b.date) - new Date(a.date));
+      } else if (method === 'date-asc') {
+        sorted.sort((a, b) => new Date(a.date) - new Date(b.date));
+      } else if (method === 'score-desc') {
+        sorted.sort((a, b) => b.score - a.score);
+      } else if (method === 'score-asc') {
+        sorted.sort((a, b) => a.score - b.score);
+      } else if (method === 'random') {
+        for (let i = sorted.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [sorted[i], sorted[j]] = [sorted[j], sorted[i]];
+        }
+      }
+      renderGallery(sorted);
+    }
+
+    function renderGallery(images) {
+      const container = document.getElementById("gallery");
+      container.innerHTML = '';
+      images.forEach(img => {
+        container.innerHTML += `
+          <div class="image-card">
+            <img src="${img.src}" alt="${img.caption}">
+            <div class="image-info">
+              <h3>${img.title}</h3>
+              <p>${img.caption}</p>
+              <small>${img.date}</small>
+            </div>
+          </div>
+        `;
+      });
+    }
+
+    // Initial render
+    document.addEventListener("DOMContentLoaded", () => {
+      sortGallery('date-desc');
+    });
+  </script>
+
+  <script src="gallery.js"></script>
+</body>
+</html>
