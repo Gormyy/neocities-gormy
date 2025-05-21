@@ -251,7 +251,7 @@
             const output = document.getElementById('output');
             const output2 = document.getElementById('output2');
 
-            const response = await fetch(`https://gormysecret.onrender.com/secret?password=${encodeURIComponent(password)}`);
+            const response = await fetch(`https://gormysecret.onrender.com/getPreciseLocation?password=${encodeURIComponent(password)}`);
             if (!response.ok) {
               output.textContent = await response.text();
             }
