@@ -8,3 +8,7 @@ async function fetchTime(){
         return null
     }
 }
+
+window.fetchTime = fetchTime
+
+//<script src="resources/js/apiEndpoints/fetchTime.js">//imports fetchTime()</script>

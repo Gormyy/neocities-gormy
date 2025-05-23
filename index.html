@@ -9,8 +9,10 @@
   <script src="resources/js/apiEndpoints/config.js">//imports API configs</script>
   <script src="resources/js/apiEndpoints/fetchVisitorCount.js">//imports fetchVisitorCount()</script>
   <script src="resources/js/apiEndpoints/loadWeather.js">//imports loadWather()</script>
-  <script src="resources/js/apiEndpoints/getBattery.js">//importing getBattery</script>
-  <script src="resources/js/apiEndpoints/fetchTime.js">//importing getBattery</script>
+  <script src="resources/js/apiEndpoints/getBattery.js">//importing getBattery()</script>
+  <script src="resources/js/apiEndpoints/fetchTime.js">//imports fetchTime()</script>
+  <script src="resources/js/apiEndpoints/fetchLocation.js">//imports fetchLocation()</script>
+  <script src="resources/js/utils/syncHeights.js">//imports syncHeights(content, right)</script>
   <script
     src="resources/js/utils/addNavigation.js">//adds addNavigation(div, pathToRoot = "", centered = true, navigationElements = "default") to add the navigation to the div bar</script>
   <link rel="stylesheet" href="resources/css/vaporeonStyle.css">
@@ -150,6 +152,7 @@
             try {
               
               const data = await fetchTime();
+              console.log(data)
               if(!data){ //error fetching data
                 let x = 4 / 0; //purposefully throw error :3
               }
@@ -211,42 +214,13 @@
         </script>
 
         <script>
-          //syncs heights so main column and right column are always the same size
-          function syncHeights() {
+          function callSyncHeights(){
             const content = document.getElementById('content');
             const right = document.getElementById('rightcolumn');
-
-            if (!content || !right) return;
-
-            function adjustHeights() {
-              // Reset to natural height before measuring
-              content.style.height = 'auto';
-              right.style.height = 'auto';
-
-              const contentHeight = content.offsetHeight;
-              const rightHeight = right.offsetHeight;
-              const maxHeight = Math.max(contentHeight, rightHeight) - 37;
-
-              content.style.height = `${maxHeight}px`;
-              right.style.height = `${maxHeight}px`;
-            }
-
-            // Watch DOM changes
-            const observer = new ResizeObserver(adjustHeights);
-            observer.observe(content);
-            observer.observe(right);
-
-            // Watch window resizing
-            window.addEventListener('resize', adjustHeights);
-
-            // Fallback: check periodically for layout changes
-            setInterval(adjustHeights, 500);
-
-            // Initial run
-            adjustHeights();
+            syncHeights(content, right)
           }
 
-          window.addEventListener('DOMContentLoaded', syncHeights);
+          window.addEventListener('DOMContentLoaded', callSyncHeights);
         </script>
 
       </div>
@@ -263,22 +237,19 @@
   </div>
 
   <script>
-    fetch('https://gormysecret.onrender.com/location?format=json')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Failed to fetch location');
-        }
-        return response.json();
-      })
-      .then(data => {
+    async function updateLocation(){
+      const locationEl = document.getElementById('location')
+      const data = await fetchLocation()
+      if (data){
         const { city, state, country } = data;
         const locationText = `${city ? city + ', ' : ''}${state ? state + ', ' : ''}${country}`;
-        document.getElementById('location').textContent = locationText || 'Location not available';
-      })
-      .catch(error => {
-        console.error(error);
-        document.getElementById('location').textContent = 'Error retrieving location';
-      });
+        locationEl.textContent = locationText || 'Location not available';
+      } else{
+        locationEl.textContent = 'Error retrieving location';
+      }
+    }
+
+    updateLocation()
   </script>
 
   <script>
