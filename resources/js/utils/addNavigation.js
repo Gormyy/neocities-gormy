@@ -72,7 +72,7 @@ window.addNavigation = addNavigation
 
 //usage 
 
-//<script src = "resources/js/utils/addNavigation.js">//adds addNavidation(div, pathToRoot = "", centered = true, style = "default", navigationElements = "default") to add the navigation to the div bar</script>
+//<script src = "resources/js/utils/addNavigation.js">//adds addNavigation(div, pathToRoot = "", centered = true, style = "default", navigationElements = "default") to add the navigation to the div bar</script>
 /*
 <script>
     //script to add navigation elements

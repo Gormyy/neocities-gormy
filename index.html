@@ -6,8 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home</title>
 
-  <script src = "resources/js/apiEndpoints/getBattery.js">//importing getBattery</script> 
-  <script src = "resources/js/utils/addNavigation.js">//adds addNavidation(div, pathToRoot = "", centered = true, navigationElements = "default") to add the navigation to the div bar</script>
+  <script src="resources/js/apiEndpoints/config.js">//imports API configs</script>
+  <script src="resources/js/apiEndpoints/fetchVisitorCount.js">//imports fetchVisitorCount()</script>
+  <script src="resources/js/apiEndpoints/loadWeather.js">//imports loadWather()</script>
+  <script src="resources/js/apiEndpoints/getBattery.js">//importing getBattery</script>
+  <script src="resources/js/apiEndpoints/fetchTime.js">//importing getBattery</script>
+  <script
+    src="resources/js/utils/addNavigation.js">//adds addNavigation(div, pathToRoot = "", centered = true, navigationElements = "default") to add the navigation to the div bar</script>
   <link rel="stylesheet" href="resources/css/vaporeonStyle.css">
 </head>
 
@@ -16,7 +21,7 @@
   <div id="wrapper">
     <div id="navigationwrap">
       <div id="navigation">
-        
+
 
       </div>
 
@@ -67,23 +72,20 @@
         <p id="visitorCount">loading...</p>
         <br>
 
-        <script type="module">
-          async function loadWeather() {
-            try {
-              const response = await fetch("https://gormysecret.onrender.com/visitorCount");
-              const data = await response.json();
+        <script>
 
-              const num = data["visitorCount"]
-
-              const visitorText = "You are visitor number " + num + " to my website! Welcome!";
-              document.getElementById("visitorCount").textContent = visitorText;
-            } catch (err) {
-              console.error("Failed to load Visitor date:", err);
-              document.getElementById("visitorCount").textContent = "Unable to fetch visitor data :(";
+          async function loadVisitorCount() {
+            let visitorCount = await fetchVisitorCount()
+            let element = document.getElementById("visitorCount")
+            if (visitorCount >= 0) {
+              element.textContent = "You are visitor number " + visitorCount + " to my website! Welcome!";
+            } else {
+              element.textContent = "Unable to fetch visitor data :(";
             }
           }
 
-          loadWeather();
+          loadVisitorCount()
+
         </script>
 
       </div>
@@ -115,29 +117,29 @@
         <p>The current weather for me: </p>
         <p id="weather">Weather loading...</p>
 
-        <script type="module">
-          async function loadWeather() {
-            try {
-              const response = await fetch("https://gormysecret.onrender.com/weather?format=json");
-              const data = await response.json();
-
+        <script>
+          async function addWeather() {
+            let weatherElement = document.getElementById("weather")
+            let data = await loadWeather()
+            if (data) {
               const temperature = Math.round(data.main.feels_like);
               const windSpeed = Math.round(data.wind.speed);
               const description = data.weather[0].description;
 
               const weatherText = `It is currently ${temperature}° with ${description}, and the wind is blowing at ${windSpeed} mph.`;
-              document.getElementById("weather").textContent = weatherText;
-            } catch (err) {
-              console.error("Failed to load weather:", err);
-              document.getElementById("weather").textContent = "Unable to fetch weather data.";
+
+              weatherElement.textContent = weatherText
+            } else {
+              weatherElement.textContent = "Unable to fetch weather data.";
             }
           }
 
-          loadWeather();
+          addWeather();
         </script>
 
         <div class="title">
-          <img src="https://64.media.tumblr.com/171c295df37def8ea5bd3774fa3f2471/014d6f73835b6e87-e8/s75x75_c1/f2e8d21f39d3532d9cd06c05172782950d2625ad.gifv">
+          <img
+            src="https://64.media.tumblr.com/171c295df37def8ea5bd3774fa3f2471/014d6f73835b6e87-e8/s75x75_c1/f2e8d21f39d3532d9cd06c05172782950d2625ad.gifv">
           Time
         </div>
 
@@ -146,8 +148,11 @@
         <script>
           async function loadTime() {
             try {
-              const res = await fetch('https://gormysecret.onrender.com/time?format=json');
-              const data = await res.json();
+              
+              const data = await fetchTime();
+              if(!data){ //error fetching data
+                let x = 4 / 0; //purposefully throw error :3
+              }
 
               let date = new Date(data.formattedTime.replace(" ", "T")); // Parse "YYYY-MM-DD HH:MM:SS"
 
@@ -182,7 +187,8 @@
         </script>
 
         <div class="title">
-          <img src="https://64.media.tumblr.com/171c295df37def8ea5bd3774fa3f2471/014d6f73835b6e87-e8/s75x75_c1/f2e8d21f39d3532d9cd06c05172782950d2625ad.gifv">
+          <img
+            src="https://64.media.tumblr.com/171c295df37def8ea5bd3774fa3f2471/014d6f73835b6e87-e8/s75x75_c1/f2e8d21f39d3532d9cd06c05172782950d2625ad.gifv">
           Battery
         </div>
         <p>My phone is currently at <span id="battery"></span>% battery</p>
@@ -196,8 +202,8 @@
             return data.battery
           }
             */
-          
-          async function changeBattery(){ //loads battery element
+
+          async function changeBattery() { //loads battery element
             let batEl = document.getElementById("battery").textContent = await getBattery()
           }
           //script to add battery percentage
@@ -318,8 +324,8 @@
         "https://gormysecret.onrender.com/time?format=json": 2,
         "https://gormysecret.onrender.com/location?format=json": 2,
         "about:blank": 5,
-        "galleries/base.html" : 25,
-        "resources/css/galleryStyle.css" : 10,
+        "galleries/base.html": 25,
+        "resources/css/galleryStyle.css": 10,
       };
 
       const weightedList = [];
