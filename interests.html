@@ -7,7 +7,7 @@
   <title>interests</title>
 
   <link rel="stylesheet" href="resources/css/spaceStyle.css">
-
+  <script src = "resources/js/utils/addNavigation.js">//adds addNavidation(div, pathToRoot = "", centered = true, style = "default", navigationElements = "default") to add the navigation to the div bar</script>
   </style>
 </head>
 
@@ -18,16 +18,18 @@
       src="https://64.media.tumblr.com/aba766706c1307af279cd5aab07316ee/4084658ad46f8ee0-58/s500x750/6ce63c71c09bd84f740198dde42e0ba1394b398c.pnj"
       width="170"><br><br>
 
-    <a class="navi" href="index.html">Home</a>
-    <a class="navi" href="about.html">About</a>
-    <a class="navi" href="travel.html">Travel</a>
-    <a class="navi" href="interests.html">Interests</a>
-    <a class="navi" href="art.html">Art</a>
-    <a class="navi" href="blog.html">Blog</a>
-    <a class="navi" href="otherStuff.html">Updates</a>
-    <br>
-    <br>
+    <div id="navigationElements">
 
+    </div>
+
+    <script>
+        //script to add navigation elements
+        let div = document.getElementById("navigationElements")
+        addNavigation(div, "", false, "spaceship")
+    </script>
+    
+    <br>
+    <br>
 
     <a href="hockey.html"> <div class="title">Hockey</div> </a>
     <a href="galleries/interestGallery/randomImageGallery.html"><div class="title">Random Stuff</div></a>

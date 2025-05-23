@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Settings</title>
   <link rel="stylesheet" href="../../resources/css/slotStyle.css">
+  <script src = "../../resources/js/utils/addNavigation.js">//adds addNavidation(div, pathToRoot = "", centered = true, style = "default", navigationElements = "default") to add the navigation to the div bar</script>
 </head>
 
 <body>
@@ -13,15 +14,13 @@
   <div id="wrapper">
     <div id="navigationwrap">
       <div id="navigation">
-        <center>
-          <a href="../../index.html">Home</a>
-          <a href="slotMachine.html">Slots</a>
-          <a href="payoutTable.html">Payout</a>
-          <a href="leaderboard.html">leaderboard</a>
-          <a href="accountSettings.html">Account</a>
-        </center>
 
       </div>
+      <script>
+          //script to add navigation elements
+          let div = document.getElementById("navigation")
+          addNavigation(div, "../../", true, "default", "slots")
+      </script>
     </div>
 
     <div id="contentwrap">

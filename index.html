@@ -7,6 +7,7 @@
   <title>Home</title>
 
   <script src = "resources/js/apiEndpoints/getBattery.js">//importing getBattery</script> 
+  <script src = "resources/js/utils/addNavigation.js">//adds addNavidation(div, pathToRoot = "", centered = true, navigationElements = "default") to add the navigation to the div bar</script>
   <link rel="stylesheet" href="resources/css/vaporeonStyle.css">
 </head>
 
@@ -15,17 +16,16 @@
   <div id="wrapper">
     <div id="navigationwrap">
       <div id="navigation">
-        <center>
-          <a href="index.html">Home</a>
-          <a href="about.html">About</a>
-          <a href="travel.html">Travel</a>
-          <a href="interests.html">Interests</a>
-          <a href="art.html">Art</a>
-          <a href="blog.html">Blog</a>
-          <a href="otherStuff.html">Updates</a>
-        </center>
+        
 
       </div>
+
+      <script>
+        //script to add navigation elements
+        let div = document.getElementById("navigation")
+        addNavigation(div)
+      </script>
+
     </div>
     <div id="contentwrap">
       <div id="content">

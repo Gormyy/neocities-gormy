@@ -7,3 +7,5 @@ async function getBattery(){ //returns battery percentage
 }
 
 window.getBattery = getBattery
+
+//<script src = "resources/js/apiEndpoints/getBattery.js">//importing getBattery()</script>
