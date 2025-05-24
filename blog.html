@@ -6,7 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Other Stuff!</title>
   <link rel="stylesheet" href="resources/css/vaporeonStyle.css">
-  <script src = "resources/js/utils/addNavigation.js">//adds addNavidation(div, pathToRoot = "", centered = true, navigationElements = "default") to add the navigation to the div bar</script>
+  <script src="resources/js/utils/addNavigation.js">//adds addNavidation(div, pathToRoot = "", centered = true, navigationElements = "default") to add the navigation to the div bar</script>
+
+  <script src="resources/js/miscStuff/fillColumnWithRandomImages.js">//Adds function to fill the right column with images given a list of images</script>
+  <script src="resources/js/utils/syncHeights.js">//imports syncHeights(content, right)</script>
+  <script src="resources/js/utils/loadBlogs.js">//Imports loading blogs</script>
 </head>
 
 <body>
@@ -14,20 +18,17 @@
   <div id="wrapper">
     <div id="navigationwrap">
       <div id="navigation">
-        
 
       </div>
       <script>
         //script to add navigation elements
         let div = document.getElementById("navigation")
         addNavigation(div)
-    </script>
+      </script>
     </div>
 
     <div id="contentwrap">
       <div id="content">
-
-
 
       </div>
     </div>
@@ -41,8 +42,8 @@
               "date": "2025-05-18", //If you're looking through the source code hi!!! I think it's really cool that random creatures can explore my 'lil websites and find rhese comments i put down! Look how i made it!!! i secretly made the blog posts get served as json files! Sneaky. I did this for two reasons: one i hate coding in html. Writing blog posts in html actually kind of sucks and i'm going to transform the other blog style thingies to use json and doing it like this makes it still somewhat feel like coding but it makes it more fun i think. And the 2nd reason is just that it's better idk this way i can make changes to everything faster. Idk i just always like making things as easy to change as possible. Hope you enjoyed that extra blog!
               "content": `Hej! Welcome, this is my first blog on this site! This site is kind of a way to just play around with coding but I also sort of think of it as a piece of art. It's just a cool little interactive website designed to be explored! Every bit of this website was created with love, so please explore <3`,
               "attachments": null,
-              "tags" : null, //i dunno if i'll ever do something with tags but maybe :3
-              "score" : 0 //idk if i'll use this but i'll put this here just in case
+              "tags": null, //i dunno if i'll ever do something with tags but maybe :3
+              "score": 0 //idk if i'll use this but i'll put this here just in case
             },
             {
               "title": "Thoughts about making a website",
@@ -62,8 +63,8 @@
               to make it spawn eeveelutions with this blog post bar. It's random each time and then I got sideracked because I thought it looked like slot 
               machines and then I got distracted and made the slot machines.`,
               "attachments": null,
-              "tags" : null, 
-              "score" : 0 
+              "tags": null,
+              "score": 0
             },
             {
               "title": "Website update",
@@ -76,8 +77,8 @@
               manually change all the links, but I want to move all the pages to their own folder and add the seperate the css because rn it's all in the header 
               so if I want to change the css for some pages it'll be a big pain to change. But I'll do that in the future :)`,
               "attachments": null,
-              "tags" : null, 
-              "score" : 0 
+              "tags": null,
+              "score": 0
             },
             {
               "title": "Spring Cleaning!",
@@ -87,8 +88,8 @@
               set up stuff. Like I had just one giant file on my backend for a while and now I've split it up to like 40 files now. So I did do quite a bit of work 
               behind the scenes making it easier for me to add stuff in the future.`,
               "attachments": null,
-              "tags" : null, 
-              "score" : 0 
+              "tags": null,
+              "score": 0
             },
             {
               "title": "Bumped from a flight",
@@ -97,31 +98,14 @@
               first time I haven't made a flight which is pretty cool. I don't mind too much because I'll either get there later tonight or friday. These flights just 
               seemed to fill up a lot over the last 24 hours but tomorrow's flights still look good.`,
               "attachments": null,
-              "tags" : null, 
-              "score" : -1 
+              "tags": null,
+              "score": -1
             },
 
           ]
 
-          async function loadBlogs() {
-
-            // Sort by date descending
-            blogs.sort((a, b) => new Date(b.date) - new Date(a.date));
-
-            for (const blog of blogs) {
-              const titleHTML = `
-                <div class="title2">
-                  <img src="https://64.media.tumblr.com/0b91ec3f6bd8e50404dc513ffbdf5821/014d6f73835b6e87-d3/s75x75_c1/f19c167835beae789c67e6721b3492325131958c.gifv">
-                  <span class="titleText">${blog.title}</span> <br> <span class='blogDate'>${new Date(blog.date + "T12:00:00").toLocaleDateString()}</span>
-                </div>
-              `;
-
-              const bodyHTML = `<p class="body">${blog.content}</p><br>`;
-              document.getElementById("content").innerHTML += titleHTML + bodyHTML;
-            }
-          }
-
-          loadBlogs();
+          const content = document.getElementById("content")
+          loadBlogs(blogs, content);
         </script>
 
 
@@ -150,64 +134,19 @@
       "https://i.postimg.cc/GpMXpMjD/dg5zzve-0a3e38cd-c3c7-4290-aed5-f4bb01860b0a.gif"
     ];
 
-    function fillRightColumn() {
+    function fillRightColumn() { //wrapper function for fillColumnWithRandomImages
       const content = document.getElementById('content');
       const rightColumn = document.getElementById('rightcolumn');
-      const maxHeight = content.offsetHeight;
-
-      const imageHeight = 100;
-      const margin = 10;
-      const totalImageBlockHeight = imageHeight + 2 * margin;
-
-      let numImages = Math.floor(maxHeight / totalImageBlockHeight);
-      numImages += 1
-      for (let i = 0; i < numImages; i++) {
-        const img = document.createElement('img');
-        img.src = eeveelutions[Math.floor(Math.random() * eeveelutions.length)];
-        //img.style.width = '100px';
-        img.style.height = `${imageHeight}px`;
-        img.style.display = 'block';
-        img.style.margin = `${margin}px auto`;
-
-        rightColumn.appendChild(img);
-      }
+      fillRightColumnWithRandomImages(content, rightColumn, eeveelutions)
     }
 
-    function syncHeights() {
+    function callSyncHeights() {
       const content = document.getElementById('content');
       const right = document.getElementById('rightcolumn');
-
-      if (!content || !right) return;
-
-      function adjustHeights() {
-        // Reset to natural height before measuring
-        content.style.height = 'auto';
-        right.style.height = 'auto';
-
-        const contentHeight = content.offsetHeight;
-        const rightHeight = right.offsetHeight;
-        const maxHeight = Math.max(contentHeight, rightHeight) - 37;
-
-        content.style.height = `${maxHeight}px`;
-        right.style.height = `${maxHeight}px`;
-      }
-
-      // Watch DOM changes
-      const observer = new ResizeObserver(adjustHeights);
-      observer.observe(content);
-      observer.observe(right);
-
-      // Watch window resizing
-      window.addEventListener('resize', adjustHeights);
-
-      // Fallback: check periodically for layout changes
-      setInterval(adjustHeights, 500);
-
-      // Initial run
-      adjustHeights();
-
+      syncHeights(content, right)
     }
-    window.addEventListener('DOMContentLoaded', syncHeights);
+
+    window.addEventListener('DOMContentLoaded', callSyncHeights);
     window.addEventListener('DOMContentLoaded', fillRightColumn);
   </script>
 </body>
