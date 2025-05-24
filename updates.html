@@ -7,6 +7,7 @@
   <title>Other Stuff!</title>
   <link rel="stylesheet" href="resources/css/vaporeonStyle.css">
   <script src = "resources/js/utils/addNavigation.js">//adds addNavidation(div, pathToRoot = "", centered = true, style = "default", navigationElements = "default") to add the navigation to the div bar</script>
+  <script src="resources/js/utils/loadBlogs.js">//Imports loading blogs</script>
 </head>
 
 <body>
@@ -38,49 +39,56 @@
       date: "2025-05-18",
       content: `This is my updates page where I put updates I made for this site!`,
       attachments: null,
-      tags: []
+      tags: [],
+      score: 0
     },
     {
       title: "Login Page & Payout Table",
       date: "2025-05-18",
       content: `I added a login page to the slots! I also made the payout table. I think I'm mostly done with that project, now I just have to figure out where to put the slots.`,
       attachments: null,
-      tags: []
+      tags: [],
+      score: 0
     },
     {
       title: "Slots Game Online",
       date: "2025-05-17",
       content: `I spent the last couple of days making slots on the website, <a href="games/slots/slotMachine.html">check it out!</a> I still have more to add to it but hopefully it'll be cool.`,
       attachments: null,
-      tags: []
+      tags: [],
+      score: 0
     },
     {
       title: "Blog Design & Secrets",
       date: "2025-05-15",
       content: `I'm made the design for the blog page! I also made a visitor counter, and I added a few more secrets to the site :)`,
       attachments: null,
-      tags: []
+      tags: [],
+      score: 0
     },
     {
       title: "Moved Updates!",
       date: "2025-05-14",
       content: `Recently I've been mostly updating the backend for the site, and I used it to get my weather and current local time on the site. I also started working on the art page but got distracted and I also started the hockey blog. and I moved updates here!`,
       attachments: null,
-      tags: []
+      tags: [],
+      score: 0
     },
     {
       title: "Added stickers page!",
       date: "2025-05-12",
       content: `Added sticker page under travel. <a href="stickers.html">check it out!</a> <br> I also added a random page button!`,
       attachments: null,
-      tags: []
+      tags: [],
+      score: 0
     },
     {
       title: "Made location update automatically",
       date: "2025-05-09",
       content: `I'm in Toronto now! I updated the preciseLocation backend so that my general location updates automatically. I also updated my about page so that my age updates automatically!`,
       attachments: null,
-      tags: []
+      tags: [],
+      score: 0
     },
     {
       title: "Making stuff on website",
@@ -93,7 +101,8 @@
         anywhere in the world rather than just the US because otherwise it wouldn't really be useful with me going out
         of the country tomorrow. I also updated my about page!`,
       attachments: null,
-      tags: []
+      tags: [],
+      score: 0
     },
     {
       title: "Made location tracker",
@@ -101,7 +110,8 @@
       content: `I added titles to all the pages so yay! I also added a precise location tracker so my friends can stalk me. It
         took a lot of time to get it working but it's what the stakeholders want.`,
       attachments: null,
-      tags: []
+      tags: [],
+      score: 0
     },
     {
       title: "Made Github",
@@ -109,14 +119,16 @@
       content: `I made a github for the website! I also am probably going to add more things to it! I also made it so that I
         just have to push changes to my github and they'll automatically change on the website so yay!`,
       attachments: null,
-      tags: []
+      tags: [],
+      score: 0
     },
     {
       title: "Added travel page",
       date: "2025-05-02",
       content: `I added the travel page! Yay! I also updated some of the home page to make it more tiny!`,
       attachments: null,
-      tags: []
+      tags: [],
+      score: 0
     },
     {
       title: "Finally updated page and added hockey page",
@@ -125,7 +137,8 @@
         page. It will prolly mostly contain links to interest pages!
         Anyway i added the hockey page!`,
       attachments: null,
-      tags: []
+      tags: [],
+      score: 0
     },
     {
       title: "Readjusted update page",
@@ -134,35 +147,25 @@
       about how the site actually looks but it does make it funner to make these updates because it feels like coding to me and it also makes it a lot 
       easier to change the site design later if i want to.`,
       attachments: null,
-      tags: []
+      tags: [],
+      score: 0
     },
-    
-
-    // Add more entries here...
+    {
+      title: "Still reworking some code on the site",
+      date: "2025-05-24",
+      content: `Recently I've mostly been working on some js code behind the site and cleaning it all up because when i started making this site i kind of 
+      didn't hold any regard for writing clean code and structuring it well, so doing things this way, I should be able to make updates a lot easier in the 
+      future! I don't really like the to-do list on the side of this page anymore so I might just move it just comments and change the rest to just be random 
+      eeveelution images on the side but idk yet.`,
+      attachments: null,
+      tags: [],
+      score: 0
+    },
   ];
 
-  // Sort by date descending (most recent first)
-  blogEntries.sort((a, b) => new Date(b.date) - new Date(a.date));
-
-  window.addEventListener('DOMContentLoaded', () => {
-    
-    const contentDiv = document.getElementById('content');
-    blogEntries.forEach(entry => {
-      //console.log(entry.date, new Date(entry.date).getDay())
-      
-      const [year, month, day] = entry.date.split('-').map(Number);
-
-      contentDiv.innerHTML += `
-        <div class="title2">
-          <img src="https://64.media.tumblr.com/0b91ec3f6bd8e50404dc513ffbdf5821/014d6f73835b6e87-d3/s75x75_c1/f19c167835beae789c67e6721b3492325131958c.gifv">
-          ${month}/${day}/${year} — ${entry.title}
-        </div>
-        <div>${entry.content}</div>
-        ${entry.tags.length ? `` : ""}
-        <br>
-      `;
-    });
-  });
+  const content = document.getElementById("content")
+  loadBlogs(blogEntries, content);
+  
 </script>
 
     <div id="rightcolumnwrap">
