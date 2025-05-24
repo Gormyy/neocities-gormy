@@ -12,8 +12,18 @@
   <title>About</title>
 
   <link rel="stylesheet" href="resources/css/kittyStyle.css">
-  <script src = "resources/js/utils/addNavigation.js">//adds addNavidation(div, pathToRoot = "", centered = true, navigationElements = "default") to add the navigation to the div bar</script>
+  
+  
+  <script src="resources/js/utils/addNavigation.js">//adds addNavidation(div, pathToRoot = "", centered = true, navigationElements = "default") to add the navigation to the div bar</script>
   <script src="resources/js/bubbleScript.js"></script>
+  <script src="resources/js/utils/getDeterministicColor.js">//imports getDeterministicColor(inpu) gives a random color</script>
+  <script src="resources/js/utils/timeUtils.js">//imports some time utils</script>
+
+  <script src="resources/js/apiEndpoints/config.js">//imports API configs</script>
+  <script src="resources/js/apiEndpoints/fetchLocation.js">//imports fetchLocation(user)</script>
+  <script src="resources/js/apiEndpoints/loadMessages.js">//imports loadMessages()</script>
+  <script src="resources/js/apiEndpoints/postComment.js">//imports postComment()</script>
+  
 </head>
 
 <body>
@@ -85,22 +95,19 @@
 
     <script>
       //Hailey location code!
-      fetch('https://gormysecret.onrender.com/location?user=Hailey&format=json')
-        .then(response => {
-          if (!response.ok) {
-            throw new Error('Failed to fetch location');
-          }
-          return response.json();
-        })
-        .then(data => {
+      async function updateLocation() {
+        const locationEl = document.getElementById('haileyLocation')
+        const data = await fetchLocation("hailey")
+        if (data) {
           const { city, state, country } = data;
           const locationText = `${city ? city + ', ' : ''}${state ? state + ', ' : ''}${country}`;
-          document.getElementById('haileyLocation').textContent = locationText || 'Location not available';
-        })
-        .catch(error => {
-          console.error(error);
-          document.getElementById('haileyLocation').textContent = 'Error retrieving location';
-        });
+          locationEl.textContent = locationText || 'Location not available';
+        } else {
+          locationEl.textContent = 'Error retrieving location';
+        }
+      }
+
+      updateLocation()
     </script>
 
     <div class="contenttitle">Comments</div>
@@ -114,67 +121,14 @@
 
     <script>
       const scrollDiv = document.getElementById("scrollableDiv");
-      function getDeterministicColor(input) {
-        //Simple hash function (djb2)
-        let day = new Date().getDay()
-        let month = new Date().getMonth()
-        let year = new Date().getFullYear()
-        let hash = day * month * year
-        for (let i = 0; i < input.length; i++) {
-          hash = ((hash << 5) + hash) + input.charCodeAt(i);
-          hash = hash & hash; //Convert to 32bit integer
-        }
-
-        //Generate RGB values based on hash
-        const r = (hash >> 16) & 0xFF;
-        const g = (hash >> 8) & 0xFF;
-        const b = hash & 0xFF;
-
-        //Convert to hex string and pad if needed
-        const toHex = (n) => n.toString(16).padStart(2, '0');
-
-        return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
-      }
-
+      
       //Gets the messages
       let currentPage = 1;
       let canFetchMore = true;
       //const scrollDiv = document.getElementById('scrollableDiv');
 
-      function createMessageElement(name, message) {
-        const p = document.createElement('p');
-        let color = getDeterministicColor(name)
-        p.innerHTML = `<strong style="color:${color}">${name}</strong>: ${message}`;
-        return p;
-      }
-
-      //please don't abuse this :3 i know all the posting messages and stuff are publicly accesible endpoints but i just want to make a fun 'lil website so please don't try to intentionally break it that wouldn't be fun.
-      async function loadMessages(page) {
-        const res = await fetch(`https://gormysecret.onrender.com/getMessages?page=${page}`);
-        const result = await res.json();
-
-        if (!result.isFull) {
-          canFetchMore = false;
-        }
-
-        const messages = result.messages;
-
-        if (messages.length === 0) return;
-
-        const scrollHeightBefore = scrollDiv.scrollHeight;
-
-        messages.forEach(msg => {
-          const el = createMessageElement(msg.name, msg.message);
-          scrollDiv.insertBefore(el, scrollDiv.firstChild);
-        });
-
-        //Preserve scroll position after prepending
-        const scrollHeightAfter = scrollDiv.scrollHeight;
-        scrollDiv.scrollTop += scrollHeightAfter - scrollHeightBefore;
-      }
-
       //Load first page initially
-      loadMessages(currentPage).then(() => {
+      loadMessages(currentPage, scrollDiv).then(() => {
         //Scroll to bottom on first load
         scrollDiv.scrollTop = scrollDiv.scrollHeight;
       });
@@ -188,29 +142,6 @@
       });
 
       // Scroll to the bottom after the content is loaded
-      scrollDiv.scrollTop = scrollDiv.scrollHeight;
-
-      async function postComment() {
-        const nameInput = document.getElementById("nameInput").value.trim()
-        const messageInput = document.getElementById("messageInput").value.trim()
-        const messages = document.getElementById("messageStatus")
-        if (nameInput === "" || messageInput === "") {
-          messages.innerHTML = "Name/message cannot be empty"
-          return
-        }
-
-        url = `https://gormysecret.onrender.com/postMessage?name=${nameInput}&message=${messageInput}`;
-        //console.log(url)
-        const response = await fetch(url);
-        if (!response.ok) {
-          messages.innerHTML = "message failed to post"
-          return
-        }
-
-        const data = await response.json();
-        messages.innerHTML = "Message posted!"
-        location.reload();
-      }
     </script>
 
     <div class="contenttitle">Post a comment</div>
@@ -223,7 +154,7 @@
     </center>
 
     <center>
-      <button class="rounded-btn" id="changeUsername" onclick="postComment()">Post Comment</button><br><br>
+      <button class="rounded-btn" id="changeUsername" onclick="postComment(nameInput, messageInput, messages)">Post Comment</button><br><br>
 
       <label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name: </label><input type="text" id="nameInput"></input> <br>
       <label> Message: </label><input type="text" id="messageInput"></input>
@@ -235,26 +166,16 @@
     <br><br>
     <img src="neocities.png" alt="neocities badge" width="100">
 
+    <script>
+      //variables for posting comments
+      const nameInput = document.getElementById("nameInput")
+      const messageInput = document.getElementById("messageInput")
+      const messages = document.getElementById("messageStatus")
+    </script>
 
   </div>
 
   <script>
-    function yearsSince(date) {
-      const currentDate = new Date();
-      const targetDate = new Date(date);
-
-      let yearsPassed = currentDate.getFullYear() - targetDate.getFullYear();
-
-      if (
-        currentDate.getMonth() < targetDate.getMonth() ||
-        (currentDate.getMonth() === targetDate.getMonth() && currentDate.getDate() < targetDate.getDate())
-      ) {
-        yearsPassed--;
-      }
-
-      return yearsPassed;
-    }
-
     const date = '2003-02-23';
     const years = yearsSince(date);
 

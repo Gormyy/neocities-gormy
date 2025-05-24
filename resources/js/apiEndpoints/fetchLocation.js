@@ -1,9 +1,10 @@
-async function fetchLocation(){
+async function fetchLocation(user="gormy"){
     try{
-        const res = await fetch(`${API_LINK}/location?format=json`)
+        const res = await fetch(`${API_LINK}/location?format=json&user=${user}`)
         const data = await res.json()
         return data
-    }catch {
+    }catch (error){
+        console.log(error)
         console.error("Error fetching location")
         return null
     }
