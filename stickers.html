@@ -223,6 +223,17 @@
           credit: null,
           location: "Tampa Bay, Florida"
         },
+        {
+          image: "https://i.postimg.cc/hPt8HXkb/IMG-6860.jpg",
+          date: "2025-05-13",
+          title: "Toronto Maple Leaf",
+          caption: `Sticker I got in the Toronto Airport as i was heading home. I got a different sticker sheet somewhere in chinatown in Toronto but I also took it 
+          with me to a bar and a board game place and I think i forgot it at one of those places so I just picked this one up at the airport as I was leaving. I also 
+          thought it was really funny that it took the lady like 3 minutes to scan the barcode for this sticker when checking out because the barcode was shiny and 
+          really tiny.`,
+          credit: null,
+          location: "Toronto, Canada"
+        },
       ];
 
       items.sort((a, b) => new Date(b.date) - new Date(a.date));
@@ -230,6 +241,7 @@
       const content = document.getElementById("content");
 
       items.forEach(item => {
+        //I think I'm going to change the style of this to a gallery page but i'll do that later
         const contentBox = document.createElement("div");
         contentBox.id = "contentbox";
 
