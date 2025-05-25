@@ -164,7 +164,6 @@ body {
 
     .small-title {
       color: #666;
-      text-transform: uppercase;
       font: 12px arial;
       line-height: 12px;
       background: #F6EFFF;
@@ -174,7 +173,6 @@ body {
 
     .big-title {
       color: #666;
-      text-transform: uppercase;
       font: 16px arial;
       line-height: 16px;
       background: #FFEFFA;
@@ -200,7 +198,6 @@ body {
       text-align: left;
       font: 12px arial;
       line-height: 12px;
-      text-transform: uppercase;
       letter-spacing: 2px;
     }
 
