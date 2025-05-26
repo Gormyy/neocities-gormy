@@ -4,11 +4,11 @@
 <head>
   <title>Hockey - not completely finished yet</title>
 
-  <link rel="stylesheet" href="resources/css/ghostKittyStyle.css">
-  <script src="resources/js/utils/addNavigation.js">//adds addNavidation(div, pathToRoot = "", centered = true, style = "default", navigationElements = "default") to add the navigation to the div bar</script>
-  <script src="resources/js/utils/loadBlogs.js">//Imports loading blogs</script>
-  <script src="resources/js/miscStuff/fillColumnWithRandomImages.js">//Adds function to fill the right column with images given a list of images</script>
-  <script src="resources/js/utils/syncHeights.js">//imports syncHeights(content, right)</script>
+  <link rel="stylesheet" href="../resources/css/ghostKittyStyle.css">
+  <script src="../resources/js/utils/addNavigation.js">//adds addNavidation(div, pathToRoot = "", centered = true, style = "default", navigationElements = "default") to add the navigation to the div bar</script>
+  <script src="../resources/js/utils/loadBlogs.js">//Imports loading blogs</script>
+  <script src="../resources/js/miscStuff/fillColumnWithRandomImages.js">//Adds function to fill the right column with images given a list of images</script>
+  <script src="../resources/js/utils/syncHeights.js">//imports syncHeights(content, right)</script>
 </head>
 
 <body>
@@ -236,6 +236,20 @@
           "format" : "default" //normal columns -> two columns
         },
         {
+          "title": "More frisbee!",
+          "title2" : "",
+          "date": "2025-05-26",
+          "content": `I watched some more frisbee today, watching the men's and women's college championship game with my brother 
+          the men's game was pretty uneventful but the women's game was really fun. It was very back and forth and it went to UP. 
+          I really like how often frisbee games go to a winner take all game. It's such a greaty way to finish a game. UBC ended up winning 
+          so gg.`,
+          "content2" : ``, //for 2nd column if needed 
+          "attachments": null,
+          "tags": null,
+          "score": 0,
+          "format" : "default" //normal columns -> two columns
+        },
+        {
           "title": "Maple Leafs vs Panthers Game 5",
           "title2" : "Golden Knights vs Oilers Game 5",
           "date": "2025-05-14",
@@ -271,45 +285,45 @@
       ]
 
       const teams = [
-        "resources/images/sportsLogos/dallasStars.png",
-        "resources/images/sportsLogos/indianaPacers.png",
-        "resources/images/sportsLogos/indianapolisColts.png",
-        "resources/images/sportsLogos/indianaPacers.png",
-        "resources/images/sportsLogos/indianapolisColts.png",
-        "resources/images/sportsLogos/indianaPacers.png",
-        "resources/images/sportsLogos/indianapolisColts.png",
-        "resources/images/sportsLogos/stLouisBlues1.png",
-        "resources/images/sportsLogos/stLouisBlues2.png",
-        "resources/images/sportsLogos/stLouisBlues3.png",
-        "resources/images/sportsLogos/stLouisBlues4.png",
-        "resources/images/sportsLogos/stLouisBlues1.png",
-        "resources/images/sportsLogos/stLouisBlues2.png",
-        "resources/images/sportsLogos/stLouisBlues3.png",
-        "resources/images/sportsLogos/stLouisBlues4.png",
-        "resources/images/sportsLogos/stLouisBlues1.png",
-        "resources/images/sportsLogos/stLouisBlues2.png",
-        "resources/images/sportsLogos/stLouisBlues3.png",
-        "resources/images/sportsLogos/stLouisBlues4.png",
-        "resources/images/sportsLogos/stLouisBlues1.png",
-        "resources/images/sportsLogos/stLouisBlues2.png",
-        "resources/images/sportsLogos/stLouisBlues3.png",
-        "resources/images/sportsLogos/stLouisBlues4.png",
-        "resources/images/sportsLogos/stLouisBlues1.png",
-        "resources/images/sportsLogos/stLouisBlues2.png",
-        "resources/images/sportsLogos/stLouisBlues3.png",
-        "resources/images/sportsLogos/stLouisBlues4.png",
-        "resources/images/sportsLogos/stLouisBlues1.png",
-        "resources/images/sportsLogos/stLouisBlues2.png",
-        "resources/images/sportsLogos/stLouisBlues3.png",
-        "resources/images/sportsLogos/stLouisBlues4.png",
-        "resources/images/sportsLogos/stLouisCardinals.png",
-        "resources/images/sportsLogos/stLouisCardinals.png",
-        "resources/images/sportsLogos/tampaBayLightning.png",
-        "resources/images/sportsLogos/utahHockeyClub.png",
-        "resources/images/sportsLogos/utahMammoth.png",
-        "resources/images/sportsLogos/utahJazz.png",
-        "resources/images/sportsLogos/utahMammoth.png",
-        "resources/images/sportsLogos/utahJazz.png",
+        "../resources/images/sportsLogos/dallasStars.png",
+        "../resources/images/sportsLogos/indianaPacers.png",
+        "../resources/images/sportsLogos/indianapolisColts.png",
+        "../resources/images/sportsLogos/indianaPacers.png",
+        "../resources/images/sportsLogos/indianapolisColts.png",
+        "../resources/images/sportsLogos/indianaPacers.png",
+        "../resources/images/sportsLogos/indianapolisColts.png",
+        "../resources/images/sportsLogos/stLouisBlues1.png",
+        "../resources/images/sportsLogos/stLouisBlues2.png",
+        "../resources/images/sportsLogos/stLouisBlues3.png",
+        "../resources/images/sportsLogos/stLouisBlues4.png",
+        "../resources/images/sportsLogos/stLouisBlues1.png",
+        "../resources/images/sportsLogos/stLouisBlues2.png",
+        "../resources/images/sportsLogos/stLouisBlues3.png",
+        "../resources/images/sportsLogos/stLouisBlues4.png",
+        "../resources/images/sportsLogos/stLouisBlues1.png",
+        "../resources/images/sportsLogos/stLouisBlues2.png",
+        "../resources/images/sportsLogos/stLouisBlues3.png",
+        "../resources/images/sportsLogos/stLouisBlues4.png",
+        "../resources/images/sportsLogos/stLouisBlues1.png",
+        "../resources/images/sportsLogos/stLouisBlues2.png",
+        "../resources/images/sportsLogos/stLouisBlues3.png",
+        "../resources/images/sportsLogos/stLouisBlues4.png",
+        "../resources/images/sportsLogos/stLouisBlues1.png",
+        "../resources/images/sportsLogos/stLouisBlues2.png",
+        "../resources/images/sportsLogos/stLouisBlues3.png",
+        "../resources/images/sportsLogos/stLouisBlues4.png",
+        "../resources/images/sportsLogos/stLouisBlues1.png",
+        "../resources/images/sportsLogos/stLouisBlues2.png",
+        "../resources/images/sportsLogos/stLouisBlues3.png",
+        "../resources/images/sportsLogos/stLouisBlues4.png",
+        "../resources/images/sportsLogos/stLouisCardinals.png",
+        "../resources/images/sportsLogos/stLouisCardinals.png",
+        "../resources/images/sportsLogos/tampaBayLightning.png",
+        "../resources/images/sportsLogos/utahHockeyClub.png",
+        "../resources/images/sportsLogos/utahMammoth.png",
+        "../resources/images/sportsLogos/utahJazz.png",
+        "../resources/images/sportsLogos/utahMammoth.png",
+        "../resources/images/sportsLogos/utahJazz.png",
       ];
 
       loadBlogs(blogs, content, "ghost kitty");

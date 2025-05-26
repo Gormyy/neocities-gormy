@@ -1,16 +1,3 @@
-
-const navigation = `
-    <center>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="travel.html">Travel</a>
-        <a href="interests.html">Interests</a>
-        <a href="art.html">Art</a>
-        <a href="blog.html">Blog</a>
-        <a href="otherStuff.html">Updates</a>
-    </center>
-`
-
 const defaultElements = [
     {"name" : "Home", "path" : "index.html"},
     {"name" : "About", "path" : "about.html"},
@@ -35,6 +22,15 @@ const slotElements = [
     {"name" : "Account", "path" : "games/slots/accountSettings.html"},
 ]
 
+const interestElements = [
+    {"name" : "sports", "path" : "interests/sports.html"},
+    {"name" : "random stuff", "path" : "galleries/interestGallery.html"},
+    {"name" : "climbing", "path" : "interests/climbing.html"},
+    {"name" : "music", "path" : "interests/music.html"},
+    {"name" : "weather", "path" : "interests/weather.html"},
+    {"name" : "coding", "path" : "interests/coding.html"},
+]
+
 async function addNavigation(div, pathToRoot = "", centered = true, style = "default", Elements = "default"){
     let content = ``
 
@@ -43,6 +39,8 @@ async function addNavigation(div, pathToRoot = "", centered = true, style = "def
         navElements = defaultElements
     } else if (Elements == "slots"){
         navElements = slotElements
+    } else if (Elements == "interests"){
+        navElements = interestElements
     }
 
     for (el of navElements){
@@ -56,6 +54,8 @@ async function addNavigation(div, pathToRoot = "", centered = true, style = "def
         } else if (style == "spaceship"){
             content = content + 
             `<a class="navi" href="${pathToRoot+el["path"]}">${el["name"]}</a>\n`
+        } else if (style == "interests"){
+            content = content + `<a href="${pathToRoot + el["path"]}"> <div class="interestTitle">${el["name"]}</div> </a>`
         }
         
     }
