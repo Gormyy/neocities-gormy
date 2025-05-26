@@ -67,6 +67,12 @@
       border-left: 4px solid #4FA3AB;
     }
 
+    .interestTitle:hover {
+      background: #354F54;
+      border-left: 5px solid #4FA3AB;
+      color: #fff;
+    }
+
     .bigtitle {
       font: 26px 'courier new', arial;
       text-transform: uppercase;
