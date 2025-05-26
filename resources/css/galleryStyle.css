@@ -31,7 +31,6 @@ body {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Pushes content to top and bottom */
     height: 100%; /* Full height card */
     background: #e2f3fa;
   }
@@ -42,21 +41,29 @@ body {
   
   .image-card img {
     width: 100%;
-    height: auto;
+    aspect-ratio: 4 / 3; /* Keeps consistent height; adjust as needed */
+    object-fit: cover;
     display: block;
   }
   
   .image-info {
-    margin-top: auto; /* Pushes it to the bottom */
     padding: 10px;
+    min-height: 60px; /* Ensures consistent height so titles align */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
   }
   
   .image-info h3 {
-    margin: 0 0 5px;
+    margin: 0;
+    font-size: 1.1em;
+    line-height: 1.3;
+    flex-shrink: 0;
   }
   
   .image-info small {
     color: #777;
+    margin-top: 5px;
   }
 
   .rounded-btn {
@@ -77,3 +84,42 @@ body {
     background-color: #92cde1;
     /* Slightly darker blue on hover */
   }
+
+  .image-info .description {
+    max-height: 3.6em; /* ~2 lines if line-height is 1.8em */
+    overflow: hidden;
+    position: relative;
+    transition: max-height 0.3s ease;
+    line-height: 1.2em;
+  }
+
+  .image-info .description.expanded {
+    max-height: none;
+  }
+
+  .description {
+  max-height: 3.6em;
+  overflow: hidden;
+  position: relative;
+  transition: max-height 0.3s ease;
+  line-height: 1.8em;
+  margin: 0;
+}
+
+.description.expanded {
+  max-height: none;
+}
+
+.toggle-btn {
+  background: none;
+  border: none;
+  color: #0077cc;
+  cursor: pointer;
+  font-size: 0.9em;
+  padding: 5px 0 0;
+  text-align: left;
+}
+
+.toggle-btn:focus {
+  outline: none;
+}

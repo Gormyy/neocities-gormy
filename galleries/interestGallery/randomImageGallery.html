@@ -135,6 +135,56 @@
         "link" : null,
         "location" : "Salt Lake City, Utah, United States", 
       },
+      {
+        "src": "../../resources/images/randomImages/banksy.jpg",
+        "title": "Banksy",
+        "caption": "A picture of a random banksy painting I stumbled across in Park City",
+        "date": "2025-05-24",
+        "score": 9,
+        "link" : null,
+        "location" : "Park City, Utah, United States", 
+      },
+      {
+        "src": "../../resources/images/randomImages/brokenFireAlarm.jpg",
+        "title": "Broken Fire Alarm",
+        "caption": "Broken fire alarm in a parking lot after a movie",
+        "date": "2025-05-25",
+        "score": 8,
+        "link" : null,
+        "location" : "Salt Lake City, Utah, United States", 
+      },
+      {
+        "src": "../../resources/images/randomImages/camera.jpg",
+        "title": "Camera",
+        "caption": `Random camera in a parking garage. I fount it intriguing to think about how a random security camera 
+          is always watching and recording in a parking garage regardless of if there is anyone or anything to watch. 
+          Being a parking garage in the middle of a big city, I'm sure that security camera has probably seen a lot. 
+          It would be fascinating to be able to watch it for a while and see what happens in that parking garage. 
+          I'm sure my group of people would have been interesting to watch and there were another group of people in 
+          the parking garage smoking weed, so I'm sure a lot happens there, especially at night when it is empty.`,
+        "date": "2025-05-25",
+        "score": 8,
+        "link" : null,
+        "location" : "Salt Lake City, Utah, United States", 
+      },
+      {
+        "src": "../../resources/images/randomImages/randomGrafitti.jpg",
+        "title": "Grafitti",
+        "caption": "Random drawing on a sign in a parking lot.",
+        "date": "2025-05-25",
+        "score": 7,
+        "link" : null,
+        "location" : "Salt Lake City, Utah, United States", 
+      },
+      {
+        "src": "../../resources/images/randomImages/theaa.jpg",
+        "title": "Thea!",
+        "caption": "She's the fastest girl around!",
+        "date": "2025-05-24",
+        "score": 7,
+        "link" : null,
+        "location" : "Salt Lake City, Utah, United States", 
+      },
     ];
 
     
@@ -149,8 +199,32 @@
     document.querySelectorAll('a').forEach(link => {
         link.setAttribute('target', '_blank');
         link.setAttribute('rel', 'noopener noreferrer');
-    });W
+    });
 
   </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll('.description-container').forEach(container => {
+        const desc = container.querySelector('.description');
+        const btn = container.querySelector('.toggle-btn');
+
+        // Function to check if the text is overflowing
+        const isOverflowing = () => desc.scrollHeight > desc.clientHeight;
+
+        // Only show button if it's actually overflowing
+        if (!isOverflowing()) {
+          btn.style.display = 'none';
+        }
+
+        btn.addEventListener('click', () => {
+          desc.classList.toggle('expanded');
+          btn.textContent = desc.classList.contains('expanded') ? 'Read less' : 'Read more';
+        });
+      });
+    });
+  </script>
+
+
 </body>
 </html>

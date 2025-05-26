@@ -32,13 +32,16 @@ function renderGallery(images) {
 
         container.innerHTML += `
           <div class="image-card">
-            <a href=${imgHref}>
-            <img src="${img.src}" alt="${img.caption}">
+            <a href="${imgHref}">
+                <img src="${img.src}" alt="${img.caption}">
             </a>
             <div class="image-info">
-              <h3>${img.title}</h3>
-              <p>${img.caption}</p>
-              <small>${img.date}</small>
+                <h3>${img.title}</h3>
+                <div class="description-container">
+                    <p class="description">${img.caption}</p>
+                    <button class="toggle-btn">Read more</button>
+                </div>
+                <small>${img.date}</small>
             </div>
           </div>
         `;
