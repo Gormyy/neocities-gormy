@@ -56,6 +56,17 @@
       border-left: 4px solid #4FA3AB;
     }
 
+    .interestTitle {
+      color: #FDD5B4;
+      background: #000 url();
+      font: 12px georgia;
+      letter-spacing: 4px;
+      padding: 1px;
+      padding-left: 4px;
+      margin-bottom: 4px;
+      border-left: 4px solid #4FA3AB;
+    }
+
     .bigtitle {
       font: 26px 'courier new', arial;
       text-transform: uppercase;
