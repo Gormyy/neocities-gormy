@@ -5,7 +5,7 @@ const defaultElements = [
     {"name" : "Interests", "path" : "interests.html"},
     {"name" : "Art", "path" : "art.html"},
     {"name" : "Blog", "path" : "blog.html"},
-    {"name" : "Updates", "path" : "otherStuff.html"},
+    {"name" : "Updates", "path" : "updates.html"},
 ]
 /*
           <a href="../../index.html">Home</a>
