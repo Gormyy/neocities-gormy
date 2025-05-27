@@ -9,21 +9,20 @@
   <script src="../resources/js/apiEndpoints/config.js">//imports API configs</script>
   <script src="../resources/js/utils/syncHeights.js">//imports syncHeights(content, right)</script>
   <script src="../resources/js/utils/addNavigation.js">//adds addNavigation(div, pathToRoot = "", centered = true, navigationElements = "default") to add the navigation to the div bar</script>
+  <script src="../resources/js/apiEndpoints/codingEndpoints/getGithubInfo.js">//imports getGithubInfo(repo)</script>
+  <script src="../resources/js/utils/timeUtils.js">//For importing format date</script>
+  <script src="../resources/js/miscStuff/sumValuesDict.js">//Imports sum values dict</script>
   <link rel="stylesheet" href="../resources/css/jolteonStyle.css">
 </head>
 
 <body>
-
-
 
   <br><br><br>
   <div id="wrapper">
     <div id="navigationwrap">
       <div id="navigation">
 
-
       </div>
-
     </div>
 
     <script>
@@ -35,42 +34,67 @@
     <div id="contentwrap">
       <div id="content">
 
-        <div class="title2"> <img src="../resources/styleImages/arrowYellog.png"> Current radar </div>
-        <br>
-        <div id = "radar">
-
-        </div>
-        
-
+        <div class="title2"> <img src="../resources/styleImages/arrowYellog.png"> Website </div>
+               
       </div>
     </div>
 
-    <script>
-        //loads radar
-        async function loadRadar(){
-            const link = (await getRadar())["link"]
-            console.log(link)
-           
-            const radarImgDiv = document.getElementById("radar")
-
-            radarImgDiv.innerHTML = `<center><img src="${link}" alt="my current radar!" width="370"></center>`
-        }
-
-        loadRadar()
-    </script>
 
     <div id="rightcolumnwrap">
       <div id="rightcolumn">
 
         <center>
-          <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/glaceon.gif" width="100" alt="x">
+          <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/jolteon.gif" width="100" alt="x">
         </center><br>
 
-        <div class="title"><img src="https://64.media.tumblr.com/171c295df37def8ea5bd3774fa3f2471/014d6f73835b6e87-e8/s75x75_c1/f2e8d21f39d3532d9cd06c05172782950d2625ad.gifv"> WIP</div>
-        <p>I'm still working on this page! I <b>just</b> wanted to add a radar link</p>
+        <div class="title"><img src="https://64.media.tumblr.com/171c295df37def8ea5bd3774fa3f2471/014d6f73835b6e87-e8/s75x75_c1/f2e8d21f39d3532d9cd06c05172782950d2625ad.gifv"> Website stats</div>
+        <center><b>Last update   </b><br><span id="websiteLastUpdate"></span>    </center><br>
+        <center><b>Commits:      </b><br><span id="websiteNumCommits"></span>    </center><br>
+        <center><b>Files:        </b><br><span id="websiteNumOfFiles"></span>    </center><br>
+        <center><b>Lines of code:</b><br><span id="websiteLinesOfCode"></span>   </center><br>
+        <br>
 
+        <div class="title"><img src="https://64.media.tumblr.com/171c295df37def8ea5bd3774fa3f2471/014d6f73835b6e87-e8/s75x75_c1/f2e8d21f39d3532d9cd06c05172782950d2625ad.gifv"> Backend stats</div>
+        <center><b>Last update   </b><br><span id="backendLastUpdate"></span>    </center><br>
+        <center><b>Commits:      </b><br><span id="backendNumCommits"></span>    </center><br>
+        <center><b>Files:        </b><br><span id="backendNumOfFiles"></span>    </center><br>
+        <center><b>Lines of code:</b><br><span id="backendLinesOfCode"></span>   </center><br>
       </div>
     </div>
+
+    <script>
+        //loads github data
+        async function loadWebsiteData(){
+            const result = await getGithubInfo();
+
+            const date = formatDateCustom(result.lastUpdateTime)
+            const commits = result.commits
+            const numFiles = result.numFiles
+            const linesOfCode = sumValuesDict(result.linesOfCode)
+
+            document.getElementById("websiteLastUpdate").textContent = date
+            document.getElementById("websiteNumCommits").textContent = commits
+            document.getElementById("websiteNumOfFiles").textContent = numFiles
+            document.getElementById("websiteLinesOfCode").textContent = linesOfCode
+
+        }
+
+        async function loadBackendData(){
+            const result = await getGithubInfo("GormySecret");
+
+            const date = formatDateCustom(result.lastUpdateTime)
+            const commits = result.commits
+            const numFiles = result.numFiles
+            const linesOfCode = sumValuesDict(result.linesOfCode)
+
+            document.getElementById("backendLastUpdate").textContent = date
+            document.getElementById("backendNumCommits").textContent = commits
+            document.getElementById("backendNumOfFiles").textContent = numFiles
+            document.getElementById("backendLinesOfCode").textContent = linesOfCode
+        }
+        loadWebsiteData()
+        loadBackendData()
+    </script>
 
 
     <div id="footerwrap">
