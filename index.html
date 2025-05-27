@@ -255,7 +255,6 @@
     document.getElementById('randomButton').addEventListener('click', function () {
       const websiteWeights = {
         'index.html': 100,
-        'hockey.html': 100,
         'about.html': 100,
         'art.html': 100,
         'interests.html': 100,
@@ -268,9 +267,14 @@
         'passwords.html': 3,
         'travel.html': 100,
         'stickers.html': 100,
-        "flights.html": 100,
-        'updates.html': 100, //this is going to have a double chance because of the redirect now hehe
+        "interests/travel/flights.html": 100,
+        'updates.html': 100, 
         "galleries/interestGallery/randomImageGallery.html": 100,
+        "interests/climbing.html" : 100,
+        "interests/coding.html" : 100,
+        "interests/music.html" : 100,
+        "interests/sports.html" : 100,
+        "interests/weather.html" : 100,
         './games/slots/slotMachine.html': 100,
         './games/slots/leaderboard.html': 100,
         './games/slots/accountSettings.html': 100,
@@ -295,7 +299,32 @@
         "about:blank": 5,
         "galleries/base.html": 25,
         "resources/css/galleryStyle.css": 10,
-        "otherStuff/infiniteLoop/loop2.html" : 1
+        "otherStuff/infiniteLoop/loop2.html" : 1,
+        "resources/backgrounds/yellowTile.jpg" : 10,
+        "resources/css/galleryStyle.css" : 10,
+        "resources/css/ghostKittyStyle.css" : 10,
+        "resources/css/jolteonStyle.css" : 10,
+        "resources/css/kittyStyle.css" : 10,
+        "resources/css/slotStyle.css" : 10,
+        "resources/css/vaporeonStyle.css" : 10,
+        "resources/js/utils/addNavigation.js" : 10,
+        "resources/js/utils/cookieUtils.js" : 10,
+        "resources/js/utils/galleryUtils.js" : 10,
+        "resources/js/utils/getDeterministicColor.js" : 10,
+        "resources/js/utils/loadBlogs.js" : 10,
+        "resources/js/utils/syncHeights.js" : 10,
+        "resources/js/utils/timeUtils.js" : 10,
+        "resources/js/miscStuff/fillColumnWithRandomImages.js" : 5,
+        "resources/js/miscStuff/sumValuesDict.js" : 5,
+        "resources/js/apiEndpoints/config.js" : 3,
+        "resources/js/apiEndpoints/fetchLocation.js" : 3,
+        "resources/js/apiEndpoints/fetchTime.js" : 3,
+        "resources/js/apiEndpoints/fetchVisitorCount.js" : 3,
+        "resources/js/apiEndpoints/getBattery.js" : 3,
+        "resources/js/apiEndpoints/loadMessages.js" : 3,
+        "resources/js/apiEndpoints/loadWeather.js" : 3,
+        "resources/js/apiEndpoints/postComment.js" : 3,
+        
       };
 
       const weightedList = [];
