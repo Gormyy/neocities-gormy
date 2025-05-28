@@ -38,7 +38,7 @@ function renderMessages(messages, scrollDiv) {
 }
 
 function createMessageElement(msg) {
-    const { name, website, message, created_at, reply, id } = msg;
+    let { name, website, message, created_at, reply, id } = msg;
     id -= 9
     const container = document.createElement('div');
     container.className = 'message-block';
