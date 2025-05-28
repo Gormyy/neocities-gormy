@@ -20,10 +20,10 @@
   <script src="../../resources/js/utils/timeUtils.js">//imports some time utils</script>
 
   <script src="../../resources/js/apiEndpoints/config.js">//imports API configs</script>
-  <script src="../../resources/js/apiEndpoints/guestbookEndpoints/postGuestbookMessage.js">//imports postGuestbookMessage()</script>
+  <script src="../../resources/js/utils/cookieUtils.js">//adds getCookie and setCookie</script>
+  <script src="../../resources/js/apiEndpoints/guestbookEndpoints/postGuestbookReply.js">//imports postGuestbookReply()</script>
   <script src="../../resources/js/apiEndpoints/guestbookEndpoints/getGuestbookMessages.js">//imports getGuestbookMessages()</script>
   
-  <script src="../../resources/js/utils/cookieUtils.js">//adds getCookie and setCookie</script>
   <script src="../../resources/js/apiEndpoints/loginApiEndpoints/autoLogin.js">//adds auto login</script>
   <script src="../../resources/js/utils/checkPermissions.js">//adds checkPermissions()</script>
 </head>
@@ -136,23 +136,9 @@
 
     <div class="form-container">
       <div class="form-row">
-        <label for="nameInput">Name:</label>
-        <input type="text" id="nameInput" />
+        <label for="nameInput">Reply:</label>
+        <input type="text" id="replyInput" />
       </div>
-
-      <div class="form-row">
-        <label for="websiteInput">Website (optional):</label>
-        <input type="text" id="websiteInput" />
-      </div>
-
-      <div class="form-row">
-        <label for="messageInput">Message:</label>
-        <input type="text" id="messageInput" />
-      </div>
-
-      <button class="rounded-btn" id="changeUsername" onclick="postGuestbookMessage(nameInput, messageInput, websiteInput, messages)">
-        Post Comment
-      </button>
 
       <p id="messageStatus"></p>
     </div>
@@ -194,10 +180,7 @@
 
     <script>
       //variables for posting comments
-      const nameInput = document.getElementById("nameInput")
-      const messageInput = document.getElementById("messageInput")
-      const websiteInput = document.getElementById("websiteInput")
-      const messages = document.getElementById("messageStatus")
+      const replyInput = document.getElementById("replyInput")
     </script>
 
   </div>

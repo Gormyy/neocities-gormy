@@ -9,9 +9,6 @@ async function postGuestbookMessage(nameInput, messageInput, websiteInput, messa
 
     url = `${API_LINK}/messages/guestbook/postGuestbookMessage`
 
-    //url = `${API_LINK}/postMessage?name=${nameInput}&message=${messageInput}`;
-    //console.log(url)
-    console.log(nameInput, messageInput, websiteInput)
     try {
     const response = await fetch(url, {
       method: 'POST',

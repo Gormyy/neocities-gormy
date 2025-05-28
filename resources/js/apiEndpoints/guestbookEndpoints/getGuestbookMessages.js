@@ -1,3 +1,5 @@
+//REQUIRES COOKIE UTILS
+
 
 async function getGuestbookMessages(page, scrollDiv, reply=false) {
     const res = await fetch(`${API_LINK}/messages/guestbook/getGuestbookMessages?page=${page}`);
@@ -65,7 +67,9 @@ function createMessageElement(msg, reply_text) {
     let reply_button = ``
 
     if(reply_text){
-        reply_button = `<button class="text-button" onclick="postGuestbookReply(${unchangedId})">Reply</button>`
+        const username = getCookie("name")
+        const hashedPassword = getCookie("hashedpassword")
+        reply_button = `<button class="text-button" onclick="postGuestbookReply(${unchangedId}, replyInput, '${username}', '${hashedPassword}')">Reply</button>`
     }
 
     // Message body
