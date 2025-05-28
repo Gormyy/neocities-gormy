@@ -1,4 +1,4 @@
-async function autoLogin() {
+async function autoLogin(onSlots = true) { //onSlots is true if this is being used for slots
 
     let username = getCookie("name");
     let hashedPassword = getCookie("hashedpassword");
@@ -28,9 +28,11 @@ async function autoLogin() {
         let uEl = document.getElementById("user")
         let balEl = document.getElementById("bal")
 
-        uEl.innerHTML = data.name
-        balEl.innerHTML = Math.round(data.balance * 100) / 100
-
+        if(onSlots){
+            uEl.innerHTML = data.name
+            balEl.innerHTML = Math.round(data.balance * 100) / 100
+        }
+        
         // You can now use the user data
     } catch (err) {
         console.error("Auto-login failed:", err);

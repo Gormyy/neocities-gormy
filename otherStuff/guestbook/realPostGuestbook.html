@@ -22,9 +22,10 @@
   <script src="../../resources/js/apiEndpoints/config.js">//imports API configs</script>
   <script src="../../resources/js/apiEndpoints/guestbookEndpoints/postGuestbookMessage.js">//imports postGuestbookMessage()</script>
   <script src="../../resources/js/apiEndpoints/guestbookEndpoints/getGuestbookMessages.js">//imports getGuestbookMessages()</script>
-
   
-  
+  <script src="../../resources/js/utils/cookieUtils.js">//adds getCookie and setCookie</script>
+  <script src="../../resources/js/apiEndpoints/loginApiEndpoints/autoLogin.js">//adds auto login</script>
+  <script src="../../resources/js/utils/checkPermissions.js">//adds checkPermissions()</script>
 </head>
 
 <body>
@@ -44,12 +45,25 @@
     addNavigation(div, "../../")
   </script>
 
+  <script>
+    async function loginScript(){
+      await autoLogin(false)
+      const canAccess = await checkPermissions("canReply")
+      if(!canAccess){ //cannot access the page
+        window.location.href = "access_denied.html";
+      }
+    }
+
+    //login
+    loginScript()
+  </script>
+
   <div id="sidebar">
 
 
     <div style="position: relative; display: inline-block;">
       <img src="https://64.media.tumblr.com/ce99e75c0062603e1b3f974bf3d1d7a9/5b2b6fc3dc12a5a9-55/s400x600/447a4f8ea6145ee368fdb6e588f80947d875e97c.jpg" class="sideimg"><br>
-      <a href="postGuestbookMessage.html"
+      <a href="https://example.com"
         style="position: absolute; top: 50%; left: 29%; width: 10%; height: 9%; display: block;">
       </a>
     </div>
@@ -162,7 +176,7 @@
       //const scrollDiv = document.getElementById('scrollableDiv');
 
       //Load first page initially
-      getGuestbookMessages(currentPage, scrollDiv).then(() => {
+      getGuestbookMessages(currentPage, scrollDiv, true).then(() => {
         //Scroll to bottom on first load
         scrollDiv.scrollTop = scrollDiv.scrollHeight;
       });
@@ -171,7 +185,7 @@
       scrollDiv.addEventListener('scroll', async () => {
         if (scrollDiv.scrollTop === 0 && canFetchMore) {
           currentPage++;
-          await getGuestbookMessages(currentPage);
+          await getGuestbookMessages(currentPage, scrollDiv, true);
         }
       });
 

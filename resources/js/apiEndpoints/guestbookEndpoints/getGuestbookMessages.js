@@ -1,5 +1,5 @@
 
-async function getGuestbookMessages(page, scrollDiv) {
+async function getGuestbookMessages(page, scrollDiv, reply=false) {
     const res = await fetch(`${API_LINK}/messages/guestbook/getGuestbookMessages?page=${page}`);
     const result = await res.json();
 
@@ -13,12 +13,12 @@ async function getGuestbookMessages(page, scrollDiv) {
 
     console.log(messages)
 
-    renderMessages(messages, scrollDiv)
+    renderMessages(messages, scrollDiv, reply)
 
     
 }
 
-function renderMessages(messages, scrollDiv) {
+function renderMessages(messages, scrollDiv, reply) {
     const scrollHeightBefore = scrollDiv.scrollHeight;
     let first = true
     messages.forEach(msg => {
@@ -28,7 +28,7 @@ function renderMessages(messages, scrollDiv) {
         } else{
             first = false
         }
-        const el = createMessageElement(msg);
+        const el = createMessageElement(msg, reply);
         scrollDiv.insertBefore(el, scrollDiv.firstChild);
     });
 
@@ -37,8 +37,9 @@ function renderMessages(messages, scrollDiv) {
     scrollDiv.scrollTop += scrollHeightAfter - scrollHeightBefore;
 }
 
-function createMessageElement(msg) {
+function createMessageElement(msg, reply_text) {
     let { name, website, message, created_at, reply, id } = msg;
+    const unchangedId = id
     id -= 9
     const container = document.createElement('div');
     container.className = 'message-block';
@@ -61,9 +62,15 @@ function createMessageElement(msg) {
         ${websiteText}
     `;
 
+    let reply_button = ``
+
+    if(reply_text){
+        reply_button = `<button class="text-button" onclick="postGuestbookReply(${unchangedId})">Reply</button>`
+    }
+
     // Message body
     const messageLine = document.createElement('p');
-    messageLine.innerHTML = `<p style="word-wrap: break-word; overflow-wrap: break-word; white-space: normal;"><b>message:</b> ${message}</p>`;
+    messageLine.innerHTML = `<p style="word-wrap: break-word; overflow-wrap: break-word; white-space: normal;"><b>message:</b> ${message}</p>${reply_button}`;
 
     container.appendChild(nameLine);
     container.appendChild(messageLine);
