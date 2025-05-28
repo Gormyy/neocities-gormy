@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="http://fonts.googleapis.com/css?family=Megrim|Lato" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guestbook</title>
+
+  <link rel="stylesheet" href="../../resources/css/kittyStyle.css">
+  
+  
+  <script src="../../resources/js/utils/addNavigation.js">//adds addNavidation(div, pathToRoot = "", centered = true, navigationElements = "default") to add the navigation to the div bar</script>
+  <script src="../../resources/js/bubbleScript.js"></script>
+  <script src="../../resources/js/utils/getDeterministicColor.js">//imports getDeterministicColor(inpu) gives a random color</script>
+  <script src="../../resources/js/utils/timeUtils.js">//imports some time utils</script>
+
+  <script src="../../resources/js/apiEndpoints/config.js">//imports API configs</script>
+  <script src="../../resources/js/apiEndpoints/guestbookEndpoints/postGuestbookMessage.js">//imports postGuestbookMessage()</script>
+  <script src="../../resources/js/apiEndpoints/guestbookEndpoints/getGuestbookMessages.js">//imports getGuestbookMessages()</script>
+  
+</head>
+
+<body>
+
+  <div id="header">
+    Guestbook!
+  </div>
+
+
+  <div id="menu">
+
+  </div>
+
+  <script>
+    //script to add navigation elements
+    let div = document.getElementById("menu")
+    addNavigation(div, "../../")
+  </script>
+
+  <div id="sidebar">
+
+    <img
+      src="https://64.media.tumblr.com/ce99e75c0062603e1b3f974bf3d1d7a9/5b2b6fc3dc12a5a9-55/s400x600/447a4f8ea6145ee368fdb6e588f80947d875e97c.jpg"
+      class="sideimg"><br>
+
+    <div class="sidetitle">Guestbook</div>
+    <p>Hi! This is my guestbook! Leave comments, questions, etc. here! I'll reply to everyone!</p>
+    
+    <div class="sidetitle">Rules</div>
+    Please be nice! I don't want to need to add more rules pls
+    
+    <div class="sidetitle">credits</div>
+
+    <b>Layout</b>        <a href="http://itinerae.neocities.org">Itinerae</a><br>
+    <b>Image</b>         <a href="pinterest.com/pin/474707616989750289/">Pinterest</a><br>
+    <b>Background</b>    <a href="https://lovesick.cafe">Lovesick</a><br>
+    <b>Bubble effect</b> <a href="https://www.mf2fm.com/rv/dhtmlbubbles.php">x</a>
+
+  </div>
+
+  <div id="content">
+    <div class="contenttitle">Sign the guestbook</div>
+    <center>
+      <p>You can also just ask a question!</p>
+    </center>
+
+    <style>
+      .form-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;  /* centers the whole block horizontally */
+        gap: 12px;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+
+      .form-row {
+        display: flex;
+        align-items: center;
+        width: 80%;
+        justify-content: flex-start;
+      }
+
+      .form-row label {
+        width: 100px; /* fixed width for labels to align inputs */
+        text-align: right;
+        padding-right: 10px;
+        font-weight: bold;
+      }
+
+      .form-row input {
+        flex: 1;
+        padding: 6px;
+      }
+
+      #changeUsername {
+        margin: 20px auto;
+        display: block;
+      }
+    </style>
+
+    <div class="form-container">
+      <div class="form-row">
+        <label for="nameInput">Name:</label>
+        <input type="text" id="nameInput" />
+      </div>
+
+      <div class="form-row">
+        <label for="websiteInput">Website (optional):</label>
+        <input type="text" id="websiteInput" />
+      </div>
+
+      <div class="form-row">
+        <label for="messageInput">Message:</label>
+        <input type="text" id="messageInput" />
+      </div>
+
+      <button class="rounded-btn" id="changeUsername" onclick="postGuestbookMessage(nameInput, messageInput, websiteInput, messages)">
+        Post Comment
+      </button>
+
+      <p id="messageStatus"></p>
+    </div>
+
+
+    <div class="contenttitle">Comments</div>
+    <br>
+    <center>
+      <div class="scrollable-div" id="scrollableDiv">
+        <p><strong></strong></p>
+      </div>
+    </center>
+    <br><br>
+
+    <script>
+      const scrollDiv = document.getElementById("scrollableDiv");
+      
+      //Gets the messages
+      let currentPage = 1;
+      let canFetchMore = true;
+      //const scrollDiv = document.getElementById('scrollableDiv');
+
+      //Load first page initially
+      getGuestbookMessages(currentPage, scrollDiv).then(() => {
+        //Scroll to bottom on first load
+        scrollDiv.scrollTop = scrollDiv.scrollHeight;
+      });
+
+      //Scroll listener to detect when user reaches top
+      scrollDiv.addEventListener('scroll', async () => {
+        if (scrollDiv.scrollTop === 0 && canFetchMore) {
+          currentPage++;
+          await getGuestbookMessages(currentPage);
+        }
+      });
+
+      // Scroll to the bottom after the content is loaded
+    </script>
+
+    <script>
+      //variables for posting comments
+      const nameInput = document.getElementById("nameInput")
+      const messageInput = document.getElementById("messageInput")
+      const websiteInput = document.getElementById("websiteInput")
+      const messages = document.getElementById("messageStatus")
+    </script>
+
+  </div>
+
+</body>
+
+</html>
