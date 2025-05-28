@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="http://fonts.googleapis.com/css?family=Megrim|Lato" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guestbook</title>
+
+  <link rel="stylesheet" href="../../resources/css/kittyStyle.css">
+  
+  
+  <script src="../../resources/js/utils/addNavigation.js">//adds addNavidation(div, pathToRoot = "", centered = true, navigationElements = "default") to add the navigation to the div bar</script>
+  <script src="../../resources/js/bubbleScript.js"></script>
+
+  <script src="../../resources/js/apiEndpoints/config.js">//imports API configs</script>
+  <script src="../../resources/js/apiEndpoints/guestbookEndpoints/postGuestbookMessage.js">//imports postGuestbookMessage()</script>
+  <script src="../../resources/js/apiEndpoints/guestbookEndpoints/getGuestbookMessages.js">//imports getGuestbookMessages()</script>
+  
+  <script src="../../resources/js/utils/cookieUtils.js">//adds getCookie and setCookie</script>
+  <script src="../../resources/js/apiEndpoints/loginApiEndpoints/autoLogin.js">//adds auto login</script>
+  <script src="../../resources/js/utils/checkPermissions.js">//adds checkPermissions()</script>
+</head>
+
+<body>
+
+  <div id="header">
+    Guestbook!
+  </div>
+
+
+  <div id="menu">
+
+  </div>
+
+  <script>
+    //script to add navigation elements
+    let div = document.getElementById("menu")
+    addNavigation(div, "../../")
+  </script>
+
+  <div id="sidebar">
+
+
+    <div style="position: relative; display: inline-block;">
+      <img src="https://64.media.tumblr.com/ce99e75c0062603e1b3f974bf3d1d7a9/5b2b6fc3dc12a5a9-55/s400x600/447a4f8ea6145ee368fdb6e588f80947d875e97c.jpg" class="sideimg"><br>
+      <a href="https://example.com"
+        style="position: absolute; top: 50%; left: 29%; width: 10%; height: 9%; display: block;">
+      </a>
+    </div>
+
+    <div class="sidetitle">Hi!</div>
+    <p>Hehe i hid a link in the nose</p>
+    
+    <div class="sidetitle">This is how I post replies</div>
+    You found my secret!
+    
+    <div class="sidetitle">credits</div>
+
+    <b>Layout</b>        <a href="http://itinerae.neocities.org">Itinerae</a><br>
+    <b>Image</b>         <a href="pinterest.com/pin/474707616989750289/">Pinterest</a><br>
+    <b>Background</b>    <a href="https://lovesick.cafe">Lovesick</a><br>
+    <b>Bubble effect</b> <a href="https://www.mf2fm.com/rv/dhtmlbubbles.php">x</a>
+
+  </div>
+
+  <div id="content">
+    <div class="contenttitle">Access Denied</div>
+    <center>
+      <p id="replyText"></p>
+    </center>
+
+    </div>
+
+    <script>
+        const el = document.getElementById("replyText")
+        const text = `You are not logged in as someone that can post replies. If you should be able to post replies on here log in <a href="../../${LOGIN_PAGE}">here!</a> Then come back and click on the cat's nose again`
+        el.innerHTML = text
+    </script>
+  </div>
+
+</body>
+
+</html>
