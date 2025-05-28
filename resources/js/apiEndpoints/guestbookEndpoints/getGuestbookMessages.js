@@ -63,7 +63,7 @@ function createMessageElement(msg) {
 
     // Message body
     const messageLine = document.createElement('p');
-    messageLine.innerHTML = `<b>message:</b> ${message}`;
+    messageLine.innerHTML = `<p style="word-wrap: break-word; overflow-wrap: break-word; white-space: normal;"><b>message:</b> ${message}</p>`;
 
     container.appendChild(nameLine);
     container.appendChild(messageLine);
