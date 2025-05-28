@@ -39,8 +39,7 @@ function renderMessages(messages, scrollDiv) {
 
 function createMessageElement(msg) {
     const { name, website, message, created_at, reply, id } = msg;
-    console.log(id)
-    console.log(website)
+    id -= 9
     const container = document.createElement('div');
     container.className = 'message-block';
     container.style.marginBottom = '1em';
