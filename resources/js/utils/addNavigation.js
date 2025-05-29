@@ -24,7 +24,7 @@ const slotElements = [
 
 const interestElements = [
     {"name" : "sports", "path" : "interests/sports.html"},
-    {"name" : "random stuff", "path" : "galleries/interestGallery.html"},
+    {"name" : "random stuff", "path" : "galleries/interestGallery/randomImageGallery.html"},
     {"name" : "climbing", "path" : "interests/climbing.html"},
     {"name" : "music", "path" : "interests/music.html"},
     {"name" : "weather", "path" : "interests/weather.html"},
