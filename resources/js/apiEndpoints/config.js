@@ -6,4 +6,5 @@ window.API_LINK = API_LINK
 const LOGIN_PAGE = `games/slots/accountSettings.html`
 
 window.LOGIN_PAGE = LOGIN_PAGE
+
 //<script src = "resources/js/apiEndpoints/config.js">//imports API configs</script>
