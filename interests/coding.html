@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home</title>
+  <title>Coding</title>
 
   <script src="../resources/js/apiEndpoints/config.js">//imports API configs</script>
   <script src="../resources/js/utils/syncHeights.js">//imports syncHeights(content, right)</script>
@@ -37,12 +37,60 @@
       <div id="content">
 
         <div class="title2"> <img src="../resources/styleImages/arrowYellog.png"> Overview </div>
+        <p>
+          This page is mainly a landing page for me to talk about the different aspects of this website, and I'll also have 
+          links to pages that go a bit more in-depth about each individual aspect. Currently, my website has three main components
+          the front-end (the website), the backend, and the database. Each of these aspects are sort of their own stand-alone 
+          system that help make the website run!
+        </p>
         <br>
-        <div class="title2"> <img src="../resources/styleImages/arrowYellog.png"> Website </div>
+        <div class="title2"> <img src="../resources/styleImages/arrowYellog.png"> <a href="coding/frontend.html">Front-end</a> </div>
+        <p>
+          The front-end of this site is hosted on <a href="https://neocities.org/">Neocities!</a> which is a website that allows you 
+          to host static websites for free! There are some limitations with hosting on neocities, most notably, they have a very
+          small storage limit for free accounts (1gb), they also only allow you to use 200gb of bandwidth each month, which 
+          makes it a bit hard to host a commercial site on neocities, and they limit what filetypes you can upload to your site
+          but this amount should be more than enough to host a basic website with. If you host your images on an external site
+          such as <a href="https://postimages.org/">postimages</a> you shouldn't ever run out of storage for your site. Personally,
+          I just got supporter for $5 a month and got too lazy to keep uploading images to a different site, so I just host my images
+          on this site now. I am really bad with design of sites so I mostly used templates for the design of these pages, but everything
+          else on the website, including the code was done completely by me. If you want to learn more about the design of the website
+          click <a href="coding/frontend.html">here!</a> Or you can also just click the title of this section.
+        </p>
         <br>
-        <div class="title2"> <img src="../resources/styleImages/arrowYellog.png"> Backend </div>
+        <div class="title2"> <img src="../resources/styleImages/arrowYellog.png"> <a href="coding/backend.html">Backend</a> </div>
+        <p>
+          The problem with hosting a page on just neocities is that I don't want an entirely static site. I want to have stuff that changes
+          based off of various different things. The first thing that I wanted to do that couldn't be done on a static site was add my current 
+          location to my page. This was hard because I don't want my exact location to be publicly accesible, but I'm fine with having the city I'm in
+          be publicly accesible. So in order to do that. I created an API to serve all the information needed on my website. This API is hosted on 
+          <a href="https://render.com/">Render</a>, and it serves as the middleman between my data source, and my publicly accesible website. If you
+          want to learn more about the design of my website's backend, click <a href="coding/backend.html">here!</a> Or you can also just click the title
+          of this section.
+        </p>
         <br>
-        <div class="title2"> <img src="../resources/styleImages/arrowYellog.png"> Database </div>
+        <div class="title2"> <img src="../resources/styleImages/arrowYellog.png"> <a href="coding/database.html">Database</a> </div>
+        <p>
+          One problem with just having an API to serve the website is that you can't really have any persistent data with just an API.
+          Some sort of database is needed for persistent database, because a normal javascript project is not going to save data when
+          reloaded. This became a problem when I was creating the <a href="../games/slots/slotMachine.html">slots</a> game for this website
+          because I wanted to have a simple login system with the slots so that the website could keep track of everyone's money and so that
+          people can login to their slots account and save their progress on different devices. To fix this, I created a database which is
+          hosted on <a href="https://supabase.com/">supabase.</a> This database does not have a publicly accesible endpoint because I really
+          don't want the information to be publicly accesible. But much of its data is served and managed by the backend API that I made. As of
+          now it mostly keeps track of slots stuff, but I also use it to hold the comments from my <a href="../about.html">about</a> page, 
+          and the logs from my <a href="../otherStuff/guestbook/guestbook.html">guest book</a>. I do have to be careful about how much I store
+          on the database because the free plan only has .5gb of storage and I'm unemployed rn so I don't want to spend too much money monthly
+          on this, so I'll either have to find a job or figure out how to self-host the database if it gets too big. If you want to learn more
+          about the design of my database click <a href="coding/database.html">here!</a> Or you can also just click the title
+          of this section.
+        </p>
+        <br>
+        <div class="title2"> <img src="../resources/styleImages/arrowYellog.png"> <a href="coding/Blogs.html">Blogs</a> </div>
+        <p>
+          I also have a coding-specific blog page where I talk about just random coding related things that don't fit into the scope of this website.
+          You can read those <a href="coding/Blogs.html">here!</a> Or you can also just click the title of this section.
+        </p>
         <br>
       </div>
     </div>
@@ -124,6 +172,14 @@
 
         }
 
+        function callSyncHeights(){
+            const content = document.getElementById('content');
+            const right = document.getElementById('rightcolumn');
+            syncHeights(content, right)
+          }
+
+        
+        window.addEventListener('DOMContentLoaded', callSyncHeights);
         loadWebsiteData()
         loadBackendData()
         loadDbStats()

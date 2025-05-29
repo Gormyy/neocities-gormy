@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coding Blogs</title>
+
+  <script src="../../resources/js/apiEndpoints/config.js">//imports API configs</script>
+  <script src="../../resources/js/utils/syncHeights.js">//imports syncHeights(content, right)</script>
+  <script src="../../resources/js/utils/addNavigation.js">//adds addNavigation(div, pathToRoot = "", centered = true, navigationElements = "default") to add the navigation to the div bar</script>
+  <script src="../../resources/js/apiEndpoints/codingEndpoints/getGithubInfo.js">//imports getGithubInfo(repo)</script>
+  <script src="../../resources/js/apiEndpoints/codingEndpoints/getDbStats.js">//imports getDbStats()</script>
+  <script src="../../resources/js/utils/timeUtils.js">//For importing format date</script>
+  <script src="../../resources/js/miscStuff/conversions.js">//Imports conversions</script>
+  <script src="../../resources/js/miscStuff/sumValuesDict.js">//Imports sum values dict</script>
+  <link rel="stylesheet" href="../../resources/css/jolteonStyle.css">
+</head>
+
+<body>
+
+  <br><br><br>
+  <div id="wrapper">
+    <div id="navigationwrap">
+      <div id="navigation">
+
+      </div>
+    </div>
+
+    <script>
+        //script to add navigation elements
+        let div = document.getElementById("navigation")
+        addNavigation(div, "../")
+    </script>
+
+    <div id="contentwrap">
+      <div id="content">
+
+        <div class="title2"> <img src="../../resources/styleImages/arrowYellog.png"> Overview </div>
+        <p>
+          I'm still working on this page!
+        </p>
+        <br>
+      </div>
+    </div>
+
+
+    <div id="rightcolumnwrap">
+      <div id="rightcolumn">
+
+        <center>
+          <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/jolteon.gif" width="100" alt="x">
+        </center><br>
+
+        <div class="title"><img src="https://64.media.tumblr.com/171c295df37def8ea5bd3774fa3f2471/014d6f73835b6e87-e8/s75x75_c1/f2e8d21f39d3532d9cd06c05172782950d2625ad.gifv"> Website stats</div>
+        <center><b>Last update   </b><br><span id="websiteLastUpdate"></span>    </center><br>
+        <center><b>Commits       </b><br><span id="websiteNumCommits"></span>    </center><br>
+        <center><b>Files         </b><br><span id="websiteNumOfFiles"></span>    </center><br>
+        <center><b>Lines of code </b><br><span id="websiteLinesOfCode"></span>   </center><br>
+        <br>
+
+        <div class="title"><img src="https://64.media.tumblr.com/171c295df37def8ea5bd3774fa3f2471/014d6f73835b6e87-e8/s75x75_c1/f2e8d21f39d3532d9cd06c05172782950d2625ad.gifv"> Backend stats</div>
+        <center><b>Last update   </b><br><span id="backendLastUpdate"></span>    </center><br>
+        <center><b>Commits       </b><br><span id="backendNumCommits"></span>    </center><br>
+        <center><b>Files         </b><br><span id="backendNumOfFiles"></span>    </center><br>
+        <center><b>Lines of code </b><br><span id="backendLinesOfCode"></span>   </center><br>
+        <br>
+
+        <div class="title"><img src="https://64.media.tumblr.com/171c295df37def8ea5bd3774fa3f2471/014d6f73835b6e87-e8/s75x75_c1/f2e8d21f39d3532d9cd06c05172782950d2625ad.gifv"> DB stats</div>
+        <center><b>Tables            </b><br><span id="dbTables"></span>         </center><br>
+        <center><b>Views             </b><br><span id="dbViews"></span>          </center><br>
+        <center><b>Functions         </b><br><span id="dbFunctions"></span>      </center><br>
+        <center><b>Rows              </b><br><span id="dbRows"></span>           </center><br>
+        <center><b>Size              </b><br><span id="dbSize"></span>           </center><br>
+      </div>
+    </div>
+
+    <script>
+        //loads github data
+        async function loadWebsiteData(){
+            const result = await getGithubInfo();
+
+            const date = formatDateCustom(result.lastUpdateTime)
+            const commits = result.commits
+            const numFiles = result.numFiles
+            const linesOfCode = sumValuesDict(result.linesOfCode)
+
+            document.getElementById("websiteLastUpdate").textContent  = date
+            document.getElementById("websiteNumCommits").textContent  = commits
+            document.getElementById("websiteNumOfFiles").textContent  = numFiles
+            document.getElementById("websiteLinesOfCode").textContent = linesOfCode
+
+        }
+
+        async function loadBackendData(){
+            const result = await getGithubInfo("GormySecret");
+
+            const date = formatDateCustom(result.lastUpdateTime)
+            const commits = result.commits
+            const numFiles = result.numFiles
+            const linesOfCode = sumValuesDict(result.linesOfCode)
+
+            document.getElementById("backendLastUpdate").textContent  = date
+            document.getElementById("backendNumCommits").textContent  = commits
+            document.getElementById("backendNumOfFiles").textContent  = numFiles
+            document.getElementById("backendLinesOfCode").textContent = linesOfCode
+        }
+
+        async function loadDbStats(){
+            const result = await getDbStats();
+
+            const {tables, views, functions, estimated_rows, database_size_bytes} = result
+
+            const mb = bytesToMB(database_size_bytes).toFixed(1)
+
+            document.getElementById("dbTables").textContent    = tables
+            document.getElementById("dbViews").textContent     = views
+            document.getElementById("dbFunctions").textContent = functions
+            document.getElementById("dbRows").textContent      = estimated_rows
+            document.getElementById("dbSize").textContent      = mb + "mb"
+
+        }
+        function callSyncHeights(){
+            const content = document.getElementById('content');
+            const right = document.getElementById('rightcolumn');
+            syncHeights(content, right)
+          }
+
+        
+        window.addEventListener('DOMContentLoaded', callSyncHeights);
+        loadWebsiteData()
+        loadBackendData()
+        loadDbStats()
+    </script>
+
+
+    <div id="footerwrap">
+      <div id="footer">
+        Layout: <a href="http://itinerae.neocities.org" target="_blank">Itinerae</a> Pixels: <a
+          href="https://foollovers.com/" target="_blank">Fool Lovers</a> Lace border: <a
+          href="https://pastebin.com/1s0bztqb" target="_blank">Loveberry</a>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

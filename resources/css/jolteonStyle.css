@@ -28,9 +28,7 @@ body {
       padding: 5px;
     }
 
-    #navigation a:link,
-    a:visited,
-    a:active {
+    #navigation a:link {
       font: 11px monospace;
       text-transform: uppercase;
       line-height: 20px;
@@ -144,10 +142,6 @@ body {
       text-decoration: none;
     }
 
-    a:hover {
-      color: #999;
-    }
-
     .rounded-btn {
       background-color: #E9F9FF;
       /* Light blue */
@@ -178,4 +172,12 @@ body {
       /* optional: better spacing */
       border-radius: 3px;
       /* optional: rounded corners */
+    }
+
+    .title2 a {
+      color: #555;
+    }
+
+    a:hover {
+      color: #999;
     }
