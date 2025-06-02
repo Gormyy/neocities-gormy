@@ -1,0 +1,182 @@
+body {
+      background: #222222 url(../../backgrounds/greyTile.png) fixed;
+      font-family: calibri, Verdana, Arial, Helvetica, sans-serif;
+      font-size: 10px;
+      text-shadow: 0px 0px 1px #b3b3b3;
+      color: #888;
+      letter-spacing: 1px;
+    }
+
+    #wrapper {
+      margin: 0 auto;
+      width: 570px;
+    }
+
+    #navigationwrap {
+      width: 570px;
+      float: left;
+      margin: 0 auto;
+    }
+
+    #navigation {
+      height: 20px;
+      line-height: 20px;
+      background: transparent;
+      border-width: 7px;
+      border-style: solid;
+      border-image: url("https://64.media.tumblr.com/6f0c2efb2b0902a5907c60c9d1dcad9e/de283233162c752d-89/s75x75_c1/62ee23af1906bc552dbea259f32e0801263b4635.pnj") 8 fill round;
+      margin: 5px;
+      padding: 5px;
+    }
+
+    #navigation a:link,
+    a:visited,
+    a:active {
+      font: 11px monospace;
+      text-transform: uppercase;
+      line-height: 20px;
+      padding: 4px;
+      letter-spacing: 1px;
+      margin-right: 10px;
+    }
+
+    #navigation a:hover {
+      background: #fff;
+      color: #222;
+      text-transform: uppercase;
+      line-height: 20px;
+      padding: 4px;
+      letter-spacing: 1px;
+      margin-right: 10px;
+    }
+
+    #contentwrap {
+      width: 400px;
+      float: left;
+      margin: 0 auto;
+    }
+
+    #content {
+      background: transparent;
+      border-width: 7px;
+      border-style: solid;
+      border-image: url("https://64.media.tumblr.com/6f0c2efb2b0902a5907c60c9d1dcad9e/de283233162c752d-89/s75x75_c1/62ee23af1906bc552dbea259f32e0801263b4635.pnj") 8 fill round;
+      margin: 5px;
+      padding: 5px;
+    }
+
+    #rightcolumnwrap {
+      width: 170px;
+      float: left;
+      margin: 0 auto;
+    }
+
+    #rightcolumn {
+      background: transparent;
+      border-width: 7px;
+      border-style: solid;
+      border-image: url("https://64.media.tumblr.com/6f0c2efb2b0902a5907c60c9d1dcad9e/de283233162c752d-89/s75x75_c1/62ee23af1906bc552dbea259f32e0801263b4635.pnj") 8 fill round;
+      margin: 5px;
+      padding: 5px;
+    }
+
+    #footerwrap {
+      width: 570px;
+      float: left;
+      margin: 0 auto;
+      clear: both;
+    }
+
+    #footer {
+      height: 20px;
+      background: transparent;
+      border-width: 7px;
+      border-style: solid;
+      border-image: url("https://64.media.tumblr.com/6f0c2efb2b0902a5907c60c9d1dcad9e/de283233162c752d-89/s75x75_c1/62ee23af1906bc552dbea259f32e0801263b4635.pnj") 8 fill round;
+      line-height: 20px;
+      margin: 5px;
+      text-align: center;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: #fff;
+      border-radius: 0px;
+      border: 1px solid #999;
+    }
+
+    ::-webkit-scrollbar {
+      width: 7px;
+      height: 4px;
+      background: transparent;
+    }
+
+
+    .title {
+      background: #222222;
+      text-transform: uppercase;
+      font: 10px monospace;
+      letter-spacing: 3px;
+      color: #555;
+      padding: 2px;
+      padding-left: 4px;
+      margin-bottom: 4px;
+    }
+
+    .title2 {
+      background: #222222;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #555;
+      padding: 2px;
+      padding-left: 4px;
+      margin-bottom: 4px;
+      font: 10px monospace;
+      line-height: 10px;
+    }
+
+    b {
+      color: #ffffa3;
+    }
+
+    a:link,
+    a:visited,
+    a:active {
+      color: #64B0DB;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #999;
+    }
+
+    .rounded-btn {
+      background-color: #E9F9FF;
+      /* Light blue */
+      color: #888;
+      /* Black text */
+      border: none;
+      border-radius: 999px;
+      /* Fully rounded */
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .rounded-btn:hover {
+      background-color: #add8e6;
+      /* Slightly darker blue on hover */
+    }
+
+    input {
+      background-color: #E9F9FF;
+      /* soft pink */
+      color: #888;
+      /* light grey text */
+      border: 1px solid #ccc;
+      /* optional: subtle border */
+      padding: 2px;
+      /* optional: better spacing */
+      border-radius: 3px;
+      /* optional: rounded corners */
+    }
