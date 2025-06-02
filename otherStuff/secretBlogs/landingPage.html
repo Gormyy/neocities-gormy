@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guestbook</title>
+  
+  <script src="../../resources/js/utils/addNavigation.js">//adds addNavidation(div, pathToRoot = "", centered = true, navigationElements = "default") to add the navigation to the div bar</script>
+  <script src="../../resources/js/bubbleScript.js"></script>
+  <script src="../../resources/js/utils/getDeterministicColor.js">//imports getDeterministicColor(inpu) gives a random color</script>
+  <script src="../../resources/js/utils/timeUtils.js">//imports some time utils</script>
+
+  <script src="../../resources/js/apiEndpoints/config.js">//imports API configs</script>
+  <script src="../../resources/js/utils/cookieUtils.js">//adds getCookie and setCookie</script>
+  <script src="../../resources/js/apiEndpoints/loginApiEndpoints/autoLogin.js">//adds auto login</script>
+  <script src="../../resources/js/utils/checkPermissions.js">//adds checkPermissions()</script>
+</head>
+
+  <p>Hello this is a redirect page! You shouldn't be here if you aren't Gormy! You should be redirected automatically! If you are not gormy you will go in the bad creature place! But if you are gormy we will lead you to where you need to be!</p>
+  <script>
+    async function loginScript(){
+      await autoLogin(false)
+      const canAccess = await checkPermissions("canReadBlogs")
+      if(!canAccess){ //cannot access the page
+        window.location.href = "access_denied.html";
+      } else{
+        window.location.href = "blogIndex.html";
+      }
+    }
+
+    //login
+    loginScript()
+  </script>
+
+ 
+
+</body>
+
+</html>
