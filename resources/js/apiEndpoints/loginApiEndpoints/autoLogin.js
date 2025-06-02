@@ -15,13 +15,14 @@ async function autoLogin(onSlots = true) { //onSlots is true if this is being us
         if (!response.ok) throw new Error("Login failed");
 
         const data = await response.json();
+        
         console.log(data)
         // Save name and generated password if it's a new login
         if (!username || !hashedPassword) {
             setCookie("name", data.name);
             setCookie("hashedpassword", data.generatedPassword);
         }
-
+        setCookie("token", data.token, 1) //1 day cookie!
         console.log("Logged in as:", data.name);
 
         //user and bal elements
