@@ -162,9 +162,55 @@
       <p id="messageStatus"></p>
     </center>
     <div class="contenttitle">Badges</div>
-    Please give me more badges
-    <br><br>
-    <img src="neocities.png" alt="neocities badge" width="100">
+    <br>
+    <div id="badgesDiv">
+      
+    </div>
+    
+    <script>
+      function addBadges(badgeDiv, badges){
+        for (const badge of badges){
+          const htmlText = `<a href="${badge.link}"><img src="${badge.path}" width=${badge.width} height=${badge.height} alt="${badge.alt}"></a>`
+          badgeDiv.innerHTML += htmlText
+        }
+        
+      }
+
+      const badges = [
+        {
+          path     : "resources/images/badges/neocities.png",
+          link     : "resources/images/badges/neocities.png",
+          width    : null,
+          height   : 31,
+          alt      : "neocities badge",  
+          priority : 0,
+          credit   : "Neocities",
+        },
+        {
+          path     : "resources/images/badges/Gormy.gif",
+          link     : "index.html",
+          width    : null,
+          height   : 31,
+          alt      : "Gormy badge",
+          priority : 100,
+          credit   : "RustyPawz",
+        },
+        {
+          path     : "resources/images/badges/redtailglitter.gif",
+          link     : "https://rustypawz.neocities.org/",
+          width    : null,
+          height   : 31,
+          alt      : "RustyPawz badge",
+          priority : 1,
+          credit   : "RustyPawz",
+        },
+      ]
+
+      const badgeDiv = document.getElementById("badgesDiv")
+
+      addBadges(badgeDiv, badges)
+
+    </script>
 
     <script>
       //variables for posting comments
