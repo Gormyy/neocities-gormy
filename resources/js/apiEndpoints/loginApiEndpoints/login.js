@@ -21,6 +21,7 @@ async function login(usernameInput, passwordInput) {
 
     setCookie("name", data.name);
     setCookie("hashedpassword", data.generatedPassword);
+    setCookie("token", data.token, 1) //1 day cookie!
 
     messages.innerHTML = "Logged in succesfully"
     autoLogin()
