@@ -11,6 +11,7 @@
   <script src="../resources/js/utils/addNavigation.js">//adds addNavigation(div, pathToRoot = "", centered = true, navigationElements = "default") to add the navigation to the div bar</script>
   <script src="../resources/js/apiEndpoints/codingEndpoints/getGithubInfo.js">//imports getGithubInfo(repo)</script>
   <script src="../resources/js/apiEndpoints/codingEndpoints/getDbStats.js">//imports getDbStats()</script>
+  <script src="../resources/js/apiEndpoints/codingEndpoints/getNeocitiesStats.js">//imports getNeocitiesStats()</script>
   <script src="../resources/js/utils/timeUtils.js">//For importing format date</script>
   <script src="../resources/js/miscStuff/conversions.js">//Imports conversions</script>
   <script src="../resources/js/miscStuff/sumValuesDict.js">//Imports sum values dict</script>
@@ -102,20 +103,20 @@
         <center>
           <img src="https://img.pokemondb.net/sprites/black-white/anim/normal/jolteon.gif" width="100" alt="x">
         </center><br>
-
+        <br>
         <div class="title"><img src="https://64.media.tumblr.com/171c295df37def8ea5bd3774fa3f2471/014d6f73835b6e87-e8/s75x75_c1/f2e8d21f39d3532d9cd06c05172782950d2625ad.gifv"> Website stats</div>
         <center><b>Last update   </b><br><span id="websiteLastUpdate"></span>    </center><br>
         <center><b>Commits       </b><br><span id="websiteNumCommits"></span>    </center><br>
         <center><b>Files         </b><br><span id="websiteNumOfFiles"></span>    </center><br>
         <center><b>Lines of code </b><br><span id="websiteLinesOfCode"></span>   </center><br>
-        <br>
+        <br><br>
 
         <div class="title"><img src="https://64.media.tumblr.com/171c295df37def8ea5bd3774fa3f2471/014d6f73835b6e87-e8/s75x75_c1/f2e8d21f39d3532d9cd06c05172782950d2625ad.gifv"> Backend stats</div>
         <center><b>Last update   </b><br><span id="backendLastUpdate"></span>    </center><br>
         <center><b>Commits       </b><br><span id="backendNumCommits"></span>    </center><br>
         <center><b>Files         </b><br><span id="backendNumOfFiles"></span>    </center><br>
         <center><b>Lines of code </b><br><span id="backendLinesOfCode"></span>   </center><br>
-        <br>
+        <br><br>
 
         <div class="title"><img src="https://64.media.tumblr.com/171c295df37def8ea5bd3774fa3f2471/014d6f73835b6e87-e8/s75x75_c1/f2e8d21f39d3532d9cd06c05172782950d2625ad.gifv"> DB stats</div>
         <center><b>Tables            </b><br><span id="dbTables"></span>         </center><br>
@@ -123,6 +124,11 @@
         <center><b>Functions         </b><br><span id="dbFunctions"></span>      </center><br>
         <center><b>Rows              </b><br><span id="dbRows"></span>           </center><br>
         <center><b>Size              </b><br><span id="dbSize"></span>           </center><br>
+
+        <br><br>
+        <div class="title"><img src="https://64.media.tumblr.com/171c295df37def8ea5bd3774fa3f2471/014d6f73835b6e87-e8/s75x75_c1/f2e8d21f39d3532d9cd06c05172782950d2625ad.gifv"> Site stats</div>
+        <center><b>Views             </b><br><span id="neocitiesViews"></span>   </center><br>
+        <center><b>Hits              </b><br><span id="neocitiesHits"></span>    </center><br>
       </div>
     </div>
 
@@ -172,6 +178,15 @@
 
         }
 
+        async function loadNeocitiesStats(){
+          const result = await getNeocitiesStats();
+          const views = result.views
+          const hits = result.hits
+
+          document.getElementById("neocitiesHits").textContent = hits
+          document.getElementById("neocitiesViews").textContent = views
+        }
+
         function callSyncHeights(){
             const content = document.getElementById('content');
             const right = document.getElementById('rightcolumn');
@@ -183,6 +198,7 @@
         loadWebsiteData()
         loadBackendData()
         loadDbStats()
+        loadNeocitiesStats()
     </script>
 
 
