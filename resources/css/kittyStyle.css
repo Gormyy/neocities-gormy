@@ -138,10 +138,14 @@ body {
       height: 150px;
       border: 1px solid #ccc;
       padding: 10px;
-      overflow-y: scroll;
-      /* enables vertical scrolling */
+      overflow-y: scroll;     /* vertical scrolling */
+      overflow-x: hidden;     /* prevent horizontal scroll */
       background-color: #fcf5fb;
       text-align: left;
+
+      white-space: normal;    /* allows line wrapping */
+      word-wrap: break-word;  /* breaks long words to fit */
+      overflow-wrap: break-word; /* modern equivalent of word-wrap */
     }
 
     .rounded-btn {
