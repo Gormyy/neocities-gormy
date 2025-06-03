@@ -2,7 +2,7 @@ const mainSecretBlogs = [
     "secret1", "secret2", "secret3" //These are used by name on the backend :3
 ]
 
-async function fetchBlog(url, blog){
+async function fetchBlog(url, blog, startingPath){
     const cur_blog_url = url + `&blog=${blog}` 
     const response = await fetch(cur_blog_url);
 
@@ -14,13 +14,13 @@ async function fetchBlog(url, blog){
     const data = await response.json();
 
     if(data.result){
-        return {"name" : data.blog, "path" : data.blogInput + ".html"}
+        return {"name" : data.blog, "path" : startingPath + data.blogInput + ".html"}
     } else {
         return null
     }
 }
 
-async function getReadableBlogs(blogType = "main"){
+async function getReadableBlogs(blogType = "main", startingPath = ""){
     const token = getCookie("token")
     const url = `https://gormysecret.onrender.com/blogs/canReadBlog?token=${token}`
 
@@ -34,7 +34,7 @@ async function getReadableBlogs(blogType = "main"){
         return null //if no blogs for this function
     }
 
-    const blogPromises = blogs.map(blog => fetchBlog(url, blog));
+    const blogPromises = blogs.map(blog => fetchBlog(url, blog, startingPath));
     const fetchedBlogs = await Promise.all(blogPromises);
 
     // Filter out any null or undefined results
