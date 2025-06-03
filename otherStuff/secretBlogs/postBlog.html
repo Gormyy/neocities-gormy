@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main - (idk if i will use this)</title>
+
+    <link rel="stylesheet" href="../../resources/css/vaporeonStyle.css">
+    <script
+        src="../../resources/js/utils/addNavigation.js">//adds addNavidation(div, pathToRoot = "", centered = true, navigationElements = "default") to add the navigation to the div bar</script>
+    <script src="../../resources/js/apiEndpoints/config.js">//imports API configs</script>
+    <script src="../../resources/js/utils/syncHeights.js">//imports API configs</script>
+    <script src="../../resources/js/utils/cookieUtils.js">//adds getCookie and setCookie</script>
+    <script src="../../resources/js/apiEndpoints/loginApiEndpoints/autoLogin.js">//adds auto login</script>
+    <script
+        src="../../resources/js/apiEndpoints/blogApiEndpoints/getReadableBlogs.js">//adds gets readable blogs</script>
+    <script
+        src="../../resources/js/apiEndpoints/blogApiEndpoints/getPostableBlogs.js">//adds gets postable blogs</script>
+    <script
+        src="../../resources/js/miscStuff/fillColumnWithRandomImages.js">//Adds function to fill the right column with images given a list of images</script>
+
+</head>
+
+<body>
+    <br><br><br>
+    <div id="wrapper">
+
+        <div id="navigationwrap">
+            <div id="navigation">
+            </div>
+        </div>
+
+        <script>
+            //script to load the nav bar
+            async function loadNavWrapper() {
+                let blogs = [{ "name": "Home", "path": "../../../index.html" }] //path to home
+
+                const [readableBlogs, postableBlogs] = await Promise.all([
+                    getReadableBlogs(),
+                    getPostableBlogs()
+                ]);
+
+                blogs = blogs.concat(readableBlogs);
+                const canPostABlog = postableBlogs.length > 0;
+
+                if (canPostABlog) {
+                    blogs.push({ "name": "Post Blogs", "path": "../postBlog.html" })
+                }
+
+                if (blogs.length == 1) { //redirects user if blogs are empty
+                    window.location.href = "access_denied.html";
+                    return
+                }
+
+                const blogTypes = []
+                
+                //Loads blogs in blog select element
+                for (let i = 0; i < postableBlogs.length; i++) {
+                    blogTypes.push({ id: i, name: postableBlogs[i] })
+                }
+
+                const selectElement = document.getElementById('blogTypeSelect');
+
+                blogTypes.forEach(blogType => {
+                    const option = document.createElement('option');
+                    option.value = blogType.id;
+                    option.textContent = blogType.name;
+                    selectElement.appendChild(option);
+                });
+
+                const navDiv = document.getElementById("navigation")
+                addNavigation(navDiv, "blogFolder/", true, "default", blogs)
+            }
+
+            loadNavWrapper()
+        </script>
+
+        <div id="contentwrap">
+            <div id="content">
+
+                <div class="title2"> <img
+                        src="https://64.media.tumblr.com/0b91ec3f6bd8e50404dc513ffbdf5821/014d6f73835b6e87-d3/s75x75_c1/f19c167835beae789c67e6721b3492325131958c.gifv">
+                    Post a Blog!</div>
+
+                <form id="blog-form" onsubmit="event.preventDefault(); submitBlog();">
+                    <!-- Blog Type -->
+                    <label class="block mb-2">
+                        Blog Type:
+                        <select id="blogTypeSelect" name="blog_type" class="border rounded p-1 w-full" required>
+                            <option value="">-- Select Blog Type --</option>
+                        </select>
+                    </label>
+                    <br>
+
+                    <!-- Title -->
+                    <label class="block mb-2">
+                        Title:
+                        <input type="text" name="title" class="border rounded p-1 w-full" required>
+                    </label>
+                    <br>
+
+                    <!-- Content -->
+                    <label class="block mb-2">
+                        Content:
+                        <textarea name="content" class="border rounded p-1 w-full" rows="5" required></textarea>
+                    </label>
+                    <br>
+
+                    <!-- Score -->
+                    <label class="block mb-2">
+                        Score:
+                        <input type="number" name="score" class="border rounded p-1 w-full" step="any">
+                    </label>
+                    <br>
+
+                    <!-- Tags -->
+                    <label class="block mb-2">
+                        Tags (comma-separated):
+                        <input type="text" name="tags" class="border rounded p-1 w-full">
+                    </label>
+                    <br>
+
+                    <!-- Format -->
+                    <label class="block mb-2">
+                        Format:
+                        <select id="format" name="format" class="border rounded p-1 w-full"
+                            onchange="toggleTwoColumnFields()" required>
+                            <option value="default">Default</option>
+                            <option value="twoColumn">Two Columns</option>
+                        </select>
+                    </label>
+                    <br>
+
+                    <!-- Two Column Fields -->
+                    <div id="two-column-fields" style="display: none;">
+                        <label class="block mb-2">
+                            Title 2:
+                            <input type="text" name="title2" class="border rounded p-1 w-full">
+                        </label>
+
+                        <label class="block mb-2">
+                            Content 2:
+                            <textarea name="content2" class="border rounded p-1 w-full" rows="4"></textarea>
+                        </label>
+                    </div>
+                    <br>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="mt-4 bg-blue-500 text-white px-4 py-2 rounded">Post Blog</button>
+                </form>
+
+            </div>
+        </div>
+
+        <script>
+            function toggleTwoColumnFields() {
+                const format = document.getElementById('format').value;
+                const twoColumnFields = document.getElementById('two-column-fields');
+                twoColumnFields.style.display = (format === 'twoColumn') ? 'block' : 'none';
+            }
+
+            function submitBlog() {
+                const form = document.getElementById('blog-form');
+                const formData = new FormData(form);
+
+                const blogData = {
+                    title: formData.get('title'),
+                    content: formData.get('content'),
+                    blog_type_id: formData.get('blog_type'),
+                    created_at: new Date().toISOString(),
+                    score: parseFloat(formData.get('score')),
+                    tags: formData.get('tags').split(',').map(tag => tag.trim()).filter(Boolean),
+                    format: formData.get('format'),
+                    title2: formData.get('title2') || null,
+                    content2: formData.get('content2') || null
+                };
+
+                console.log('Submitting blog:', blogData);
+            }
+        </script>
+
+        <div id="rightcolumnwrap">
+            <div id="rightcolumn">
+
+            </div>
+        </div>
+
+        <script>
+
+            const eeveelutions = [
+                "https://64.media.tumblr.com/5d1ac86900a33c913bbc4cee690e8ef4/5b687adaf1b0cff0-8d/s250x400/5907611d50bf7d0892fbd933163939239f8fdfa9.gifv",
+                "https://img.pokemondb.net/sprites/black-white/anim/normal/glaceon.gif",
+                "https://img.pokemondb.net/sprites/black-white/anim/normal/flareon.gif",
+                "https://img.pokemondb.net/sprites/black-white/anim/normal/jolteon.gif",
+                "https://img.pokemondb.net/sprites/black-white/anim/normal/espeon.gif",
+                "https://img.pokemondb.net/sprites/black-white/anim/normal/umbreon.gif",
+                "https://img.pokemondb.net/sprites/black-white/anim/normal/leafeon.gif",
+                "https://img.pokemondb.net/sprites/black-white/anim/normal/eevee.gif",
+                "https://i.postimg.cc/GpMXpMjD/dg5zzve-0a3e38cd-c3c7-4290-aed5-f4bb01860b0a.gif"
+            ];
+            function callSyncHeights() {
+                const content = document.getElementById('content');
+                const right = document.getElementById('rightcolumn');
+                syncHeights(content, right)
+            }
+
+            function fillRightColumn() { //wrapper function for fillColumnWithRandomImages
+                const content = document.getElementById('content');
+                const rightColumn = document.getElementById('rightcolumn');
+                fillRightColumnWithRandomImages(content, rightColumn, eeveelutions)
+            }
+
+            window.addEventListener('DOMContentLoaded', fillRightColumn);
+            window.addEventListener('DOMContentLoaded', callSyncHeights);
+        </script>
+
+        <div id="footerwrap">
+            <div id="footer">
+                Layout: <a href="http://itinerae.neocities.org" target="_blank">Itinerae</a> Pixels: <a
+                    href="https://foollovers.com/" target="_blank">Fool Lovers</a> Lace border: <a
+                    href="https://pastebin.com/1s0bztqb" target="_blank">Loveberry</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
