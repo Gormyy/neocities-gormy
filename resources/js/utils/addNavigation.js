@@ -41,6 +41,8 @@ async function addNavigation(div, pathToRoot = "", centered = true, style = "def
         navElements = slotElements
     } else if (Elements == "interests"){
         navElements = interestElements
+    } else { //if elements is a dict
+        navElements = Elements
     }
 
     for (el of navElements){
