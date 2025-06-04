@@ -3,7 +3,7 @@ body {
       font-family: calibri, Verdana, Arial, Helvetica, sans-serif;
       font-size: 10px;
       text-shadow: 0px 0px 1px #b3b3b3;
-      color: #888;
+      color: #555;
       letter-spacing: 1px;
     }
 
@@ -24,7 +24,7 @@ body {
       background: transparent;
       border-width: 7px;
       border-style: solid;
-      border-image: url("https://64.media.tumblr.com/6f0c2efb2b0902a5907c60c9d1dcad9e/de283233162c752d-89/s75x75_c1/62ee23af1906bc552dbea259f32e0801263b4635.pnj") 8 fill round;
+      border-image: url("../../styleImages/greyLace.png") 8 fill round;
       margin: 5px;
       padding: 5px;
     }
@@ -41,7 +41,7 @@ body {
     }
 
     #navigation a:hover {
-      background: #fff;
+      background: #D0D0D0;
       color: #222;
       text-transform: uppercase;
       line-height: 20px;
@@ -63,6 +63,7 @@ body {
       border-image: url("https://64.media.tumblr.com/6f0c2efb2b0902a5907c60c9d1dcad9e/de283233162c752d-89/s75x75_c1/62ee23af1906bc552dbea259f32e0801263b4635.pnj") 8 fill round;
       margin: 5px;
       padding: 5px;
+      border-image: url("../../styleImages/greyLace.png") 8 fill round;
     }
 
     #rightcolumnwrap {
@@ -78,6 +79,7 @@ body {
       border-image: url("https://64.media.tumblr.com/6f0c2efb2b0902a5907c60c9d1dcad9e/de283233162c752d-89/s75x75_c1/62ee23af1906bc552dbea259f32e0801263b4635.pnj") 8 fill round;
       margin: 5px;
       padding: 5px;
+      border-image: url("../../styleImages/greyLace.png") 8 fill round;
     }
 
     #footerwrap {
@@ -96,6 +98,7 @@ body {
       line-height: 20px;
       margin: 5px;
       text-align: center;
+      border-image: url("../../styleImages/greyLace.png") 8 fill round;
     }
 
     ::-webkit-scrollbar-thumb {
@@ -116,7 +119,7 @@ body {
       text-transform: uppercase;
       font: 10px monospace;
       letter-spacing: 3px;
-      color: #555;
+      color: #ffe922;
       padding: 2px;
       padding-left: 4px;
       margin-bottom: 4px;
@@ -126,7 +129,7 @@ body {
       background: #222222;
       text-transform: uppercase;
       letter-spacing: 3px;
-      color: #555;
+      color: #ffe922;
       padding: 2px;
       padding-left: 4px;
       margin-bottom: 4px;
@@ -135,13 +138,13 @@ body {
     }
 
     b {
-      color: #ffffa3;
+      color: #000;
     }
 
     a:link,
     a:visited,
     a:active {
-      color: #64B0DB;
+      color: #000000;
       text-decoration: none;
     }
 
