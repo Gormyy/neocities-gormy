@@ -84,9 +84,11 @@
        async function getBlogsWrapper(){
                 const blogType = "malady_blogs"
                 let blogs = await getBlogsByBlogType(blogType)
-                
+                console.log(blogs)
+
                 blogs = fixDatesForBlogs(blogs)
 
+                console.log(blogs)
                 const content = document.getElementById("content")
                 loadBlogs(blogs, content);
             }
