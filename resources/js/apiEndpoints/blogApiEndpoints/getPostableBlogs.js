@@ -8,6 +8,7 @@ async function getPostableBlogs(){
         console.log("blog fetch failed")
         return null
     }
+    
     return await response.json()
 }
 window.getPostableBlogs = getPostableBlogs
