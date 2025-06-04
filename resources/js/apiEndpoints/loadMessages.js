@@ -11,6 +11,8 @@ async function loadMessages(page, scrollDiv) {
 
     if (messages.length === 0) return;
 
+    const scrollDiv = document.getElementById("scrollableDiv");
+
     const scrollHeightBefore = scrollDiv.scrollHeight;
 
     messages.forEach(msg => {
