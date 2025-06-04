@@ -43,7 +43,7 @@ body {
 
     #navigation a:hover {
       background: #767676;
-      color: #6ec3ff;
+      color: #ad6cf7;
       text-transform: uppercase;
       line-height: 20px;
       padding: 4px;
@@ -150,7 +150,7 @@ body {
     }
 
     a:hover {
-      color: #6ec3ff;
+      color: #ad6cf7;
     }
 
     .rounded-btn {
