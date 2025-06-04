@@ -142,7 +142,7 @@
       scrollDiv.addEventListener('scroll', async () => {
         if (scrollDiv.scrollTop === 0 && canFetchMore) {
           currentPage++;
-          await loadMessages(currentPage);
+          await loadMessages(currentPage, scrollDiv);
         }
       });
 
