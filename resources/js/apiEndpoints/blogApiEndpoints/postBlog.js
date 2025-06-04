@@ -1,21 +1,26 @@
-async function postBlog(content){
-    const token = getCookie("token")
-    url = `${API_LINK}/blogs/postBlog`
+async function postBlog(blogData) {
+  const token = getCookie("token");
+  const url = `${API_LINK}/blogs/postBlog`;
 
-    try {
+  try {
     const response = await fetch(url, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
       },
-      body: JSON.stringify({ content })
+      body: JSON.stringify(blogData) 
     });
 
+    const status = document.getElementById("status")
+
     if (!response.ok) {
+      messages.innerHTML = "Failed to post blog: " + response.statusText;
+      status.innerHTML = "Error posting"
       return;
     }
 
-    location.reload();
+    status.innerHTML = "Success"
   } catch (error) {
     messages.innerHTML = "Network error: " + error.message;
   }

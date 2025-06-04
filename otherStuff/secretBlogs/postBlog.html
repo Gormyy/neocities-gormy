@@ -13,12 +13,10 @@
     <script src="../../resources/js/utils/syncHeights.js">//imports API configs</script>
     <script src="../../resources/js/utils/cookieUtils.js">//adds getCookie and setCookie</script>
     <script src="../../resources/js/apiEndpoints/loginApiEndpoints/autoLogin.js">//adds auto login</script>
-    <script
-        src="../../resources/js/apiEndpoints/blogApiEndpoints/getReadableBlogs.js">//adds gets readable blogs</script>
-    <script
-        src="../../resources/js/apiEndpoints/blogApiEndpoints/getPostableBlogs.js">//adds gets postable blogs</script>
-    <script
-        src="../../resources/js/miscStuff/fillColumnWithRandomImages.js">//Adds function to fill the right column with images given a list of images</script>
+    <script src="../../resources/js/apiEndpoints/blogApiEndpoints/getReadableBlogs.js">//adds gets readable blogs</script>
+    <script src="../../resources/js/apiEndpoints/blogApiEndpoints/getPostableBlogs.js">//adds gets postable blogs</script>
+    <script src="../../resources/js/apiEndpoints/blogApiEndpoints/postBlog.js">//adds gets post blog</script>
+    <script src="../../resources/js/miscStuff/fillColumnWithRandomImages.js">//Adds function to fill the right column with images given a list of images</script>
 
 </head>
 
@@ -57,7 +55,7 @@
                 
                 //Loads blogs in blog select element
                 for (let i = 0; i < postableBlogs.length; i++) {
-                    blogTypes.push({ id: i, name: postableBlogs[i] })
+                    blogTypes.push({ id: postableBlogs[i], name: postableBlogs[i] })
                 }
 
                 const selectElement = document.getElementById('blogTypeSelect');
@@ -150,6 +148,7 @@
                     <button type="submit" class="mt-4 bg-blue-500 text-white px-4 py-2 rounded">Post Blog</button>
                 </form>
 
+                <p id = "status"></p>
             </div>
         </div>
 
@@ -176,7 +175,7 @@
                     content2: formData.get('content2') || null
                 };
 
-                console.log('Submitting blog:', blogData);
+                postBlog(blogData)
             }
         </script>
 
