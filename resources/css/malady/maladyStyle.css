@@ -1,6 +1,6 @@
 body {
       background: #000;
-      font-family: calibri, Verdana, Arial, Helvetica, sans-serif;
+      font-family: "Comic Sans MS", calibri, Verdana, Arial, Helvetica, sans-serif;
       font-size: 10px;
       text-shadow: 0px 0px 1px #b3b3b3;
       color: #fff;
@@ -117,7 +117,6 @@ body {
 
     .title {
       background: #222222;
-      text-transform: uppercase;
       font: 10px monospace;
       letter-spacing: 3px;
       color: #fff;
@@ -128,7 +127,6 @@ body {
 
     .title2 {
       background: #222222;
-      text-transform: uppercase;
       letter-spacing: 3px;
       color: #fff;
       padding: 2px;
