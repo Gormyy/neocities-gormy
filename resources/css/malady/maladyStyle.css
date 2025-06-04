@@ -1,9 +1,9 @@
 body {
-      background: #222222 url(../../backgrounds/greyTile.png) fixed;
+      background: #000;
       font-family: calibri, Verdana, Arial, Helvetica, sans-serif;
       font-size: 10px;
       text-shadow: 0px 0px 1px #b3b3b3;
-      color: #555;
+      color: #fff;
       letter-spacing: 1px;
     }
 
@@ -17,6 +17,7 @@ body {
       float: left;
       margin: 0 auto;
     }
+
 
     #navigation {
       height: 20px;
@@ -41,8 +42,8 @@ body {
     }
 
     #navigation a:hover {
-      background: #D0D0D0;
-      color: #222;
+      background: #767676;
+      color: #6ec3ff;
       text-transform: uppercase;
       line-height: 20px;
       padding: 4px;
@@ -119,7 +120,7 @@ body {
       text-transform: uppercase;
       font: 10px monospace;
       letter-spacing: 3px;
-      color: #ffe922;
+      color: #fff;
       padding: 2px;
       padding-left: 4px;
       margin-bottom: 4px;
@@ -129,7 +130,7 @@ body {
       background: #222222;
       text-transform: uppercase;
       letter-spacing: 3px;
-      color: #ffe922;
+      color: #fff;
       padding: 2px;
       padding-left: 4px;
       margin-bottom: 4px;
@@ -138,18 +139,18 @@ body {
     }
 
     b {
-      color: #000;
+      color: #fff;
     }
 
     a:link,
     a:visited,
     a:active {
-      color: #000000;
+      color: #6ec3ff;
       text-decoration: none;
     }
 
     a:hover {
-      color: #999;
+      color: #6ec3ff;
     }
 
     .rounded-btn {
