@@ -177,15 +177,22 @@
                 document.getElementById('dateInput').value = localISOTime;
             }
 
+            function getDateInput(){
+                const now = new Date();
+                const date = new Date(new Date(document.getElementById('dateInput').value) - now.getTimezoneOffset() * 60000).toISOString()
+                console.log(date)
+                return date
+            }
+
             function submitBlog() {
                 const form = document.getElementById('blog-form');
                 const formData = new FormData(form);
-
+                
                 const blogData = {
                     title: formData.get('title'),
                     content: formData.get('content'),
                     blog_type_id: formData.get('blog_type'),
-                    created_at: new Date().toISOString(),
+                    created_at: getDateInput(),
                     score: parseFloat(formData.get('score')),
                     tags: formData.get('tags').split(',').map(tag => tag.trim()).filter(Boolean),
                     format: formData.get('format'),
