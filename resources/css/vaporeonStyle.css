@@ -232,3 +232,24 @@ input {
 #blog-form button[type="submit"]:hover {
   background-color: #c8f1ff;
 }
+
+.date-input {
+  background-color: #E9F9FF;
+  color: #555;
+  font: 10px monospace;
+  letter-spacing: 1px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  text-shadow: 0px 0px 1px #b3b3b3;
+  text-transform: uppercase;
+}
+
+.date-input:hover,
+.date-input:focus {
+  background-color: #f0fcff;
+  border-color: #64B0DB;
+  outline: none;
+}

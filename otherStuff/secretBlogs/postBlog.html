@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main - (idk if i will use this)</title>
+    <title>Post Blogs</title>
 
     <link rel="stylesheet" href="../../resources/css/vaporeonStyle.css">
     <script
@@ -13,10 +13,13 @@
     <script src="../../resources/js/utils/syncHeights.js">//imports API configs</script>
     <script src="../../resources/js/utils/cookieUtils.js">//adds getCookie and setCookie</script>
     <script src="../../resources/js/apiEndpoints/loginApiEndpoints/autoLogin.js">//adds auto login</script>
-    <script src="../../resources/js/apiEndpoints/blogApiEndpoints/getReadableBlogs.js">//adds gets readable blogs</script>
-    <script src="../../resources/js/apiEndpoints/blogApiEndpoints/getPostableBlogs.js">//adds gets postable blogs</script>
+    <script
+        src="../../resources/js/apiEndpoints/blogApiEndpoints/getReadableBlogs.js">//adds gets readable blogs</script>
+    <script
+        src="../../resources/js/apiEndpoints/blogApiEndpoints/getPostableBlogs.js">//adds gets postable blogs</script>
     <script src="../../resources/js/apiEndpoints/blogApiEndpoints/postBlog.js">//adds gets post blog</script>
-    <script src="../../resources/js/miscStuff/fillColumnWithRandomImages.js">//Adds function to fill the right column with images given a list of images</script>
+    <script
+        src="../../resources/js/miscStuff/fillColumnWithRandomImages.js">//Adds function to fill the right column with images given a list of images</script>
 
 </head>
 
@@ -52,7 +55,7 @@
                 }
 
                 const blogTypes = []
-                
+
                 //Loads blogs in blog select element
                 for (let i = 0; i < postableBlogs.length; i++) {
                     blogTypes.push({ id: postableBlogs[i], name: postableBlogs[i] })
@@ -119,6 +122,12 @@
                     </label>
                     <br>
 
+                    <label class="block mb-2" style="font: 10px monospace; letter-spacing: 1px; color: #555;">
+                        Date (optional):
+                        <input type="datetime-local" id="dateInput" name="created_at" class="date-input">
+                    </label>
+                    <br>
+
                     <!-- Format -->
                     <label class="block mb-2">
                         Format:
@@ -148,7 +157,7 @@
                     <button type="submit" class="mt-4 bg-blue-500 text-white px-4 py-2 rounded">Post Blog</button>
                 </form>
 
-                <p id = "status"></p>
+                <p id="status"></p>
             </div>
         </div>
 
@@ -157,6 +166,15 @@
                 const format = document.getElementById('format').value;
                 const twoColumnFields = document.getElementById('two-column-fields');
                 twoColumnFields.style.display = (format === 'twoColumn') ? 'block' : 'none';
+            }
+
+            function setDefaultBrowserDate() {
+                const now = new Date();
+                const localISOTime = new Date(now.getTime() - now.getTimezoneOffset() * 60000)
+                    .toISOString()
+                    .slice(0, 16); // 'YYYY-MM-DDTHH:MM'
+
+                document.getElementById('dateInput').value = localISOTime;
             }
 
             function submitBlog() {
@@ -177,6 +195,8 @@
 
                 postBlog(blogData)
             }
+
+            window.addEventListener('DOMContentLoaded', setDefaultBrowserDate)
         </script>
 
         <div id="rightcolumnwrap">
