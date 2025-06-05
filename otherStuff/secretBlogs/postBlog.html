@@ -184,6 +184,10 @@
                 return date
             }
 
+
+            //blogs are loaded using innerHTML
+            //because of this cross site scripting is possible by submitting a blog with a <script> tag. 
+            //Please don't abuse this if i trust you enough to let you submit blogs anywhere and you're smart enough to read this
             function submitBlog() {
                 const form = document.getElementById('blog-form');
                 const formData = new FormData(form);
