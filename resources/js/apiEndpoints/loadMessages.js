@@ -26,7 +26,13 @@ async function loadMessages(page, scrollDiv) {
 function createMessageElement(name, message) {
     const p = document.createElement('p');
     let color = getDeterministicColor(name)
-    p.innerHTML = `<strong style="color:${color}">${name}</strong>: ${message}`;
+    const strong = document.createElement("strong");
+    strong.style.color = color;
+    strong.textContent = name;
+
+    p.textContent = ": " + message;
+    p.prepend(strong);
+
     return p;
 }
 
