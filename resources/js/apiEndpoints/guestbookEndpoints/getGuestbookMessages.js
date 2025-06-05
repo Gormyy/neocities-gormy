@@ -1,7 +1,7 @@
 //REQUIRES COOKIE UTILS
 
 
-async function getGuestbookMessages(page, scrollDiv, reply=false) {
+async function getGuestbookMessages(page, scrollDiv, reply = false) {
     const res = await fetch(`${API_LINK}/messages/guestbook/getGuestbookMessages?page=${page}`);
     const result = await res.json();
 
@@ -17,17 +17,17 @@ async function getGuestbookMessages(page, scrollDiv, reply=false) {
 
     renderMessages(messages, scrollDiv, reply)
 
-    
+
 }
 
 function renderMessages(messages, scrollDiv, reply) {
     const scrollHeightBefore = scrollDiv.scrollHeight;
     let first = true
     messages.forEach(msg => {
-        if (!first){
+        if (!first) {
             const br = document.createElement('br')
             //scrollDiv.insertBefore(br, scrollDiv.firstChild) //not used anymore
-        } else{
+        } else {
             first = false
         }
         const el = createMessageElement(msg, reply);
@@ -55,18 +55,37 @@ function createMessageElement(msg, reply_text) {
 
     let websiteText = ``
     let websiteColor;
-    if(website){
+    if (website) {
         websiteColor = getDeterministicColor(website)
-        websiteText = `<p><b>Website:</b> <b style="color:${websiteColor}">${website}</b></p>`   
+        websiteText = `<p><b>Website:</b> <b style="color:${websiteColor}">${website}</b></p>`
     }
-    nameLine.innerHTML = `
-        <b>${id}</b> - <strong style="color:${color}">${name}</strong> <span style="float:right; font-size: 0.85em; color: #777;">${date}</span>
-        ${websiteText}
-    `;
+    nameLine.innerHTML = ""; // Clear
+
+    const b = document.createElement("b");
+    b.textContent = id;
+
+    const dash = document.createTextNode(" - ");
+
+    const strong = document.createElement("strong");
+    strong.style.color = color;
+    strong.textContent = name;
+
+    const span = document.createElement("span");
+    span.style.float = "right";
+    span.style.fontSize = "0.85em";
+    span.style.color = "#777";
+    span.textContent = date;
+
+    const websiteWrapper = document.createElement("div");
+    // Only websiteText can contain HTML — sanitize it
+    websiteWrapper.innerHTML = DOMPurify.sanitize(websiteText);
+
+    nameLine.append(b, dash, strong, span, websiteWrapper);
+
 
     let reply_button = ``
 
-    if(reply_text){
+    if (reply_text) {
         const username = getCookie("name")
         const hashedPassword = getCookie("hashedpassword")
         reply_button = `<button class="text-button" onclick="postGuestbookReply(${unchangedId}, replyInput, '${username}', '${hashedPassword}')">Reply</button>`
@@ -74,7 +93,14 @@ function createMessageElement(msg, reply_text) {
 
     // Message body
     const messageLine = document.createElement('p');
-    messageLine.innerHTML = `<p style="word-wrap: break-word; overflow-wrap: break-word; white-space: normal;"><b>message:</b> ${message}</p>${reply_button}`;
+    function sanitize(str) {
+        const div = document.createElement('div');
+        div.textContent = str;
+        return div.innerHTML;
+    }
+
+    const safeMessage = sanitize(message);
+    messageLine.innerHTML = `<p style="word-wrap: break-word; overflow-wrap: break-word; white-space: normal;"><b>message:</b> ${safeMessage}</p>${reply_button}`;;
 
     container.appendChild(nameLine);
     container.appendChild(messageLine);
@@ -82,7 +108,8 @@ function createMessageElement(msg, reply_text) {
     // Optional reply
     if (reply) {
         const replyLine = document.createElement('p');
-        replyLine.innerHTML = `<em style="color: green;">Reply: ${reply}</em>`;
+        const safeReply = sanitize(reply);
+        replyLine.innerHTML = `<em style="color: green;">Reply: ${safeReply}</em>`;
         replyLine.style.marginTop = '0.5em';
         container.appendChild(replyLine);
     }
