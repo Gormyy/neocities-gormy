@@ -11,6 +11,15 @@
   <script src="resources/js/miscStuff/fillColumnWithRandomImages.js">//Adds function to fill the right column with images given a list of images</script>
   <script src="resources/js/utils/syncHeights.js">//imports syncHeights(content, right)</script>
   <script src="resources/js/utils/loadBlogs.js">//Imports loading blogs</script>
+
+  <script src="resources/js/apiEndpoints/config.js">//imports API configs</script>
+  <script src="resources/js/utils/cookieUtils.js">//adds getCookie and setCookie</script>
+  <script src="resources/js/apiEndpoints/blogApiEndpoints/getBlogsByBlogType.js">//imports get blogs by blog type</script>
+  <script src="resources/js/miscStuff/fixDatesForBlogs.js">//Imports fix dates for blogs</script>
+  <script src="resources/js/apiEndpoints/blogApiEndpoints/deleteBlog.js">//Adds delete blog endpoint</script>
+  <script src="resources/js/utils/blogUtils/addDeleteButtons.js">//Adds addDeleteButtons</script>
+  <script src="resources/js/apiEndpoints/blogApiEndpoints/getPostableBlogs.js">//adds gets postable blogs</script>
+  <script src="resources/js/apiEndpoints/blogApiEndpoints/getReadableBlogs.js">//adds gets readable blogs</script>
 </head>
 
 <body>
@@ -36,6 +45,7 @@
     <div id="rightcolumnwrap">
       <div id="rightcolumn">
         <script>
+          /*
           const blogs = [
             {
               "title": "First Blog // About this site!",
@@ -45,78 +55,30 @@
               "tags": null, //i dunno if i'll ever do something with tags but maybe :3
               "score": 0 //idk if i'll use this but i'll put this here just in case
             },
-            {
-              "title": "Thoughts about making a website",
-              "date": "2025-05-20",
-              "content": `I’ve been spending some time working on my website, and it’s kind of fun how much I’m enjoying it. 
-              I feel like it's a very personal form of creation. I feel like the internet has lost a lot of the joy and whimsy of its earlier days, 
-              and a lot of that is due to the abstraction of the internet. I think the current internet has become way too centeralized. 
-              The beauty of the internet is through it's decenteralization, and over the past 2 decades where the internet has become increasingly used, 
-              we have slowly made the internet more and more centeralized. The closest we have now is sites that give the illusion of decenteralization 
-              like reddit and discord. But even those are just centeralized versions of forums and irc. In that centeralization we lose the freedom 
-              to truly create the internet to our liking, and we lose some personality and whimsy as a result. Idk why i wrote this because I don't 
-              really think this problem actually matters but I think it's objectively really funny to worry about things that don't really matter 
-              when there are a lot more important things to worry about. But anyway, I hope you enjoy all the funny little thingies I added to give 
-              this site more personality. One of my favorite things I did is right here on this page. I didn't really know what to do with the right bar 
-              because that would look weird if I didn't put anything there, but the only thing I could think of to do with that space would be to put 
-              tweet style posts/messages but I didn't think I'd make a lot of those when I can just ramble, so it would look weird anyways so I just decided 
-              to make it spawn eeveelutions with this blog post bar. It's random each time and then I got sideracked because I thought it looked like slot 
-              machines and then I got distracted and made the slot machines.`,
-              "attachments": null,
-              "tags": null,
-              "score": 0
-            },
-            {
-              "title": "Website update",
-              "date": "2025-05-21",
-              "content": `I didn't really work on the website today, i mostly worked on some backend stuff but I'm probably going to reorganize the website 
-              just to make it a lot less cluttered. When I started this I was just throwing everything in the root directory, and I did the same with the 
-              code for the backend, but now that I've got like 15 pages or so and 20 endpoints on my api I'm starting to need to reorganize it. I really 
-              want this stuff to be stuff that I work on for years to come, so I gotta put in some tedious work now reorganizing this stuff just so that 
-              in the future when I do stuff it's not as tedious to make. As for the website idk if I'll just put redirects to the new site and be lazy or 
-              manually change all the links, but I want to move all the pages to their own folder and add the seperate the css because rn it's all in the header 
-              so if I want to change the css for some pages it'll be a big pain to change. But I'll do that in the future :)`,
-              "attachments": null,
-              "tags": null,
-              "score": 0
-            },
-            {
-              "title": "Spring Cleaning!",
-              "date": "2025-05-22",
-              "content": `Today has been really funny because I haven't actually really made anything new but I mostly reorganized stuff on the page, 
-              I'm updating and making stuff for the site a lot more now and I previously had very little to no organization on where i put files and 
-              set up stuff. Like I had just one giant file on my backend for a while and now I've split it up to like 40 files now. So I did do quite a bit of work 
-              behind the scenes making it easier for me to add stuff in the future.`,
-              "attachments": null,
-              "tags": null,
-              "score": 0
-            },
-            {
-              "title": "Bumped from a flight",
-              "date": "2025-05-22",
-              "content": `I fly standby when traveling and I got bumped from my first flight today which is funny I've been flying standby all year and this is the very 
-              first time I haven't made a flight which is pretty cool. I don't mind too much because I'll either get there later tonight or friday. These flights just 
-              seemed to fill up a lot over the last 24 hours but tomorrow's flights still look good.`,
-              "attachments": null,
-              "tags": null,
-              "score": -1
-            },
-            {
-              "title": "Vacation and thoughts about moving",
-              "date": "2025-06-03",
-              "content": `I'm on my way home from Salt Lake City for perhaps the last time until I move there. I had a trip down in southern utah to national parks which were 
-              really cool. I think there's not really much that compares to the rural west. It's just vast empty lands that aren't inhabited and aren't developed. Where I grew up 
-              in Indiana there's no undeveloped land for miles. I really don't think there's much undeveloped land anywhere in Indiana. It's sort of nice to just get away from 
-              it all. The earth is beautiful, I like going to national parks!`,
-              "attachments": null,
-              "tags": null,
-              "score": 0
-            },
+            // I now am storing blogs in databases :3 so this json isn't really even needed anymore
+          */
+        </script>
 
-          ]
+        <script>
 
-          const content = document.getElementById("content")
-          loadBlogs(blogs, content);
+            //script to load blogs
+            async function getBlogsWrapper() {
+                const blogType = "blog"
+                let blogs = await getBlogsByBlogType(blogType)
+
+                blogs = fixDatesForBlogs(blogs)
+
+                console.log(blogs)
+
+                const content = document.getElementById("content")
+                await loadBlogs(blogs, content);
+
+                const blogTitles = document.getElementsByClassName("title2")
+                await addDeletionButtons(blogTitles, blogType)
+                fillRightColumn()
+            }
+
+            getBlogsWrapper()
         </script>
 
 
@@ -158,7 +120,7 @@
     }
 
     window.addEventListener('DOMContentLoaded', callSyncHeights);
-    window.addEventListener('DOMContentLoaded', fillRightColumn);
+    //window.addEventListener('DOMContentLoaded', fillRightColumn);
   </script>
 </body>
 

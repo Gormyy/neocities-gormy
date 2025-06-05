@@ -3,7 +3,7 @@ const mainSecretBlogs = [
 ]
 
 publicBlogs = [
-    "coding", "malady_blogs"
+    "coding", "malady_blogs", "blog", "updates"
 ]
 
 const all_blogs = mainSecretBlogs.concat(publicBlogs)
