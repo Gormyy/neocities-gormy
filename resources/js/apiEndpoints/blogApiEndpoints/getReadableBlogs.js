@@ -28,6 +28,11 @@ async function fetchBlog(url, blog, startingPath){
 
 async function getReadableBlogs(blogType = "main", startingPath = ""){
     const token = getCookie("token")
+
+    if(!token){
+        return
+    }
+
     const url = `${API_LINK}/blogs/canReadBlog?token=${token}`
 
     let blogs = null;

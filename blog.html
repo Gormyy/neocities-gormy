@@ -75,7 +75,10 @@
 
                 const blogTitles = document.getElementsByClassName("title2")
                 await addDeletionButtons(blogTitles, blogType)
-                fillRightColumn()
+
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                const rightColumn = document.getElementById('rightcolumn');
+                fillRightColumnWithRandomImages(content, rightColumn, eeveelutions)
             }
 
             getBlogsWrapper()
@@ -120,7 +123,7 @@
     }
 
     window.addEventListener('DOMContentLoaded', callSyncHeights);
-    //window.addEventListener('DOMContentLoaded', fillRightColumn);
+    window.addEventListener('DOMContentLoaded', fillRightColumn);
   </script>
 </body>
 

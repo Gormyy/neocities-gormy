@@ -1,5 +1,10 @@
 async function getPostableBlogs() {
     const token = getCookie("token")
+    
+    if(!token){
+        return null
+    }
+
     let url = `${API_LINK}/blogs/getPostableBlogs?token=${token}`
 
     const response = await fetch(url);
@@ -17,6 +22,10 @@ async function canPostBlog(blogType) {
         getBlogActualName(blogType),
         getPostableBlogs()
     ]);
+
+    if(!postableBlogs){
+        return false
+    }
 
     return postableBlogs.includes(actualBlogName)
 }
