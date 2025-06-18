@@ -12,18 +12,20 @@
   <title>About</title>
 
   <link rel="stylesheet" href="resources/css/kittyStyle.css">
-  
-  
-  <script src="resources/js/utils/addNavigation.js">//adds addNavidation(div, pathToRoot = "", centered = true, navigationElements = "default") to add the navigation to the div bar</script>
+
+
+  <script
+    src="resources/js/utils/addNavigation.js">//adds addNavidation(div, pathToRoot = "", centered = true, navigationElements = "default") to add the navigation to the div bar</script>
   <script src="resources/js/bubbleScript.js"></script>
-  <script src="resources/js/utils/getDeterministicColor.js">//imports getDeterministicColor(inpu) gives a random color</script>
+  <script
+    src="resources/js/utils/getDeterministicColor.js">//imports getDeterministicColor(inpu) gives a random color</script>
   <script src="resources/js/utils/timeUtils.js">//imports some time utils</script>
 
   <script src="resources/js/apiEndpoints/config.js">//imports API configs</script>
   <script src="resources/js/apiEndpoints/fetchLocation.js">//imports fetchLocation(user)</script>
   <script src="resources/js/apiEndpoints/loadMessages.js">//imports loadMessages()</script>
   <script src="resources/js/apiEndpoints/postComment.js">//imports postComment()</script>
-  
+
 </head>
 
 <body>
@@ -45,7 +47,9 @@
 
   <div id="sidebar">
     <div style="position: relative; display: inline-block;">
-      <img src="https://64.media.tumblr.com/ce99e75c0062603e1b3f974bf3d1d7a9/5b2b6fc3dc12a5a9-55/s400x600/447a4f8ea6145ee368fdb6e588f80947d875e97c.jpg" class="sideimg"><br>
+      <img
+        src="https://64.media.tumblr.com/ce99e75c0062603e1b3f974bf3d1d7a9/5b2b6fc3dc12a5a9-55/s400x600/447a4f8ea6145ee368fdb6e588f80947d875e97c.jpg"
+        class="sideimg"><br>
       <a href="otherStuff/secretBlogs/landingPage.html"
         style="position: absolute; top: 50%; left: 29%; width: 10%; height: 9%; display: block;">
       </a>
@@ -66,6 +70,21 @@
     any emails there. For now, just contact me through Discord because that's probably where you found my website from
     anyway. <br> I also have a <a href="https://bsky.app/profile/gormy.bsky.social">bluesky</a> so you can follow me
     there! However I'm not very active on it unfortunately.
+
+    <div class="sidetitle">Add my button</div>
+    Add my button to your site!
+    <textarea rows="4" readonly>
+    <a href="https://gormy.neocities.org/" target="_blank">
+      <img src="https://gormy.neocities.org/resources/images/badges/Gormy.gif" alt="Neocities" />
+    </a>
+    </textarea>
+
+    <center>
+      <a href="https://gormy.neocities.org/" target="_blank">
+        <img src="https://gormy.neocities.org/resources/images/badges/Gormy.gif" alt="Neocities" />
+      </a>
+    </center>
+
     <div class="sidetitle">credits</div>
 
     <b>Layout</b> <a href="http://itinerae.neocities.org">Itinerae</a><br>
@@ -124,8 +143,8 @@
 
     <script>
       const scrollDiv = document.getElementById("scrollableDiv");
-      
-      window.scrollDiv = scrollDiv  
+
+      window.scrollDiv = scrollDiv
 
       //Gets the messages
       let currentPage = 1;
@@ -159,7 +178,8 @@
     </center>
 
     <center>
-      <button class="rounded-btn" id="changeUsername" onclick="postComment(nameInput, messageInput, messages)">Post Comment</button><br><br>
+      <button class="rounded-btn" id="changeUsername" onclick="postComment(nameInput, messageInput, messages)">Post
+        Comment</button><br><br>
 
       <label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name: </label><input type="text" id="nameInput"></input> <br>
       <label> Message: </label><input type="text" id="messageInput"></input>
@@ -169,45 +189,45 @@
     <div class="contenttitle">Badges</div>
     <br>
     <div id="badgesDiv">
-      
+
     </div>
-    
+
     <script>
-      function addBadges(badgeDiv, badges){
-        for (const badge of badges){
+      function addBadges(badgeDiv, badges) {
+        for (const badge of badges) {
           const htmlText = `<a href="${badge.link}"><img src="${badge.path}" width=${badge.width} height=${badge.height} alt="${badge.alt}"></a>`
           badgeDiv.innerHTML += htmlText
         }
-        
+
       }
 
       const badges = [
         {
-          path     : "resources/images/badges/neocities.png",
-          link     : "resources/images/badges/neocities.png",
-          width    : null,
-          height   : 31,
-          alt      : "neocities badge",  
-          priority : 0,
-          credit   : "Neocities",
+          path: "resources/images/badges/neocities.png",
+          link: "resources/images/badges/neocities.png",
+          width: null,
+          height: 31,
+          alt: "neocities badge",
+          priority: 0,
+          credit: "Neocities",
         },
         {
-          path     : "resources/images/badges/Gormy.gif",
-          link     : "index.html",
-          width    : null,
-          height   : 31,
-          alt      : "Gormy badge",
-          priority : 100,
-          credit   : "RustyPawz",
+          path: "resources/images/badges/Gormy.gif",
+          link: "index.html",
+          width: null,
+          height: 31,
+          alt: "Gormy badge",
+          priority: 100,
+          credit: "RustyPawz",
         },
         {
-          path     : "resources/images/badges/redtailglitter.gif",
-          link     : "https://rustypawz.neocities.org/",
-          width    : null,
-          height   : 31,
-          alt      : "RustyPawz badge",
-          priority : 1,
-          credit   : "RustyPawz",
+          path: "resources/images/badges/redtailglitter.gif",
+          link: "https://rustypawz.neocities.org/",
+          width: null,
+          height: 31,
+          alt: "RustyPawz badge",
+          priority: 1,
+          credit: "RustyPawz",
         },
       ]
 
